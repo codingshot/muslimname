@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, RefreshCw, Info, ArrowRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useProfile } from "@/hooks/useProfile";
 
 const meaningKeywords = [
   "grace", "strong", "light", "beautiful", "pure", "faithful",
@@ -20,12 +21,30 @@ const meaningKeywords = [
 
 export default function GeneratorPage() {
   const [searchParams] = useSearchParams();
-  const [currentName, setCurrentName] = useState(searchParams.get("name") || "");
+  const { profile, updateSettings } = useProfile();
+  const initialName = searchParams.get("name") || 
+    [profile.settings.currentFirstName, profile.settings.currentLastName].filter(Boolean).join(" ");
+  const [currentName, setCurrentName] = useState(initialName);
   const [selectedMeanings, setSelectedMeanings] = useState<string[]>([]);
-  const [gender, setGender] = useState<"all" | "male" | "female" | "unisex">("all");
+  const [gender, setGender] = useState<"all" | "male" | "female" | "unisex">(profile.settings.genderPreference);
   const [generated, setGenerated] = useState(false);
   const [loading, setLoading] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
+
+  // Sync current name to profile first/last name settings
+  useEffect(() => {
+    const trimmed = currentName.trim();
+    if (!trimmed) {
+      updateSettings({ currentFirstName: "", currentLastName: "" });
+      return;
+    }
+    const parts = trimmed.split(/\s+/);
+    if (parts.length === 1) {
+      updateSettings({ currentFirstName: parts[0], currentLastName: "" });
+    } else {
+      updateSettings({ currentFirstName: parts[0], currentLastName: parts.slice(1).join(" ") });
+    }
+  }, [currentName, updateSettings]);
 
   // Auto-generate if name came from URL
   useEffect(() => {
