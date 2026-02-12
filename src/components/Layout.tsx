@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { Search, Heart, Menu, X, Sparkles, Scale } from "lucide-react";
+import { Search, Heart, Menu, X, Sparkles, Scale, User } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useProfile } from "@/hooks/useProfile";
 
 const navLinks = [
   { to: "/names", label: "Browse Names" },
@@ -49,6 +50,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             >
               <Search className="w-3.5 h-3.5" />
               Search names...
+            </Link>
+            <Link
+              to="/profile"
+              className={`p-2 rounded-lg transition-colors ${
+                location.pathname === "/profile"
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label="My Profile"
+            >
+              <User className="w-5 h-5" />
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
