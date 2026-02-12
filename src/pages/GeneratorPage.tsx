@@ -71,6 +71,13 @@ export default function GeneratorPage() {
 
     if (currentName.trim() && mappingInfo) {
       searchTerms.push(...mappingInfo.muslimNames);
+      // Also add meaning keywords from the mapping as fallback search terms
+      // This ensures results appear even if the mapped Muslim name isn't in the DB
+      const meaningWords = mappingInfo.meaning.toLowerCase().split(/[\s,]+/).filter(w => w.length > 2);
+      searchTerms.push(...meaningWords);
+      // Add connection keywords too for broader matching
+      const connectionWords = mappingInfo.connection.toLowerCase().split(/[\s,]+/).filter(w => w.length > 3);
+      searchTerms.push(...connectionWords.slice(0, 5));
     }
 
     // Work with partial params — no need to fill everything
@@ -95,6 +102,14 @@ export default function GeneratorPage() {
     // If only gender selected and no search terms, shuffle for variety
     if (!hasName && !hasMeanings && hasGender) {
       names = [...names].sort(() => Math.random() - 0.5);
+    }
+
+    // If we have a mapping but no results yet, fall back to similar themed names
+    if (names.length === 0 && mappingInfo) {
+      names = [...namesDatabase]
+        .filter(n => !hasGender || n.gender === gender)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 9);
     }
 
     return names.slice(0, 9);
