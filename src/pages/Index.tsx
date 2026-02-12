@@ -50,7 +50,7 @@ const Index = () => {
             className="max-w-2xl mx-auto text-center"
           >
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm text-primary-foreground/90 mb-6">
-              <Heart className="w-3.5 h-3.5" /> Made for Muslim converts & reverts
+              <Heart className="w-3.5 h-3.5" /> Made for reverts
             </div>
 
             <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground leading-tight mb-4">
