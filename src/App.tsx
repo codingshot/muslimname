@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import NamesPage from "./pages/NamesPage";
 import NameDetail from "./pages/NameDetail";
@@ -11,6 +12,7 @@ import LegalGuidePage from "./pages/LegalGuidePage";
 import ContributePage from "./pages/ContributePage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
+import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/names" element={<NamesPage />} />
@@ -30,6 +33,7 @@ const App = () => (
           <Route path="/contribute" element={<ContributePage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -8,10 +8,12 @@ import NameCard from "@/components/NameCard";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book } from "lucide-react";
 import { motion } from "framer-motion";
+import { useProfile } from "@/hooks/useProfile";
 
 export default function NameDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [loading, setLoading] = useState(true);
+  const { isFavorite, toggleFavorite } = useProfile();
 
   useEffect(() => {
     setLoading(true);
@@ -74,7 +76,18 @@ export default function NameDetail() {
               <p className="font-arabic text-2xl sm:text-3xl md:text-4xl text-primary">{name.arabic}</p>
             </div>
             <div className="flex flex-col items-start sm:items-end gap-2">
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap items-center">
+                <button
+                  onClick={() => toggleFavorite(name.slug)}
+                  className={`p-2 rounded-lg transition-all ${
+                    isFavorite(name.slug)
+                      ? "text-secondary bg-secondary/10"
+                      : "text-muted-foreground hover:text-secondary hover:bg-secondary/10"
+                  }`}
+                  aria-label={isFavorite(name.slug) ? "Remove from favorites" : "Add to favorites"}
+                >
+                  <Star className={`w-5 h-5 ${isFavorite(name.slug) ? "fill-current" : ""}`} />
+                </button>
                 {name.isQuranic && (
                   <Link to="/names?scripture=quran">
                     <Badge className="bg-secondary/20 text-secondary border-secondary/30 cursor-pointer hover:bg-secondary/30">📖 Quranic</Badge>
