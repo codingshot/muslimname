@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Search, SlidersHorizontal, X, BookOpen } from "lucide-react";
 import { namesDatabase, searchNames, getOrigins, getThemes } from "@/data/names";
 import NameCard from "@/components/NameCard";
@@ -275,6 +275,22 @@ export default function NamesPage() {
             </div>
           )}
         </div>
+
+        {/* Contribution CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-primary/5 rounded-xl border border-primary/20 p-8 text-center max-w-2xl mx-auto"
+        >
+          <h3 className="font-display text-xl font-semibold text-foreground mb-2">Help Expand Our Name Database</h3>
+          <p className="text-muted-foreground mb-4">Know a Western or Christian name we should add? Have corrections to existing mappings? Every contribution helps new Muslims find their perfect Islamic name.</p>
+          <Link to="/contribute" className="inline-block">
+            <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium">
+              Contribute a Name
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </Layout>
   );

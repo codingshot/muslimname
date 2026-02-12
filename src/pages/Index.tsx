@@ -183,6 +183,36 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Contribution CTA */}
+      <section className="py-16 bg-card border-t border-border">
+        <div className="container mx-auto px-4 text-center max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Missing Your Name?
+            </h2>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              We're constantly expanding our database of {totalMappings}+ Christian, Hebrew, and Western names mapped to Islamic equivalents. If your name isn't here, help us add it! Every contribution strengthens the community.
+            </p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <Link to="/contribute">
+                <Button variant="default" size="lg" className="rounded-xl">
+                  Suggest a Name
+                </Button>
+              </Link>
+              <Link to="/contribute">
+                <Button variant="outline" size="lg" className="rounded-xl">
+                  View All Ways to Help
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </Layout>
   );
 };
