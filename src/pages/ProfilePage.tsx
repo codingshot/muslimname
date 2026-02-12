@@ -104,7 +104,7 @@ export default function ProfilePage() {
               <>
                 {/* First Name Contenders */}
                 <FavoriteSection
-                  title="First Name Contenders"
+                  title="📝 First Name Contenders"
                   entries={firstNameContenders}
                   allFavorites={profile.favorites}
                   onRemove={toggleFavorite}
@@ -112,12 +112,13 @@ export default function ProfilePage() {
                   onDragStart={handleDragStart}
                   onDragEnter={handleDragEnter}
                   onDragEnd={handleDragEnd}
-                  emptyMessage="Drag names here or change their position to 'First Name'"
+                  emptyMessage="Drag names here to mark as first name contenders"
+                  sectionPosition="first"
                 />
 
                 {/* Last Name Contenders */}
                 <FavoriteSection
-                  title="Last Name Contenders"
+                  title="📝 Last Name Contenders"
                   entries={lastNameContenders}
                   allFavorites={profile.favorites}
                   onRemove={toggleFavorite}
@@ -125,12 +126,13 @@ export default function ProfilePage() {
                   onDragStart={handleDragStart}
                   onDragEnter={handleDragEnter}
                   onDragEnd={handleDragEnd}
-                  emptyMessage="Drag names here or change their position to 'Last Name'"
+                  emptyMessage="Drag names here to mark as last name contenders"
+                  sectionPosition="last"
                 />
 
                 {/* Undecided */}
                 <FavoriteSection
-                  title="All Saved Names"
+                  title="⭐ All Saved Names"
                   entries={undecided}
                   allFavorites={profile.favorites}
                   onRemove={toggleFavorite}
@@ -139,6 +141,7 @@ export default function ProfilePage() {
                   onDragEnter={handleDragEnter}
                   onDragEnd={handleDragEnd}
                   emptyMessage="No undecided names"
+                  sectionPosition="undecided"
                 />
               </>
             )}
@@ -255,6 +258,7 @@ function FavoriteSection({
   onDragEnter,
   onDragEnd,
   emptyMessage,
+  sectionPosition,
 }: {
   title: string;
   entries: FavoriteEntry[];
@@ -265,9 +269,36 @@ function FavoriteSection({
   onDragEnter: (index: number) => void;
   onDragEnd: () => void;
   emptyMessage: string;
+  sectionPosition?: FavoriteEntry["position"];
 }) {
+  const [dragOver, setDragOver] = useState(false);
+
+  const handleSectionDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragOver(true);
+  };
+
+  const handleSectionDragLeave = () => {
+    setDragOver(false);
+  };
+
+  const handleSectionDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragOver(false);
+    // Get the slug from the drag data
+    const slug = e.dataTransfer.getData("text/slug");
+    if (slug && sectionPosition) {
+      onPositionChange(slug, sectionPosition);
+    }
+  };
+
   return (
-    <div>
+    <div
+      onDragOver={sectionPosition ? handleSectionDragOver : undefined}
+      onDragLeave={sectionPosition ? handleSectionDragLeave : undefined}
+      onDrop={sectionPosition ? handleSectionDrop : undefined}
+      className={`rounded-xl p-4 transition-colors ${dragOver ? "bg-primary/10 border-2 border-dashed border-primary" : "bg-card border border-border"}`}
+    >
       <h3 className="font-display text-base font-semibold text-foreground mb-3">{title}</h3>
       {entries.length === 0 ? (
         <p className="text-sm text-muted-foreground italic py-3">{emptyMessage}</p>
@@ -281,11 +312,14 @@ function FavoriteSection({
               <div
                 key={entry.slug}
                 draggable
-                onDragStart={() => onDragStart(globalIdx)}
+                onDragStart={(e) => {
+                  e.dataTransfer.setData("text/slug", entry.slug);
+                  onDragStart(globalIdx);
+                }}
                 onDragEnter={() => onDragEnter(globalIdx)}
                 onDragEnd={onDragEnd}
                 onDragOver={e => e.preventDefault()}
-                className="flex items-center gap-3 bg-card rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
+                className="flex items-center gap-3 bg-background rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
               >
                 <GripVertical className="w-4 h-4 text-muted-foreground shrink-0" />
                 <Link to={`/name/${entry.slug}`} className="flex-1 min-w-0">

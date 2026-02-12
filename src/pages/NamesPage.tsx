@@ -284,10 +284,36 @@ export default function NamesPage() {
 
             {activeFilterCount > 0 && (
               <button onClick={clearFilters} className="text-xs text-primary hover:underline ml-1">
-                Clear ({activeFilterCount})
+                Clear all
               </button>
             )}
           </div>
+
+          {/* Active filter chips */}
+          {activeFilterCount > 0 && (
+            <div className="flex gap-1.5 flex-wrap">
+              {gender !== "all" && (
+                <button onClick={() => setGender("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors capitalize">
+                  {gender} <X className="w-3 h-3" />
+                </button>
+              )}
+              {selectedOrigin !== "all" && (
+                <button onClick={() => setSelectedOrigin("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                  {selectedOrigin} <X className="w-3 h-3" />
+                </button>
+              )}
+              {scriptureFilter !== "all" && (
+                <button onClick={() => setScriptureFilter("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                  {scriptureOptions.find(s => s.key === scriptureFilter)?.label} <X className="w-3 h-3" />
+                </button>
+              )}
+              {selectedThemes.map(t => (
+                <button key={t} onClick={() => toggleTheme(t)} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors capitalize">
+                  {t} <X className="w-3 h-3" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Results */}
