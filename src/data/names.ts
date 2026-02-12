@@ -35,6 +35,7 @@ export interface MuslimName {
 }
 
 import { prophetsNames } from "./companionsAndProphets";
+import { quranicNames } from "./quranicNames";
 
 const coreNames: MuslimName[] = [
   {
@@ -3787,10 +3788,13 @@ const coreNames: MuslimName[] = [
   },
 ];
 
-export const namesDatabase: MuslimName[] = [
-  ...coreNames,
-  ...prophetsNames.filter(p => !coreNames.some(c => c.slug === p.slug))
-];
+const _merged = [...coreNames, ...prophetsNames, ...quranicNames];
+const _seen = new Set<string>();
+export const namesDatabase: MuslimName[] = _merged.filter(n => {
+  if (_seen.has(n.slug)) return false;
+  _seen.add(n.slug);
+  return true;
+});
 
 // === IMPROVED SEARCH ALGORITHM WITH FUZZY MATCHING AND SCORING ===
 
