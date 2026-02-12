@@ -834,6 +834,1325 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     ],
     religiousExemptions: "Kenya accepts religious conversion as a valid reason for name changes. With a significant Muslim minority, authorities in coastal regions and urban centers are very familiar with the process.",
     lastUpdated: "2026-02"
+  },
+  {
+    country: "Jordan",
+    countryCode: "JO",
+    flag: "🇯🇴",
+    overview: "Jordan handles name changes through the Civil Status and Passports Department (دائرة الأحوال المدنية والجوازات). For converts to Islam, the Sharia Court issues a conversion certificate that facilitates the process.",
+    estimatedCost: "JOD 5 - 50",
+    estimatedCostUSD: [7, 71],
+    estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
+    difficulty: "easy",
+    steps: [
+      { title: "Obtain Conversion Certificate", description: "Visit a Sharia Court (المحكمة الشرعية) to officially register your conversion and receive a certificate (إشهار إسلام).", documents: ["Conversion certificate", "Current ID"] },
+      { title: "Apply at Civil Status Department", description: "Submit name change application to the Civil Status and Passports Department.", documents: ["Conversion certificate", "National ID", "Family book (دفتر العائلة)"] },
+      { title: "Receive Updated Documents", description: "Obtain your updated national ID and family book with the new name.", documents: ["Updated ID"] }
+    ],
+    tips: [
+      "Sharia Courts are located in every governorate",
+      "The process is very fast as Jordan is an Islamic country",
+      "Update your passport separately at the Passport Department"
+    ],
+    resources: [
+      { title: "Civil Status Department", url: "https://www.cspd.gov.jo" }
+    ],
+    religiousExemptions: "Jordan strongly supports religious name changes. Sharia Courts provide conversion certificates that are universally accepted by civil authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Iraq",
+    countryCode: "IQ",
+    flag: "🇮🇶",
+    overview: "Iraq handles name changes through the Civil Affairs Court and the Directorate of Civil Status (مديرية الأحوال المدنية). Religious conversion name changes are facilitated through Islamic courts.",
+    estimatedCost: "IQD 25,000 - 100,000",
+    estimatedCostUSD: [17, 68],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Obtain Conversion Certificate", description: "Register your conversion at a local Islamic court or recognized religious authority.", documents: ["Conversion certificate"] },
+      { title: "File at Civil Affairs Court", description: "Submit a petition to the Civil Affairs Court (محكمة الأحوال الشخصية) for the name change.", documents: ["Petition", "National ID (البطاقة الوطنية)", "Conversion certificate"] },
+      { title: "Court Decision", description: "The court reviews and issues a decision, typically approving religious name changes quickly.", documents: ["Court decision"] },
+      { title: "Update Civil Status Records", description: "Take the court decision to the Directorate of Civil Status to update your national records.", documents: ["Court decision", "Old ID"] }
+    ],
+    tips: [
+      "The process varies between federal Iraq and the Kurdistan Region",
+      "Religious name changes are prioritized and processed faster",
+      "Update your national ID first, then passport and other documents"
+    ],
+    resources: [
+      { title: "Iraqi Ministry of Interior", url: "https://www.moi.gov.iq" }
+    ],
+    religiousExemptions: "Iraq, as a Muslim-majority country, strongly supports Islamic name changes. Courts routinely approve conversion-related name changes with minimal delay.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Kuwait",
+    countryCode: "KW",
+    flag: "🇰🇼",
+    overview: "Kuwait handles name changes through the Ministry of Justice and the Public Authority for Civil Information (PACI). Converts receive support from the Ministry of Awqaf and Islamic Affairs.",
+    estimatedCost: "KWD 2 - 20",
+    estimatedCostUSD: [7, 65],
+    estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
+    difficulty: "easy",
+    steps: [
+      { title: "Register Conversion", description: "Visit the Ministry of Awqaf and Islamic Affairs to register your conversion and obtain a certificate.", documents: ["Conversion certificate"] },
+      { title: "Apply at PACI", description: "Submit the name change application to the Public Authority for Civil Information.", documents: ["Conversion certificate", "Civil ID", "Passport"] },
+      { title: "Receive Updated Civil ID", description: "Collect your new civil ID with the updated name.", documents: ["New civil ID"] }
+    ],
+    tips: [
+      "The Ministry of Awqaf has a dedicated department for new Muslims",
+      "Kuwait actively supports and facilitates conversion-related processes",
+      "For expatriates, coordinate with your sponsor"
+    ],
+    resources: [
+      { title: "PACI Kuwait", url: "https://www.paci.gov.kw" },
+      { title: "Ministry of Awqaf", url: "https://www.awqaf.gov.kw" }
+    ],
+    religiousExemptions: "Kuwait actively encourages and supports Islamic name changes. The Ministry of Awqaf provides comprehensive support for converts including name change facilitation.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Qatar",
+    countryCode: "QA",
+    flag: "🇶🇦",
+    overview: "Qatar handles name changes through the Ministry of Interior's General Directorate of Passports. The Qatar Foundation for Islamic Call provides conversion certificates and support for new Muslims.",
+    estimatedCost: "QAR 50 - 200",
+    estimatedCostUSD: [14, 55],
+    estimatedTimeline: "1 - 3 weeks",
+    estimatedTimelineWeeks: [1, 3],
+    difficulty: "easy",
+    steps: [
+      { title: "Obtain Conversion Certificate", description: "Register at the Fanar Islamic Center or Qatar Foundation for Islamic Call to receive your conversion certificate.", documents: ["Conversion certificate"] },
+      { title: "Apply at Ministry of Interior", description: "Submit name change application through the MOI's e-services portal or in person.", documents: ["Conversion certificate", "QID", "Passport"] },
+      { title: "Receive Updated QID", description: "Collect your updated Qatar ID with the new name.", documents: ["Updated QID"] }
+    ],
+    tips: [
+      "Fanar Islamic Center is the primary center for new Muslims in Qatar",
+      "The process is efficient and well-supported",
+      "Expatriates should update their residency permit alongside the QID"
+    ],
+    resources: [
+      { title: "MOI Qatar", url: "https://portal.moi.gov.qa" },
+      { title: "Fanar Islamic Center", url: "https://www.fanar.gov.qa" }
+    ],
+    religiousExemptions: "Qatar provides excellent support for new Muslims. Fanar Islamic Center offers comprehensive post-conversion services including name change guidance.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bahrain",
+    countryCode: "BH",
+    flag: "🇧🇭",
+    overview: "Bahrain processes name changes through the Information & eGovernment Authority (iGA) and the Ministry of Justice. Converts can get support from the Ministry of Justice, Islamic Affairs and Endowments.",
+    estimatedCost: "BHD 2 - 15",
+    estimatedCostUSD: [5, 40],
+    estimatedTimeline: "1 - 3 weeks",
+    estimatedTimelineWeeks: [1, 3],
+    difficulty: "easy",
+    steps: [
+      { title: "Register Conversion", description: "Register with the Ministry of Justice, Islamic Affairs and Endowments to obtain your conversion certificate.", documents: ["Conversion certificate"] },
+      { title: "Apply via iGA", description: "Submit your name change application through the National Portal (bahrain.bh) or visit the iGA.", documents: ["Conversion certificate", "CPR smart card", "Passport"] },
+      { title: "Receive Updated CPR", description: "Collect your updated Central Population Registration smart card.", documents: ["New CPR"] }
+    ],
+    tips: [
+      "Bahrain's e-government services make the process very efficient",
+      "The Discovery Islam Center provides guidance for new Muslims",
+      "CPR updates automatically sync with most government systems"
+    ],
+    resources: [
+      { title: "Bahrain National Portal", url: "https://www.bahrain.bh" }
+    ],
+    religiousExemptions: "Bahrain supports religious name changes through its Islamic Affairs ministry. The process is streamlined and efficient.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Oman",
+    countryCode: "OM",
+    flag: "🇴🇲",
+    overview: "Oman handles name changes through the Royal Oman Police (Civil Status department). The Ministry of Endowments and Religious Affairs provides conversion certificates for new Muslims.",
+    estimatedCost: "OMR 2 - 20",
+    estimatedCostUSD: [5, 52],
+    estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
+    difficulty: "easy",
+    steps: [
+      { title: "Register Conversion", description: "Visit the Ministry of Endowments and Religious Affairs to register your conversion and receive a certificate.", documents: ["Conversion certificate"] },
+      { title: "Apply at ROP Civil Status", description: "Submit a name change application to the Royal Oman Police Civil Status department.", documents: ["Conversion certificate", "Civil ID", "Passport"] },
+      { title: "Receive Updated ID", description: "Receive your updated civil ID card with the new name.", documents: ["Updated civil ID"] }
+    ],
+    tips: [
+      "The Ministry of Endowments has offices in all governorates",
+      "Oman is very welcoming to converts and facilitates the process",
+      "Expatriates should update their residency alongside the name change"
+    ],
+    resources: [
+      { title: "Royal Oman Police", url: "https://www.rop.gov.om" }
+    ],
+    religiousExemptions: "Oman, as an Islamic country, fully supports and facilitates name changes for new Muslims. The process is streamlined and well-supported.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Lebanon",
+    countryCode: "LB",
+    flag: "🇱🇧",
+    overview: "Lebanon handles name changes through the Personal Status Court system. Since Lebanon has separate religious courts for different sects, converts to Islam register through the Sunni or Shia Personal Status Court (المحكمة الشرعية).",
+    estimatedCost: "LBP 500,000 - 5,000,000",
+    estimatedCostUSD: [6, 56],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Register at Sharia Court", description: "Register your conversion at the relevant Sharia Court (Sunni or Shia) to receive official documentation.", documents: ["Conversion declaration", "ID"] },
+      { title: "Apply at Nufous (Civil Registry)", description: "Submit name change application to the Directorate General of Personal Status (النفوس).", documents: ["Sharia Court documentation", "Current ID", "Family record (إخراج قيد)"] },
+      { title: "Court Approval", description: "The civil judge reviews and approves the registry change.", documents: ["Court decision"] },
+      { title: "Update ID and Records", description: "Obtain updated ID and civil registry records.", documents: ["Updated documents"] }
+    ],
+    tips: [
+      "Lebanon's sectarian system means the process involves both religious and civil authorities",
+      "Dar al-Fatwa handles Sunni conversions; the Supreme Islamic Shia Council handles Shia",
+      "A lawyer familiar with personal status law is recommended"
+    ],
+    resources: [
+      { title: "Dar al-Fatwa", url: "https://www.darelfatwa.gov.lb" }
+    ],
+    religiousExemptions: "Lebanon's multi-confessional system means religious changes are handled through specific religious courts. The process is established but involves both religious and civil steps.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Iran",
+    countryCode: "IR",
+    flag: "🇮🇷",
+    overview: "Iran processes name changes through the Civil Registration Organization (سازمان ثبت احوال). As an Islamic republic, the process is straightforward for Islamic names, though there are approved name lists.",
+    estimatedCost: "IRR 500,000 - 2,000,000",
+    estimatedCostUSD: [1, 5],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Check Approved Names", description: "Verify your desired name is on the Civil Registration Organization's approved list. Islamic names are generally always approved.", documents: [] },
+      { title: "Apply at Civil Registration Office", description: "Submit an application to the local Civil Registration Office (اداره ثبت احوال).", documents: ["Birth certificate (شناسنامه)", "National ID card (کارت ملی)"] },
+      { title: "Committee Review", description: "The application is reviewed by a committee that verifies the name meets cultural and religious criteria.", documents: [] },
+      { title: "Receive Updated Documents", description: "Obtain updated shenasnameh (birth certificate) and national ID.", documents: ["Updated shenasnameh", "New national ID"] }
+    ],
+    tips: [
+      "Iran maintains an approved name list — most Arabic and Persian Islamic names are on it",
+      "The process is straightforward for names with clear Islamic significance",
+      "First name changes are easier to obtain than surname changes",
+      "Local mosque imams can provide letters of support"
+    ],
+    resources: [
+      { title: "Civil Registration Organization", url: "https://www.sabteahval.ir" }
+    ],
+    religiousExemptions: "Iran, as an Islamic republic, strongly supports Islamic name changes. Names with clear Quranic or Islamic significance are routinely approved.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Afghanistan",
+    countryCode: "AF",
+    flag: "🇦🇫",
+    overview: "Afghanistan handles name changes through the Population Registration Authority (NSIA) and tazkira (national ID) system. As an Islamic country, religious name changes are well-understood.",
+    estimatedCost: "AFN 100 - 500",
+    estimatedCostUSD: [1, 7],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Visit NSIA Office", description: "Go to your local National Statistics and Information Authority (NSIA) office.", documents: ["Current tazkira", "Supporting documents"] },
+      { title: "Submit Application", description: "Fill out the name change form with supporting documentation.", documents: ["Application form", "Tazkira", "Community elder or mullah letter"] },
+      { title: "Receive Updated Tazkira", description: "Obtain your updated tazkira with the new name.", documents: ["Updated tazkira"] }
+    ],
+    tips: [
+      "A letter from a local mullah or mosque is very helpful",
+      "Processing times vary significantly by region",
+      "The process is generally straightforward for Islamic names"
+    ],
+    resources: [
+      { title: "NSIA Afghanistan", url: "https://www.nsia.gov.af" }
+    ],
+    religiousExemptions: "Afghanistan, as an Islamic country, fully supports religious name changes. Local religious authorities can facilitate the process.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Philippines",
+    countryCode: "PH",
+    flag: "🇵🇭",
+    overview: "The Philippines allows name changes through a court petition (Rule 103, Rules of Court) or administratively through the Philippine Statistics Authority (PSA) for clerical corrections. RA 9048 allows first name changes without court order.",
+    estimatedCost: "PHP 3,000 - 15,000",
+    estimatedCostUSD: [54, 268],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "File Administrative Petition (RA 9048)", description: "For first name changes, file a petition with the Local Civil Registrar under Republic Act 9048.", documents: ["PSA birth certificate", "Valid ID", "Petition form"] },
+      { title: "Provide Supporting Documents", description: "Include documents showing your use of the new name and reason for change.", documents: ["Baptismal/conversion certificate", "School records", "Employment records"] },
+      { title: "Publication Requirement", description: "The petition is published in a newspaper of general circulation once a week for two consecutive weeks.", documents: ["Publication proof"] },
+      { title: "LCRO Decision", description: "The Local Civil Registrar's Office issues a decision.", documents: ["LCRO decision"] },
+      { title: "PSA Update", description: "The approved change is forwarded to the PSA for updating the civil registry.", documents: ["Updated PSA certificate"] }
+    ],
+    tips: [
+      "RA 9048 (2001) eliminated the need for court orders for most first name changes",
+      "The National Commission on Muslim Filipinos (NCMF) can provide guidance",
+      "Mindanao and BARMM have established Islamic legal infrastructure",
+      "A certificate from an imam or Islamic center is helpful supporting documentation"
+    ],
+    resources: [
+      { title: "Philippine Statistics Authority", url: "https://psa.gov.ph" },
+      { title: "NCMF", url: "https://www.ncmf.gov.ph" }
+    ],
+    religiousExemptions: "The Philippines accepts religious conversion as a valid ground for name changes. The BARMM (Bangsamoro Autonomous Region) has additional Sharia-based processes for Muslim personal status matters.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Thailand",
+    countryCode: "TH",
+    flag: "🇹🇭",
+    overview: "Thailand handles name changes through the District Office (Amphoe/สำนักงานเขต). Thai law allows one legal first name change and one surname change. The process is administered by the Department of Provincial Administration.",
+    estimatedCost: "THB 50 - 500",
+    estimatedCostUSD: [1, 14],
+    estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
+    difficulty: "easy",
+    steps: [
+      { title: "Visit District Office", description: "Go to your registered District Office (สำนักงานเขต/อำเภอ) with your current ID.", documents: ["Thai ID card (บัตรประชาชน)", "House registration (ทะเบียนบ้าน)"] },
+      { title: "Submit Application", description: "Fill out the name change application form (แบบ ช.1).", documents: ["Application form", "Fee"] },
+      { title: "Receive Approval", description: "The district registrar reviews and approves. First name changes are usually approved same day.", documents: ["Approval certificate"] },
+      { title: "Update ID Card", description: "Get a new Thai ID card with the updated name.", documents: ["Updated ID card"] }
+    ],
+    tips: [
+      "Thai law allows only one legal first name change — choose carefully",
+      "The southern provinces (Yala, Pattani, Narathiwat) have dedicated Islamic affairs offices",
+      "The Chularajmontri (Sheikh al-Islam of Thailand) office can provide guidance",
+      "Processing is usually very fast — often same day"
+    ],
+    resources: [
+      { title: "Department of Provincial Administration", url: "https://www.dopa.go.th" }
+    ],
+    religiousExemptions: "Thailand allows name changes without requiring a specific reason. The southern Muslim-majority provinces have additional Islamic administrative infrastructure.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Brunei",
+    countryCode: "BN",
+    flag: "🇧🇳",
+    overview: "Brunei Darussalam handles name changes through the Immigration and National Registration Department. As an Islamic monarchy, the process for Islamic name changes is streamlined and fully supported.",
+    estimatedCost: "BND 5 - 25",
+    estimatedCostUSD: [4, 19],
+    estimatedTimeline: "1 - 3 weeks",
+    estimatedTimelineWeeks: [1, 3],
+    difficulty: "easy",
+    steps: [
+      { title: "Obtain Conversion Certificate", description: "Register conversion with the Ministry of Religious Affairs (MoRA).", documents: ["Conversion certificate"] },
+      { title: "Apply at Immigration Department", description: "Submit name change application to the Immigration and National Registration Department.", documents: ["Conversion certificate", "IC", "Supporting documents"] },
+      { title: "Receive Updated IC", description: "Collect your updated identity card.", documents: ["New IC"] }
+    ],
+    tips: [
+      "MoRA provides comprehensive support for new Muslims",
+      "The process is very efficient in Brunei",
+      "Brunei's Islamic legal system means full institutional support"
+    ],
+    resources: [
+      { title: "Immigration Brunei", url: "https://www.immigration.gov.bn" }
+    ],
+    religiousExemptions: "Brunei, as an Islamic monarchy, fully facilitates and supports name changes for converts. The process is fast and well-supported.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Maldives",
+    countryCode: "MV",
+    flag: "🇲🇻",
+    overview: "The Maldives handles name changes through the Department of National Registration. As a 100% Muslim nation, Islamic names are standard and the process is straightforward.",
+    estimatedCost: "MVR 50 - 200",
+    estimatedCostUSD: [3, 13],
+    estimatedTimeline: "1 - 3 weeks",
+    estimatedTimelineWeeks: [1, 3],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply at National Registration", description: "Submit name change application to the Department of National Registration.", documents: ["National ID card", "Birth certificate", "Application form"] },
+      { title: "Receive Updated Documents", description: "Collect your updated ID with the new name.", documents: ["Updated ID"] }
+    ],
+    tips: [
+      "As a Muslim-only nation, Islamic names are the norm",
+      "The process is very simple and fast",
+      "The Ministry of Islamic Affairs can provide guidance"
+    ],
+    resources: [
+      { title: "National Registration", url: "https://www.dnr.gov.mv" }
+    ],
+    religiousExemptions: "The Maldives is a Muslim-only nation, so Islamic name changes are fully standard and require no special justification.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Norway",
+    countryCode: "NO",
+    flag: "🇳🇴",
+    overview: "Norway handles name changes through the National Population Register (Folkeregisteret) administered by the Tax Administration (Skatteetaten). The Name Act (Navneloven) governs all name changes.",
+    estimatedCost: "NOK 0 - 1,500",
+    estimatedCostUSD: [0, 140],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply to Skatteetaten", description: "Submit a name change application through Skatteetaten's online portal or by mail.", documents: ["Application form", "National ID number (fødselsnummer)"] },
+      { title: "Review Period", description: "Skatteetaten reviews the application. First name changes are generally processed without issue.", documents: [] },
+      { title: "Receive Confirmation", description: "Once approved, the population register is updated automatically.", documents: ["Confirmation letter"] },
+      { title: "Update ID Documents", description: "Apply for new passport and national ID card at the police station.", documents: ["Updated population register", "Old ID"] }
+    ],
+    tips: [
+      "First name changes are free and require no justification",
+      "Surname changes have more restrictions and may cost NOK 1,500",
+      "Apply online through Altinn for fastest processing",
+      "Islamic Council of Norway (IRN) can provide guidance"
+    ],
+    resources: [
+      { title: "Skatteetaten - Name Change", url: "https://www.skatteetaten.no/en/person/national-registry/name/" }
+    ],
+    religiousExemptions: "Norway does not require a reason for first name changes. The process is simple and accessible for everyone including religious converts.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Denmark",
+    countryCode: "DK",
+    flag: "🇩🇰",
+    overview: "Denmark handles name changes through the Ministry of Family Affairs (previously the Church Ministry for those in the Danish Church). The Names Act (Navneloven) governs the process.",
+    estimatedCost: "DKK 0 - 3,000",
+    estimatedCostUSD: [0, 420],
+    estimatedTimeline: "2 - 12 weeks",
+    estimatedTimelineWeeks: [2, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply Online", description: "Submit name change application through borger.dk (citizen portal) using NemID/MitID.", documents: ["CPR number", "Application"] },
+      { title: "Provide Documentation", description: "Include any required documentation. First name changes may need to be from the approved list or justified.", documents: ["Supporting documentation"] },
+      { title: "Ministry Review", description: "The Family Law Agency (Familieretshuset) reviews the application.", documents: [] },
+      { title: "Update Documents", description: "Once approved, update passport and other documents.", documents: ["Updated CPR record", "Old documents"] }
+    ],
+    tips: [
+      "Denmark has an approved first name list — Islamic names not on it require a special application",
+      "Use borger.dk with MitID for the fastest processing",
+      "Islamic Society in Denmark can provide guidance",
+      "Surname changes are more complex than first name changes"
+    ],
+    resources: [
+      { title: "Borger.dk - Name Change", url: "https://www.borger.dk/familie-og-boern/Navne/Navneaendring" },
+      { title: "Familieretshuset", url: "https://familieretshuset.dk" }
+    ],
+    religiousExemptions: "Denmark evaluates name changes based on the Names Act. Religious names not on the approved list can still be approved through a special application process.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Finland",
+    countryCode: "FI",
+    flag: "🇫🇮",
+    overview: "Finland handles name changes through the Digital and Population Data Services Agency (Digi- ja väestötietovirasto, DVV). The Names Act (Nimilaki) governs all name changes.",
+    estimatedCost: "€0 - €60",
+    estimatedCostUSD: [0, 65],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply to DVV", description: "Submit a name change application to DVV online through their e-services or in person.", documents: ["Application", "Personal identity code (henkilötunnus)"] },
+      { title: "DVV Review", description: "DVV reviews the application against the Names Act requirements.", documents: [] },
+      { title: "Receive Confirmation", description: "Once approved, the population information system is updated.", documents: ["Confirmation"] },
+      { title: "Update Documents", description: "Apply for new passport and ID at the police.", documents: ["Updated population register record"] }
+    ],
+    tips: [
+      "First name changes cost around €60; one free change per year for forenames",
+      "Apply online through suomi.fi for fastest processing",
+      "Finnish Islamic Council (SINE) can provide guidance",
+      "Finland's Names Act is relatively liberal for first name changes"
+    ],
+    resources: [
+      { title: "DVV - Name Change", url: "https://dvv.fi/en/name-change" }
+    ],
+    religiousExemptions: "Finland does not require a specific reason for first name changes. Religious conversion is fully accepted as a basis for name changes.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Belgium",
+    countryCode: "BE",
+    flag: "🇧🇪",
+    overview: "Belgium handles first name changes through the civil registrar at your municipal hall (commune/gemeente). Surname changes require a royal decree from the Ministry of Justice.",
+    estimatedCost: "€0 - €590",
+    estimatedCostUSD: [0, 643],
+    estimatedTimeline: "4 - 24 weeks",
+    estimatedTimelineWeeks: [4, 24],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at Municipality", description: "For first name changes, submit an application at your commune/gemeente.", documents: ["Identity card", "Birth certificate", "Application letter"] },
+      { title: "Provide Justification", description: "Explain your reason for the change. Religious conversion is an accepted reason.", documents: ["Personal statement", "Conversion documentation (optional)"] },
+      { title: "Registrar Decision", description: "The civil registrar reviews and decides. Appeals go to the family court.", documents: [] },
+      { title: "Update Documents", description: "Once approved, obtain new identity card and update other records.", documents: ["Updated civil registry", "Old eID"] }
+    ],
+    tips: [
+      "First name changes were simplified by a 2018 law reform",
+      "The Exécutif des Musulmans de Belgique can provide conversion certificates",
+      "Brussels, Antwerp, and Liège have large Muslim communities with experienced advisors",
+      "Surname changes are much more complex and expensive (€590)"
+    ],
+    resources: [
+      { title: "Belgium.be - Name Change", url: "https://www.belgium.be" },
+      { title: "SPF Justice", url: "https://justice.belgium.be" }
+    ],
+    religiousExemptions: "Belgian law accepts religious conversion as a valid reason for first name changes since the 2018 reform. The process has been significantly simplified.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Switzerland",
+    countryCode: "CH",
+    flag: "🇨🇭",
+    overview: "Switzerland handles name changes at the cantonal level through the civil registry authority (Zivilstandsamt). The Swiss Civil Code (ZGB Art. 30) requires 'important reasons' (wichtige Gründe) for name changes.",
+    estimatedCost: "CHF 75 - 1,500",
+    estimatedCostUSD: [85, 1700],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "complex",
+    steps: [
+      { title: "Apply to Cantonal Authority", description: "Submit a name change petition to the civil registry authority (Zivilstandsamt) of your canton of residence.", documents: ["Application", "Swiss ID/passport or residence permit", "Birth certificate"] },
+      { title: "Provide Important Reasons", description: "Demonstrate 'important reasons' (wichtige Gründe) for the change. Religious conversion qualifies.", documents: ["Personal statement", "Conversion certificate", "Supporting letters"] },
+      { title: "Cantonal Government Decision", description: "The cantonal government reviews and decides on the application.", documents: [] },
+      { title: "Update Civil Registry", description: "Once approved, the civil registry is updated and you can obtain new documents.", documents: ["Updated registry", "Old documents"] }
+    ],
+    tips: [
+      "Requirements and costs vary significantly between cantons",
+      "German-speaking cantons tend to be more formal; French-speaking cantons may be more flexible",
+      "FIDS (Fédération d'organisations islamiques en Suisse) can provide guidance",
+      "A lawyer is recommended due to the 'important reasons' requirement"
+    ],
+    resources: [
+      { title: "Swiss Civil Registry", url: "https://www.bj.admin.ch/bj/de/home/gesellschaft/zivilstandswesen.html" }
+    ],
+    religiousExemptions: "Swiss law requires 'important reasons' (wichtige Gründe) for name changes. Federal court precedent recognizes religious conversion as qualifying, though application varies by canton.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Austria",
+    countryCode: "AT",
+    flag: "🇦🇹",
+    overview: "Austria handles name changes through the district authority (Bezirkshauptmannschaft) or municipality. The Name Change Act (Namensänderungsgesetz) requires a valid reason for changes.",
+    estimatedCost: "€14 - €400",
+    estimatedCostUSD: [15, 436],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at District Authority", description: "Submit a name change application to your local Bezirkshauptmannschaft or Magistrat.", documents: ["Application form", "Birth certificate", "Meldezettel (registration)", "ID"] },
+      { title: "Provide Justification", description: "Demonstrate a valid reason for the change. Religious conversion is accepted.", documents: ["Personal statement", "Conversion documentation"] },
+      { title: "Authority Decision", description: "The authority reviews and issues a decision (Bescheid).", documents: ["Bescheid"] },
+      { title: "Update Documents", description: "Update your civil registry records, ID, and passport.", documents: ["Bescheid", "Old documents"] }
+    ],
+    tips: [
+      "Austria officially recognizes Islam (IGGÖ is the official Islamic body)",
+      "A letter from IGGÖ strengthens your application significantly",
+      "First name changes are generally easier than surname changes",
+      "Vienna has the largest Muslim community and experienced administrators"
+    ],
+    resources: [
+      { title: "HELP.gv.at - Name Change", url: "https://www.help.gv.at" },
+      { title: "IGGÖ", url: "https://www.derislam.at" }
+    ],
+    religiousExemptions: "Austria has officially recognized Islam since 1912 (Islamgesetz). Religious conversion through IGGÖ is a well-established basis for name changes.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Ireland",
+    countryCode: "IE",
+    flag: "🇮🇪",
+    overview: "Ireland allows name changes through a deed poll, similar to the UK. No court order is needed. The process is straightforward — execute a deed poll and update your records.",
+    estimatedCost: "€0 - €60",
+    estimatedCostUSD: [0, 65],
+    estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
+    difficulty: "easy",
+    steps: [
+      { title: "Create Deed Poll", description: "Prepare a deed poll document stating your old name, new name, and intention to use only the new name.", documents: ["Deed poll document"] },
+      { title: "Sign and Witness", description: "Sign the deed poll before two independent witnesses over 18.", documents: ["Signed deed poll"] },
+      { title: "Enrol (Optional)", description: "Optionally enrol the deed poll with the Central Office of the High Court for €60.", documents: ["Deed poll", "Fee"] },
+      { title: "Update Documents", description: "Use the deed poll to update passport, driver licence, PPS records, Revenue, and bank accounts.", documents: ["Deed poll", "Current documents"] }
+    ],
+    tips: [
+      "An unenrolled deed poll is sufficient for most purposes including passports",
+      "Islamic Foundation of Ireland can provide guidance and witness support",
+      "Ireland has a growing Muslim community with experienced advisors",
+      "Make multiple copies of your deed poll before distributing"
+    ],
+    resources: [
+      { title: "Citizens Information", url: "https://www.citizensinformation.ie/en/birth-family-relationships/problems-in-marriages-and-other-relationships/changing-your-name/" },
+      { title: "Courts Service", url: "https://www.courts.ie" }
+    ],
+    religiousExemptions: "Ireland does not require any reason for name changes via deed poll. The process is simple and accessible for everyone.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Portugal",
+    countryCode: "PT",
+    flag: "🇵🇹",
+    overview: "Portugal handles name changes through the Civil Registry (Registo Civil). Changes are governed by the Civil Registry Code. First name changes require authorization from the IRN (Instituto dos Registos e do Notariado).",
+    estimatedCost: "€0 - €200",
+    estimatedCostUSD: [0, 218],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Submit Request to Civil Registry", description: "Apply at your local Conservatória do Registo Civil or Loja do Cidadão.", documents: ["Citizen card (CC)", "Birth certificate", "Application"] },
+      { title: "Provide Justification", description: "Include a written explanation. Religious conversion is an accepted reason.", documents: ["Personal statement", "Conversion documentation"] },
+      { title: "IRN Review", description: "The Instituto dos Registos e do Notariado reviews and decides.", documents: [] },
+      { title: "Update Documents", description: "Once approved, update citizen card, passport, and other records.", documents: ["Updated civil registry", "Old documents"] }
+    ],
+    tips: [
+      "Loja do Cidadão offices offer one-stop government services",
+      "Comunidade Islâmica de Lisboa can provide conversion documentation",
+      "The process has been modernized through digital services",
+      "Portuguese names have specific rules about given names — Islamic names may need approval"
+    ],
+    resources: [
+      { title: "IRN", url: "https://www.irn.mj.pt" },
+      { title: "ePortugal", url: "https://eportugal.gov.pt" }
+    ],
+    religiousExemptions: "Portuguese law accepts religious conversion as grounds for name changes. The Islamic Community of Lisbon (Comunidade Islâmica de Lisboa) is officially recognized.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Poland",
+    countryCode: "PL",
+    flag: "🇵🇱",
+    overview: "Poland handles name changes through the head of the civil registry office (kierownik urzędu stanu cywilnego). The Act on Changing First and Last Names requires an 'important reason' for changes.",
+    estimatedCost: "PLN 37",
+    estimatedCostUSD: [9, 9],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at Civil Registry", description: "Submit a name change application (wniosek o zmianę imienia/nazwiska) to the civil registry office.", documents: ["Application form", "Dowód osobisty (ID)", "Birth certificate"] },
+      { title: "Provide Important Reason", description: "State your 'important reason' (ważny powód) for the change. Religious conversion qualifies.", documents: ["Personal statement", "Conversion documentation"] },
+      { title: "Registrar Decision", description: "The head of the civil registry reviews and issues an administrative decision.", documents: ["Decision"] },
+      { title: "Update Documents", description: "Update dowód osobisty (ID), PESEL records, and other documents.", documents: ["Decision", "Old ID"] }
+    ],
+    tips: [
+      "The fee is fixed at PLN 37 regardless of the type of change",
+      "Muslim Religious Union in Poland (MZR) is officially recognized and can provide documentation",
+      "Appeals go to the provincial governor (wojewoda)",
+      "Processing is usually faster in larger cities with more experience"
+    ],
+    resources: [
+      { title: "ePUAP - Government Portal", url: "https://epuap.gov.pl" }
+    ],
+    religiousExemptions: "Polish law accepts religious conversion as an 'important reason' for name changes. The Muslim Religious Union in Poland (MZR) has been officially recognized since 1936.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Greece",
+    countryCode: "GR",
+    flag: "🇬🇷",
+    overview: "Greece handles name changes through the court system. A petition to the Court of First Instance is required. Greece also has a recognized Muslim minority in Western Thrace with special provisions.",
+    estimatedCost: "€50 - €300",
+    estimatedCostUSD: [55, 327],
+    estimatedTimeline: "8 - 24 weeks",
+    estimatedTimelineWeeks: [8, 24],
+    difficulty: "complex",
+    steps: [
+      { title: "File Court Petition", description: "Submit a petition to the Court of First Instance (Πρωτοδικείο) in your district.", documents: ["Petition", "Birth certificate", "ID card", "Criminal record certificate"] },
+      { title: "Court Hearing", description: "Attend a hearing where the judge reviews the petition.", documents: ["Photo ID", "Supporting documents"] },
+      { title: "Court Decision", description: "The court issues a decision. If approved, it's sent to the civil registry.", documents: ["Court decision"] },
+      { title: "Update Civil Registry", description: "Present the court decision to your municipality to update records.", documents: ["Court decision", "Old ID"] }
+    ],
+    tips: [
+      "A lawyer is recommended for court proceedings",
+      "Western Thrace has a recognized Muslim minority with established processes",
+      "Athens and Thessaloniki have growing Muslim communities",
+      "The process can be lengthy — plan accordingly"
+    ],
+    resources: [
+      { title: "Ministry of Interior", url: "https://www.ypes.gr" }
+    ],
+    religiousExemptions: "Greek courts can accept religious conversion as grounds for name changes. The Muslim minority in Western Thrace has specific legal provisions for personal status matters.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bosnia and Herzegovina",
+    countryCode: "BA",
+    flag: "🇧🇦",
+    overview: "Bosnia and Herzegovina handles name changes through the municipal civil registry office (matičar). As a country with a large Muslim population, the process for Islamic names is well-established.",
+    estimatedCost: "BAM 10 - 50",
+    estimatedCostUSD: [5, 26],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply at Municipal Office", description: "Submit a name change application to the municipal civil registry office (općina/opština).", documents: ["Application", "Birth certificate (izvod iz matične knjige)", "ID (lična karta)"] },
+      { title: "Registrar Review", description: "The civil registrar reviews the application.", documents: [] },
+      { title: "Receive Updated Documents", description: "Obtain updated birth certificate and apply for new ID.", documents: ["Updated birth certificate", "New ID"] }
+    ],
+    tips: [
+      "The Islamic Community of Bosnia (Islamska zajednica) can provide guidance",
+      "The process is straightforward, especially in the Federation entity",
+      "Bosnian Muslim names (Bosniak tradition) are already well-established in the system",
+      "Rijaset in Sarajevo is the central Islamic authority"
+    ],
+    resources: [
+      { title: "Islamska Zajednica BiH", url: "https://www.islamskazajednica.ba" }
+    ],
+    religiousExemptions: "Bosnia has a centuries-old Bosniak Muslim tradition. Name changes for religious reasons are well-understood and straightforward.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Albania",
+    countryCode: "AL",
+    flag: "🇦🇱",
+    overview: "Albania handles name changes through the General Directorate of Civil Status (Drejtoria e Përgjithshme e Gjendjes Civile). Applications are processed at the local civil registry office.",
+    estimatedCost: "ALL 500 - 2,000",
+    estimatedCostUSD: [5, 19],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply at Civil Registry", description: "Submit a name change application to your local civil registry office.", documents: ["Application", "Birth certificate", "ID card", "Family certificate"] },
+      { title: "Municipal Decision", description: "The municipality reviews and approves the application.", documents: [] },
+      { title: "Update Documents", description: "Obtain updated birth certificate and ID.", documents: ["Updated documents"] }
+    ],
+    tips: [
+      "Albania has a Muslim-majority population, so Islamic names are common",
+      "Albanian Muslim Community (KMSH) can provide guidance",
+      "The process is generally fast and simple",
+      "Both Albanian and Arabic Islamic names are well-accepted"
+    ],
+    resources: [
+      { title: "e-Albania Portal", url: "https://e-albania.al" }
+    ],
+    religiousExemptions: "Albania has a Muslim-majority population and is very familiar with Islamic names. The process requires no special religious justification.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Russia",
+    countryCode: "RU",
+    flag: "🇷🇺",
+    overview: "Russia handles name changes through the ZAGS office (ЗАГС — Запись актов гражданского состояния). The Family Code allows citizens over 14 to change their names with a valid reason.",
+    estimatedCost: "RUB 1,600",
+    estimatedCostUSD: [17, 17],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at ZAGS", description: "Submit a name change application (заявление о перемене имени) to the civil registry office (ЗАГС).", documents: ["Application form", "Birth certificate", "Internal passport", "State duty payment"] },
+      { title: "Provide Reason", description: "State the reason for the change. Religious reasons are accepted.", documents: ["Personal statement"] },
+      { title: "ZAGS Review", description: "ZAGS reviews the application within one month (may be extended to two).", documents: [] },
+      { title: "Receive Certificate", description: "Obtain a name change certificate (свидетельство о перемене имени).", documents: ["Name change certificate"] },
+      { title: "Update Documents", description: "Update internal passport (within 30 days), international passport, and other documents.", documents: ["Name change certificate", "Old passport"] }
+    ],
+    tips: [
+      "The state duty (госпошлина) is fixed at RUB 1,600",
+      "Russia has official Muslim spiritual administrations (Духовное управление мусульман) in every region",
+      "Internal passport must be updated within 30 days of the name change certificate",
+      "Tatarstan, Bashkortostan, and Chechnya have established Islamic infrastructure"
+    ],
+    resources: [
+      { title: "Gosuslugi (Government Services)", url: "https://www.gosuslugi.ru" }
+    ],
+    religiousExemptions: "Russia officially recognizes Islam as one of four traditional religions. Religious conversion is accepted as a valid reason for name changes at ZAGS offices.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Algeria",
+    countryCode: "DZ",
+    flag: "🇩🇿",
+    overview: "Algeria handles name changes through the court system (tribunal). Applications are filed at the local court and reviewed by a judge. As a Muslim-majority country, Islamic name changes are standard.",
+    estimatedCost: "DZD 500 - 5,000",
+    estimatedCostUSD: [4, 37],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "File Court Petition", description: "Submit a name change petition to the local tribunal.", documents: ["Petition", "Birth certificate (extrait de naissance)", "National ID"] },
+      { title: "Court Review", description: "A judge reviews the petition. Religious name changes are routinely approved.", documents: [] },
+      { title: "Receive Court Judgment", description: "Obtain the court judgment (jugement) approving the change.", documents: ["Court judgment"] },
+      { title: "Update Civil Registry", description: "Present the judgment to your commune's civil registry to update records.", documents: ["Court judgment", "Old documents"] }
+    ],
+    tips: [
+      "Algeria has a commission that manages naming conventions",
+      "Islamic names are standard and always approved",
+      "The process is well-established in this Muslim-majority country",
+      "Ministry of Religious Affairs can provide guidance"
+    ],
+    resources: [
+      { title: "Ministry of Justice", url: "https://www.mjustice.dz" }
+    ],
+    religiousExemptions: "Algeria, as a Muslim-majority country, fully supports Islamic name changes. The process is routine and well-understood by courts.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Tunisia",
+    countryCode: "TN",
+    flag: "🇹🇳",
+    overview: "Tunisia handles name changes through the Court of First Instance (tribunal de première instance). The Civil Status Law governs name changes with a court order required.",
+    estimatedCost: "TND 20 - 200",
+    estimatedCostUSD: [6, 64],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "File Court Petition", description: "Submit a petition to the Court of First Instance (tribunal de première instance) in your jurisdiction.", documents: ["Petition", "Birth certificate", "National ID (CIN)"] },
+      { title: "Court Hearing", description: "Attend a hearing where the judge reviews your request.", documents: ["Photo ID"] },
+      { title: "Receive Judgment", description: "The court issues a judgment. Once final, it's registered with civil status.", documents: ["Court judgment"] },
+      { title: "Update Civil Status", description: "Update records at the municipality and obtain new CIN.", documents: ["Court judgment", "Old CIN"] }
+    ],
+    tips: [
+      "Tunisia has a codified civil status system from 1957",
+      "Islamic names are standard and always approved",
+      "A lawyer (avocat) is recommended for court proceedings",
+      "The process is routine in this Muslim-majority country"
+    ],
+    resources: [
+      { title: "e-People Portal", url: "https://www.e-people.gov.tn" }
+    ],
+    religiousExemptions: "Tunisia's Muslim-majority population means Islamic name changes are routine. Courts regularly approve such changes without difficulty.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Libya",
+    countryCode: "LY",
+    flag: "🇱🇾",
+    overview: "Libya handles name changes through the Civil Registry Authority. As a Muslim-majority country, Islamic name changes are standard and well-supported.",
+    estimatedCost: "LYD 10 - 100",
+    estimatedCostUSD: [2, 21],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at Civil Registry", description: "Submit a name change application to the Civil Registry Authority.", documents: ["Application", "National ID", "Family book"] },
+      { title: "Review and Approval", description: "The civil registry reviews and approves the application.", documents: [] },
+      { title: "Update Documents", description: "Receive updated national ID and family book.", documents: ["Updated documents"] }
+    ],
+    tips: [
+      "The process varies by region given current political situation",
+      "Islamic names are standard and always accepted",
+      "Local mosques can provide guidance"
+    ],
+    resources: [
+      { title: "Civil Registry Authority", url: "https://www.cra.gov.ly" }
+    ],
+    religiousExemptions: "Libya, as a Muslim-majority country, fully supports Islamic name changes. The process is routine.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Sudan",
+    countryCode: "SD",
+    flag: "🇸🇩",
+    overview: "Sudan handles name changes through the Civil Registry (السجل المدني). As a Muslim-majority country with Islamic law influences, religious name changes are well-supported.",
+    estimatedCost: "SDG 500 - 5,000",
+    estimatedCostUSD: [1, 8],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply at Civil Registry", description: "Submit a name change application at the local civil registry office.", documents: ["Application", "National ID", "Birth certificate"] },
+      { title: "Provide Supporting Documents", description: "Include any supporting documentation for the change.", documents: ["Conversion certificate (if applicable)"] },
+      { title: "Receive Updated Documents", description: "Obtain updated national ID.", documents: ["Updated ID"] }
+    ],
+    tips: [
+      "The process is straightforward in Sudan",
+      "Islamic names are standard and always accepted",
+      "Local community leaders can facilitate the process"
+    ],
+    resources: [
+      { title: "Civil Registry Sudan", url: "https://www.civilregistry.gov.sd" }
+    ],
+    religiousExemptions: "Sudan fully supports Islamic name changes. The process is routine and well-understood.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Somalia",
+    countryCode: "SO",
+    flag: "🇸🇴",
+    overview: "Somalia handles name changes primarily through community and clan-based systems alongside government processes where available. The Ministry of Interior manages civil registration in areas under federal control.",
+    estimatedCost: "USD 5 - 50",
+    estimatedCostUSD: [5, 50],
+    estimatedTimeline: "1 - 8 weeks",
+    estimatedTimelineWeeks: [1, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Obtain Community Acknowledgment", description: "Inform your clan elders and community of the name change.", documents: [] },
+      { title: "Apply at Government Office", description: "Where available, submit a name change request to the civil registration office.", documents: ["Application", "Available ID documents"] },
+      { title: "Update Documents", description: "Update whatever government documents you hold.", documents: ["Updated documents"] }
+    ],
+    tips: [
+      "Civil registration systems are still developing in some regions",
+      "Community and clan recognition often carries more practical weight",
+      "As a 99%+ Muslim country, Islamic names are standard",
+      "Diaspora Somalis should use their host country's processes"
+    ],
+    resources: [
+      { title: "Ministry of Interior", url: "https://www.moi.gov.so" }
+    ],
+    religiousExemptions: "Somalia is a Muslim-majority country where Islamic names are the universal norm. No special process is needed for Islamic names.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Ethiopia",
+    countryCode: "ET",
+    flag: "🇪🇹",
+    overview: "Ethiopia handles name changes through the Vital Events Registration Agency. Ethiopia has a large Muslim population (~35%) and the process is straightforward.",
+    estimatedCost: "ETB 100 - 1,000",
+    estimatedCostUSD: [2, 17],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at Registration Office", description: "Submit a name change application to the local vital events registration office.", documents: ["Application", "Kebele ID", "Birth certificate"] },
+      { title: "Court Process (if required)", description: "Some regions may require a court order for formal name changes.", documents: ["Court petition", "Supporting documents"] },
+      { title: "Update ID", description: "Obtain updated kebele ID and other documents.", documents: ["Updated documents"] }
+    ],
+    tips: [
+      "Ethiopia's large Muslim population means authorities are familiar with Islamic names",
+      "Ethiopian Islamic Affairs Supreme Council (EIASC) can provide guidance",
+      "The process varies by region (killil)",
+      "Harar and Somali regions have established Islamic administrative infrastructure"
+    ],
+    resources: [
+      { title: "VERA Ethiopia", url: "https://www.vera.gov.et" }
+    ],
+    religiousExemptions: "Ethiopia accepts religious conversion as a valid reason for name changes. The large Muslim minority means the process is well-understood.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Tanzania",
+    countryCode: "TZ",
+    flag: "🇹🇿",
+    overview: "Tanzania handles name changes through the Registration Insolvency and Trusteeship Agency (RITA). The process involves a deed poll and is straightforward.",
+    estimatedCost: "TZS 10,000 - 50,000",
+    estimatedCostUSD: [4, 20],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "easy",
+    steps: [
+      { title: "Execute Deed Poll", description: "Prepare and execute a deed poll (statutory declaration) before a Commissioner for Oaths.", documents: ["Deed poll", "Current ID"] },
+      { title: "Submit to RITA", description: "Submit the deed poll to RITA for registration.", documents: ["Deed poll", "Fee", "Supporting documents"] },
+      { title: "Update Documents", description: "Use the registered deed poll to update your NIDA ID and other documents.", documents: ["Registered deed poll"] }
+    ],
+    tips: [
+      "Tanzania has a large Muslim population, especially in Zanzibar and the coast",
+      "BAKWATA (National Muslim Council of Tanzania) can provide guidance",
+      "Zanzibar has its own registration system — apply there if registered in Zanzibar",
+      "The process is well-understood by authorities"
+    ],
+    resources: [
+      { title: "RITA Tanzania", url: "https://www.rita.go.tz" }
+    ],
+    religiousExemptions: "Tanzania's large Muslim population (especially in Zanzibar) means authorities are very familiar with Islamic name changes.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Ghana",
+    countryCode: "GH",
+    flag: "🇬🇭",
+    overview: "Ghana handles name changes through a statutory declaration (affidavit) and newspaper publication. The process is governed by the Statutory Declarations Act.",
+    estimatedCost: "GHS 50 - 500",
+    estimatedCostUSD: [4, 38],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Swear Statutory Declaration", description: "Execute a statutory declaration before a Commissioner for Oaths at any court.", documents: ["Statutory declaration", "Current ID", "Passport photos"] },
+      { title: "Publish in Newspaper", description: "Publish the name change in a national newspaper.", documents: ["Newspaper publication"] },
+      { title: "Update Ghana Card", description: "Apply at the National Identification Authority (NIA) for an updated Ghana Card.", documents: ["Statutory declaration", "Newspaper cutting", "Old Ghana Card"] }
+    ],
+    tips: [
+      "The National Chief Imam's office can provide conversion certificates",
+      "Ghana has a significant Muslim population (about 20%)",
+      "The process is fast and inexpensive",
+      "Update Ghana Card first — other agencies accept it as primary proof"
+    ],
+    resources: [
+      { title: "NIA Ghana", url: "https://nia.gov.gh" }
+    ],
+    religiousExemptions: "Ghana accepts religious conversion as a valid reason for name changes. The significant Muslim population means the process is well-understood.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Senegal",
+    countryCode: "SN",
+    flag: "🇸🇳",
+    overview: "Senegal handles name changes through the civil court (tribunal d'instance). As a country where 95%+ of the population is Muslim, Islamic names are the norm.",
+    estimatedCost: "XOF 5,000 - 25,000",
+    estimatedCostUSD: [8, 40],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "File Court Petition", description: "Submit a name change petition to the tribunal d'instance.", documents: ["Petition", "Birth certificate (extrait de naissance)", "National ID (CNI)"] },
+      { title: "Court Decision", description: "The judge reviews and approves the change.", documents: ["Court judgment"] },
+      { title: "Update Civil Registry", description: "Present the judgment to update your civil registry records.", documents: ["Court judgment", "Old documents"] }
+    ],
+    tips: [
+      "Senegal is 95%+ Muslim — Islamic names are the standard",
+      "The Grand Serigne of Dakar and Sufi brotherhood leaders are influential",
+      "The process is routine and well-understood",
+      "Mouride and Tijaniyya names are very common alongside Arabic ones"
+    ],
+    resources: [
+      { title: "Government of Senegal", url: "https://www.sec.gouv.sn" }
+    ],
+    religiousExemptions: "Senegal is overwhelmingly Muslim, so Islamic name changes are standard and routine. No special religious justification is needed.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Mexico",
+    countryCode: "MX",
+    flag: "🇲🇽",
+    overview: "Mexico handles name changes through the Civil Registry (Registro Civil). Since 2021 reforms, the process has been simplified in many states. A court order may be required depending on the state.",
+    estimatedCost: "MXN 500 - 5,000",
+    estimatedCostUSD: [25, 250],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Visit Civil Registry", description: "Go to the Registro Civil in your state to understand local requirements.", documents: ["CURP", "INE/IFE (voter ID)", "Birth certificate (acta de nacimiento)"] },
+      { title: "File Application or Court Petition", description: "Depending on the state, either file directly with the Registro Civil or petition a family court.", documents: ["Application/petition", "Supporting documents", "Fee"] },
+      { title: "Review and Approval", description: "The registrar or judge reviews and approves the change.", documents: [] },
+      { title: "Obtain New Birth Certificate", description: "Receive your updated acta de nacimiento and update CURP and other documents.", documents: ["Updated birth certificate"] }
+    ],
+    tips: [
+      "Requirements vary significantly by state",
+      "Mexico City and some states allow administrative changes without court orders",
+      "Centro Cultural Islámico de México can provide guidance",
+      "Update CURP after obtaining the new birth certificate"
+    ],
+    resources: [
+      { title: "RENAPO (Population Registry)", url: "https://www.gob.mx/segob/renapo" }
+    ],
+    religiousExemptions: "Mexican law does not require a specific reason for name changes in states with simplified processes. Religious conversion is accepted where justification is needed.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Argentina",
+    countryCode: "AR",
+    flag: "🇦🇷",
+    overview: "Argentina handles name changes through the Civil Registry (Registro Civil). Law 18.248 governs names, and recent reforms have simplified the process for first name changes.",
+    estimatedCost: "ARS 5,000 - 30,000",
+    estimatedCostUSD: [5, 30],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at Registro Civil", description: "Submit a name change application to the Civil Registry.", documents: ["DNI", "Birth certificate (partida de nacimiento)", "Application"] },
+      { title: "Provide Justification", description: "Include a written explanation for the name change.", documents: ["Personal statement", "Supporting documentation"] },
+      { title: "Administrative or Court Decision", description: "Depending on the type of change, it may be processed administratively or require a court order.", documents: [] },
+      { title: "Update DNI", description: "Obtain an updated DNI (Documento Nacional de Identidad).", documents: ["Updated birth certificate", "Old DNI"] }
+    ],
+    tips: [
+      "Argentina has the largest Muslim community in South America",
+      "Centro Islámico de la República Argentina (CIRA) can provide guidance",
+      "Buenos Aires has established Muslim communities with experienced advisors",
+      "Some provinces have simpler processes than others"
+    ],
+    resources: [
+      { title: "RENAPER", url: "https://www.argentina.gob.ar/interior/renaper" }
+    ],
+    religiousExemptions: "Argentine law accepts religious conversion as a valid justification for name changes. CIRA (the largest Islamic center in Latin America) can provide supporting documentation.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Colombia",
+    countryCode: "CO",
+    flag: "🇨🇴",
+    overview: "Colombia allows name corrections and changes through the Notaría (notary) or Registro Civil. One first name change can be done by simple notarial act without court order.",
+    estimatedCost: "COP 50,000 - 500,000",
+    estimatedCostUSD: [12, 115],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "easy",
+    steps: [
+      { title: "Visit a Notaría", description: "Go to any notaría (notary office) with your current documents.", documents: ["Cédula de ciudadanía", "Birth certificate (registro civil)", "Application"] },
+      { title: "Execute Escritura Pública", description: "The notary executes a public deed (escritura pública) recording the name change.", documents: ["Escritura pública", "Fee"] },
+      { title: "Update Registro Civil", description: "The notary forwards the change to the Registro Civil for annotation.", documents: [] },
+      { title: "Update Cédula", description: "Apply for an updated cédula de ciudadanía at the Registraduría.", documents: ["Updated registro civil", "Old cédula"] }
+    ],
+    tips: [
+      "One first name change can be done simply through a notary — no court needed",
+      "Subsequent changes may require a court order",
+      "The Muslim community in Colombia is growing, particularly in Maicao and Bogotá",
+      "Centro Cultural Islámico can provide guidance"
+    ],
+    resources: [
+      { title: "Registraduría Nacional", url: "https://www.registraduria.gov.co" }
+    ],
+    religiousExemptions: "Colombian law allows one first name change without requiring justification, making it very simple for religious converts.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Uzbekistan",
+    countryCode: "UZ",
+    flag: "🇺🇿",
+    overview: "Uzbekistan handles name changes through the civil registry office (ZAGS/ЗАГС). The Family Code governs name changes, requiring a valid reason.",
+    estimatedCost: "UZS 50,000 - 200,000",
+    estimatedCostUSD: [4, 16],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at ZAGS", description: "Submit a name change application at the civil registry (ZAGS) office.", documents: ["Application", "Passport", "Birth certificate"] },
+      { title: "Provide Reason", description: "State the reason for the name change.", documents: ["Personal statement"] },
+      { title: "ZAGS Review", description: "The office reviews within one month.", documents: [] },
+      { title: "Update Passport", description: "Obtain an updated passport with the new name.", documents: ["ZAGS certificate", "Old passport"] }
+    ],
+    tips: [
+      "Uzbekistan has a rich Islamic heritage (Bukhara, Samarkand)",
+      "Muslim Board of Uzbekistan can provide guidance",
+      "Islamic names have been common throughout Uzbek history",
+      "Online applications through my.gov.uz are increasingly available"
+    ],
+    resources: [
+      { title: "my.gov.uz", url: "https://my.gov.uz" }
+    ],
+    religiousExemptions: "Uzbekistan's Muslim-majority population means Islamic names are common and well-accepted. The process is routine.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Kazakhstan",
+    countryCode: "KZ",
+    flag: "🇰🇿",
+    overview: "Kazakhstan handles name changes through the civil registry (ЗАГС). Applications are submitted to the local justice department, and the process is governed by the Code on Marriage and Family.",
+    estimatedCost: "KZT 3,000 - 10,000",
+    estimatedCostUSD: [6, 20],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at ZAGS/eGov", description: "Submit a name change application through eGov.kz portal or local ZAGS office.", documents: ["Application", "ID card", "Birth certificate"] },
+      { title: "Provide Documentation", description: "Include required supporting documents.", documents: ["Supporting documents", "Fee payment"] },
+      { title: "Review and Approval", description: "The justice department reviews within one month.", documents: [] },
+      { title: "Update Documents", description: "Receive name change certificate and update ID and passport.", documents: ["Name change certificate"] }
+    ],
+    tips: [
+      "Kazakhstan has a majority Muslim population (about 70%)",
+      "Online applications through egov.kz are efficient",
+      "Spiritual Administration of Muslims of Kazakhstan (SAMK) can provide guidance",
+      "Both Kazakh and Arabic Islamic names are well-accepted"
+    ],
+    resources: [
+      { title: "eGov.kz", url: "https://egov.kz" }
+    ],
+    religiousExemptions: "Kazakhstan's Muslim-majority population means Islamic name changes are common and routine. No special religious documentation is required.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Tajikistan",
+    countryCode: "TJ",
+    flag: "🇹🇯",
+    overview: "Tajikistan handles name changes through the civil registry (ЗАГС). Tajikistan has specific regulations regarding names, including a government-approved name list.",
+    estimatedCost: "TJS 50 - 200",
+    estimatedCostUSD: [5, 18],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Check Approved Names", description: "Verify your desired name is on the government's approved list or can be approved.", documents: [] },
+      { title: "Apply at ZAGS", description: "Submit application to the civil registry office.", documents: ["Application", "Passport", "Birth certificate"] },
+      { title: "Review and Approval", description: "The office reviews the application.", documents: [] },
+      { title: "Update Documents", description: "Receive updated passport and other documents.", documents: ["Updated documents"] }
+    ],
+    tips: [
+      "Tajikistan maintains an approved name list — check in advance",
+      "Many Tajik-Persian Islamic names are on the approved list",
+      "The Council of Ulema can provide guidance",
+      "Processing may vary by region"
+    ],
+    resources: [
+      { title: "Government of Tajikistan", url: "https://www.president.tj" }
+    ],
+    religiousExemptions: "Tajikistan's Muslim-majority population means Islamic names are common, but the government name list may restrict some choices. Tajik-Persian Islamic names are generally approved.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Kyrgyzstan",
+    countryCode: "KG",
+    flag: "🇰🇬",
+    overview: "Kyrgyzstan handles name changes through the civil registry (ЗАГС). The process is governed by the Family Code and is straightforward.",
+    estimatedCost: "KGS 200 - 1,000",
+    estimatedCostUSD: [2, 11],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply at ZAGS", description: "Submit a name change application to the local civil registry.", documents: ["Application", "Passport", "Birth certificate"] },
+      { title: "Review", description: "The office reviews within one month.", documents: [] },
+      { title: "Update Documents", description: "Receive name change certificate and update passport.", documents: ["Name change certificate"] }
+    ],
+    tips: [
+      "Kyrgyzstan has a Muslim-majority population (about 90%)",
+      "Both Kyrgyz and Arabic Islamic names are common",
+      "The Muftiat of Kyrgyzstan can provide guidance",
+      "The process is straightforward and affordable"
+    ],
+    resources: [
+      { title: "Government Portal", url: "https://www.gov.kg" }
+    ],
+    religiousExemptions: "Kyrgyzstan's Muslim-majority population means Islamic names are standard. No special justification is needed.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Turkmenistan",
+    countryCode: "TM",
+    flag: "🇹🇲",
+    overview: "Turkmenistan handles name changes through the civil registry (ЗАГС). The process requires a valid reason and is governed by the Civil Code.",
+    estimatedCost: "TMT 10 - 100",
+    estimatedCostUSD: [3, 29],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at ZAGS", description: "Submit application to the local civil registry office.", documents: ["Application", "Passport", "Birth certificate"] },
+      { title: "Provide Reason", description: "State the reason for the name change.", documents: ["Personal statement"] },
+      { title: "Review and Approval", description: "The civil registry reviews the application.", documents: [] },
+      { title: "Update Documents", description: "Receive updated documents.", documents: ["Updated passport"] }
+    ],
+    tips: [
+      "Turkmenistan has a Muslim-majority population",
+      "The process may be more bureaucratic than neighboring countries",
+      "Islamic names are common and well-accepted"
+    ],
+    resources: [
+      { title: "Government of Turkmenistan", url: "https://www.gov.tm" }
+    ],
+    religiousExemptions: "Turkmenistan's Muslim-majority population means Islamic names are well-accepted. The process is standard.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Malaysia (Sabah & Sarawak)",
+    countryCode: "MY-SS",
+    flag: "🇲🇾",
+    overview: "Sabah and Sarawak have slightly different processes from Peninsular Malaysia for name changes, as they have their own native courts and registration systems alongside JPN.",
+    estimatedCost: "MYR 40 - 150",
+    estimatedCostUSD: [9, 33],
+    estimatedTimeline: "2 - 10 weeks",
+    estimatedTimelineWeeks: [2, 10],
+    difficulty: "easy",
+    steps: [
+      { title: "Register Conversion", description: "Register with the State Islamic Religious Department (JAIS Sabah/Sarawak).", documents: ["Conversion certificate"] },
+      { title: "Apply at JPN", description: "Visit the Sabah/Sarawak JPN office with conversion documents.", documents: ["Conversion certificate", "IC", "Application"] },
+      { title: "Receive Updated IC", description: "Obtain new IC with updated name and religion.", documents: ["New IC"] }
+    ],
+    tips: [
+      "East Malaysian states have their own religious departments",
+      "Native court systems may also be involved for indigenous converts",
+      "JPN processing may take slightly longer than in Peninsular Malaysia"
+    ],
+    resources: [
+      { title: "JPN Malaysia", url: "https://www.jpn.gov.my" }
+    ],
+    religiousExemptions: "East Malaysian states follow similar Islamic conversion processes to Peninsular Malaysia but with some local variations.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Yemen",
+    countryCode: "YE",
+    flag: "🇾🇪",
+    overview: "Yemen handles name changes through the Civil Status Authority. As a Muslim-majority country, Islamic name changes are standard.",
+    estimatedCost: "YER 1,000 - 5,000",
+    estimatedCostUSD: [2, 10],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at Civil Status", description: "Submit a name change application to the local Civil Status Authority.", documents: ["Application", "National ID", "Birth certificate"] },
+      { title: "Review and Approval", description: "The authority reviews the application.", documents: [] },
+      { title: "Update Documents", description: "Receive updated ID documents.", documents: ["Updated ID"] }
+    ],
+    tips: [
+      "Islamic names are the universal norm in Yemen",
+      "The process may vary by region given current situation",
+      "Local religious leaders can facilitate"
+    ],
+    resources: [
+      { title: "Civil Status Authority", url: "https://www.csa.gov.ye" }
+    ],
+    religiousExemptions: "Yemen, as a Muslim-majority country, fully supports Islamic names as standard. No special process is needed.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Myanmar",
+    countryCode: "MM",
+    flag: "🇲🇲",
+    overview: "Myanmar handles name changes through the General Administration Department (GAD). The process involves an affidavit and newspaper publication.",
+    estimatedCost: "MMK 5,000 - 30,000",
+    estimatedCostUSD: [2, 14],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Execute Affidavit", description: "Get a notarized affidavit declaring the name change.", documents: ["Affidavit", "NRC (National Registration Card)"] },
+      { title: "Publish in Newspaper", description: "Publish the name change in a national newspaper.", documents: ["Newspaper publication"] },
+      { title: "Apply at GAD", description: "Submit the application to the General Administration Department.", documents: ["Affidavit", "Newspaper cutting", "NRC"] },
+      { title: "Receive Updated NRC", description: "Obtain updated National Registration Card.", documents: ["Updated NRC"] }
+    ],
+    tips: [
+      "Myanmar has a significant Muslim minority (about 4%)",
+      "The process may face additional challenges in the current political context",
+      "Islamic scholars in Yangon and Mandalay can provide guidance",
+      "Keep multiple copies of all documentation"
+    ],
+    resources: [
+      { title: "GAD Myanmar", url: "https://www.gad.gov.mm" }
+    ],
+    religiousExemptions: "Myanmar technically allows name changes for any reason, though the process may vary in practice. Documentation is important.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "China",
+    countryCode: "CN",
+    flag: "🇨🇳",
+    overview: "China handles name changes through the local Public Security Bureau (PSB/公安局). Citizens can change their name once with a valid reason. The Hui, Uyghur, and other Muslim minorities have established naming traditions.",
+    estimatedCost: "CNY 40 - 200",
+    estimatedCostUSD: [6, 28],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Apply at Local PSB", description: "Submit a name change application (户口变更) at your local Public Security Bureau (派出所/公安局).", documents: ["Application form", "Hukou (户口簿)", "ID card (身份证)"] },
+      { title: "Provide Reason", description: "State the reason for the change. Religious/ethnic cultural reasons are accepted.", documents: ["Personal statement", "Supporting documents"] },
+      { title: "PSB Review", description: "The PSB reviews the application. Processing time varies by city.", documents: [] },
+      { title: "Update Hukou and ID", description: "Receive updated hukou and apply for new ID card.", documents: ["Updated hukou", "New ID card"] }
+    ],
+    tips: [
+      "China has about 25 million Muslims (Hui, Uyghur, Kazakh, etc.)",
+      "Muslim names are well-established among ethnic minorities",
+      "The process may be smoother in cities with larger Muslim populations",
+      "Only one name change is generally allowed"
+    ],
+    resources: [
+      { title: "National Immigration Administration", url: "https://www.nia.gov.cn" }
+    ],
+    religiousExemptions: "China allows name changes for cultural and ethnic reasons. Muslim minorities (Hui, Uyghur, etc.) have established naming traditions recognized by the system.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "South Korea",
+    countryCode: "KR",
+    flag: "🇰🇷",
+    overview: "South Korea handles name changes through the Family Court (가정법원). A court petition is required, and the court must find 'justifiable reason' (정당한 사유).",
+    estimatedCost: "KRW 10,000 - 50,000",
+    estimatedCostUSD: [7, 36],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "File Family Court Petition", description: "Submit a name change petition (개명신청) to the Family Court in your jurisdiction.", documents: ["Petition", "Resident registration (주민등록등본)", "Family relations certificate (가족관계증명서)"] },
+      { title: "Court Review", description: "The court reviews the petition. Religious conversion is an accepted justification.", documents: [] },
+      { title: "Court Decision", description: "The court issues a decision, typically within 1-2 months.", documents: ["Court decision"] },
+      { title: "Update Records", description: "Update your resident registration and national ID at the local gu/dong office.", documents: ["Court decision", "Old ID"] }
+    ],
+    tips: [
+      "South Korea has a growing Muslim community, especially in Seoul's Itaewon area",
+      "Korea Muslim Federation can provide guidance",
+      "Court filing fees are very low",
+      "The process is well-defined and usually straightforward"
+    ],
+    resources: [
+      { title: "Korean Courts", url: "https://www.scourt.go.kr" },
+      { title: "Korea Muslim Federation", url: "https://www.koreaislam.org" }
+    ],
+    religiousExemptions: "Korean courts accept religious conversion as a 'justifiable reason' for name changes. The Korea Muslim Federation can provide supporting documentation.",
+    lastUpdated: "2026-02"
   }
 ];
 
