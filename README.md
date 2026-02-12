@@ -1,73 +1,160 @@
-# Welcome to your Lovable project
+# MuslimName.me 🕌
 
-## Project info
+> **Discover Your Muslim Name** — A comprehensive platform helping Muslim converts (reverts) choose meaningful Islamic names with Quranic references, scholarly sources, and legal name change guidance.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🌐 **Live:** [muslimname.me](https://muslimname.me)
+📦 **Repo:** [github.com/codingshot/muslimname](https://github.com/codingshot/muslimname)
+🐦 **X:** [@ummahbuild](https://x.com/ummahbuild)
+🏗️ **Built by:** [ummah.build](https://ummah.build)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **🔍 Name Database** — 35+ authentic Muslim names with Arabic script, meanings, etymology, and pronunciation guides
+- **📖 Quranic & Sunnah References** — Verified Quranic ayat and hadith citations for every applicable name
+- **👑 Prophets & Companions** — Special section for names of Prophets and companions with detailed sources
+- **🎯 Smart Name Generator** — Suggests names based on your current name's meaning, gender, and desired qualities
+- **⚖️ Legal Name Change Guides** — Country-specific guides for US, UK, Canada, Australia, Germany, France, Malaysia, South Africa
+- **🌍 Regional Variations** — See how names appear across Arab, Turkish, South Asian, and African cultures
+- **📊 Similar Non-Arabic Names** — Find Muslim names with similar meanings to your current name
+- **📱 Mobile-First Design** — Fully responsive, works beautifully on all devices
+- **🔒 Privacy-First** — All data stays in your browser, no tracking, no accounts required
+- **🌙 Dark Mode Support** — Built-in dark mode with proper contrast
+- **🤝 Open Source** — Free forever, community-driven
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🚀 Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/codingshot/muslimname.git
+cd muslimname
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🛠️ Tech Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Technology | Purpose |
+|---|---|
+| React + TypeScript | UI framework |
+| Vite | Build tool & dev server |
+| Tailwind CSS | Styling |
+| shadcn/ui | Component library |
+| Framer Motion | Animations |
+| React Router | Client-side routing |
+| Vercel | Hosting |
 
-**Use GitHub Codespaces**
+## 📂 Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+muslimname/
+├── public/
+│   ├── favicon.png          # App favicon
+│   └── og-image.png         # Social share image
+├── src/
+│   ├── assets/              # Images & static assets
+│   ├── components/
+│   │   ├── ui/              # shadcn/ui base components
+│   │   ├── Layout.tsx       # Main layout (nav + footer)
+│   │   └── NameCard.tsx     # Name display card component
+│   ├── data/
+│   │   ├── names.ts         # Core name database (20 names)
+│   │   ├── companionsAndProphets.ts  # Prophet & companion names (15+ names)
+│   │   └── legalNameChange.ts       # Legal guide data (8 countries)
+│   ├── pages/
+│   │   ├── Index.tsx        # Homepage with hero & search
+│   │   ├── NamesPage.tsx    # Searchable name browse page
+│   │   ├── NameDetail.tsx   # Individual name detail page
+│   │   ├── GeneratorPage.tsx # AI name generator
+│   │   ├── LegalGuidePage.tsx # Legal name change guides
+│   │   ├── ContributePage.tsx # How to contribute
+│   │   ├── TermsPage.tsx    # Terms of service
+│   │   └── PrivacyPage.tsx  # Privacy policy
+│   └── hooks/               # Custom React hooks
+├── .github/
+│   └── ISSUE_TEMPLATE/      # Bug, feature, name data, legal guide templates
+├── CONTRIBUTING.md           # Contribution guidelines
+├── vercel.json               # Vercel SPA routing config
+└── README.md                 # This file
+```
 
-## What technologies are used for this project?
+## 📊 Routes
 
-This project is built with:
+| Route | Description |
+|---|---|
+| `/` | Homepage with hero search & featured names |
+| `/names` | Browse & filter all names |
+| `/names?gender=male` | Filter by gender |
+| `/name/:slug` | Individual name detail page |
+| `/generator` | Smart name generator |
+| `/legal-guide` | Legal name change guides by country |
+| `/contribute` | How to contribute to the project |
+| `/terms` | Terms of service |
+| `/privacy` | Privacy policy |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📝 To-Do List
 
-## How can I deploy this project?
+### 🔴 Priority
+- [ ] Expand name database to 100+ names
+- [ ] Add Persian, Turkish, African, South Asian origin names
+- [ ] Add audio pronunciation files (native speaker recordings)
+- [ ] Arabic calligraphy preview for each name
+- [ ] Favorites system (localStorage)
+- [ ] Name comparison tool (side-by-side)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### 🟡 In Progress
+- [x] Core name database with 35+ names
+- [x] Prophets & Companions special names
+- [x] Search & filter functionality
+- [x] Name generator with meaning mapping
+- [x] Legal name change guides (8 countries)
+- [x] Mobile responsive design
+- [x] SEO meta tags & OG images
+- [x] Open source setup (contributing, templates)
 
-## Can I connect a custom domain to my Lovable project?
+### 🟢 Future
+- [ ] Meme-based personality name quiz
+- [ ] AI-powered name suggestions (Lovable AI)
+- [ ] User-generated revert stories
+- [ ] Name certificate generator (printable PDF)
+- [ ] Multi-language support (Arabic, Urdu, Turkish, French, Malay)
+- [ ] Quranic verse audio playback
+- [ ] Name popularity trends by country
+- [ ] Sibling name coordinator
+- [ ] Email signature generator (dual identity)
+- [ ] Community discussion forum
+- [ ] Name day anniversary reminders
+- [ ] Voice recording tool (pronunciation practice)
+- [ ] Hadith & Quran deep-link integration (sunnah.com, quran.com)
+- [ ] Advanced filtering by letter count, phonetic similarity
+- [ ] Name etymology tree visualization
+- [ ] Country-specific legal guides for 30+ countries
+- [ ] Integration with Islamic calendar events
 
-Yes, you can!
+## 🤝 Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**Quick ways to help:**
+- 📛 Add names to the database
+- 📖 Verify Quranic/hadith references
+- ⚖️ Add legal guides for your country
+- 🐛 Report bugs
+- ✨ Suggest features
+- 🌍 Translate the interface
+
+## 📜 Important Links
+
+- **Live Site:** [muslimname.me](https://muslimname.me)
+- **GitHub:** [github.com/codingshot/muslimname](https://github.com/codingshot/muslimname)
+- **Issues:** [github.com/codingshot/muslimname/issues](https://github.com/codingshot/muslimname/issues)
+- **X (Twitter):** [@ummahbuild](https://x.com/ummahbuild)
+- **Built by:** [ummah.build](https://ummah.build)
+
+## 📄 License
+
+Open source — built by the Ummah, for the Ummah.
+
+---
+
+*Made with ❤️ for new Muslims everywhere*

@@ -17,7 +17,9 @@ export interface MuslimName {
   pronunciation: string;
 }
 
-export const namesDatabase: MuslimName[] = [
+import { prophetsNames } from "./companionsAndProphets";
+
+const coreNames: MuslimName[] = [
   {
     slug: "abdullah",
     name: "Abdullah",
@@ -531,6 +533,12 @@ export const namesDatabase: MuslimName[] = [
     hadithReferences: [],
     pronunciation: "ZAY-nab"
   }
+];
+
+// Merge core names with prophets and companions
+export const namesDatabase: MuslimName[] = [
+  ...coreNames,
+  ...prophetsNames.filter(p => !coreNames.some(c => c.slug === p.slug))
 ];
 
 // Utility to map English name meanings to potential Muslim names

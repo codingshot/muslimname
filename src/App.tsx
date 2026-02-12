@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import NamesPage from "./pages/NamesPage";
 import NameDetail from "./pages/NameDetail";
 import GeneratorPage from "./pages/GeneratorPage";
+import LegalGuidePage from "./pages/LegalGuidePage";
+import ContributePage from "./pages/ContributePage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +26,10 @@ const App = () => (
           <Route path="/names" element={<NamesPage />} />
           <Route path="/name/:slug" element={<NameDetail />} />
           <Route path="/generator" element={<GeneratorPage />} />
+          <Route path="/legal-guide" element={<LegalGuidePage />} />
+          <Route path="/contribute" element={<ContributePage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
