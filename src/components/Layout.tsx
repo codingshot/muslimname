@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
 import { namesDatabase } from "@/data/names";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { to: "/names", label: "Browse Names" },
@@ -21,9 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-primary-foreground" />
-            </div>
+            <img src={logo} alt="MuslimName.me" className="w-8 h-8" />
             <span className="font-display text-xl font-bold text-foreground">
               Muslim<span className="text-primary">Name</span>.me
             </span>
@@ -109,9 +108,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
-                  <Sparkles className="w-3.5 h-3.5 text-primary-foreground" />
-                </div>
+                <img src={logo} alt="MuslimName.me" className="w-7 h-7" />
                 <span className="font-display text-lg font-bold">MuslimName.me</span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
