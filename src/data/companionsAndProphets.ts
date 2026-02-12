@@ -385,5 +385,429 @@ export const prophetsNames: MuslimName[] = [
       { source: "Al-Hakim", text: "The Prophet ﷺ said: 'Salman is one of us, the People of the House (Ahl al-Bayt).'" }
     ],
     pronunciation: "sal-MAAN"
+  },
+  // === MORE QURANIC NAMES ===
+  {
+    slug: "yunus",
+    name: "Yunus",
+    arabic: "يونس",
+    meaning: "Dove",
+    detailedMeaning: "Yunus is the Arabic form of Jonah. Prophet Yunus was swallowed by a great fish after fleeing his mission. His supplication from inside the whale — 'La ilaha illa Anta, Subhanaka, inni kuntu min az-zalimin' — is one of the most powerful duas.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 76,
+    themes: ["repentance", "patience", "mercy", "faith"],
+    variations: ["Younus", "Younes", "Jonas (English)"],
+    similarNonArabic: [{ name: "Jonah", meaning: "Dove", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Yunus (AS)", description: "Prophet of the whale, whose supplication is among the most powerful in Islam" }],
+    quranicReferences: [
+      { surah: "Al-Anbiya", ayah: "21:87", text: "And Dhun-Nun (Yunus), when he went off in anger and imagined that We would not decree anything upon him. Then he called out from the darknesses: 'There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.'" },
+      { surah: "As-Saffat", ayah: "37:139-144", text: "And indeed, Yunus was among the messengers. When he ran away to the laden ship... Had he not been of those who exalt Allah, he would have remained inside its belly until the Day they are resurrected." }
+    ],
+    hadithReferences: [{ source: "Sunan al-Tirmidhi", text: "The Prophet ﷺ said: 'The supplication of Dhun-Nun (Yunus) when he was in the belly of the whale was: La ilaha illa Anta, Subhanaka, inni kuntu min az-zalimin. No Muslim who supplicates with it for anything will fail to have his supplication answered.'" }],
+    pronunciation: "YOO-nus",
+    scriptureContext: { inBible: true, bibleName: "Jonah", bibleContext: "Jonah was commanded to preach to Nineveh; he fled but was swallowed by a great fish (Jonah 1-4).", inTorah: true, torahName: "Yonah (יוֹנָה)", torahContext: "Yonah is one of the Twelve Minor Prophets in the Hebrew Bible", sharedProphet: true }
+  },
+  {
+    slug: "ishaq",
+    name: "Ishaq",
+    arabic: "إسحاق",
+    meaning: "He Will Laugh",
+    detailedMeaning: "Ishaq is the Arabic form of Isaac, son of Prophet Ibrahim and Sarah. He was given as a gift from Allah in their old age, and he is considered a prophet and patriarch in Islam.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 68,
+    themes: ["blessing", "joy", "prophecy", "faith"],
+    variations: ["Ishaaq", "Isaac (English)"],
+    similarNonArabic: [{ name: "Isaac", meaning: "He laughs", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Ishaq (AS)", description: "Son of Ibrahim and Sarah, father of Yaqub, prophet of Allah" }],
+    quranicReferences: [
+      { surah: "Hud", ayah: "11:71", text: "And his wife was standing, and she smiled. Then We gave her good tidings of Ishaq, and after Ishaq, Yaqub." },
+      { surah: "As-Saffat", ayah: "37:112", text: "And We gave him good tidings of Ishaq, a prophet from among the righteous." }
+    ],
+    hadithReferences: [],
+    pronunciation: "is-HAAQ",
+    scriptureContext: { inBible: true, bibleName: "Isaac", bibleContext: "Isaac was the son of Abraham and Sarah, born miraculously in their old age (Genesis 21).", inTorah: true, torahName: "Yitzhak (יִצְחָק)", torahContext: "Yitzhak is the second patriarch, whose binding (Akedat Yitzhak) is a central narrative", sharedProphet: true }
+  },
+  {
+    slug: "yaqub",
+    name: "Yaqub",
+    arabic: "يعقوب",
+    meaning: "Supplanter, He Who Follows",
+    detailedMeaning: "Yaqub is the Arabic form of Jacob. Also known as Israel, he was the father of the twelve tribes. In the Quran, he is praised for his patience, especially regarding the loss of his son Yusuf.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 70,
+    themes: ["patience", "faith", "family", "perseverance"],
+    variations: ["Yacoub", "Jacob (English)"],
+    similarNonArabic: [{ name: "Jacob", meaning: "Supplanter", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Yaqub (AS)", description: "Son of Ishaq, father of Yusuf and the twelve tribes" }],
+    quranicReferences: [
+      { surah: "Yusuf", ayah: "12:86", text: "He said, 'I only complain of my suffering and my grief to Allah, and I know from Allah that which you do not know.'" },
+      { surah: "Al-Baqarah", ayah: "2:132", text: "And Ibrahim instructed his sons and so did Yaqub, 'O my sons, indeed Allah has chosen for you this religion, so do not die except while you are Muslims.'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "yah-QOOB",
+    scriptureContext: { inBible: true, bibleName: "Jacob", bibleContext: "Jacob wrestled with an angel and was renamed Israel (Genesis 32).", inTorah: true, torahName: "Ya'akov (יַעֲקֹב)", torahContext: "Ya'akov is the third patriarch, whose twelve sons became the tribes of Israel", sharedProphet: true }
+  },
+  {
+    slug: "harun",
+    name: "Harun",
+    arabic: "هارون",
+    meaning: "High Mountain, Exalted",
+    detailedMeaning: "Harun is the Arabic form of Aaron, the brother of Prophet Musa. He was known for his eloquence and gentle character. Allah appointed him as Musa's assistant and prophet.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 72,
+    themes: ["eloquence", "support", "brotherhood", "prophecy"],
+    variations: ["Haroon", "Aaron (English)"],
+    similarNonArabic: [{ name: "Aaron", meaning: "High mountain", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Harun (AS)", description: "Brother and assistant of Musa, known for eloquence and patience" }],
+    quranicReferences: [
+      { surah: "Taha", ayah: "20:29-32", text: "And appoint for me a minister from my family — Harun, my brother. Increase through him my strength, and let him share my task." },
+      { surah: "Al-A'raf", ayah: "7:142", text: "And Musa said to his brother Harun, 'Take my place among my people, do right, and do not follow the way of the corrupters.'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "ha-ROON",
+    scriptureContext: { inBible: true, bibleName: "Aaron", bibleContext: "Aaron was the first High Priest of the Israelites and Moses' elder brother (Exodus 4:14).", inTorah: true, torahName: "Aharon (אַהֲרֹן)", torahContext: "Aharon was the first Kohen Gadol (High Priest) of Israel", sharedProphet: true }
+  },
+  {
+    slug: "ilyas",
+    name: "Ilyas",
+    arabic: "إلياس",
+    meaning: "My God is the Lord",
+    detailedMeaning: "Ilyas is the Arabic form of Elijah. He called his people to worship Allah alone and abandon the worship of Baal. He is praised among the righteous in the Quran.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 69,
+    themes: ["monotheism", "courage", "prophecy", "righteousness"],
+    variations: ["Elias", "Elijah (English)"],
+    similarNonArabic: [{ name: "Elijah", meaning: "My God is the Lord", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Ilyas (AS)", description: "Prophet who called his people to abandon Baal worship" }],
+    quranicReferences: [
+      { surah: "As-Saffat", ayah: "37:123-130", text: "And indeed, Ilyas was from among the messengers. When he said to his people, 'Will you not fear Allah? Do you call upon Ba'l and leave the best of creators?'" },
+      { surah: "Al-An'am", ayah: "6:85", text: "And Zakariyya and Yahya and Isa and Ilyas — all were of the righteous." }
+    ],
+    hadithReferences: [],
+    pronunciation: "il-YAAS",
+    scriptureContext: { inBible: true, bibleName: "Elijah", bibleContext: "Elijah was a prophet who challenged the prophets of Baal (1 Kings 18).", inTorah: true, torahName: "Eliyahu (אֵלִיָּהוּ)", torahContext: "Eliyahu is awaited at every Pesach seder and is said to herald the Messiah", sharedProphet: true }
+  },
+  {
+    slug: "alyasa",
+    name: "Al-Yasa",
+    arabic: "اليسع",
+    meaning: "God is Salvation",
+    detailedMeaning: "Al-Yasa is the Arabic form of Elisha, a prophet mentioned among the righteous in the Quran. He succeeded Prophet Ilyas and continued his mission.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 55,
+    themes: ["salvation", "righteousness", "continuity"],
+    variations: ["Alyasa", "Elisha (English)"],
+    similarNonArabic: [{ name: "Elisha", meaning: "God is salvation", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Al-Yasa (AS)", description: "Successor of Ilyas, mentioned among the righteous prophets" }],
+    quranicReferences: [
+      { surah: "Al-An'am", ayah: "6:86", text: "And Ismail and Al-Yasa and Yunus and Lut — and all We preferred over the worlds." },
+      { surah: "Sad", ayah: "38:48", text: "And remember Ismail, Al-Yasa and Dhul-Kifl — all are among the outstanding." }
+    ],
+    hadithReferences: [],
+    pronunciation: "al-YA-sa",
+    scriptureContext: { inBible: true, bibleName: "Elisha", bibleContext: "Elisha was the disciple and successor of Elijah, performing many miracles (2 Kings 2-13).", inTorah: true, torahName: "Elisha (אֱלִישָׁע)", torahContext: "Elisha succeeded Eliyahu as prophet", sharedProphet: true }
+  },
+  {
+    slug: "dhulkifl",
+    name: "Dhul-Kifl",
+    arabic: "ذو الكفل",
+    meaning: "The One of the Pledge",
+    detailedMeaning: "Dhul-Kifl is mentioned twice in the Quran among the patient and righteous. Many scholars identify him with the biblical Ezekiel. His name means 'the one who undertakes responsibility.'",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 45,
+    themes: ["responsibility", "patience", "righteousness"],
+    variations: ["Zulkifli", "Dhulkifl"],
+    similarNonArabic: [{ name: "Ezekiel", meaning: "God strengthens", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Dhul-Kifl (AS)", description: "Prophet praised for patience and righteousness in the Quran" }],
+    quranicReferences: [
+      { surah: "Al-Anbiya", ayah: "21:85-86", text: "And Ismail and Idris and Dhul-Kifl — all were of the patient. And We admitted them into Our mercy. Indeed, they were of the righteous." }
+    ],
+    hadithReferences: [],
+    pronunciation: "dhul-KIF-l"
+  },
+  {
+    slug: "shuayb",
+    name: "Shuayb",
+    arabic: "شعيب",
+    meaning: "Who Shows the Right Path",
+    detailedMeaning: "Prophet Shuayb was sent to the people of Madyan. He is known as 'Khatib al-Anbiya' (the orator of the prophets) for his eloquence. Often identified with the biblical Jethro.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 60,
+    themes: ["justice", "eloquence", "commerce", "honesty"],
+    variations: ["Shoaib", "Shuaib"],
+    similarNonArabic: [{ name: "Jethro", meaning: "Excellence", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Shuayb (AS)", description: "Prophet sent to Madyan, known for his eloquence and call for honest trade" }],
+    quranicReferences: [
+      { surah: "Hud", ayah: "11:84-85", text: "And to Madyan [We sent] their brother Shuayb. He said, 'O my people, worship Allah; you have no deity other than Him. And do not decrease from the measure and the scale.'" },
+      { surah: "Al-A'raf", ayah: "7:85", text: "And to Madyan [We sent] their brother Shuayb. He said, 'O my people, worship Allah; you have no deity other than Him.'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "shu-AYB"
+  },
+  {
+    slug: "hud",
+    name: "Hud",
+    arabic: "هود",
+    meaning: "Guidance, He Who Guides",
+    detailedMeaning: "Prophet Hud was sent to the people of 'Ad, a powerful ancient civilization. An entire surah (Surah 11) is named after him. He called his people to monotheism and warned them of their arrogance.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 55,
+    themes: ["guidance", "monotheism", "warning", "courage"],
+    variations: ["Hood"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Prophet Hud (AS)", description: "Prophet sent to the people of 'Ad, an entire Quranic surah is named after him" }],
+    quranicReferences: [
+      { surah: "Hud", ayah: "11:50", text: "And to 'Ad [We sent] their brother Hud. He said, 'O my people, worship Allah; you have no deity other than Him. You are not but inventors of falsehood.'" },
+      { surah: "Al-A'raf", ayah: "7:65", text: "And to 'Ad [We sent] their brother Hud. He said, 'O my people, worship Allah; you have no deity other than Him. Then will you not fear Him?'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "HOOD"
+  },
+  {
+    slug: "salih",
+    name: "Salih",
+    arabic: "صالح",
+    meaning: "Righteous, Pious, Good",
+    detailedMeaning: "Prophet Salih was sent to the people of Thamud. He brought them a miraculous she-camel as a sign from Allah, but they killed it and were destroyed. His name means 'righteous' and is one of the most popular names in Arabic.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 72,
+    themes: ["righteousness", "piety", "warning", "miracles"],
+    variations: ["Saleh", "Saalih"],
+    similarNonArabic: [{ name: "Felix", meaning: "Fortunate, good", origin: "Latin" }],
+    famousBearers: [{ name: "Prophet Salih (AS)", description: "Prophet sent to Thamud, brought the miraculous she-camel" }],
+    quranicReferences: [
+      { surah: "Hud", ayah: "11:61", text: "And to Thamud [We sent] their brother Salih. He said, 'O my people, worship Allah; you have no deity other than Him.'" },
+      { surah: "Ash-Shu'ara", ayah: "26:142-145", text: "When their brother Salih said to them, 'Will you not fear Allah? Indeed, I am to you a trustworthy messenger.'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "SAH-lih"
+  },
+  {
+    slug: "zakariyya",
+    name: "Zakariyya",
+    arabic: "زكريا",
+    meaning: "God Remembers",
+    detailedMeaning: "Zakariyya is the Arabic form of Zechariah. He was a prophet who cared for Maryam in the temple and prayed to Allah for a son in his extreme old age. Allah answered his prayer and granted him Yahya.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 65,
+    themes: ["prayer", "patience", "hope", "devotion"],
+    variations: ["Zakariya", "Zechariah (English)"],
+    similarNonArabic: [{ name: "Zechariah", meaning: "God remembers", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Zakariyya (AS)", description: "Caretaker of Maryam, father of Yahya, answered by Allah in old age" }],
+    quranicReferences: [
+      { surah: "Maryam", ayah: "19:2-7", text: "[This is] a mention of the mercy of your Lord to His servant Zakariyya. When he called to his Lord a private supplication. He said, 'My Lord, indeed my bones have weakened, and my head has filled with white, and never have I been in my supplication to You, my Lord, unhappy.'" },
+      { surah: "Al-Imran", ayah: "3:37-38", text: "Every time Zakariyya entered upon her in the prayer chamber, he found with her provision. He said, 'O Maryam, from where is this for you?' She said, 'It is from Allah.'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "za-ka-RIY-yah",
+    scriptureContext: { inBible: true, bibleName: "Zechariah", bibleContext: "Zechariah was a priest who was told by an angel that his wife Elizabeth would bear a son, John the Baptist (Luke 1:5-25).", inTorah: true, torahName: "Zekharyah (זְכַרְיָה)", torahContext: "Zekharyah is one of the Twelve Minor Prophets", sharedProphet: true }
+  },
+  {
+    slug: "yahya",
+    name: "Yahya",
+    arabic: "يحيى",
+    meaning: "He Lives, God is Gracious",
+    detailedMeaning: "Yahya is the Arabic form of John (the Baptist). He was the son of Prophet Zakariyya, given as a miracle child. The Quran says he was given 'judgment while yet a boy' and was 'compassionate and pure.'",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 78,
+    themes: ["purity", "compassion", "wisdom", "devotion"],
+    variations: ["Yehya", "John (English)"],
+    similarNonArabic: [{ name: "John", meaning: "God is gracious", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Yahya (AS)", description: "Son of Zakariyya, given wisdom as a child, known for extreme piety" }],
+    quranicReferences: [
+      { surah: "Maryam", ayah: "19:12-15", text: "'O Yahya, take the Scripture with determination.' And We gave him judgment while yet a boy. And affection from Us and purity, and he was fearing of Allah. And dutiful to his parents, and he was not a disobedient tyrant." },
+      { surah: "Al-Imran", ayah: "3:39", text: "The angels called him while he was standing in prayer in the chamber, 'Indeed, Allah gives you good tidings of Yahya, confirming a word from Allah and [who will be] noble, abstaining, and a prophet from among the righteous.'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "YAH-yah",
+    scriptureContext: { inBible: true, bibleName: "John the Baptist", bibleContext: "John the Baptist baptized Jesus in the Jordan River and is considered the forerunner of the Messiah (Matthew 3).", inTorah: false, sharedProphet: true }
+  },
+  {
+    slug: "adam",
+    name: "Adam",
+    arabic: "آدم",
+    meaning: "Made from Earth, Human",
+    detailedMeaning: "Adam is the first human and first prophet in Islam. Created by Allah from clay, he was taught the names of all things and was honored by Allah who commanded the angels to prostrate to him. The story of Adam teaches humility, repentance, and divine mercy.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 92,
+    themes: ["creation", "knowledge", "repentance", "humility"],
+    variations: ["Aadam"],
+    similarNonArabic: [{ name: "Adam", meaning: "Earth", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Adam (AS)", description: "First human, first prophet, father of all humanity" }],
+    quranicReferences: [
+      { surah: "Al-Baqarah", ayah: "2:31", text: "And He taught Adam the names — all of them. Then He showed them to the angels and said, 'Inform Me of the names of these, if you are truthful.'" },
+      { surah: "Al-A'raf", ayah: "7:11", text: "And We have certainly created you, then fashioned you, then said to the angels, 'Prostrate to Adam'; so they prostrated, except for Iblis." }
+    ],
+    hadithReferences: [{ source: "Sahih Muslim", text: "The Prophet ﷺ said: 'Allah created Adam in His image, sixty cubits tall.'" }],
+    pronunciation: "AH-dam",
+    scriptureContext: { inBible: true, bibleName: "Adam", bibleContext: "Adam was the first man created by God from the dust of the ground (Genesis 2:7).", inTorah: true, torahName: "Adam (אָדָם)", torahContext: "Adam was created from the adamah (earth) and placed in Gan Eden (Garden of Eden)", sharedProphet: true }
+  },
+  {
+    slug: "lut",
+    name: "Lut",
+    arabic: "لوط",
+    meaning: "Hidden, Covered",
+    detailedMeaning: "Lut is the Arabic form of Lot. He was the nephew of Prophet Ibrahim who was sent to the people of Sodom to call them to righteousness. He is praised in the Quran for his perseverance.",
+    gender: "male",
+    origin: "Arabic / Hebrew",
+    isQuranic: true,
+    popularity: 50,
+    themes: ["righteousness", "perseverance", "morality"],
+    variations: ["Lot (English)"],
+    similarNonArabic: [{ name: "Lot", meaning: "Hidden", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Lut (AS)", description: "Nephew of Ibrahim, sent to the people of Sodom" }],
+    quranicReferences: [
+      { surah: "Al-A'raf", ayah: "7:80-84", text: "And Lut, when he said to his people, 'Do you commit such immorality as no one has preceded you with from among the worlds?'" }
+    ],
+    hadithReferences: [],
+    pronunciation: "LOOT",
+    scriptureContext: { inBible: true, bibleName: "Lot", bibleContext: "Lot was Abraham's nephew who lived in Sodom (Genesis 19).", inTorah: true, torahName: "Lot (לוֹט)", torahContext: "Lot was Avraham's nephew who settled in Sedom", sharedProphet: true }
+  },
+  // Female Quranic-era names
+  {
+    slug: "jannah",
+    name: "Jannah",
+    arabic: "جنة",
+    meaning: "Paradise, Garden",
+    detailedMeaning: "Jannah is the Arabic word for Paradise/Heaven, mentioned over 70 times in the Quran. It represents the ultimate reward for believers — gardens beneath which rivers flow.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 75,
+    themes: ["paradise", "reward", "beauty", "hope"],
+    variations: ["Janna", "Jennah"],
+    similarNonArabic: [{ name: "Eden", meaning: "Garden of delight", origin: "Hebrew" }],
+    famousBearers: [],
+    quranicReferences: [
+      { surah: "Al-Baqarah", ayah: "2:35", text: "And We said, 'O Adam, dwell, you and your wife, in Jannah and eat therefrom in abundance from wherever you will.'" }
+    ],
+    hadithReferences: [{ source: "Sahih Muslim", text: "The Prophet ﷺ said: 'In Jannah there are things that no eye has seen, no ear has heard, and no human heart has imagined.'" }],
+    pronunciation: "JAN-nah"
+  },
+  {
+    slug: "kawthar",
+    name: "Kawthar",
+    arabic: "كوثر",
+    meaning: "Abundance, River in Paradise",
+    detailedMeaning: "Al-Kawthar is a river in Paradise given exclusively to Prophet Muhammad ﷺ. An entire surah (Surah 108) is named after it. The name represents divine abundance and generosity.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 68,
+    themes: ["abundance", "blessing", "paradise", "generosity"],
+    variations: ["Kawsar", "Kauthar"],
+    similarNonArabic: [],
+    famousBearers: [],
+    quranicReferences: [
+      { surah: "Al-Kawthar", ayah: "108:1", text: "Indeed, We have granted you Al-Kawthar." }
+    ],
+    hadithReferences: [{ source: "Sahih Bukhari", text: "The Prophet ﷺ said: 'Al-Kawthar is a river in Paradise, its banks are of gold and its bed is of pearls and rubies, its soil is more fragrant than musk and its water is sweeter than honey and whiter than milk.'" }],
+    pronunciation: "KAW-thar"
+  },
+  {
+    slug: "sidra",
+    name: "Sidra",
+    arabic: "سدرة",
+    meaning: "Lote Tree",
+    detailedMeaning: "Sidrat al-Muntaha is the Lote Tree at the boundary of the seventh heaven, beyond which no creation has passed. Prophet Muhammad ﷺ saw it during the Night Journey (Isra and Mi'raj). It represents the ultimate limit of human knowledge.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 72,
+    themes: ["spirituality", "beauty", "transcendence", "knowledge"],
+    variations: ["Sidrah"],
+    similarNonArabic: [],
+    famousBearers: [],
+    quranicReferences: [
+      { surah: "An-Najm", ayah: "53:14-16", text: "Near the Sidrat al-Muntaha — Near it is the Garden of Refuge — When there covered the Lote Tree that which covered [it]." }
+    ],
+    hadithReferences: [],
+    pronunciation: "SID-rah"
+  },
+  {
+    slug: "baraka",
+    name: "Baraka",
+    arabic: "بركة",
+    meaning: "Blessing, Divine Grace",
+    detailedMeaning: "Baraka means divine blessing and grace. The concept of baraka (بركة) is central to Islamic spirituality — it represents the spiritual power and blessing from Allah that flows through people, places, and objects.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 65,
+    themes: ["blessing", "grace", "spirituality", "abundance"],
+    variations: ["Barakah", "Barka"],
+    similarNonArabic: [{ name: "Grace", meaning: "Divine grace", origin: "English" }],
+    famousBearers: [{ name: "Umm Ayman (Baraka)", description: "Nursemaid and caretaker of Prophet Muhammad ﷺ, one of the first converts to Islam" }],
+    quranicReferences: [
+      { surah: "Al-A'raf", ayah: "7:96", text: "And if only the people of the cities had believed and feared Allah, We would have opened upon them blessings (barakat) from the heaven and the earth." }
+    ],
+    hadithReferences: [],
+    pronunciation: "BA-ra-kah"
+  },
+  {
+    slug: "taqwa",
+    name: "Taqwa",
+    arabic: "تقوى",
+    meaning: "God-Consciousness, Piety",
+    detailedMeaning: "Taqwa is one of the most important concepts in Islam — it means consciousness and fear of Allah, piety, and mindfulness of one's duty to God. It appears over 250 times in the Quran in various forms.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 60,
+    themes: ["piety", "consciousness", "virtue", "devotion"],
+    variations: ["Takwa"],
+    similarNonArabic: [{ name: "Piety", meaning: "Religious devotion", origin: "English" }],
+    famousBearers: [],
+    quranicReferences: [
+      { surah: "Al-Hujurat", ayah: "49:13", text: "Indeed, the most noble of you in the sight of Allah is the most righteous of you (atqakum — having most taqwa)." }
+    ],
+    hadithReferences: [{ source: "Sahih Muslim", text: "The Prophet ﷺ pointed to his chest three times and said: 'Taqwa is here.'" }],
+    pronunciation: "TAQ-wah"
+  },
+  {
+    slug: "ayah",
+    name: "Ayah",
+    arabic: "آية",
+    meaning: "Sign, Miracle, Verse of the Quran",
+    detailedMeaning: "Ayah means a sign or miracle from Allah, and it is also the word for a verse of the Quran. The Quran itself contains over 6,000 ayat (verses). The word conveys the idea that everything in creation is a sign pointing to Allah.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 78,
+    themes: ["miracle", "scripture", "beauty", "divine"],
+    variations: ["Aya", "Aaya"],
+    similarNonArabic: [{ name: "Miracle", meaning: "Wonder", origin: "English" }],
+    famousBearers: [],
+    quranicReferences: [
+      { surah: "Fussilat", ayah: "41:53", text: "We will show them Our signs (ayat) in the horizons and within themselves until it becomes clear to them that it is the truth." }
+    ],
+    hadithReferences: [],
+    pronunciation: "AH-yah"
   }
 ];

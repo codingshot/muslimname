@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { findNameBySlug, namesDatabase } from "@/data/names";
 import { christianToMuslimNameMapping } from "@/data/nameMapping";
 import Layout from "@/components/Layout";
@@ -9,17 +9,30 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book } from "lucide-react";
 import { motion } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
+import { speakArabic, preloadVoices } from "@/lib/pronunciation";
 
 export default function NameDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [loading, setLoading] = useState(true);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const { isFavorite, toggleFavorite } = useProfile();
+
+  useEffect(() => {
+    preloadVoices();
+  }, []);
 
   useEffect(() => {
     setLoading(true);
     const t = setTimeout(() => setLoading(false), 300);
     return () => clearTimeout(t);
   }, [slug]);
+
+  const handleSpeak = useCallback((arabic: string, name: string) => {
+    setIsSpeaking(true);
+    speakArabic(arabic, name);
+    // Reset speaking state after a delay
+    setTimeout(() => setIsSpeaking(false), 2000);
+  }, []);
 
   const name = findNameBySlug(slug || "");
 
@@ -103,10 +116,18 @@ export default function NameDetail() {
             </div>
           </div>
           <div className="mt-4 sm:mt-6 flex items-center gap-2 sm:gap-3 flex-wrap">
-            <div className="flex items-center gap-2 bg-muted rounded-lg px-3 py-1.5">
-              <Volume2 className="w-4 h-4 text-muted-foreground" />
-              <span className="text-foreground text-sm font-medium">{name.pronunciation}</span>
-            </div>
+            <button
+              onClick={() => handleSpeak(name.arabic, name.name)}
+              className={`flex items-center gap-2 rounded-lg px-3 py-1.5 transition-all ${
+                isSpeaking
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted hover:bg-primary/10 hover:text-primary"
+              }`}
+              aria-label={`Listen to ${name.name} in Arabic`}
+            >
+              <Volume2 className={`w-4 h-4 ${isSpeaking ? "animate-pulse" : ""}`} />
+              <span className="text-sm font-medium">{name.pronunciation}</span>
+            </button>
             {name.themes.map(theme => (
               <Link
                 key={theme}
