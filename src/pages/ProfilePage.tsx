@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { useProfile, type FavoriteEntry } from "@/hooks/useProfile";
-import { findNameBySlug, namesDatabase } from "@/data/names";
+import { useProfile, type FavoriteEntry, type NamePosition } from "@/hooks/useProfile";
+import { findNameBySlug } from "@/data/names";
 import { getMappingContext } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ const meaningKeywords = [
 ];
 
 export default function ProfilePage() {
-  const { profile, updateSettings, toggleFavorite, setFavoritePosition, reorderFavorites } = useProfile();
+  const { profile, updateSettings, toggleFavorite, togglePosition, setFavoritePosition, reorderFavorites } = useProfile();
   const [activeTab, setActiveTab] = useState<"favorites" | "settings">("favorites");
   const dragItem = useRef<number | null>(null);
   const dragOverItem = useRef<number | null>(null);
@@ -43,9 +43,8 @@ export default function ProfilePage() {
     dragOverItem.current = null;
   };
 
-  const firstNameContenders = profile.favorites.filter(f => f.position === "first");
-  const lastNameContenders = profile.favorites.filter(f => f.position === "last");
-  const undecided = profile.favorites.filter(f => f.position === "undecided");
+  const firstNameEntries = profile.favorites.filter(f => f.positions.includes("first"));
+  const lastNameEntries = profile.favorites.filter(f => f.positions.includes("last"));
 
   return (
     <Layout>
@@ -92,7 +91,7 @@ export default function ProfilePage() {
                 <Star className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">No favorites yet</h3>
                 <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
-                  Browse names and tap the star icon to save your favorites. You can organize them as first or last name contenders.
+                  Browse names and tap the star icon to save your favorites. You can tag them as first or last name contenders.
                 </p>
                 <Link to="/names">
                   <Button className="rounded-xl">
@@ -103,46 +102,90 @@ export default function ProfilePage() {
             ) : (
               <>
                 {/* First Name Contenders */}
-                <FavoriteSection
+                <DropSection
                   title="📝 First Name Contenders"
-                  entries={firstNameContenders}
-                  allFavorites={profile.favorites}
-                  onRemove={toggleFavorite}
-                  onPositionChange={setFavoritePosition}
-                  onDragStart={handleDragStart}
-                  onDragEnter={handleDragEnter}
-                  onDragEnd={handleDragEnd}
-                  emptyMessage="Drag names here to mark as first name contenders"
-                  sectionPosition="first"
+                  targetPosition="first"
+                  entries={firstNameEntries}
+                  onDrop={setFavoritePosition}
+                  emptyMessage="Drag names here or click the 'First' tag to add"
                 />
 
                 {/* Last Name Contenders */}
-                <FavoriteSection
+                <DropSection
                   title="📝 Last Name Contenders"
-                  entries={lastNameContenders}
-                  allFavorites={profile.favorites}
-                  onRemove={toggleFavorite}
-                  onPositionChange={setFavoritePosition}
-                  onDragStart={handleDragStart}
-                  onDragEnter={handleDragEnter}
-                  onDragEnd={handleDragEnd}
-                  emptyMessage="Drag names here to mark as last name contenders"
-                  sectionPosition="last"
+                  targetPosition="last"
+                  entries={lastNameEntries}
+                  onDrop={setFavoritePosition}
+                  emptyMessage="Drag names here or click the 'Last' tag to add"
                 />
 
-                {/* Undecided */}
-                <FavoriteSection
-                  title="⭐ All Saved Names"
-                  entries={undecided}
-                  allFavorites={profile.favorites}
-                  onRemove={toggleFavorite}
-                  onPositionChange={setFavoritePosition}
-                  onDragStart={handleDragStart}
-                  onDragEnter={handleDragEnter}
-                  onDragEnd={handleDragEnd}
-                  emptyMessage="No undecided names"
-                  sectionPosition="undecided"
-                />
+                {/* All Saved Names */}
+                <div className="rounded-xl p-4 bg-card border border-border">
+                  <h3 className="font-display text-base font-semibold text-foreground mb-3">⭐ All Saved Names</h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Tag names as First, Last, or both. Names stay here regardless of tags.
+                  </p>
+                  <div className="space-y-2">
+                    {profile.favorites.map((entry, idx) => {
+                      const nameData = findNameBySlug(entry.slug);
+                      if (!nameData) return null;
+                      return (
+                        <div
+                          key={entry.slug}
+                          draggable
+                          onDragStart={(e) => {
+                            e.dataTransfer.setData("text/slug", entry.slug);
+                            handleDragStart(idx);
+                          }}
+                          onDragEnter={() => handleDragEnter(idx)}
+                          onDragEnd={handleDragEnd}
+                          onDragOver={e => e.preventDefault()}
+                          className="flex items-center gap-3 bg-background rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
+                        >
+                          <GripVertical className="w-4 h-4 text-muted-foreground shrink-0" />
+                          <Link to={`/name/${entry.slug}`} className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2">
+                              <span className="font-display font-semibold text-foreground truncate">{nameData.name}</span>
+                              <span className="font-arabic text-sm text-secondary">{nameData.arabic}</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground truncate">{nameData.meaning}</p>
+                          </Link>
+
+                          {/* Position tags */}
+                          <div className="flex gap-1 shrink-0">
+                            <button
+                              onClick={() => togglePosition(entry.slug, "first")}
+                              className={`px-2 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                                entry.positions.includes("first")
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                              }`}
+                            >
+                              First
+                            </button>
+                            <button
+                              onClick={() => togglePosition(entry.slug, "last")}
+                              className={`px-2 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                                entry.positions.includes("last")
+                                  ? "bg-secondary text-secondary-foreground"
+                                  : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                              }`}
+                            >
+                              Last
+                            </button>
+                          </div>
+
+                          <button
+                            onClick={() => toggleFavorite(entry.slug)}
+                            className="p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors shrink-0"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </>
             )}
           </motion.div>
@@ -248,103 +291,53 @@ export default function ProfilePage() {
   );
 }
 
-function FavoriteSection({
+/** Drop target section for First/Last name contenders */
+function DropSection({
   title,
+  targetPosition,
   entries,
-  allFavorites,
-  onRemove,
-  onPositionChange,
-  onDragStart,
-  onDragEnter,
-  onDragEnd,
+  onDrop,
   emptyMessage,
-  sectionPosition,
 }: {
   title: string;
+  targetPosition: NamePosition;
   entries: FavoriteEntry[];
-  allFavorites: FavoriteEntry[];
-  onRemove: (slug: string) => void;
-  onPositionChange: (slug: string, pos: FavoriteEntry["position"]) => void;
-  onDragStart: (index: number) => void;
-  onDragEnter: (index: number) => void;
-  onDragEnd: () => void;
+  onDrop: (slug: string, position: "first" | "last" | "undecided") => void;
   emptyMessage: string;
-  sectionPosition?: FavoriteEntry["position"];
 }) {
   const [dragOver, setDragOver] = useState(false);
 
-  const handleSectionDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-    setDragOver(true);
-  };
-
-  const handleSectionDragLeave = () => {
-    setDragOver(false);
-  };
-
-  const handleSectionDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setDragOver(false);
-    // Get the slug from the drag data
-    const slug = e.dataTransfer.getData("text/slug");
-    if (slug && sectionPosition) {
-      onPositionChange(slug, sectionPosition);
-    }
-  };
-
   return (
     <div
-      onDragOver={sectionPosition ? handleSectionDragOver : undefined}
-      onDragLeave={sectionPosition ? handleSectionDragLeave : undefined}
-      onDrop={sectionPosition ? handleSectionDrop : undefined}
-      className={`rounded-xl p-4 transition-colors ${dragOver ? "bg-primary/10 border-2 border-dashed border-primary" : "bg-card border border-border"}`}
+      onDragOver={e => { e.preventDefault(); setDragOver(true); }}
+      onDragLeave={() => setDragOver(false)}
+      onDrop={e => {
+        e.preventDefault();
+        setDragOver(false);
+        const slug = e.dataTransfer.getData("text/slug");
+        if (slug) onDrop(slug, targetPosition);
+      }}
+      className={`rounded-xl p-4 transition-colors ${
+        dragOver ? "bg-primary/10 border-2 border-dashed border-primary" : "bg-card border border-border"
+      }`}
     >
-      <h3 className="font-display text-base font-semibold text-foreground mb-3">{title}</h3>
+      <h3 className="font-display text-base font-semibold text-foreground mb-2">{title}</h3>
       {entries.length === 0 ? (
-        <p className="text-sm text-muted-foreground italic py-3">{emptyMessage}</p>
+        <p className="text-sm text-muted-foreground italic py-2">{emptyMessage}</p>
       ) : (
-        <div className="space-y-2">
+        <div className="flex gap-1.5 flex-wrap">
           {entries.map(entry => {
-            const globalIdx = allFavorites.findIndex(f => f.slug === entry.slug);
             const nameData = findNameBySlug(entry.slug);
             if (!nameData) return null;
             return (
-              <div
+              <Link
                 key={entry.slug}
-                draggable
-                onDragStart={(e) => {
-                  e.dataTransfer.setData("text/slug", entry.slug);
-                  onDragStart(globalIdx);
-                }}
-                onDragEnter={() => onDragEnter(globalIdx)}
-                onDragEnd={onDragEnd}
-                onDragOver={e => e.preventDefault()}
-                className="flex items-center gap-3 bg-background rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
+                to={`/name/${entry.slug}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20 transition-colors"
               >
-                <GripVertical className="w-4 h-4 text-muted-foreground shrink-0" />
-                <Link to={`/name/${entry.slug}`} className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="font-display font-semibold text-foreground truncate">{nameData.name}</span>
-                    <span className="font-arabic text-sm text-secondary">{nameData.arabic}</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground truncate">{nameData.meaning}</p>
-                </Link>
-                <select
-                  value={entry.position}
-                  onChange={e => onPositionChange(entry.slug, e.target.value as FavoriteEntry["position"])}
-                  className="text-xs bg-muted rounded-md px-2 py-1 border-0 text-foreground"
-                >
-                  <option value="undecided">Undecided</option>
-                  <option value="first">First Name</option>
-                  <option value="last">Last Name</option>
-                </select>
-                <button
-                  onClick={() => onRemove(entry.slug)}
-                  className="p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors shrink-0"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
+                {nameData.name}
+                <span className="font-arabic text-xs text-secondary">{nameData.arabic}</span>
+              </Link>
             );
           })}
         </div>
