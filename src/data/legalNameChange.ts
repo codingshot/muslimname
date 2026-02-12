@@ -43,8 +43,8 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
       "Consider consulting a local imam who may have experience guiding converts through this process"
     ],
     resources: [
-      { title: "USCIS - Legal Name Change", url: "https://www.uscis.gov" },
-      { title: "Social Security Name Change", url: "https://www.ssa.gov/myaccount/name-change.html" },
+      { title: "USCIS - Update Immigration Documents", url: "https://www.uscis.gov" },
+      { title: "Social Security Name Change", url: "https://www.ssa.gov/personal-record/change-name" },
       { title: "US Passport Name Change", url: "https://travel.state.gov/content/travel/en/passports/have-passport/change-correct.html" }
     ],
     religiousExemptions: "Most US states recognize religious conversion as a valid reason for name changes. Some states may waive publication requirements for religious name changes. No state requires you to change your name upon conversion — it is entirely voluntary.",
@@ -55,13 +55,13 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     countryCode: "GB",
     flag: "🇬🇧",
     overview: "The UK has one of the simplest name change processes in the world. You can change your name by 'usage' (simply starting to use a new name) or formally through a Deed Poll. No court order is required.",
-    estimatedCost: "£0 - £42 (enrolled deed poll costs more)",
-    estimatedCostUSD: [0, 53],
+    estimatedCost: "£0 - £53 (enrolled deed poll)",
+    estimatedCostUSD: [0, 67],
     estimatedTimeline: "1 - 4 weeks",
     estimatedTimelineWeeks: [1, 4],
     difficulty: "easy",
     steps: [
-      { title: "Decide Between Unenrolled and Enrolled Deed Poll", description: "An unenrolled deed poll is free and sufficient for most purposes. An enrolled deed poll (£42) creates a permanent public record at the Royal Courts of Justice.", documents: [] },
+      { title: "Decide Between Unenrolled and Enrolled Deed Poll", description: "An unenrolled deed poll is free and sufficient for most purposes. An enrolled deed poll (£53.05) creates a permanent public record at the Royal Courts of Justice.", documents: [] },
       { title: "Create Your Deed Poll Document", description: "Write or print a deed poll document stating your old name, new name, and your intention to abandon the old name. You can use free templates online.", documents: ["Deed poll document"] },
       { title: "Sign and Witness", description: "Sign the deed poll in the presence of two independent witnesses (not family members). They must also sign.", documents: ["Signed deed poll", "Witness signatures"] },
       { title: "Update Your Records", description: "Send copies of your deed poll to update your passport, driving licence, bank accounts, HMRC records, GP, etc.", documents: ["Deed poll copies", "Current documents"] }
@@ -413,10 +413,10 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     lastUpdated: "2026-01"
   },
   {
-    country: "Turkey",
+    country: "Türkiye",
     countryCode: "TR",
     flag: "🇹🇷",
-    overview: "Turkey requires a court order for name changes, obtained through a Civil Court of First Instance (Asliye Hukuk Mahkemesi). The process is well-defined under the Turkish Civil Code Article 27.",
+    overview: "Türkiye requires a court order for name changes, obtained through a Civil Court of First Instance (Asliye Hukuk Mahkemesi). The process is well-defined under the Turkish Civil Code Article 27.",
     estimatedCost: "₺500 - ₺2,000",
     estimatedCostUSD: [15, 60],
     estimatedTimeline: "4 - 12 weeks",
@@ -432,7 +432,7 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     tips: [
       "A lawyer is not required but can speed up the process significantly",
       "The Diyanet İşleri Başkanlığı (Directorate of Religious Affairs) can provide supporting documentation",
-      "Turkey's civil code allows name changes for 'just cause' (haklı sebep) — religion qualifies",
+      "Türkiye's civil code allows name changes for 'just cause' (haklı sebep) — religion qualifies",
       "After court approval, updates to nüfus records happen within days",
       "Passport and other document updates follow the nüfus update automatically"
     ],
@@ -441,7 +441,7 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
       { title: "Diyanet İşleri Başkanlığı", url: "https://www.diyanet.gov.tr" },
       { title: "Nüfus ve Vatandaşlık İşleri", url: "https://www.nvi.gov.tr" }
     ],
-    religiousExemptions: "Turkish Civil Code Article 27 allows name changes for 'just cause' (haklı sebep). Religious conversion is well-established as a valid reason. Turkey's Diyanet (Religious Affairs) can provide supporting documentation.",
+    religiousExemptions: "Turkish Civil Code Article 27 allows name changes for 'just cause' (haklı sebep). Religious conversion is well-established as a valid reason. Türkiye's Diyanet (Religious Affairs) can provide supporting documentation.",
     lastUpdated: "2026-01"
   },
   {
@@ -6259,7 +6259,7 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     lastUpdated: "2026-02"
   },
   {
-    country: "Virgin Islands",
+    country: "British Virgin Islands",
     countryCode: "VG",
     flag: "🇻🇬",
     overview: "Virgin Islands (British) handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
@@ -6286,7 +6286,7 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     lastUpdated: "2026-02"
   },
   {
-    country: "Virgin Islands",
+    country: "United States Virgin Islands",
     countryCode: "VI",
     flag: "🇻🇮",
     overview: "Virgin Islands (U.S.) handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
@@ -6418,6 +6418,226 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
       { title: "Contact local civil registry", url: "#" }
     ],
     religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Åland Islands",
+    countryCode: "AX",
+    flag: "🇦🇽",
+    overview: "Åland Islands handles name changes through the Finnish Civil Registry (Maistraatti). As an autonomous region of Finland, the process follows Finnish law.",
+    estimatedCost: "Varies",
+    estimatedCostUSD: [20, 200],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at the local Maistraatti or Finnish Digital and Population Data Services.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change application according to Finnish procedures.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update ID and other official records once approved.", documents: ["Approval", "Old documents"] }
+    ],
+    tips: ["Verify with Finnish authorities — Åland follows Finnish civil law", "Swedish is the official language"],
+    resources: [{ title: "Finnish Population Register", url: "https://dvv.fi" }],
+    religiousExemptions: "Finnish law permits name changes for valid reasons including religious conversion.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bonaire, Sint Eustatius and Saba",
+    countryCode: "BQ",
+    flag: "🇧🇶",
+    overview: "The Caribbean Netherlands (Bonaire, Sint Eustatius, Saba) handle name changes through the Civil Registry (Bevolkingsregister). Procedures follow Dutch law.",
+    estimatedCost: "Varies",
+    estimatedCostUSD: [30, 250],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Apply at the local municipality or civil registry office.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change request with required documentation.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update ID and other records once approved.", documents: ["Approval", "Old documents"] }
+    ],
+    tips: ["Dutch law applies; contact local civil registry for specifics", "Documents may need apostille if from abroad"],
+    resources: [{ title: "Government of Bonaire", url: "https://www.bonairegov.com" }],
+    religiousExemptions: "Dutch law permits name changes for valid reasons including religious conversion.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Christmas Island",
+    countryCode: "CX",
+    flag: "🇨🇽",
+    overview: "Christmas Island is an Australian external territory. Name changes follow Australian law through the Australian Government.",
+    estimatedCost: "AUD 50 - 200",
+    estimatedCostUSD: [33, 130],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Births, Deaths and Marriages", description: "Apply through the relevant Australian state/territory registry.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Complete the name change application.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update Australian documents.", documents: ["Certificate", "Old documents"] }
+    ],
+    tips: ["Australian procedures apply; residents use Australian state registries"],
+    resources: [{ title: "Australian BDM", url: "https://www.ag.gov.au" }],
+    religiousExemptions: "Australian law permits name changes for valid reasons including religious conversion.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cocos (Keeling) Islands",
+    countryCode: "CC",
+    flag: "🇨🇨",
+    overview: "The Cocos (Keeling) Islands are an Australian external territory. Name changes follow Australian law.",
+    estimatedCost: "AUD 50 - 200",
+    estimatedCostUSD: [33, 130],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Australian Registry", description: "Apply through the relevant Australian state registry.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Complete the name change application.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update Australian documents.", documents: ["Certificate", "Old documents"] }
+    ],
+    tips: ["Australian procedures apply for residents"],
+    resources: [{ title: "Australian BDM", url: "https://www.ag.gov.au" }],
+    religiousExemptions: "Australian law permits name changes for valid reasons including religious conversion.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Gibraltar",
+    countryCode: "GI",
+    flag: "🇬🇮",
+    overview: "Gibraltar handles name changes through the Civil Status and Registration Office. As a British Overseas Territory, procedures may follow UK-influenced law.",
+    estimatedCost: "£50 - £200",
+    estimatedCostUSD: [63, 250],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Status Office", description: "Inquire at the Civil Status and Registration Office.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change request with required documents.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update Gibraltar ID and other records.", documents: ["Certificate", "Old documents"] }
+    ],
+    tips: ["Contact the Gibraltar Government for current procedures", "UK-style deed poll may be recognised"],
+    resources: [{ title: "Gibraltar Government", url: "https://www.gibraltar.gov.gi" }],
+    religiousExemptions: "Religious conversion is typically accepted as a valid reason. Verify with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Guernsey",
+    countryCode: "GG",
+    flag: "🇬🇬",
+    overview: "Guernsey handles name changes through the Greffe. The process is straightforward for residents.",
+    estimatedCost: "£30 - £150",
+    estimatedCostUSD: [38, 188],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact the Greffe", description: "Apply at the Royal Court of Guernsey Greffe.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change application.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update ID and other records.", documents: ["Certificate", "Old documents"] }
+    ],
+    tips: ["Channel Islands have their own legal system", "Deed poll may be used"],
+    resources: [{ title: "States of Guernsey", url: "https://www.gov.gg" }],
+    religiousExemptions: "Religious conversion is generally accepted. Verify with the Greffe.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Isle of Man",
+    countryCode: "IM",
+    flag: "🇮🇲",
+    overview: "The Isle of Man handles name changes through the Civil Registry. The process follows Manx law.",
+    estimatedCost: "£30 - £150",
+    estimatedCostUSD: [38, 188],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Apply at the General Registry.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change application or deed poll.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update Manx and UK documents.", documents: ["Certificate", "Old documents"] }
+    ],
+    tips: ["UK deed poll is often recognised", "Independent legal jurisdiction"],
+    resources: [{ title: "Isle of Man Government", url: "https://www.gov.im" }],
+    religiousExemptions: "Religious conversion is generally accepted. Verify with the General Registry.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Jersey",
+    countryCode: "JE",
+    flag: "🇯🇪",
+    overview: "Jersey handles name changes through the Judicial Greffe. The process follows Jersey law.",
+    estimatedCost: "£30 - £150",
+    estimatedCostUSD: [38, 188],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Judicial Greffe", description: "Apply at the Royal Court of Jersey.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change application or deed poll.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update Jersey and UK documents.", documents: ["Certificate", "Old documents"] }
+    ],
+    tips: ["Channel Islands have their own legal system", "UK deed poll may be recognised"],
+    resources: [{ title: "Gov.je", url: "https://www.gov.je" }],
+    religiousExemptions: "Religious conversion is generally accepted. Verify with the Judicial Greffe.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Saint Helena, Ascension and Tristan da Cunha",
+    countryCode: "SH",
+    flag: "🇸🇭",
+    overview: "Saint Helena, Ascension and Tristan da Cunha handle name changes through the Civil Registration Office. As British Overseas Territories, procedures follow local regulations.",
+    estimatedCost: "£20 - £100",
+    estimatedCostUSD: [25, 125],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registration", description: "Apply at the local Civil Registration Office.", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change request.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update local and UK documents.", documents: ["Certificate", "Old documents"] }
+    ],
+    tips: ["Remote territories — allow extra time", "UK deed poll may be recognised"],
+    resources: [{ title: "St Helena Government", url: "https://www.sainthelena.gov.sh" }],
+    religiousExemptions: "Religious conversion is generally accepted. Verify with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Svalbard and Jan Mayen",
+    countryCode: "SJ",
+    flag: "🇸🇯",
+    overview: "Svalbard and Jan Mayen follow Norwegian law. Name changes are processed through the Norwegian Tax Administration (Skatteetaten) and Population Register.",
+    estimatedCost: "NOK 0 - 500",
+    estimatedCostUSD: [0, 50],
+    estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Norwegian Registry", description: "Apply through the Norwegian Population Register (Folkeregisteret).", documents: ["ID", "Birth certificate"] },
+      { title: "Submit Application", description: "Submit the name change application to Skatteetaten.", documents: ["Application", "Supporting documents"] },
+      { title: "Update Records", description: "Update Norwegian ID and other records.", documents: ["Approval", "Old documents"] }
+    ],
+    tips: ["Norwegian law applies; Svalbard has special status", "Digital application available"],
+    resources: [{ title: "Skatteetaten", url: "https://www.skatteetaten.no" }],
+    religiousExemptions: "Norwegian law permits name changes for valid reasons including religious conversion.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "United States Minor Outlying Islands",
+    countryCode: "UM",
+    flag: "🇺🇲",
+    overview: "US Minor Outlying Islands (e.g. Midway, Wake, Johnston Atoll) have no permanent population. Residents typically use US state procedures for name changes.",
+    estimatedCost: "Varies by US state",
+    estimatedCostUSD: [150, 500],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Use US State Procedures", description: "Apply for name change in your US state of residence or last residence.", documents: ["ID", "Birth certificate", "Court petition"] },
+      { title: "Court Order", description: "Obtain a court order from a US court.", documents: ["Court order"] },
+      { title: "Update Records", description: "Update Social Security, passport, and other US documents.", documents: ["Court order", "Old documents"] }
+    ],
+    tips: ["No civil registry on uninhabited islands; use continental US procedures", "Military/civilian personnel may have specific processes"],
+    resources: [{ title: "US Courts", url: "https://www.uscourts.gov" }],
+    religiousExemptions: "US law permits name changes for valid reasons including religious conversion.",
     lastUpdated: "2026-02"
   }
 ];

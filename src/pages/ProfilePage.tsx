@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useProfile, type FavoriteEntry, type NamePosition } from "@/hooks/useProfile";
 import { findNameBySlug } from "@/data/names";
-import { getMappingContext } from "@/data/nameMapping";
+import { getMappingContext, getDidYouMeanSuggestions } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -200,16 +200,33 @@ export default function ProfilePage() {
                 <div>
                   <label className="text-sm font-medium text-muted-foreground mb-1.5 block">First Name</label>
                   <Input
-                    value={profile.settings.currentFirstName}
+                    value={profile.settings.currentFirstName ?? ""}
                     onChange={e => updateSettings({ currentFirstName: e.target.value })}
                     placeholder="e.g., David"
                     className="rounded-lg"
                   />
-                  {firstNameMapping && (
+                  {firstNameMapping ? (
                     <p className="mt-1.5 text-xs text-primary">
                       → Maps to: <span className="font-semibold">{firstNameMapping.muslimNames.join(", ")}</span>
                     </p>
-                  )}
+                  ) : (profile.settings.currentFirstName ?? "").trim() && (() => {
+                    const suggestions = getDidYouMeanSuggestions(profile.settings.currentFirstName ?? "", 3);
+                    return suggestions.length > 0 ? (
+                      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                        <span className="text-xs text-muted-foreground">Did you mean:</span>
+                        {suggestions.map(({ displayName }) => (
+                          <button
+                            key={displayName}
+                            type="button"
+                            onClick={() => updateSettings({ currentFirstName: displayName })}
+                            className="text-xs font-medium text-primary hover:underline bg-primary/10 px-2 py-0.5 rounded-full"
+                          >
+                            {displayName}
+                          </button>
+                        ))}
+                      </div>
+                    ) : null;
+                  })()}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-muted-foreground mb-1.5 block">Last Name</label>

@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { legalNameChangeDatabase, type LegalNameChangeGuide } from "@/data/legalNameChange";
+import { getRelatedCountries } from "@/data/countryRelations";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw, Filter } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -148,7 +149,15 @@ function CountryCard({ guide, onClick }: { guide: LegalNameChangeGuide; onClick:
   );
 }
 
-function CountryDetail({ guide, onBack }: { guide: LegalNameChangeGuide; onBack: () => void }) {
+function CountryDetail({
+  guide,
+  onBack,
+  onSelectCountry,
+}: {
+  guide: LegalNameChangeGuide;
+  onBack: () => void;
+  onSelectCountry: (countryCode: string) => void;
+}) {
   const [expandedSteps, setExpandedSteps] = useState<number[]>([]);
   const { completed, toggle, reset, completedCount } = useStepProgress(guide.countryCode, guide.steps.length);
   const progress = guide.steps.length > 0 ? Math.round((completedCount / guide.steps.length) * 100) : 0;
@@ -284,6 +293,40 @@ function CountryDetail({ guide, onBack }: { guide: LegalNameChangeGuide; onBack:
         <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{guide.religiousExemptions}</p>
       </div>
 
+      {/* Related Countries */}
+      {useMemo(() => {
+        const related = getRelatedCountries(guide, legalNameChangeDatabase, 6);
+        if (related.length === 0) return null;
+        return (
+          <div className="bg-card rounded-xl border border-border p-4 sm:p-5 mb-4">
+            <h3 className="font-display text-sm font-semibold text-foreground mb-3">
+              Related countries
+            </h3>
+            <p className="text-xs text-muted-foreground mb-3">
+              Bordering countries and guides in the same region
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              {related.map((r) => (
+                <button
+                  key={r.countryCode}
+                  onClick={() => { onSelectCountry(r.countryCode); window.scrollTo(0, 0); }}
+                  className="flex items-center gap-2 p-2.5 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-colors text-left"
+                >
+                  <span className="text-xl shrink-0">{r.flag}</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-foreground truncate">{r.country}</p>
+                    <p className="text-[10px] text-muted-foreground flex items-center gap-1">
+                      <span>{r.estimatedCost.split("(")[0].trim()}</span>
+                      <DifficultyBadge difficulty={r.difficulty} />
+                    </p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      }, [guide.countryCode, guide.difficulty, guide.estimatedCostUSD])}
+
       {/* Tips & Resources side by side */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
         <div className="bg-card rounded-xl border border-border p-4 sm:p-5">
@@ -365,6 +408,7 @@ export default function LegalGuidePage() {
               key="detail"
               guide={selectedGuide}
               onBack={() => setSelectedCountry(null)}
+              onSelectCountry={(code) => setSelectedCountry(code)}
             />
           ) : (
             <motion.div key="list" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

@@ -233,6 +233,16 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "uma": { muslimNames: ["umm"], meaning: "Mother", connection: "Uma = mother; Umm means mother — Umm Salama was the Prophet's wife", category: "western-female" },
   "vicky": { muslimNames: ["fatiha"], meaning: "Victory", connection: "Vicky from Victoria = victory; Fatiha means the opening — Al-Fatiha", category: "western-female" },
    "willow": { muslimNames: ["rawda"], meaning: "Willow Tree", connection: "Willow = graceful tree; Rawda means garden/meadow", category: "western-female" },
+  "jennifer": { muslimNames: ["janan"], meaning: "White Spirit", connection: "Jennifer = fair; Janan means heart/soul — the innermost being", category: "western-female" },
+  "susan": { muslimNames: ["sawsan"], meaning: "Lily", connection: "Susan from Susanna = lily; Sawsan is the Arabic word for lily", category: "western-female" },
+  "stephanie": { muslimNames: ["taj", "safiya"], meaning: "Crown", connection: "Stephanie = crown; Taj means crown, Safiya means pure/chosen", category: "western-female" },
+  "christina": { muslimNames: ["tahira"], meaning: "Follower of Christ", connection: "Christina = anointed; Tahira means pure/virtuous", category: "western-female" },
+  "jessica": { muslimNames: ["yasmin", "jamila"], meaning: "God Beholds", connection: "Jessica = to behold; Yasmin = jasmine flower, Jamila = beautiful", category: "western-female" },
+  "emily": { muslimNames: ["amila", "noor"], meaning: "Industrious", connection: "Emily = striving; Amila means industrious, Noor means light", category: "western-female" },
+  "amanda": { muslimNames: ["amira", "habiba"], meaning: "Worthy of Love", connection: "Amanda = lovable; Amira means princess, Habiba means beloved", category: "western-female" },
+  "randall": { muslimNames: ["rashid"], meaning: "Shield Wolf", connection: "Randall = wolf shield; Rashid means rightly guided", category: "western-male" },
+  "frederick": { muslimNames: ["farid", "faris"], meaning: "Peaceful Ruler", connection: "Frederick = peaceful power; Farid = unique, Faris = knight", category: "western-male" },
+  "jeffrey": { muslimNames: ["jaffer", "jafar"], meaning: "Peace", connection: "Jeffrey = divine peace; Jafar was a companion of the Prophet", category: "western-male" },
 
    // ===========================
    // VIRTUE-BASED & ARABIC NAMES (100+)
@@ -470,30 +480,144 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
  * Enables "John Smith" → "john", "Mike" → "michael", "Jim" → "james", etc.
  */
 const westernNameVariants: Record<string, string> = {
-  johnny: "john", jon: "john", jack: "john", johnnie: "john", juan: "john", jean: "john", giovanni: "john", hans: "john", ian: "john", sean: "john", shawn: "john",
-  mike: "michael", mikey: "michael", mick: "michael", mickey: "michael", miguel: "michael",
-  jim: "james", jimmy: "james", jamie: "james",
-  bill: "william", billy: "william", will: "william", liam: "william",
-  bob: "robert", bobby: "robert", rob: "robert",
+  // John variants
+  johnny: "john", jon: "john", jack: "john", johnnie: "john", juan: "john", jean: "john", giovanni: "john", hans: "john", ian: "john", sean: "john", shawn: "john", ivan: "john", evan: "john", jan: "john",
+  // Michael
+  mike: "michael", mikey: "michael", mick: "michael", mickey: "michael", miguel: "michael", mitchell: "michael",
+  // James
+  jim: "james", jimmy: "james", jamie: "james", diego: "james",
+  // William
+  bill: "william", billy: "william", will: "william", liam: "william", willy: "william",
+  // Robert
+  bob: "robert", bobby: "robert", rob: "robert", robby: "robert", bert: "robert",
+  // David, Daniel
   dave: "david", davey: "david", danny: "daniel", dan: "daniel",
-  steve: "steven", stevie: "steven",
-  chris: "christopher", matt: "matthew", mattie: "matthew",
-  joe: "joseph", joey: "joseph", jose: "joseph",
-  tony: "anthony", tom: "thomas", tommy: "thomas",
-  sam: "samuel", sammy: "samuel",
-  ben: "benjamin", benny: "benjamin", binyamin: "benjamin",
-  josh: "joshua", andy: "andrew", alex: "alexander", nick: "nicholas",
+  // Steven, Christopher, Matthew
+  steve: "steven", stevie: "steven", chris: "christopher", matt: "matthew", mattie: "matthew", matty: "matthew",
+  // Joseph, Anthony, Thomas
+  joe: "joseph", joey: "joseph", jose: "joseph", tony: "anthony", tom: "thomas", tommy: "thomas", tam: "thomas",
+  // Samuel, Benjamin, Joshua
+  sam: "samuel", sammy: "samuel", ben: "benjamin", benny: "benjamin", binyamin: "benjamin", josh: "joshua",
+  // Andrew, Alexander, Nicholas
+  andy: "andrew", alex: "alexander", alejandro: "alexander", nick: "nicholas", nico: "nicholas",
+  // Katherine / Catherine spellings
   kate: "katherine", kathy: "katherine", katie: "katherine", katy: "katherine",
-  liz: "elizabeth", lizzy: "elizabeth", beth: "elizabeth", eliza: "elizabeth", betsy: "elizabeth",
+  catherine: "katherine", cathy: "katherine", kathryn: "katherine", kaitlyn: "katherine", caitlin: "katherine", katelyn: "katherine",
+  // Elizabeth
+  liz: "elizabeth", lizzy: "elizabeth", beth: "elizabeth", eliza: "elizabeth", betsy: "elizabeth", lisa: "elizabeth", betty: "elizabeth", ellen: "elizabeth",
+  // Margaret, Anna, Susan
   meg: "margaret", maggie: "margaret", peg: "margaret",
-  ann: "anna", anne: "anna", annie: "anna",
-  sue: "susan", suzy: "susan", susie: "susan",
-  jenny: "jennifer", jen: "jennifer",
-  amy: "amanda", mandy: "amanda",
-  emily: "emily", em: "emily",
-  sarah: "sarah", sara: "sarah",
-  rachel: "rachel", rach: "rachel",
+  ann: "anna", anne: "anna", annie: "anna", anna: "anna",
+  sue: "susan", suzy: "susan", susie: "susan", suzanne: "susan",
+  jenny: "jennifer", jen: "jennifer", jenn: "jennifer",
+  amy: "amanda", mandy: "amanda", manda: "amanda",
+  em: "emily", emmie: "emily",
+  sara: "sarah",
+  rach: "rachel",
+  // More male
+  rick: "richard", rich: "richard", dick: "richard",
+  ted: "theodore", teddy: "theodore", theo: "theodore",
+  ed: "edward", eddie: "edward", ned: "edward",
+  fred: "frederick", freddie: "frederick",
+  greg: "gregory", gregg: "gregory",
+  jeff: "jeffrey",
+  jonny: "jonathan",
+  pat: "patrick", paddy: "patrick",
+  randy: "randall",
+  tim: "timothy", timmy: "timothy",
+  // More female
+  abigail: "abby",
+  carol: "caroline",
+  deb: "deborah", debbie: "deborah",
+  jess: "jessica", jessie: "jessica",
+  molly: "mary", polly: "mary",
+  nancy: "anna", nan: "anna",
+  becky: "rebecca", becca: "rebecca",
+  steph: "stephanie", steff: "stephanie",
+  tina: "christina",
+  vicky: "victoria", tori: "victoria",
+  zoey: "zoe",
 };
+
+/**
+ * Levenshtein distance — returns minimum edits to transform a into b.
+ */
+function levenshtein(a: string, b: string): number {
+  const an = a.length;
+  const bn = b.length;
+  const dp: number[][] = Array(an + 1)
+    .fill(null)
+    .map(() => Array(bn + 1).fill(0));
+  for (let i = 0; i <= an; i++) dp[i][0] = i;
+  for (let j = 0; j <= bn; j++) dp[0][j] = j;
+  for (let i = 1; i <= an; i++) {
+    for (let j = 1; j <= bn; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + cost
+      );
+    }
+  }
+  return dp[an][bn];
+}
+
+/**
+ * Similarity score 0–1. Higher = more similar.
+ * Uses Levenshtein normalized by max length, with a boost for same first letter.
+ * Caps comparison length for performance with very long input.
+ */
+function similarity(a: string, b: string): number {
+  if (!a || !b) return 0;
+  const al = a.toLowerCase().slice(0, 25);
+  const bl = b.toLowerCase().slice(0, 25);
+  const dist = levenshtein(al, bl);
+  const maxLen = Math.max(al.length, bl.length, 1);
+  let score = 1 - dist / maxLen;
+  if (al[0] === bl[0]) score += 0.15;
+  return Math.min(1, score);
+}
+
+/** All canonical Western names in the mapping (for fuzzy search). */
+const allMappedWesternNames = Object.keys(christianToMuslimNameMapping);
+
+/**
+ * When no exact match is found, suggest closely related names the user can select.
+ * Returns up to `limit` suggestions with similarity above threshold.
+ */
+export function getDidYouMeanSuggestions(
+  input: string | null | undefined,
+  limit = 5
+): { displayName: string; canonicalKey: string }[] {
+  const raw = typeof input === "string" ? String(input).trim() : "";
+  if (!raw || raw.length < 2) return [];
+  const first = raw.split(/\s+/)[0]?.toLowerCase() || raw.toLowerCase();
+  if (first.length > 30) return []; // avoid expensive fuzzy match on very long input
+  if (getMappingContext(first)) return [];
+
+  const scored = allMappedWesternNames
+    .map(name => {
+      const sim = similarity(first, name);
+      return {
+        displayName: name.charAt(0).toUpperCase() + name.slice(1),
+        canonicalKey: name,
+        score: sim,
+      };
+    })
+    .filter(x => x.score >= 0.55)
+    .sort((a, b) => b.score - a.score);
+
+  const seen = new Set<string>();
+  return scored
+    .filter(x => {
+      if (seen.has(x.canonicalKey)) return false;
+      seen.add(x.canonicalKey);
+      return true;
+    })
+    .slice(0, limit)
+    .map(({ displayName, canonicalKey }) => ({ displayName, canonicalKey }));
+}
 
 // Get all mapped Western names for quick lookup
 export function getWesternNameSuggestions(name: string | null | undefined): string[] {

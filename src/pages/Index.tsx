@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Search, Sparkles, BookOpen, Scale, Users, ArrowRight, Heart } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo, useDeferredValue } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import { namesDatabase } from "@/data/names";
-import { getMappingContext, totalMappings } from "@/data/nameMapping";
+import { getMappingContext, getDidYouMeanSuggestions, totalMappings } from "@/data/nameMapping";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +20,13 @@ const Index = () => {
   const navigate = useNavigate();
 
   const mappingInfo = currentName.trim() ? getMappingContext(currentName.trim()) : null;
+  const deferredNameForSuggestions = useDeferredValue(
+    mappingInfo ? "" : currentName.trim()
+  );
+  const didYouMeanSuggestions = useMemo(
+    () => getDidYouMeanSuggestions(deferredNameForSuggestions, 3),
+    [deferredNameForSuggestions]
+  );
 
   const handleDiscover = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,9 +86,11 @@ const Index = () => {
             </form>
 
             {/* Live mapping preview */}
-            <AnimatePresence>
-              {mappingInfo && (
+            <AnimatePresence mode="wait">
+              {mappingInfo
+                ? (
                 <motion.div
+                  key="match"
                   initial={{ opacity: 0, y: -8, height: 0 }}
                   animate={{ opacity: 1, y: 0, height: "auto" }}
                   exit={{ opacity: 0, y: -8, height: 0 }}
@@ -97,7 +106,32 @@ const Index = () => {
                     <p className="text-xs text-primary-foreground/60 mt-1">{mappingInfo.connection}</p>
                   </div>
                 </motion.div>
-              )}
+                )
+                : didYouMeanSuggestions.length > 0
+                ? (
+                  <motion.div
+                    key="suggestions"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="max-w-md mx-auto mb-4"
+                  >
+                    <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl px-4 py-3 text-left flex flex-wrap items-center gap-1.5">
+                      <span className="text-xs text-primary-foreground/80">Did you mean:</span>
+                      {didYouMeanSuggestions.map(({ displayName }) => (
+                        <button
+                          key={displayName}
+                          type="button"
+                          onClick={() => setCurrentName(displayName)}
+                          className="text-xs font-medium text-gold hover:underline bg-primary-foreground/20 hover:bg-primary-foreground/30 px-2 py-1 rounded-full transition-colors"
+                        >
+                          {displayName}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )
+                : null}
             </AnimatePresence>
 
             <div className="flex items-center justify-center gap-4 text-sm text-primary-foreground/60 flex-wrap">

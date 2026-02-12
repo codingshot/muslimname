@@ -41,6 +41,9 @@ export const slugAliases: Record<string, string> = {
   ubayd: "ubaid",
   amir: "ameer",
   shahida: "shahid",
+  kamil: "kamal",
+  tawfeeq: "tawfiq",
+  farouq: "farooq",
 };
 
 /**

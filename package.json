@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "node scripts/generate-sitemap.mjs && vite build",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "generate-country-relations": "node scripts/generate-country-relations.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",

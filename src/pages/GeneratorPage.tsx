@@ -1,11 +1,11 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef, useDeferredValue } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import { suggestFromMeaning, namesDatabase, findNameBySlug } from "@/data/names";
-import { getMappingContext, type NameMapping } from "@/data/nameMapping";
+import { getMappingContext, getDidYouMeanSuggestions, type NameMapping } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Sparkles, RefreshCw, Info, ArrowRight, BookOpen } from "lucide-react";
@@ -67,6 +67,15 @@ export default function GeneratorPage() {
     if (!currentName.trim()) return null;
     return getMappingContext(currentName.trim());
   }, [currentName]);
+
+  // Defer expensive fuzzy-match when typing (no exact match)
+  const deferredNameForSuggestions = useDeferredValue(
+    mappingInfo ? "" : currentName.trim()
+  );
+  const didYouMeanSuggestions = useMemo(
+    () => getDidYouMeanSuggestions(deferredNameForSuggestions, 4),
+    [deferredNameForSuggestions]
+  );
 
   const toggleMeaning = (m: string) => {
     setSelectedMeanings(prev =>
@@ -241,9 +250,33 @@ export default function GeneratorPage() {
             </AnimatePresence>
 
             {currentName.trim() && !mappingInfo && (
-              <p className="mt-2 text-xs text-muted-foreground">
-                We don't have a direct mapping for "{currentName}" yet, but you can still explore by meaning below
-              </p>
+              <div className="mt-3 space-y-2">
+                <p className="text-xs text-muted-foreground">
+                    We don't have a direct mapping for "{currentName.trim().split(/\s+/)[0]}"
+                  </p>
+                  {didYouMeanSuggestions.length > 0 ? (
+                        <div className="flex flex-wrap gap-1.5 items-center">
+                          <span className="text-xs text-muted-foreground">Did you mean:</span>
+                          {didYouMeanSuggestions.map(({ displayName, canonicalKey }) => (
+                            <button
+                              key={canonicalKey}
+                              type="button"
+                              onClick={() => {
+                                const rest = currentName.trim().split(/\s+/).slice(1).join(" ");
+                                setCurrentName(rest ? `${displayName} ${rest}` : displayName);
+                              }}
+                              className="text-xs font-medium text-primary hover:underline bg-primary/10 hover:bg-primary/20 px-2 py-1 rounded-full transition-colors"
+                            >
+                              {displayName}
+                            </button>
+                          ))}
+                        </div>
+                ) : (
+                  <p className="text-xs text-muted-foreground">
+                    You can still explore by meaning below
+                  </p>
+                )}
+              </div>
             )}
           </motion.div>
 
