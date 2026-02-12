@@ -156,8 +156,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex flex-col gap-2 text-sm text-muted-foreground">
                 <Link to="/names" className="hover:text-primary transition-colors">Browse Names</Link>
                 <Link to="/generator" className="hover:text-primary transition-colors">Name Generator</Link>
-                <Link to="/names?gender=male" className="hover:text-primary transition-colors">Boy Names</Link>
-                <Link to="/names?gender=female" className="hover:text-primary transition-colors">Girl Names</Link>
+                <Link to="/names?gender=male" className="hover:text-primary transition-colors">Male Names</Link>
+                <Link to="/names?gender=female" className="hover:text-primary transition-colors">Female Names</Link>
                 <button
                   onClick={() => {
                     const quranic = namesDatabase.filter(n => n.isQuranic);

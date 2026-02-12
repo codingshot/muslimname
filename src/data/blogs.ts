@@ -815,6 +815,89 @@ In a world that can feel dark, naming your child "Light" is an act of hope. It's
 
 The Prophet ﷺ himself was called "Sirajan Muniran" — the shining lamp. To name your child after light is to aspire to prophetc character.
     `
+  },
+  {
+    slug: "convert-vs-revert-why-muslims-say-revert",
+    title: "Convert vs Revert: Why Muslims Say 'Revert' to Islam",
+    metaDescription: "Understand why Muslims prefer 'revert' over 'convert' — the Islamic belief in fitrah (natural disposition) and what it means for your identity journey.",
+    excerpt: "New to Islam? You'll hear 'revert' more than 'convert' — here's the beautiful reason why, rooted in the Islamic concept of fitrah.",
+    tags: ["conversion", "identity", "fiqh", "community"],
+    relatedSlugs: ["choosing-muslim-name-after-converting", "is-changing-name-required-islam", "popular-muslim-names-for-converts"],
+    content: `
+## Convert or Revert? The Difference Matters
+
+If you've recently embraced Islam — or you're exploring it — you'll quickly notice something: Muslims tend to say "revert" instead of "convert." This isn't just semantics. It reflects a deeply held Islamic belief about human nature.
+
+## The Concept of Fitrah (فطرة)
+
+In Islam, every human being is born in a state of **fitrah** — a natural, pure disposition that inclines toward recognizing and worshipping one God (Allah). The Prophet Muhammad ﷺ said:
+
+> *"Every child is born on the fitrah (natural disposition). It is their parents who make them Jewish, Christian, or Zoroastrian."*
+> — Sahih al-Bukhari 1358, Sahih Muslim 2658
+
+This hadith is the foundation of the "revert" terminology. According to Islamic theology, you weren't born as a non-Muslim who later chose Islam. You were born Muslim — in the sense that you were born with an innate recognition of God — and life circumstances led you away from that original state.
+
+When you embrace Islam, you're not converting *to* something foreign. You're **reverting back** to your original nature.
+
+## Why This Matters for Your Identity
+
+### 1. You're Not Leaving — You're Coming Home
+The word "convert" implies abandoning one thing for another. "Revert" reframes the journey: you're returning to where you always belonged. Many new Muslims describe a feeling of "coming home" when they take their shahada — fitrah explains why.
+
+### 2. It Removes the "Otherness"
+"Convert" can carry a sense of being an outsider who joined a group. "Revert" says: you were always part of this. Your soul recognized the truth — you just needed time to find it.
+
+### 3. It Honors Your Entire Journey
+Everything you experienced before Islam — your upbringing, your questions, your struggles — was part of the path back to your fitrah. Nothing is wasted.
+
+## What Do Scholars Say?
+
+Most contemporary Islamic scholars use "revert" when speaking to Western audiences, while acknowledging that both terms are understood. The Arabic term most commonly used is **muhtadī** (مهتدي) meaning "one who is guided" — which carries neither "convert" nor "revert" connotations, but rather emphasizes divine guidance.
+
+Some scholars also use:
+- **Muslim jadīd** (مسلم جديد) — "new Muslim"
+- **Dākhil fil-Islam** (داخل في الإسلام) — "one who has entered Islam"
+
+## The Quran on Natural Disposition
+
+The Quran directly references fitrah:
+
+> *"So direct your face toward the religion, inclining to truth. [Adhere to] the fitrah of Allah upon which He has created [all] people. No change should there be in the creation of Allah. That is the correct religion, but most of the people do not know."*
+> — Quran 30:30
+
+This verse tells us that Islam isn't a religion imposed from outside — it's the original programming, so to speak, of every human soul.
+
+## But "Convert" Isn't Wrong
+
+Let's be clear: using "convert" isn't sinful or even incorrect. It's the standard English term, and most people — including many Muslims — use it. The distinction is more about **perspective**:
+
+| Term | Perspective | Emphasis |
+|------|-----------|----------|
+| Convert | External/sociological | Changing from one religion to another |
+| Revert | Islamic theological | Returning to one's natural state |
+| New Muslim | Neutral/inclusive | Current status without judgment |
+
+Use whichever feels right to you. Many new Muslims start saying "convert" and naturally shift to "revert" as they learn more about fitrah.
+
+## How This Connects to Naming
+
+The concept of fitrah also relates to choosing a Muslim name. Just as you're reverting to your spiritual origin, many reverts feel that choosing a Muslim name is like discovering their *true* name — the one that was always meant for them.
+
+Names like **Adam** (the first human, born on fitrah), **Hanif** (naturally inclined to truth), or **Fitra** itself can serve as beautiful reminders of this concept.
+
+## Embracing Both Identities
+
+Whether you call yourself a convert, revert, or simply a Muslim — remember:
+
+1. **Your pre-Islamic life has value** — Allah guided you *through* those experiences
+2. **You don't need to erase your past** — Islam builds on your existing identity
+3. **The Muslim community is your family** — born Muslim or revert, we are one ummah
+4. **Your journey inspires others** — every revert's story is a testimony to the power of fitrah
+
+As the Prophet ﷺ said: *"Islam began as something strange and will return to being strange. So blessed are the strangers (al-ghuraba)."* — Sahih Muslim 145
+
+Welcome home. 🤍
+    `
   }
 ];
 
