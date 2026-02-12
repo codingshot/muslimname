@@ -1,15 +1,19 @@
 import { useState, useMemo } from "react";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
-import { suggestFromMeaning, filterNames, namesDatabase } from "@/data/names";
+import NameCardSkeleton from "@/components/NameCardSkeleton";
+import { suggestFromMeaning, namesDatabase } from "@/data/names";
+import { getMappingContext } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight, RefreshCw } from "lucide-react";
-import { motion } from "framer-motion";
+import { Sparkles, RefreshCw, Info } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const meaningKeywords = [
   "grace", "strong", "light", "beautiful", "pure", "faithful",
-  "wise", "life", "courage", "peace", "noble", "love", "leader", "eternal"
+  "wise", "life", "courage", "peace", "noble", "love", "leader",
+  "eternal", "mercy", "patience", "joy", "knowledge", "sacrifice",
+  "devotion", "justice", "beauty", "strength", "purity", "guidance"
 ];
 
 export default function GeneratorPage() {
@@ -17,6 +21,12 @@ export default function GeneratorPage() {
   const [selectedMeanings, setSelectedMeanings] = useState<string[]>([]);
   const [gender, setGender] = useState<"all" | "male" | "female" | "unisex">("all");
   const [generated, setGenerated] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const mappingInfo = useMemo(() => {
+    if (!currentName.trim()) return null;
+    return getMappingContext(currentName.trim());
+  }, [currentName]);
 
   const toggleMeaning = (m: string) => {
     setSelectedMeanings(prev =>
@@ -24,73 +34,23 @@ export default function GeneratorPage() {
     );
   };
 
+  const handleGenerate = () => {
+    setLoading(true);
+    setGenerated(true);
+    setTimeout(() => setLoading(false), 600);
+  };
+
   const results = useMemo(() => {
-    if (!generated) return [];
-    // Combine current name meaning search with selected meanings
+    if (!generated || loading) return [];
     const searchTerms = [...selectedMeanings];
-    if (currentName.trim()) {
-      // Simple mapping of common English names to meaning keywords
-      const lowerName = currentName.toLowerCase();
-      const nameToMeaning: Record<string, string[]> = {
-        // Christian/Biblical names mapped to Muslim equivalents
-        "john": ["yahya", "faithful", "grace"],
-        "james": ["isa", "spiritual"],
-        "david": ["dawud", "love", "strong"],
-        "michael": ["mikail", "strong", "leader"],
-        "joseph": ["yusuf", "wise"],
-        "benjamin": ["binyamin"],
-        "noah": ["nuh", "peace"],
-        "sarah": ["zainab", "noble", "pure"],
-        "mary": ["maryam", "pure", "love"],
-        "elizabeth": ["elisabeth"],
-        "rachel": ["rahma", "merciful"],
-        "ruth": ["ruqayyah", "gentle"],
-        "rebecca": ["rabia"],
-        "hannah": ["hana", "joy"],
-        // English names mapped to Muslim equivalents
-        "grace": ["noor", "beautiful"],
-        "faith": ["amina", "trustworthy"],
-        "hope": ["raja", "hope"],
-        "joy": ["suroor", "delight"],
-        "paul": ["harun", "peaceful"],
-        "luke": ["luqman", "wise"],
-        "matthew": ["mattai"],
-        "andrew": ["amir", "prince"],
-        "thomas": ["thamir", "fruitful"],
-        "peter": ["salman", "safe"],
-        "mark": ["malik", "king"],
-        "robert": ["rashid", "wise"],
-        "william": ["waleed"],
-        "richard": ["rashid"],
-        "charles": ["karim", "generous"],
-        "george": ["jamal", "beautiful"],
-        "edward": ["adel", "just"],
-        "jennifer": ["yasmin", "beautiful"],
-        "chris": ["khedr"],
-        "angela": ["noor"],
-        "stephanie": ["aisha", "wise"],
-        "catherine": ["fatima"],
-        "lisa": ["leena", "tender"],
-        "ashley": ["ayla", "peaceful"],
-        "jessica": ["zara", "blooming"],
-        "amanda": ["amina"],
-        "nicole": ["nadia"],
-        "anna": ["ana", "graceful"],
-        "victoria": ["zahra", "blooming"],
-        "sophia": ["noor", "wise"],
-        "henry": ["harun"],
-        "frank": ["farid"],
-        "anthony": ["antaki"],
-        "patrick": ["patrik"]
-      };
-      const mapped = nameToMeaning[lowerName] || [];
-      searchTerms.push(...mapped);
+
+    if (currentName.trim() && mappingInfo) {
+      searchTerms.push(...mappingInfo.muslimNames);
     }
 
     if (searchTerms.length === 0 && gender === "all") {
-      // Random selection
       const shuffled = [...namesDatabase].sort(() => Math.random() - 0.5);
-      return shuffled.slice(0, 6);
+      return shuffled.slice(0, 9);
     }
 
     let names = searchTerms.length > 0
@@ -102,7 +62,7 @@ export default function GeneratorPage() {
     }
 
     return names.slice(0, 9);
-  }, [generated, currentName, selectedMeanings, gender]);
+  }, [generated, loading, currentName, selectedMeanings, gender, mappingInfo]);
 
   return (
     <Layout>
@@ -130,7 +90,7 @@ export default function GeneratorPage() {
               Your Current Name <span className="text-muted-foreground font-body font-normal text-sm">(optional)</span>
             </label>
             <p className="text-sm text-muted-foreground mb-3">
-              We'll analyze the meaning behind your name and find Muslim names with similar significance
+              We'll find Muslim names with similar meaning or spiritual significance to your current name
             </p>
             <Input
               value={currentName}
@@ -138,6 +98,28 @@ export default function GeneratorPage() {
               placeholder="Enter your first name..."
               className="h-12 rounded-xl text-base"
             />
+
+            {/* Mapping info */}
+            <AnimatePresence>
+              {mappingInfo && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-3 bg-teal-light rounded-xl p-4 border border-primary/20"
+                >
+                  <div className="flex items-start gap-2">
+                    <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-foreground">
+                        "{currentName}" maps to: <span className="text-primary">{mappingInfo.muslimNames.join(", ")}</span>
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1">{mappingInfo.connection}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           {/* Gender */}
@@ -189,7 +171,7 @@ export default function GeneratorPage() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="text-center pt-4">
             <Button
               size="lg"
-              onClick={() => setGenerated(true)}
+              onClick={handleGenerate}
               className="bg-gradient-hero text-primary-foreground h-14 px-8 text-lg rounded-xl hover:opacity-90 transition-opacity"
             >
               {generated ? <><RefreshCw className="w-5 h-5 mr-2" /> Regenerate Names</> : <><Sparkles className="w-5 h-5 mr-2" /> Generate Names</>}
@@ -198,7 +180,7 @@ export default function GeneratorPage() {
         </div>
 
         {/* Results */}
-        {generated && results.length > 0 && (
+        {generated && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -208,10 +190,16 @@ export default function GeneratorPage() {
               Your Suggested Names
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {results.map((name, i) => (
-                <NameCard key={name.slug} name={name} index={i} />
-              ))}
+              {loading
+                ? Array.from({ length: 6 }).map((_, i) => <NameCardSkeleton key={i} />)
+                : results.map((name, i) => <NameCard key={name.slug} name={name} index={i} />)
+              }
             </div>
+            {!loading && results.length === 0 && (
+              <p className="text-center text-muted-foreground py-8">
+                No matches found. Try different qualities or clear your filters.
+              </p>
+            )}
           </motion.div>
         )}
       </div>
