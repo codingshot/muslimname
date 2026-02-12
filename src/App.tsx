@@ -16,6 +16,7 @@ import PrivacyPage from "./pages/PrivacyPage";
 import ProfilePage from "./pages/ProfilePage";
 import BlogsPage from "./pages/BlogsPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import WesternNamesPage from "./pages/WesternNamesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/names" element={<NamesPage />} />
             <Route path="/name/:slug" element={<NameDetail />} />
             <Route path="/generator" element={<GeneratorPage />} />
+            <Route path="/western-names" element={<WesternNamesPage />} />
             <Route path="/legal-guide" element={<LegalGuidePage />} />
             <Route path="/contribute" element={<ContributePage />} />
             <Route path="/terms" element={<TermsPage />} />
