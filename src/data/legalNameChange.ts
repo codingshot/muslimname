@@ -4,7 +4,9 @@ export interface LegalNameChangeGuide {
   flag: string;
   overview: string;
   estimatedCost: string;
+  estimatedCostUSD: [number, number]; // [min, max] in USD for filtering & display
   estimatedTimeline: string;
+  estimatedTimelineWeeks: [number, number]; // [min, max] in weeks for filtering
   difficulty: "easy" | "moderate" | "complex";
   steps: { title: string; description: string; documents?: string[] }[];
   tips: string[];
@@ -20,7 +22,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇺🇸",
     overview: "Name changes in the US are handled at the state level through court petitions. Most states allow name changes for any reason, including religious conversion. The process varies by state but generally involves filing a petition, publishing a notice, and attending a court hearing.",
     estimatedCost: "$150 - $500 (varies by state)",
+    estimatedCostUSD: [150, 500],
     estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
     difficulty: "moderate",
     steps: [
       { title: "Obtain a Name Change Petition Form", description: "Visit your local county courthouse or their website to get the official name change petition form. Some states offer online filing.", documents: ["Government-issued ID", "Birth certificate"] },
@@ -52,7 +56,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇬🇧",
     overview: "The UK has one of the simplest name change processes in the world. You can change your name by 'usage' (simply starting to use a new name) or formally through a Deed Poll. No court order is required.",
     estimatedCost: "£0 - £42 (enrolled deed poll costs more)",
+    estimatedCostUSD: [0, 53],
     estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
     difficulty: "easy",
     steps: [
       { title: "Decide Between Unenrolled and Enrolled Deed Poll", description: "An unenrolled deed poll is free and sufficient for most purposes. An enrolled deed poll (£42) creates a permanent public record at the Royal Courts of Justice.", documents: [] },
@@ -81,7 +87,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇨🇦",
     overview: "Name changes in Canada are handled at the provincial level. Each province has its own process, but generally involves submitting an application to Vital Statistics (or equivalent) with supporting documents and a fee.",
     estimatedCost: "CAD $110 - $350 (varies by province)",
+    estimatedCostUSD: [80, 255],
     estimatedTimeline: "6 - 16 weeks",
+    estimatedTimelineWeeks: [6, 16],
     difficulty: "moderate",
     steps: [
       { title: "Obtain the Application Form", description: "Contact your provincial Vital Statistics office or download the name change application from their website.", documents: ["Government photo ID"] },
@@ -112,7 +120,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇦🇺",
     overview: "Name changes in Australia are handled by the Registry of Births, Deaths and Marriages in each state/territory. The process involves an application, identity verification, and a waiting period.",
     estimatedCost: "AUD $195 - $250",
+    estimatedCostUSD: [125, 160],
     estimatedTimeline: "4 - 8 weeks",
+    estimatedTimelineWeeks: [4, 8],
     difficulty: "moderate",
     steps: [
       { title: "Check Eligibility", description: "You must be an Australian citizen or permanent resident and have lived in the state for at least 12 months (3 months in some states).", documents: ["Proof of residency"] },
@@ -142,7 +152,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇩🇪",
     overview: "Germany has stricter name change laws than many countries. Name changes generally require a 'significant reason' (wichtiger Grund). Religious conversion is recognized as a valid reason, especially for first name changes.",
     estimatedCost: "€50 - €1,500 (varies by complexity)",
+    estimatedCostUSD: [55, 1635],
     estimatedTimeline: "2 - 6 months",
+    estimatedTimelineWeeks: [8, 24],
     difficulty: "complex",
     steps: [
       { title: "Consult Your Local Standesamt", description: "Visit your local civil registry office (Standesamt) to understand the specific requirements in your district.", documents: ["Current ID/passport"] },
@@ -171,7 +183,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇫🇷",
     overview: "France allows first name changes through a civil registrar (officier de l'état civil) at your local town hall. Since 2017, the process has been simplified and no longer requires a court order for most cases.",
     estimatedCost: "€0 - €100",
+    estimatedCostUSD: [0, 109],
     estimatedTimeline: "1 - 3 months",
+    estimatedTimelineWeeks: [4, 12],
     difficulty: "moderate",
     steps: [
       { title: "Prepare Your Request", description: "Write a formal letter explaining your reasons for wanting to change your first name, including your religious conversion.", documents: ["Written request letter"] },
@@ -197,7 +211,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇲🇾",
     overview: "Malaysia has a structured process for converts (mualaf) to change their names, handled through the National Registration Department (JPN) with support from Islamic religious authorities.",
     estimatedCost: "MYR 40 - 100",
+    estimatedCostUSD: [9, 22],
     estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
     difficulty: "easy",
     steps: [
       { title: "Obtain Conversion Certificate", description: "Register your conversion with the State Islamic Religious Department (JAIS/JAKIM) to receive an official conversion certificate (Kad Mualaf).", documents: ["Conversion certificate (Kad Mualaf)"] },
@@ -224,7 +240,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇿🇦",
     overview: "South Africa allows name changes through the Department of Home Affairs. The process involves publishing a notice in the Government Gazette and submitting an application.",
     estimatedCost: "ZAR 140 - 500",
+    estimatedCostUSD: [8, 27],
     estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
     difficulty: "moderate",
     steps: [
       { title: "Publish Notice in Government Gazette", description: "Submit a notice of your intended name change to be published in the Government Gazette.", documents: ["Notice form"] },
@@ -243,14 +261,15 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     religiousExemptions: "South Africa accepts religious conversion as a valid reason for name changes without additional requirements beyond the standard process.",
     lastUpdated: "2026-01"
   },
-  // --- NEW COUNTRIES ---
   {
     country: "India",
     countryCode: "IN",
     flag: "🇮🇳",
     overview: "In India, name changes are done through a combination of newspaper publication, Government Gazette notification, and an affidavit. The process is handled at the state level and does not require a court order for adults.",
     estimatedCost: "₹1,000 - ₹5,000",
+    estimatedCostUSD: [12, 60],
     estimatedTimeline: "4 - 10 weeks",
+    estimatedTimelineWeeks: [4, 10],
     difficulty: "moderate",
     steps: [
       { title: "Execute an Affidavit", description: "Get an affidavit (sworn statement) on stamp paper from a Notary Public declaring your old name and new name with reason for the change.", documents: ["Stamp paper affidavit", "Photo ID"] },
@@ -280,7 +299,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇵🇰",
     overview: "Pakistan allows name changes through NADRA (National Database and Registration Authority). Since Pakistan is an Islamic republic, religious name changes are straightforward and well-understood by authorities.",
     estimatedCost: "PKR 500 - 3,000",
+    estimatedCostUSD: [2, 11],
     estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
     difficulty: "easy",
     steps: [
       { title: "Visit NADRA Office", description: "Go to your nearest NADRA office with your current CNIC (Computerized National Identity Card) and supporting documents.", documents: ["Current CNIC", "Photo ID"] },
@@ -307,7 +328,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇮🇩",
     overview: "Indonesia requires a court order (Penetapan Pengadilan) for legal name changes. The process goes through the District Court (Pengadilan Negeri) and then the Civil Registry (Dinas Kependudukan dan Catatan Sipil).",
     estimatedCost: "IDR 200,000 - 1,000,000",
+    estimatedCostUSD: [13, 63],
     estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
     difficulty: "moderate",
     steps: [
       { title: "Prepare Application Letter", description: "Write a formal application letter (surat permohonan) to the District Court stating your current name, desired name, and reason.", documents: ["Application letter", "KTP (ID card)"] },
@@ -336,7 +359,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇳🇬",
     overview: "In Nigeria, name changes are done through a combination of newspaper publication and affidavit. For official documents, you may also need to apply to the National Population Commission or courts.",
     estimatedCost: "₦5,000 - ₦30,000",
+    estimatedCostUSD: [3, 19],
     estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
     difficulty: "easy",
     steps: [
       { title: "Swear an Affidavit", description: "Go to a High Court registry and swear an affidavit of change of name before a Commissioner for Oaths.", documents: ["Means of identification", "Passport photos"] },
@@ -364,7 +389,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇪🇬",
     overview: "In Egypt, name changes for religious converts are handled through the Civil Status Authority (مصلحة الأحوال المدنية). Converts to Islam can change their name relatively easily with proper documentation from Al-Azhar or recognized Islamic authorities.",
     estimatedCost: "EGP 100 - 500",
+    estimatedCostUSD: [2, 10],
     estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
     difficulty: "easy",
     steps: [
       { title: "Obtain Conversion Certificate", description: "Get an official conversion certificate (إشهار إسلام) from Al-Azhar or a recognized Islamic authority.", documents: ["Conversion certificate from Al-Azhar"] },
@@ -391,7 +418,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇹🇷",
     overview: "Turkey requires a court order for name changes, obtained through a Civil Court of First Instance (Asliye Hukuk Mahkemesi). The process is well-defined under the Turkish Civil Code Article 27.",
     estimatedCost: "₺500 - ₺2,000",
+    estimatedCostUSD: [15, 60],
     estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
     difficulty: "moderate",
     steps: [
       { title: "Prepare Petition", description: "Write or have a lawyer prepare a petition (dilekçe) to the Asliye Hukuk Mahkemesi explaining your reason for the name change.", documents: ["Petition letter", "Nüfus cüzdanı (ID)"] },
@@ -421,7 +450,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇸🇦",
     overview: "In Saudi Arabia, name changes for new Muslims are facilitated through the Ministry of Interior's Civil Affairs department (الأحوال المدنية). The process is streamlined for converts with proper Islamic documentation.",
     estimatedCost: "SAR 0 - 100",
+    estimatedCostUSD: [0, 27],
     estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
     difficulty: "easy",
     steps: [
       { title: "Obtain Conversion Certificate", description: "Get an official conversion certificate (شهادة إسلام) from a recognized Islamic center or court.", documents: ["Conversion certificate"] },
@@ -449,7 +480,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇦🇪",
     overview: "The UAE facilitates name changes for new Muslims through the Federal Authority for Identity and Citizenship (ICA). Islamic affairs departments in each emirate provide conversion certificates.",
     estimatedCost: "AED 100 - 500",
+    estimatedCostUSD: [27, 136],
     estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
     difficulty: "easy",
     steps: [
       { title: "Convert and Obtain Certificate", description: "Register your conversion at an Islamic Affairs office in your emirate (e.g., IACAD in Abu Dhabi, IACAD in Dubai). Receive an official conversion certificate.", documents: ["Conversion certificate (شهادة إسلام)"] },
@@ -478,7 +511,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇳🇱",
     overview: "The Netherlands allows first name changes through a request to the District Court (rechtbank). Since 2024, the process has been simplified with lower barriers. Surname changes go through the King via the Ministry of Justice.",
     estimatedCost: "€0 - €900",
+    estimatedCostUSD: [0, 981],
     estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
     difficulty: "moderate",
     steps: [
       { title: "Submit Request to District Court", description: "File a 'verzoekschrift' (petition) with the rechtbank in your district to change your first name (voornaam). A lawyer is technically required but legal aid is available.", documents: ["Petition (verzoekschrift)", "Birth certificate", "BRP extract"] },
@@ -508,7 +543,9 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     flag: "🇸🇪",
     overview: "Sweden has a relatively simple name change process handled by the Swedish Tax Agency (Skatteverket). First name changes are straightforward, while surname changes have specific rules under the Names Act (Namnlagen).",
     estimatedCost: "SEK 0 - 1,800",
+    estimatedCostUSD: [0, 170],
     estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
     difficulty: "easy",
     steps: [
       { title: "Apply to Skatteverket", description: "Submit a name change application (ansökan om namnändring) to the Swedish Tax Agency. This can be done online or by mail.", documents: ["Application form", "Personal identity number (personnummer)"] },
@@ -530,6 +567,273 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     ],
     religiousExemptions: "Sweden does not require any reason for first name changes, making the process very simple for religious converts. The Swedish Names Act is one of the most liberal in Europe.",
     lastUpdated: "2026-01"
+  },
+  // === NEW COUNTRIES ===
+  {
+    country: "New Zealand",
+    countryCode: "NZ",
+    flag: "🇳🇿",
+    overview: "New Zealand allows name changes through the Department of Internal Affairs. The process is straightforward — apply online or by post, and receive a name change certificate.",
+    estimatedCost: "NZD $0 - $170",
+    estimatedCostUSD: [0, 100],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply Online or by Post", description: "Submit a name change application through the Department of Internal Affairs website or by mail.", documents: ["Application form", "Birth certificate or citizenship certificate", "Photo ID"] },
+      { title: "Provide Identity Verification", description: "Include verified copies of your identity documents and a statutory declaration if required.", documents: ["Statutory declaration", "Verified ID copies"] },
+      { title: "Pay Fee", description: "Pay the application fee (NZD $170 standard, free for those under 18 or in certain circumstances).", documents: ["Fee payment"] },
+      { title: "Receive Name Change Certificate", description: "Once processed, you'll receive a name change certificate to update all your records.", documents: ["Name change certificate"] }
+    ],
+    tips: [
+      "Online applications are faster than postal ones",
+      "You can change your name for any reason — no justification required",
+      "Update your RealMe identity first for easier government interactions",
+      "The Federation of Islamic Associations of New Zealand (FIANZ) can offer guidance"
+    ],
+    resources: [
+      { title: "NZ Dept of Internal Affairs - Name Change", url: "https://www.dia.govt.nz/diawebsite.nsf/wpg_URL/Services-Births-Deaths-and-Marriages-Change-of-Name" },
+      { title: "NZ Passport Office", url: "https://www.passports.govt.nz" }
+    ],
+    religiousExemptions: "New Zealand does not require any reason for name changes. Religious conversion is fully accepted. The process is simple and accessible.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Spain",
+    countryCode: "ES",
+    flag: "🇪🇸",
+    overview: "Spain allows first name changes through the Civil Registry (Registro Civil). Since 2023 reforms, the process has been simplified. Surname changes require approval from the Ministry of Justice.",
+    estimatedCost: "€0 - €200",
+    estimatedCostUSD: [0, 218],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Request at Civil Registry", description: "Submit a request to your local Registro Civil for a first name change (cambio de nombre propio).", documents: ["DNI/NIE", "Birth certificate", "Application letter"] },
+      { title: "Provide Justification", description: "Explain your reason for the change. Religious conversion is accepted as 'justa causa' (just cause).", documents: ["Personal statement", "Conversion certificate (optional)"] },
+      { title: "Registry Review", description: "The Civil Registry reviews the application. Most first name changes are approved without a hearing.", documents: [] },
+      { title: "Receive Updated Certificate", description: "Once approved, obtain your updated birth certificate and apply for new DNI.", documents: ["Updated birth certificate"] }
+    ],
+    tips: [
+      "First name changes are much easier than surname changes since the 2023 reform",
+      "The Islamic Commission of Spain (CIE) can provide conversion documentation",
+      "You can use your new name informally immediately",
+      "Spain's Islamic community (over 2 million) means authorities are familiar with the process"
+    ],
+    resources: [
+      { title: "Ministerio de Justicia", url: "https://www.mjusticia.gob.es" },
+      { title: "Registro Civil", url: "https://www.registrocivil.es" }
+    ],
+    religiousExemptions: "Spanish law recognizes religious conversion as 'just cause' (justa causa) for name changes. The Islamic Commission of Spain has agreements with the government that facilitate religious processes.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Italy",
+    countryCode: "IT",
+    flag: "🇮🇹",
+    overview: "Italy handles name changes through the Prefettura (Prefecture) in your province. The process requires publication of intent and approval from the Prefect. First name additions are simpler than full changes.",
+    estimatedCost: "€0 - €300",
+    estimatedCostUSD: [0, 327],
+    estimatedTimeline: "3 - 6 months",
+    estimatedTimelineWeeks: [12, 24],
+    difficulty: "complex",
+    steps: [
+      { title: "Submit Request to Prefettura", description: "File a formal request (istanza) to the Prefettura of your province explaining the desired change and reason.", documents: ["Istanza", "Certificato di nascita", "Documento d'identità"] },
+      { title: "Public Posting", description: "The Prefecture will post the name change request publicly for 30 days to allow any objections.", documents: [] },
+      { title: "Prefect Review", description: "After the posting period, the Prefect reviews the application and issues a decree (decreto).", documents: [] },
+      { title: "Update Anagrafe", description: "Bring the decree to your municipality's Anagrafe (civil registry) to update your records.", documents: ["Prefect's decree", "Current documents"] },
+      { title: "Update Documents", description: "Apply for new carta d'identità, codice fiscale, and other documents.", documents: ["Updated registry records"] }
+    ],
+    tips: [
+      "Adding a name is easier than changing one entirely — consider adding your Muslim name",
+      "UCOII (Union of Islamic Communities in Italy) can provide guidance and letters of support",
+      "The 30-day posting period is mandatory but rarely results in objections",
+      "A lawyer (avvocato) can help but is not required",
+      "Processing times vary significantly by prefecture"
+    ],
+    resources: [
+      { title: "Ministero dell'Interno", url: "https://www.interno.gov.it" },
+      { title: "UCOII", url: "https://www.ucoii.org" }
+    ],
+    religiousExemptions: "Italian law does not specify religious conversion as a category, but it falls under 'legitimate reasons' for name changes. Court precedent supports religious name changes.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bangladesh",
+    countryCode: "BD",
+    flag: "🇧🇩",
+    overview: "Bangladesh handles name changes through an affidavit and newspaper publication, followed by updating the National ID (NID) through the Election Commission. The process is simple and inexpensive.",
+    estimatedCost: "BDT 500 - 3,000",
+    estimatedCostUSD: [4, 25],
+    estimatedTimeline: "2 - 6 weeks",
+    estimatedTimelineWeeks: [2, 6],
+    difficulty: "easy",
+    steps: [
+      { title: "Execute Affidavit", description: "Get a notarized affidavit on judicial stamp paper declaring your old name, new name, and reason for change.", documents: ["Notarized affidavit", "NID card"] },
+      { title: "Publish in Newspaper", description: "Publish a name change notice in a national Bengali newspaper.", documents: ["Newspaper publication proof"] },
+      { title: "Update NID", description: "Apply to the Election Commission to update your National ID card with the new name.", documents: ["Affidavit", "Newspaper cutting", "Old NID"] },
+      { title: "Update Other Documents", description: "Update passport, bank accounts, and other records using the new NID.", documents: ["Updated NID", "Affidavit"] }
+    ],
+    tips: [
+      "The process is very straightforward in Bangladesh as a Muslim-majority country",
+      "Many local magistrate courts handle the affidavit quickly",
+      "Update NID first — all other agencies accept NID as primary proof",
+      "The Islamic Foundation Bangladesh can assist with conversion documentation"
+    ],
+    resources: [
+      { title: "Election Commission Bangladesh", url: "https://www.ecs.gov.bd" },
+      { title: "Passport Office", url: "https://www.dip.gov.bd" }
+    ],
+    religiousExemptions: "As a Muslim-majority country, Bangladesh is very accommodating of Islamic name changes. No special religious documentation is required beyond the standard affidavit process.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Singapore",
+    countryCode: "SG",
+    flag: "🇸🇬",
+    overview: "Singapore handles name changes through the Immigration & Checkpoints Authority (ICA). The process is efficient and can be completed online through the ICA's e-services portal.",
+    estimatedCost: "SGD $25 - $100",
+    estimatedCostUSD: [19, 75],
+    estimatedTimeline: "1 - 4 weeks",
+    estimatedTimelineWeeks: [1, 4],
+    difficulty: "easy",
+    steps: [
+      { title: "Apply Online via ICA", description: "Submit a name change application through ICA's e-services portal or visit an ICA office.", documents: ["NRIC", "Supporting documents"] },
+      { title: "Provide Supporting Documents", description: "Include your current NRIC, birth certificate, and any supporting documentation for the change.", documents: ["Birth certificate", "NRIC", "Deed poll (if applicable)"] },
+      { title: "Pay Fee", description: "Pay the processing fee (SGD $25 for first name, $50-$100 for surname).", documents: ["Fee payment"] },
+      { title: "Receive Updated NRIC", description: "Collect your new NRIC with the updated name.", documents: ["New NRIC"] }
+    ],
+    tips: [
+      "Online applications via SingPass are processed fastest",
+      "MUIS (Islamic Religious Council of Singapore) can provide guidance",
+      "Singapore is very efficient — expect fast processing",
+      "Update your NRIC first, then passport and other documents follow"
+    ],
+    resources: [
+      { title: "ICA Singapore", url: "https://www.ica.gov.sg" },
+      { title: "MUIS", url: "https://www.muis.gov.sg" }
+    ],
+    religiousExemptions: "Singapore accepts all reasons for name changes without requiring justification. The multi-religious society means authorities are familiar with religious name changes.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Morocco",
+    countryCode: "MA",
+    flag: "🇲🇦",
+    overview: "Morocco handles name changes through the Civil Court (Tribunal de première instance). The process requires a court petition and is governed by Morocco's Family Code (Moudawwana).",
+    estimatedCost: "MAD 200 - 1,000",
+    estimatedCostUSD: [20, 100],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Prepare Court Petition", description: "Draft a petition to the Tribunal de première instance explaining the name change request.", documents: ["Petition", "CIN (national ID)", "Birth certificate (acte de naissance)"] },
+      { title: "File at Court", description: "Submit the petition to the court in your jurisdiction with all supporting documents.", documents: ["Petition", "Supporting documents", "Court fees"] },
+      { title: "Court Hearing", description: "Attend a hearing where the judge reviews the petition. Religious reasons are well-accepted.", documents: ["Photo ID"] },
+      { title: "Update État Civil", description: "After court approval, update your civil registry records and obtain new CIN.", documents: ["Court judgment", "Old CIN"] }
+    ],
+    tips: [
+      "Morocco has specific Amazigh/Arabic name lists that may guide choices",
+      "A lawyer (avocat) is recommended but not always required",
+      "As an Islamic country, religious name changes are well-understood",
+      "The Habous Ministry can provide supporting documentation"
+    ],
+    resources: [
+      { title: "Ministère de la Justice", url: "https://www.justice.gov.ma" },
+      { title: "DGSN - National Security", url: "https://www.dgsn.gov.ma" }
+    ],
+    religiousExemptions: "Morocco, as an Islamic kingdom, strongly supports religious name changes. The Family Code (Moudawwana) provides a framework that accommodates Islamic naming conventions.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Japan",
+    countryCode: "JP",
+    flag: "🇯🇵",
+    overview: "Japan requires a Family Court (家庭裁判所) petition for name changes. The court must find 'justifiable reason' (正当な事由). Religious conversion is generally accepted, though Japan has stricter standards than many countries.",
+    estimatedCost: "¥800 - ¥5,000",
+    estimatedCostUSD: [5, 33],
+    estimatedTimeline: "4 - 12 weeks",
+    estimatedTimelineWeeks: [4, 12],
+    difficulty: "moderate",
+    steps: [
+      { title: "Prepare Family Court Petition", description: "File a petition (名の変更許可申立書) at your local Family Court (家庭裁判所).", documents: ["Petition form", "Koseki tohon (family register)", "Jūminhyō (residence certificate)"] },
+      { title: "Provide Justification", description: "Explain the reason for the change. Include evidence that you have been using the new name (tsūshō 通称名).", documents: ["Evidence of use (mail, contracts, etc.)", "Conversion documentation"] },
+      { title: "Court Review", description: "The court reviews your case. Having used the name as a tsūshō (commonly used name) strengthens the application.", documents: [] },
+      { title: "Update Koseki", description: "After approval, update your family register (koseki) at your municipal office.", documents: ["Court approval", "Koseki"] },
+      { title: "Update Residence Card", description: "Update your jūminhyō and other documents at the municipal office.", documents: ["Updated koseki", "Current ID"] }
+    ],
+    tips: [
+      "Using your Muslim name as a tsūshō (common name) before filing greatly strengthens your case",
+      "Courts look for evidence you've been using the name for at least a year",
+      "The Japan Muslim Association can provide support and documentation",
+      "Foreign residents may find it easier through their embassy first",
+      "Court filing fees are very low (around ¥800)"
+    ],
+    resources: [
+      { title: "Courts of Japan", url: "https://www.courts.go.jp" },
+      { title: "Japan Muslim Association", url: "https://www.muslimassociation.or.jp" }
+    ],
+    religiousExemptions: "Japanese courts accept religious conversion as a 'justifiable reason' (正当な事由) for name changes, but typically require evidence that you have been using the new name in daily life (tsūshō) before granting the change.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Brazil",
+    countryCode: "BR",
+    flag: "🇧🇷",
+    overview: "Brazil allows first name changes through the Civil Registry (Cartório de Registro Civil). Since 2022, adults can change their first name once at any registry office without needing a court order.",
+    estimatedCost: "R$0 - R$500",
+    estimatedCostUSD: [0, 85],
+    estimatedTimeline: "2 - 8 weeks",
+    estimatedTimelineWeeks: [2, 8],
+    difficulty: "easy",
+    steps: [
+      { title: "Visit a Cartório de Registro Civil", description: "Go to any civil registry office (cartório) to request a first name change. Since 2022, no court order is needed for one change.", documents: ["RG or CNH", "CPF", "Birth certificate"] },
+      { title: "Submit Declaration", description: "Fill out a declaration form stating your old name, new name, and reason for the change.", documents: ["Declaration form", "Fee payment"] },
+      { title: "Wait for Processing", description: "The cartório processes the change and updates the civil registry.", documents: [] },
+      { title: "Update CPF and Other Documents", description: "Update your CPF, RG, voter registration, and other documents with the new name.", documents: ["Updated birth certificate", "Old documents"] }
+    ],
+    tips: [
+      "Since 2022, first name changes no longer require court approval (Law 14.382/2022)",
+      "You can only use this simplified process once — choose carefully",
+      "CDIAL (Centro Dawah Islâmico da América Latina) can provide conversion certificates",
+      "Brazil has South America's largest Muslim community, centered in São Paulo",
+      "Update CPF first as most agencies require it"
+    ],
+    resources: [
+      { title: "Cartórios Brasil", url: "https://www.registrocivil.org.br" },
+      { title: "Receita Federal - CPF", url: "https://www.gov.br/receitafederal" }
+    ],
+    religiousExemptions: "Brazilian law does not require a specific reason for the first name change (since 2022). Religious conversion is accepted without question. Surname changes still require a court order.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Kenya",
+    countryCode: "KE",
+    flag: "🇰🇪",
+    overview: "Kenya handles name changes through the Registrar of Persons and the Kenya Gazette. The process involves a deed poll and Gazette publication, similar to British common law systems.",
+    estimatedCost: "KES 1,000 - 5,000",
+    estimatedCostUSD: [8, 39],
+    estimatedTimeline: "4 - 10 weeks",
+    estimatedTimelineWeeks: [4, 10],
+    difficulty: "moderate",
+    steps: [
+      { title: "Execute a Deed Poll", description: "Prepare and sign a deed poll document before a Commissioner for Oaths or advocate.", documents: ["Deed poll", "Current ID", "Passport photos"] },
+      { title: "Publish in Kenya Gazette", description: "Submit the name change notice for publication in the Kenya Gazette.", documents: ["Gazette application", "Deed poll copy", "Fee"] },
+      { title: "Apply for New ID", description: "Apply at Huduma Centre or registration office for a new national ID card with the new name.", documents: ["Gazette notice", "Deed poll", "Old ID"] },
+      { title: "Update Other Documents", description: "Update passport, KRA PIN, NHIF, NSSF, and bank accounts.", documents: ["New ID", "Gazette notice"] }
+    ],
+    tips: [
+      "The Supreme Council of Kenya Muslims (SUPKEM) can facilitate the process",
+      "Gazette publication takes about 2-3 weeks",
+      "Huduma Centres offer one-stop government services",
+      "Kenya's significant Muslim population (especially on the coast) means the process is well-understood"
+    ],
+    resources: [
+      { title: "Kenya Gazette", url: "https://www.kenyagazette.or.ke" },
+      { title: "Immigration & Registration", url: "https://immigration.go.ke" }
+    ],
+    religiousExemptions: "Kenya accepts religious conversion as a valid reason for name changes. With a significant Muslim minority, authorities in coastal regions and urban centers are very familiar with the process.",
+    lastUpdated: "2026-02"
   }
 ];
 
