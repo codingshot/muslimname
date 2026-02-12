@@ -169,10 +169,10 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
               What's the Islamic Version of Your Name?
             </h2>
-            <p className="text-primary-foreground/80 max-w-md mx-auto mb-8">
+            <p className="text-white/90 max-w-md mx-auto mb-8">
               We've mapped {totalMappings}+ Christian, Hebrew, and Western names to their Islamic equivalents with spiritual context from all three Abrahamic traditions
             </p>
             <Link to="/generator">
