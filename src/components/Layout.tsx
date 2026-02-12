@@ -1,8 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
-import { Search, Heart, Menu, X, Sparkles, Scale, User } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Search, Heart, Menu, X, Sparkles, Scale, User, Shuffle } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
+import { namesDatabase } from "@/data/names";
 
 const navLinks = [
   { to: "/names", label: "Browse Names" },
@@ -13,6 +14,7 @@ const navLinks = [
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -128,6 +130,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </svg>
                 </a>
                 <a
+                  href="https://www.linkedin.com/company/ummah-build/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors text-muted-foreground"
+                  aria-label="Follow on LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+                <a
                   href="https://github.com/codingshot/muslimname"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -147,6 +160,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/generator" className="hover:text-primary transition-colors">Name Generator</Link>
                 <Link to="/names?gender=male" className="hover:text-primary transition-colors">Boy Names</Link>
                 <Link to="/names?gender=female" className="hover:text-primary transition-colors">Girl Names</Link>
+                <button
+                  onClick={() => {
+                    const quranic = namesDatabase.filter(n => n.isQuranic);
+                    const random = quranic[Math.floor(Math.random() * quranic.length)];
+                    if (random) navigate(`/name/${random.slug}`);
+                  }}
+                  className="text-left hover:text-primary transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Shuffle className="w-3.5 h-3.5" /> Random Quranic Name
+                </button>
               </div>
             </div>
             <div>
