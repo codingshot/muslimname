@@ -68,7 +68,13 @@ export default function GeneratorPage() {
       searchTerms.push(...mappingInfo.muslimNames);
     }
 
-    if (searchTerms.length === 0 && gender === "all") {
+    // Work with partial params — no need to fill everything
+    const hasName = currentName.trim().length > 0;
+    const hasMeanings = selectedMeanings.length > 0;
+    const hasGender = gender !== "all";
+
+    // If nothing is filled at all, show random names
+    if (!hasName && !hasMeanings && !hasGender) {
       const shuffled = [...namesDatabase].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, 9);
     }
@@ -77,8 +83,13 @@ export default function GeneratorPage() {
       ? suggestFromMeaning(searchTerms.join(" "))
       : [...namesDatabase];
 
-    if (gender !== "all") {
+    if (hasGender) {
       names = names.filter(n => n.gender === gender);
+    }
+
+    // If only gender selected and no search terms, shuffle for variety
+    if (!hasName && !hasMeanings && hasGender) {
+      names = [...names].sort(() => Math.random() - 0.5);
     }
 
     return names.slice(0, 9);
