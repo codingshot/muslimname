@@ -236,7 +236,7 @@ export default function NameDetail() {
             </h2>
             <div className="space-y-4">
               {name.quranicReferences.map((ref, i) => (
-                <div key={i} className="bg-teal-light rounded-lg p-4 border-l-4 border-primary">
+                <div key={i} className="group bg-teal-light rounded-lg p-4 border-l-4 border-primary relative">
                   <p className="text-foreground italic leading-relaxed text-sm sm:text-base">"{ref.text}"</p>
                   <div className="flex items-center gap-2 mt-2 flex-wrap">
                     <p className="text-sm text-primary font-medium">
@@ -250,6 +250,14 @@ export default function NameDetail() {
                     >
                       Read on Quran.com <ExternalLink className="w-3 h-3" />
                     </a>
+                  </div>
+                  {/* Hover tooltip */}
+                  <div className="hidden group-hover:block absolute left-0 right-0 -bottom-1 translate-y-full z-20 px-2">
+                    <div className="bg-card border border-border rounded-lg shadow-card-hover p-3 text-xs">
+                      <p className="font-semibold text-foreground mb-1">📖 Surah {ref.surah}</p>
+                      <p className="text-muted-foreground">Verse {ref.ayah} — This Quranic verse directly references or relates to the name <span className="font-medium text-foreground">{name.name}</span>. The Quran contains 114 surahs (chapters) revealed to Prophet Muhammad ﷺ over 23 years.</p>
+                      <p className="text-primary mt-1.5 font-medium">Click "Read on Quran.com" to see the full context with tafsir (commentary).</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -270,7 +278,7 @@ export default function NameDetail() {
             </h2>
             <div className="space-y-4">
               {name.hadithReferences.map((ref, i) => (
-                <div key={i} className="bg-gold-light/30 rounded-lg p-4 border-l-4 border-secondary">
+                <div key={i} className="group bg-gold-light/30 rounded-lg p-4 border-l-4 border-secondary relative">
                   <p className="text-foreground italic leading-relaxed text-sm sm:text-base">"{ref.text}"</p>
                   <div className="flex items-center gap-2 mt-2 flex-wrap">
                     <p className="text-sm text-secondary font-medium">{ref.source}</p>
@@ -282,6 +290,18 @@ export default function NameDetail() {
                     >
                       Search on Sunnah.com <ExternalLink className="w-3 h-3" />
                     </a>
+                  </div>
+                  {/* Hover tooltip */}
+                  <div className="hidden group-hover:block absolute left-0 right-0 -bottom-1 translate-y-full z-20 px-2">
+                    <div className="bg-card border border-border rounded-lg shadow-card-hover p-3 text-xs">
+                      <p className="font-semibold text-foreground mb-1">📚 {ref.source}</p>
+                      <p className="text-muted-foreground">
+                        {ref.source.includes("Bukhari") && "Sahih al-Bukhari is the most authentic collection of hadith, compiled by Imam Muhammad al-Bukhari (810–870 CE). It contains 7,563 hadith carefully verified through chains of narration."}
+                        {ref.source.includes("Muslim") && "Sahih Muslim is the second most authentic hadith collection, compiled by Imam Muslim ibn al-Hajjaj (815–875 CE). It contains 7,500 hadith rigorously authenticated."}
+                        {!ref.source.includes("Bukhari") && !ref.source.includes("Muslim") && `This hadith comes from ${ref.source}, one of the major collections of prophetic traditions recording the sayings and actions of Prophet Muhammad ﷺ.`}
+                      </p>
+                      <p className="text-secondary mt-1.5 font-medium">Click "Search on Sunnah.com" to verify and read related narrations.</p>
+                    </div>
                   </div>
                 </div>
               ))}
