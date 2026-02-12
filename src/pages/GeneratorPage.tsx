@@ -110,9 +110,28 @@ export default function GeneratorPage() {
             Discover Your Muslim Name
           </h1>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Enter your Christian, Hebrew, or Western name to find its Islamic equivalent — or explore by meaning and qualities
+            Find your Islamic equivalent in 3 simple steps — or explore by meaning and qualities
           </p>
         </motion.div>
+
+        {/* Step Indicators */}
+        <div className="max-w-2xl mx-auto mb-8">
+          <div className="flex items-center justify-between relative">
+            <div className="absolute top-4 left-[16%] right-[16%] h-0.5 bg-border" />
+            {[
+              { num: 1, label: "Your Name", active: true },
+              { num: 2, label: "Preferences", active: currentName.trim().length > 0 || selectedMeanings.length > 0 },
+              { num: 3, label: "Discover", active: generated },
+            ].map(step => (
+              <div key={step.num} className="flex flex-col items-center relative z-10">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
+                  step.active ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                }`}>{step.num}</div>
+                <span className={`text-xs mt-1.5 font-medium ${step.active ? "text-foreground" : "text-muted-foreground"}`}>{step.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="max-w-2xl mx-auto space-y-8">
           {/* Current Name — Primary CTA */}

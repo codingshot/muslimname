@@ -9,6 +9,7 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { to: "/names", label: "Browse Names" },
   { to: "/generator", label: "Name Generator" },
+  { to: "/blogs", label: "Blog" },
   { to: "/legal-guide", label: "Legal Guide" },
 ];
 
@@ -172,6 +173,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-display font-semibold mb-3">Resources</h4>
               <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+                <Link to="/blogs" className="hover:text-primary transition-colors">Blog</Link>
                 <Link to="/legal-guide" className="hover:text-primary transition-colors">Legal Name Change Guide</Link>
                 <Link to="/contribute" className="hover:text-primary transition-colors">Contribute</Link>
                 <a href="https://github.com/codingshot/muslimname" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub Repo</a>

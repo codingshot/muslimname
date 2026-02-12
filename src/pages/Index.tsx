@@ -6,12 +6,15 @@ import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import { namesDatabase } from "@/data/names";
 import { getMappingContext, totalMappings } from "@/data/nameMapping";
+import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const featuredNames = namesDatabase.slice(0, 6);
+const featuredBlogs = blogPosts.slice(0, 3);
 
 const Index = () => {
   const [currentName, setCurrentName] = useState("");
@@ -181,6 +184,37 @@ const Index = () => {
               </Button>
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="font-display text-3xl font-bold mb-2">Guides & Resources</h2>
+            <p className="text-muted-foreground">Expert articles on Islamic naming traditions, meanings, and guidance for converts</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {featuredBlogs.map((post, i) => (
+              <motion.div key={post.slug} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                <Link to={`/blogs/${post.slug}`} className="block group h-full">
+                  <article className="bg-card rounded-xl border border-border p-5 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                    <div className="flex gap-1.5 mb-2">
+                      {post.tags.slice(0, 2).map(t => (
+                        <Badge key={t} variant="outline" className="text-[10px] capitalize">{t}</Badge>
+                      ))}
+                    </div>
+                    <h3 className="font-display text-base font-semibold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">{post.title}</h3>
+                    <p className="text-xs text-muted-foreground line-clamp-2 flex-1">{post.excerpt}</p>
+                    <span className="text-xs text-primary font-medium mt-3 inline-flex items-center gap-1">Read more <ArrowRight className="w-3 h-3" /></span>
+                  </article>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/blogs"><Button variant="outline" size="lg" className="rounded-xl">View All Articles <ArrowRight className="w-4 h-4 ml-2" /></Button></Link>
+          </div>
         </div>
       </section>
 
