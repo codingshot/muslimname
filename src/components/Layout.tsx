@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { to: "/", label: "Home" },
   { to: "/names", label: "Browse Names" },
   { to: "/generator", label: "Name Generator" },
   { to: "/legal-guide", label: "Legal Guide" },
