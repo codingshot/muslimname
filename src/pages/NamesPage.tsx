@@ -1,44 +1,64 @@
-import { useState, useMemo } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { Search, Filter, BookOpen, SlidersHorizontal } from "lucide-react";
-import { namesDatabase, searchNames, filterNames } from "@/data/names";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { Search, SlidersHorizontal, X } from "lucide-react";
+import { namesDatabase, searchNames, getOrigins, getThemes } from "@/data/names";
 import NameCard from "@/components/NameCard";
+import NameCardSkeleton from "@/components/NameCardSkeleton";
 import Layout from "@/components/Layout";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const genderFilters = ["all", "male", "female", "unisex"];
-const themeOptions = ["devotion", "strength", "beauty", "light", "purity", "courage", "wisdom", "peace", "faith", "leadership"];
 
 export default function NamesPage() {
   const [searchParams] = useSearchParams();
+  const initialQuery = searchParams.get("q") || "";
   const initialGender = searchParams.get("gender") || "all";
-  const [query, setQuery] = useState("");
+
+  const [query, setQuery] = useState(initialQuery);
   const [gender, setGender] = useState(initialGender);
   const [quranicOnly, setQuranicOnly] = useState(false);
+  const [selectedOrigin, setSelectedOrigin] = useState("all");
   const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
+
+  const origins = useMemo(() => getOrigins(), []);
+  const themes = useMemo(() => getThemes(), []);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 400);
+    return () => clearTimeout(t);
+  }, []);
 
   const results = useMemo(() => {
     let names = query ? searchNames(query) : [...namesDatabase];
 
-    if (gender !== "all") {
-      names = names.filter(n => n.gender === gender);
-    }
-    if (quranicOnly) {
-      names = names.filter(n => n.isQuranic);
-    }
+    if (gender !== "all") names = names.filter(n => n.gender === gender);
+    if (quranicOnly) names = names.filter(n => n.isQuranic);
+    if (selectedOrigin !== "all") names = names.filter(n => n.origin === selectedOrigin);
     if (selectedThemes.length > 0) {
       names = names.filter(n => selectedThemes.some(t => n.themes.includes(t)));
     }
 
-    return names.sort((a, b) => b.popularity - a.popularity);
-  }, [query, gender, quranicOnly, selectedThemes]);
+    if (!query) names.sort((a, b) => b.popularity - a.popularity);
+    return names;
+  }, [query, gender, quranicOnly, selectedOrigin, selectedThemes]);
 
   const toggleTheme = (theme: string) => {
     setSelectedThemes(prev =>
       prev.includes(theme) ? prev.filter(t => t !== theme) : [...prev, theme]
     );
+  };
+
+  const activeFilterCount = (gender !== "all" ? 1 : 0) + (quranicOnly ? 1 : 0) + (selectedOrigin !== "all" ? 1 : 0) + selectedThemes.length;
+
+  const clearFilters = () => {
+    setQuery("");
+    setGender("all");
+    setQuranicOnly(false);
+    setSelectedOrigin("all");
+    setSelectedThemes([]);
   };
 
   return (
@@ -58,81 +78,158 @@ export default function NamesPage() {
           </p>
         </motion.div>
 
-        {/* Search */}
-        <div className="max-w-xl mx-auto mb-8">
+        {/* Search + Filter Toggle */}
+        <div className="max-w-xl mx-auto mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder="Search by name, meaning, or theme..."
-              className="pl-10 h-12 rounded-xl bg-card text-base"
+              placeholder="Search by name, meaning, theme, or origin..."
+              className="pl-10 pr-12 h-12 rounded-xl bg-card text-base"
             />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-muted text-muted-foreground"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <SlidersHorizontal className="w-4 h-4" />
+            Filters
+            {activeFilterCount > 0 && (
+              <span className="bg-primary text-primary-foreground text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {activeFilterCount}
+              </span>
+            )}
+          </button>
         </div>
 
         {/* Filters */}
-        <div className="max-w-3xl mx-auto mb-8 space-y-4">
-          <div className="flex items-center gap-2 flex-wrap">
-            <SlidersHorizontal className="w-4 h-4 text-muted-foreground" />
-            {genderFilters.map(g => (
-              <button
-                key={g}
-                onClick={() => setGender(g)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium capitalize transition-colors ${
-                  gender === g
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {g === "all" ? "All" : g}
-              </button>
-            ))}
-            <button
-              onClick={() => setQuranicOnly(!quranicOnly)}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                quranicOnly
-                  ? "bg-secondary text-secondary-foreground"
-                  : "bg-muted text-muted-foreground hover:text-foreground"
-              }`}
+        <AnimatePresence>
+          {showFilters && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden max-w-3xl mx-auto mb-8"
             >
-              📖 Quranic Only
-            </button>
-          </div>
+              <div className="space-y-4 py-2">
+                {/* Gender */}
+                <div>
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 block">Gender</label>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {genderFilters.map(g => (
+                      <button
+                        key={g}
+                        onClick={() => setGender(g)}
+                        className={`px-3 py-1.5 rounded-lg text-sm font-medium capitalize transition-colors ${
+                          gender === g
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {g === "all" ? "All" : g}
+                      </button>
+                    ))}
+                    <button
+                      onClick={() => setQuranicOnly(!quranicOnly)}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                        quranicOnly
+                          ? "bg-secondary text-secondary-foreground"
+                          : "bg-muted text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      📖 Quranic Only
+                    </button>
+                  </div>
+                </div>
 
-          <div className="flex items-center gap-1.5 flex-wrap">
-            {themeOptions.map(theme => (
-              <button
-                key={theme}
-                onClick={() => toggleTheme(theme)}
-                className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize transition-colors ${
-                  selectedThemes.includes(theme)
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {theme}
-              </button>
-            ))}
-          </div>
-        </div>
+                {/* Origin */}
+                <div>
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 block">Origin</label>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <button
+                      onClick={() => setSelectedOrigin("all")}
+                      className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors ${
+                        selectedOrigin === "all" ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      All Origins
+                    </button>
+                    {origins.map(o => (
+                      <button
+                        key={o}
+                        onClick={() => setSelectedOrigin(o === selectedOrigin ? "all" : o)}
+                        className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors ${
+                          selectedOrigin === o ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {o}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Themes */}
+                <div>
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 block">Themes</label>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    {themes.map(theme => (
+                      <button
+                        key={theme}
+                        onClick={() => toggleTheme(theme)}
+                        className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize transition-colors ${
+                          selectedThemes.includes(theme)
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {theme}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {activeFilterCount > 0 && (
+                  <button onClick={clearFilters} className="text-xs text-primary hover:underline">
+                    Clear all filters
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Results */}
         <div className="max-w-5xl mx-auto">
           <p className="text-sm text-muted-foreground mb-4">
             {results.length} name{results.length !== 1 ? "s" : ""} found
           </p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {results.map((name, i) => (
-              <NameCard key={name.slug} name={name} index={i} />
-            ))}
+            {loading ? (
+              Array.from({ length: 9 }).map((_, i) => <NameCardSkeleton key={i} />)
+            ) : (
+              results.map((name, i) => (
+                <NameCard key={name.slug} name={name} index={i} />
+              ))
+            )}
           </div>
-          {results.length === 0 && (
+
+          {!loading && results.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-muted-foreground mb-2">No names found matching your criteria</p>
+              <p className="text-lg font-display font-semibold text-foreground mb-2">No names found</p>
+              <p className="text-muted-foreground mb-4">Try adjusting your search or filters</p>
               <button
-                onClick={() => { setQuery(""); setGender("all"); setQuranicOnly(false); setSelectedThemes([]); }}
-                className="text-primary hover:underline text-sm"
+                onClick={clearFilters}
+                className="text-primary hover:underline text-sm font-medium"
               >
                 Clear all filters
               </button>

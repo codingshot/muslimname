@@ -1,13 +1,24 @@
 import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { findNameBySlug, namesDatabase } from "@/data/names";
+import { getMappingContext, christianToMuslimNameMapping } from "@/data/nameMapping";
 import Layout from "@/components/Layout";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink } from "lucide-react";
-import { motion } from "framer-motion";
+import NameDetailSkeleton from "@/components/NameDetailSkeleton";
 import NameCard from "@/components/NameCard";
+import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function NameDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    const t = setTimeout(() => setLoading(false), 300);
+    return () => clearTimeout(t);
+  }, [slug]);
+
   const name = findNameBySlug(slug || "");
 
   if (!name) {
@@ -21,9 +32,26 @@ export default function NameDetail() {
     );
   }
 
+  if (loading) {
+    return <Layout><NameDetailSkeleton /></Layout>;
+  }
+
   const similarNames = namesDatabase
     .filter(n => n.slug !== name.slug && n.themes.some(t => name.themes.includes(t)))
+    .sort((a, b) => {
+      const aShared = a.themes.filter(t => name.themes.includes(t)).length;
+      const bShared = b.themes.filter(t => name.themes.includes(t)).length;
+      return bShared - aShared;
+    })
     .slice(0, 3);
+
+  // Check if this name appears in the reverse mapping (is a Muslim equivalent of a Western name)
+  const reverseMapping: { westernName: string; connection: string }[] = [];
+  for (const [western, data] of Object.entries(christianToMuslimNameMapping)) {
+    if (data.muslimNames.some(n => n.toLowerCase() === name.slug || n.toLowerCase() === name.name.toLowerCase())) {
+      reverseMapping.push({ westernName: western, connection: data.connection });
+    }
+  }
 
   return (
     <Layout>
@@ -56,15 +84,19 @@ export default function NameDetail() {
               <p className="text-primary-foreground/70 text-sm">{name.origin}</p>
             </div>
           </div>
-          <div className="mt-6 flex items-center gap-4 flex-wrap">
+          <div className="mt-6 flex items-center gap-3 flex-wrap">
             <div className="flex items-center gap-2 bg-primary-foreground/10 rounded-lg px-3 py-1.5">
               <Volume2 className="w-4 h-4 text-primary-foreground/70" />
               <span className="text-primary-foreground text-sm font-medium">{name.pronunciation}</span>
             </div>
             {name.themes.map(theme => (
-              <span key={theme} className="px-2.5 py-1 rounded-full bg-primary-foreground/10 text-primary-foreground text-xs capitalize">
+              <Link
+                key={theme}
+                to={`/names?q=${theme}`}
+                className="px-2.5 py-1 rounded-full bg-primary-foreground/10 text-primary-foreground text-xs capitalize hover:bg-primary-foreground/20 transition-colors"
+              >
                 {theme}
-              </span>
+              </Link>
             ))}
           </div>
         </motion.div>
@@ -83,6 +115,28 @@ export default function NameDetail() {
           <p className="text-muted-foreground leading-relaxed">{name.detailedMeaning}</p>
         </motion.section>
 
+        {/* Western Name Equivalents */}
+        {reverseMapping.length > 0 && (
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12 }}
+            className="bg-card rounded-xl border border-border p-6 mb-6"
+          >
+            <h2 className="font-display text-xl font-semibold mb-3 flex items-center gap-2">
+              🔄 Western Name Equivalent
+            </h2>
+            <div className="space-y-3">
+              {reverseMapping.slice(0, 5).map((m, i) => (
+                <div key={i} className="bg-muted/50 rounded-lg p-3">
+                  <p className="font-medium text-foreground capitalize">{m.westernName}</p>
+                  <p className="text-sm text-muted-foreground">{m.connection}</p>
+                </div>
+              ))}
+            </div>
+          </motion.section>
+        )}
+
         {/* Quranic References */}
         {name.quranicReferences.length > 0 && (
           <motion.section
@@ -98,9 +152,19 @@ export default function NameDetail() {
               {name.quranicReferences.map((ref, i) => (
                 <div key={i} className="bg-teal-light rounded-lg p-4 border-l-4 border-primary">
                   <p className="text-foreground italic leading-relaxed">"{ref.text}"</p>
-                  <p className="text-sm text-primary font-medium mt-2">
-                    Surah {ref.surah} ({ref.ayah})
-                  </p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <p className="text-sm text-primary font-medium">
+                      Surah {ref.surah} ({ref.ayah})
+                    </p>
+                    <a
+                      href={`https://quran.com/${ref.ayah.split(":")[0]}/${ref.ayah.split(":")[1]}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-primary hover:underline inline-flex items-center gap-1"
+                    >
+                      Read on Quran.com <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -122,7 +186,17 @@ export default function NameDetail() {
               {name.hadithReferences.map((ref, i) => (
                 <div key={i} className="bg-gold-light/30 rounded-lg p-4 border-l-4 border-secondary">
                   <p className="text-foreground italic leading-relaxed">"{ref.text}"</p>
-                  <p className="text-sm text-secondary font-medium mt-2">{ref.source}</p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <p className="text-sm text-secondary font-medium">{ref.source}</p>
+                    <a
+                      href={`https://sunnah.com/search?q=${encodeURIComponent(ref.text.slice(0, 50))}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-secondary hover:underline inline-flex items-center gap-1"
+                    >
+                      Search on Sunnah.com <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -158,38 +232,42 @@ export default function NameDetail() {
 
         {/* Variations & Similar */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <motion.section
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="bg-card rounded-xl border border-border p-6"
-          >
-            <h2 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
-              <Globe className="w-5 h-5 text-secondary" /> Regional Variations
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {name.variations.map(v => (
-                <Badge key={v} variant="outline" className="text-sm">{v}</Badge>
-              ))}
-            </div>
-          </motion.section>
+          {name.variations.length > 0 && (
+            <motion.section
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="bg-card rounded-xl border border-border p-6"
+            >
+              <h2 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
+                <Globe className="w-5 h-5 text-secondary" /> Regional Variations
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {name.variations.map(v => (
+                  <Badge key={v} variant="outline" className="text-sm">{v}</Badge>
+                ))}
+              </div>
+            </motion.section>
+          )}
 
-          <motion.section
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="bg-card rounded-xl border border-border p-6"
-          >
-            <h2 className="font-display text-lg font-semibold mb-3">Similar Non-Arabic Names</h2>
-            <div className="space-y-2">
-              {name.similarNonArabic.map((sim, i) => (
-                <div key={i} className="flex justify-between text-sm">
-                  <span className="font-medium">{sim.name}</span>
-                  <span className="text-muted-foreground">{sim.meaning} ({sim.origin})</span>
-                </div>
-              ))}
-            </div>
-          </motion.section>
+          {name.similarNonArabic.length > 0 && (
+            <motion.section
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
+              className="bg-card rounded-xl border border-border p-6"
+            >
+              <h2 className="font-display text-lg font-semibold mb-3">Similar Non-Arabic Names</h2>
+              <div className="space-y-2">
+                {name.similarNonArabic.map((sim, i) => (
+                  <div key={i} className="flex justify-between text-sm">
+                    <span className="font-medium">{sim.name}</span>
+                    <span className="text-muted-foreground">{sim.meaning} ({sim.origin})</span>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+          )}
         </div>
 
         {/* Similar Names */}
