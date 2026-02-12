@@ -1,3 +1,11 @@
+export interface ScriptureRef {
+  book: string;
+  chapter: string;
+  verse: string;
+  text: string;
+  tradition: "quran" | "bible" | "torah";
+}
+
 export interface MuslimName {
   slug: string;
   name: string;
@@ -15,6 +23,15 @@ export interface MuslimName {
   quranicReferences: { surah: string; ayah: string; text: string }[];
   hadithReferences: { source: string; text: string }[];
   pronunciation: string;
+  scriptureContext?: {
+    inBible?: boolean;
+    bibleName?: string;
+    bibleContext?: string;
+    inTorah?: boolean;
+    torahName?: string;
+    torahContext?: string;
+    sharedProphet?: boolean;
+  };
 }
 
 import { prophetsNames } from "./companionsAndProphets";
@@ -25,7 +42,7 @@ const coreNames: MuslimName[] = [
     name: "Abdullah",
     arabic: "عبد الله",
     meaning: "Servant of Allah",
-    detailedMeaning: "Abdullah is composed of 'Abd' meaning servant and 'Allah' meaning God. One of the most beloved names to Allah.",
+    detailedMeaning: "Abdullah is composed of 'Abd' meaning servant and 'Allah' meaning God. One of the most beloved names to Allah. The concept of servitude to God is shared across all Abrahamic traditions.",
     gender: "male",
     origin: "Arabic",
     isQuranic: true,
@@ -43,7 +60,7 @@ const coreNames: MuslimName[] = [
     name: "Fatima",
     arabic: "فاطمة",
     meaning: "The One Who Abstains",
-    detailedMeaning: "Fatima means 'the one who abstains' from evil. Famous daughter of Prophet Muhammad ﷺ, one of the four greatest women.",
+    detailedMeaning: "Fatima means 'the one who abstains' from evil. Famous daughter of Prophet Muhammad ﷺ, one of the four greatest women in Islam.",
     gender: "female",
     origin: "Arabic",
     isQuranic: false,
@@ -61,7 +78,7 @@ const coreNames: MuslimName[] = [
     name: "Aisha",
     arabic: "عائشة",
     meaning: "Alive, Living",
-    detailedMeaning: "Means 'the living one.' Wife of Prophet Muhammad ﷺ and one of the most learned women, transmitter of 2,000+ hadith.",
+    detailedMeaning: "Means 'the living one.' Wife of Prophet Muhammad ﷺ and one of the most learned women in Islamic history, transmitter of 2,000+ hadith.",
     gender: "female",
     origin: "Arabic",
     isQuranic: false,
@@ -79,7 +96,7 @@ const coreNames: MuslimName[] = [
     name: "Ahmad",
     arabic: "أحمد",
     meaning: "More Praised, Very Praiseworthy",
-    detailedMeaning: "The comparative form of Mahmoud. Mentioned in the Quran as a name of Prophet Muhammad ﷺ foretold by Prophet Isa.",
+    detailedMeaning: "The comparative form of Mahmoud. Mentioned in the Quran as a name of Prophet Muhammad ﷺ foretold by Prophet Isa (Jesus).",
     gender: "male",
     origin: "Arabic",
     isQuranic: true,
@@ -90,7 +107,13 @@ const coreNames: MuslimName[] = [
     famousBearers: [{ name: "Ahmad ibn Hanbal", description: "Founder of the Hanbali school of jurisprudence, great scholar of hadith" }],
     quranicReferences: [{ surah: "As-Saff", ayah: "61:6", text: "And [mention] when Isa said, 'O Children of Israel, indeed I am the messenger of Allah... bringing good tidings of a messenger to come after me, whose name is Ahmad.'" }],
     hadithReferences: [],
-    pronunciation: "AH-med"
+    pronunciation: "AH-med",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Paraclete / Comforter",
+      bibleContext: "Christians interpret differently, but Muslims see the 'Comforter' prophesied in John 14:16 as referring to Ahmad/Muhammad",
+      inTorah: false
+    }
   },
   {
     slug: "noor",
@@ -151,7 +174,7 @@ const coreNames: MuslimName[] = [
     name: "Mehmet",
     arabic: "محمد",
     meaning: "Praised, Praiseworthy",
-    detailedMeaning: "Turkish form of Muhammad. Popular throughout Ottoman Empire and remains most common in Turkey.",
+    detailedMeaning: "Turkish form of Muhammad. Popular throughout Ottoman Empire and remains the most common name in Turkey.",
     gender: "male",
     origin: "Turkish",
     isQuranic: true,
@@ -225,7 +248,7 @@ const coreNames: MuslimName[] = [
     meaning: "Beauty, Handsomeness",
     detailedMeaning: "From Arabic root meaning 'beauty.' Widely used across African Muslim communities representing physical and spiritual beauty.",
     gender: "male",
-    origin: "African",
+    origin: "Arabic",
     isQuranic: false,
     popularity: 79,
     themes: ["beauty", "elegance", "grace"],
@@ -241,9 +264,9 @@ const coreNames: MuslimName[] = [
     name: "Imran",
     arabic: "عمران",
     meaning: "Building, Prosperity",
-    detailedMeaning: "From Arabic root meaning 'to build and prosper.' Mentioned in Quran as father of Maryam. Popular in South Asia.",
+    detailedMeaning: "From Arabic root meaning 'to build and prosper.' Mentioned in Quran as father of Maryam. An entire Surah (Ali Imran) is named after his family.",
     gender: "male",
-    origin: "South Asian",
+    origin: "Arabic",
     isQuranic: true,
     popularity: 77,
     themes: ["prosperity", "growth", "blessing"],
@@ -252,7 +275,15 @@ const coreNames: MuslimName[] = [
     famousBearers: [{ name: "Imran Khan", description: "Former Pakistani cricketer and politician" }],
     quranicReferences: [{ surah: "Ali Imran", ayah: "3:35-36", text: "When the wife of Imran said, 'My Lord, indeed I have pledged to You what is in my womb...'" }],
     hadithReferences: [],
-    pronunciation: "im-RAHN"
+    pronunciation: "im-RAHN",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Amram",
+      bibleContext: "Amram in the Bible is the father of Moses and Aaron (Exodus 6:20). In Islamic tradition, Imran is also mentioned as the father of Maryam (Mary).",
+      inTorah: true,
+      torahName: "Amram (עַמְרָם)",
+      torahContext: "Amram appears in the Torah as father of Moshe (Moses), Aharon (Aaron), and Miriam"
+    }
   },
   {
     slug: "zara",
@@ -261,7 +292,7 @@ const coreNames: MuslimName[] = [
     meaning: "Flower, Blooming",
     detailedMeaning: "Derived from Arabic root meaning 'flower' or 'blooming.' Popular across South and Middle Eastern communities.",
     gender: "female",
-    origin: "South Asian",
+    origin: "Arabic",
     isQuranic: false,
     popularity: 83,
     themes: ["beauty", "nature", "growth"],
@@ -306,7 +337,15 @@ const coreNames: MuslimName[] = [
     famousBearers: [],
     quranicReferences: [],
     hadithReferences: [],
-    pronunciation: "HAH-nah"
+    pronunciation: "HAH-nah",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Hannah",
+      bibleContext: "Hannah in the Bible (1 Samuel 1) was the mother of Prophet Samuel, who prayed fervently for a child. In Islamic tradition, Hannah is the mother of Maryam.",
+      inTorah: true,
+      torahName: "Channah (חַנָּה)",
+      torahContext: "Channah in the Torah is mother of Shmuel (Samuel), a woman of deep prayer"
+    }
   },
   {
     slug: "karim",
@@ -321,7 +360,7 @@ const coreNames: MuslimName[] = [
     themes: ["generosity", "nobility", "honor"],
     variations: ["Kareem", "Kerim"],
     similarNonArabic: [{ name: "Clement", meaning: "Merciful, Gentle", origin: "Latin" }],
-    famousBearers: [{ name: "Abdul-Jabbar Karim", description: "Legendary NBA player who converted to Islam" }],
+    famousBearers: [{ name: "Kareem Abdul-Jabbar", description: "Legendary NBA player who converted to Islam" }],
     quranicReferences: [{ surah: "Al-Infitar", ayah: "82:6", text: "O mankind, what has deceived you concerning your Lord, the Generous (Al-Karim)?" }],
     hadithReferences: [],
     pronunciation: "ka-REEM"
@@ -380,7 +419,6 @@ const coreNames: MuslimName[] = [
     hadithReferences: [],
     pronunciation: "ra-SHEED"
   },
-  // === NEW EXPANDED NAMES ===
   {
     slug: "abdurrahman",
     name: "Abdur-Rahman",
@@ -449,7 +487,7 @@ const coreNames: MuslimName[] = [
     name: "Omar",
     arabic: "عمر",
     meaning: "Long-Lived, Flourishing",
-    detailedMeaning: "From Arabic root meaning 'to flourish' or 'long life.' Omar ibn al-Khattab was the second Rightly Guided Caliph, known for his just governance.",
+    detailedMeaning: "From Arabic root meaning 'to flourish.' Omar ibn al-Khattab was the second Rightly Guided Caliph, known for his just governance that even non-Muslims praised.",
     gender: "male",
     origin: "Arabic",
     isQuranic: false,
@@ -472,7 +510,7 @@ const coreNames: MuslimName[] = [
     meaning: "Star of the Sea, Beloved",
     detailedMeaning: "Maryam is the Arabic form of Mary, mother of Prophet Isa (Jesus). She is the only woman mentioned by name in the Quran, with an entire chapter (Surah 19) named after her. She is one of the four greatest women in Islam.",
     gender: "female",
-    origin: "Arabic / Hebrew",
+    origin: "Arabic",
     isQuranic: true,
     popularity: 94,
     themes: ["purity", "devotion", "faith", "virtue"],
@@ -484,7 +522,16 @@ const coreNames: MuslimName[] = [
       { surah: "At-Tahrim", ayah: "66:12", text: "And Maryam, the daughter of Imran, who guarded her chastity... And she believed in the words of her Lord." }
     ],
     hadithReferences: [{ source: "Sahih Bukhari", text: "The best women in Paradise are Khadijah, Fatimah, Maryam, and Asiyah." }],
-    pronunciation: "MAR-yam"
+    pronunciation: "MAR-yam",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Mary (Μαρία)",
+      bibleContext: "Mary is honored as the mother of Jesus in Christianity (Luke 1:26-38). She is revered as the Blessed Virgin Mary and holds a central role in Christian theology.",
+      inTorah: true,
+      torahName: "Miriam (מִרְיָם)",
+      torahContext: "Miriam in the Torah is the sister of Moses and Aaron, a prophetess who led the women in song after crossing the Red Sea (Exodus 15:20-21). The name Maryam is derived from this.",
+      sharedProphet: true
+    }
   },
   {
     slug: "yusuf",
@@ -493,7 +540,7 @@ const coreNames: MuslimName[] = [
     meaning: "God Increases",
     detailedMeaning: "Arabic form of Joseph. Prophet Yusuf's story is called 'the best of stories' in the Quran (Ahsan al-Qasas). Blessed with extraordinary beauty and the ability to interpret dreams.",
     gender: "male",
-    origin: "Arabic / Hebrew",
+    origin: "Arabic",
     isQuranic: true,
     popularity: 90,
     themes: ["beauty", "patience", "wisdom", "forgiveness"],
@@ -508,7 +555,16 @@ const coreNames: MuslimName[] = [
       { surah: "Yusuf", ayah: "12:4", text: "When Yusuf said to his father, 'O my father, indeed I have seen eleven stars and the sun and the moon; I saw them prostrating to me.'" }
     ],
     hadithReferences: [],
-    pronunciation: "YOO-suf"
+    pronunciation: "YOO-suf",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Joseph",
+      bibleContext: "Joseph appears in Genesis 37-50 as the favored son of Jacob, sold by his brothers, who rose to become ruler of Egypt. The story parallels the Quranic account closely.",
+      inTorah: true,
+      torahName: "Yosef (יוֹסֵף)",
+      torahContext: "Yosef is a patriarch in the Torah — Jacob's beloved son whose story of betrayal, patience, and ultimate triumph is foundational to Jewish tradition",
+      sharedProphet: true
+    }
   },
   {
     slug: "ibrahim",
@@ -517,7 +573,7 @@ const coreNames: MuslimName[] = [
     meaning: "Father of Nations",
     detailedMeaning: "Arabic form of Abraham. Prophet Ibrahim is called Khalilullah (Friend of Allah) and is one of the five greatest prophets (Ulul Azm). He built the Kaaba with his son Ismail.",
     gender: "male",
-    origin: "Arabic / Hebrew",
+    origin: "Arabic",
     isQuranic: true,
     popularity: 93,
     themes: ["faith", "sacrifice", "leadership", "devotion"],
@@ -532,7 +588,16 @@ const coreNames: MuslimName[] = [
       { surah: "Al-Baqarah", ayah: "2:127", text: "And when Ibrahim was raising the foundations of the House and Ismail, [saying], 'Our Lord, accept [this] from us.'" }
     ],
     hadithReferences: [],
-    pronunciation: "ib-ra-HEEM"
+    pronunciation: "ib-ra-HEEM",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Abraham",
+      bibleContext: "Abraham is the patriarch of Judaism, Christianity, and Islam (Genesis 12-25). God made a covenant with him and promised him descendants as numerous as the stars.",
+      inTorah: true,
+      torahName: "Avraham (אַבְרָהָם)",
+      torahContext: "Avraham is the first patriarch of the Jewish people. God commands him to leave his homeland (Lech Lecha) and establishes a covenant of circumcision with him. He is tested with the binding of Yitzchak (Isaac).",
+      sharedProphet: true
+    }
   },
   {
     slug: "safiya",
@@ -557,7 +622,7 @@ const coreNames: MuslimName[] = [
     name: "Hamza",
     arabic: "حمزة",
     meaning: "Strong, Steadfast, Lion",
-    detailedMeaning: "Hamza means 'strong' or 'lion.' Hamza ibn Abdul-Muttalib was the uncle of the Prophet ﷺ, known as Asadullah (Lion of Allah). He was one of the first Muslims and a fierce warrior who was martyred at Uhud.",
+    detailedMeaning: "Hamza means 'strong' or 'lion.' Hamza ibn Abdul-Muttalib was the uncle of the Prophet ﷺ, known as Asadullah (Lion of Allah). One of the first Muslims and a fierce warrior martyred at Uhud.",
     gender: "male",
     origin: "Arabic",
     isQuranic: false,
@@ -583,7 +648,7 @@ const coreNames: MuslimName[] = [
     themes: ["beauty", "elegance", "mystery"],
     variations: ["Leila", "Laila", "Leyla"],
     similarNonArabic: [{ name: "Selene", meaning: "Moon", origin: "Greek" }, { name: "Nyx", meaning: "Night", origin: "Greek" }],
-    famousBearers: [{ name: "Layla bint al-Minhal", description: "Companion of the Prophet who was known for her eloquence" }],
+    famousBearers: [{ name: "Layla bint al-Minhal", description: "Companion of the Prophet known for her eloquence" }],
     quranicReferences: [],
     hadithReferences: [],
     pronunciation: "LAY-lah"
@@ -593,9 +658,9 @@ const coreNames: MuslimName[] = [
     name: "Bilal",
     arabic: "بلال",
     meaning: "Moisture, Freshness",
-    detailedMeaning: "Bilal ibn Rabah was an Abyssinian companion of the Prophet ﷺ, one of the first converts to Islam who endured severe torture for his faith. He became the first muezzin (caller to prayer) in Islam.",
+    detailedMeaning: "Bilal ibn Rabah was an Abyssinian companion, one of the first converts to Islam who endured severe torture for his faith. He became the first muezzin (caller to prayer) in Islam — a powerful symbol of Islam's rejection of racism.",
     gender: "male",
-    origin: "African",
+    origin: "Arabic",
     isQuranic: false,
     popularity: 82,
     themes: ["faith", "courage", "perseverance", "devotion"],
@@ -611,7 +676,7 @@ const coreNames: MuslimName[] = [
     name: "Sumaya",
     arabic: "سمية",
     meaning: "High Above, Elevated",
-    detailedMeaning: "Sumaya bint Khayyat was the first martyr in Islam. She was tortured by Abu Jahl for refusing to renounce her faith, becoming a symbol of unwavering conviction.",
+    detailedMeaning: "Sumaya bint Khayyat was the first martyr in Islam. She was tortured by Abu Jahl for refusing to renounce her faith, becoming an eternal symbol of unwavering conviction.",
     gender: "female",
     origin: "Arabic",
     isQuranic: false,
@@ -636,7 +701,7 @@ const coreNames: MuslimName[] = [
     popularity: 78,
     themes: ["light", "strength", "leadership"],
     variations: ["Tarik", "Tarek"],
-    similarNonArabic: [{ name: "Lucifer (original meaning)", meaning: "Light-bearer", origin: "Latin" }],
+    similarNonArabic: [],
     famousBearers: [{ name: "Tariq ibn Ziyad", description: "Berber general who led the Muslim conquest of Hispania, Gibraltar is named after him (Jabal Tariq)" }],
     quranicReferences: [{ surah: "At-Tariq", ayah: "86:1-3", text: "By the sky and the night comer (At-Tariq) — And what can make you know what is the night comer? It is the piercing star." }],
     hadithReferences: [],
@@ -712,7 +777,16 @@ const coreNames: MuslimName[] = [
     famousBearers: [{ name: "Prophet Idris (AS)", description: "Prophet raised to a high station, man of truth and patience" }],
     quranicReferences: [{ surah: "Maryam", ayah: "19:56-57", text: "And mention in the Book, Idris. Indeed, he was a man of truth and a prophet. And We raised him to a high station." }],
     hadithReferences: [],
-    pronunciation: "id-REES"
+    pronunciation: "id-REES",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Enoch",
+      bibleContext: "Enoch in the Bible (Genesis 5:24) 'walked faithfully with God; then he was no more, because God took him away.' Many scholars identify Idris with Enoch.",
+      inTorah: true,
+      torahName: "Chanokh (חֲנוֹךְ)",
+      torahContext: "Chanokh in the Torah was taken by God (Genesis 5:24), paralleling the Quranic account of Idris being raised to a high station",
+      sharedProphet: true
+    }
   },
   {
     slug: "samira",
@@ -782,7 +856,7 @@ const coreNames: MuslimName[] = [
     isQuranic: false,
     popularity: 80,
     themes: ["blessing", "gift", "faith"],
-    variations: ["Ayan", "Ayaan"],
+    variations: ["Ayan"],
     similarNonArabic: [{ name: "Matthew", meaning: "Gift of God", origin: "Hebrew" }],
     famousBearers: [],
     quranicReferences: [],
@@ -826,24 +900,6 @@ const coreNames: MuslimName[] = [
     pronunciation: "mus-TAH-fah"
   },
   {
-    slug: "sumayyah",
-    name: "Sumayyah",
-    arabic: "سُمَيَّة",
-    meaning: "High Above",
-    detailedMeaning: "Variant transliteration of Sumaya. The first martyr of Islam, Sumayyah bint Khayyat, chose death over renouncing Islam.",
-    gender: "female",
-    origin: "Arabic",
-    isQuranic: false,
-    popularity: 70,
-    themes: ["sacrifice", "courage", "faith"],
-    variations: ["Sumaya", "Soumaya"],
-    similarNonArabic: [],
-    famousBearers: [{ name: "Sumayyah bint Khayyat", description: "First martyr in Islam" }],
-    quranicReferences: [],
-    hadithReferences: [],
-    pronunciation: "su-MAY-yah"
-  },
-  {
     slug: "suleiman",
     name: "Suleiman",
     arabic: "سليمان",
@@ -859,7 +915,16 @@ const coreNames: MuslimName[] = [
     famousBearers: [{ name: "Suleiman the Magnificent", description: "Longest-reigning Ottoman Sultan (1520–1566)" }],
     quranicReferences: [{ surah: "An-Naml", ayah: "27:16", text: "And Sulayman inherited Dawud..." }],
     hadithReferences: [],
-    pronunciation: "su-lay-MAAN"
+    pronunciation: "su-lay-MAAN",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Solomon",
+      bibleContext: "King Solomon in the Bible (1 Kings 3-11) was the wisest king of Israel, builder of the First Temple in Jerusalem, and author of Proverbs, Ecclesiastes, and Song of Solomon.",
+      inTorah: true,
+      torahName: "Shlomo (שְׁלֹמֹה)",
+      torahContext: "Shlomo was the son of David, wisest of all men, who built the Beit HaMikdash (Holy Temple) in Jerusalem",
+      sharedProphet: true
+    }
   },
   {
     slug: "inaya",
@@ -886,7 +951,7 @@ const coreNames: MuslimName[] = [
     meaning: "Beloved",
     detailedMeaning: "Alternative transliteration of Dawud. Popular in North African and West African communities.",
     gender: "male",
-    origin: "African",
+    origin: "Arabic",
     isQuranic: true,
     popularity: 72,
     themes: ["devotion", "beauty", "leadership", "praise"],
@@ -895,7 +960,16 @@ const coreNames: MuslimName[] = [
     famousBearers: [{ name: "Prophet Dawud (AS)", description: "Prophet-King who received the Zabur (Psalms)" }],
     quranicReferences: [{ surah: "Saba", ayah: "34:10", text: "And We certainly gave Dawud from Us bounty..." }],
     hadithReferences: [],
-    pronunciation: "da-WOOD"
+    pronunciation: "da-WOOD",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "David",
+      bibleContext: "King David in the Bible (1-2 Samuel, Psalms) defeated Goliath, became king of Israel, wrote many Psalms, and is an ancestor of Jesus in Christian tradition.",
+      inTorah: true,
+      torahName: "David (דָּוִד)",
+      torahContext: "David is the greatest king of Israel in the Torah tradition, author of Tehillim (Psalms), from whose line the Mashiach (Messiah) is expected",
+      sharedProphet: true
+    }
   },
   {
     slug: "iman",
@@ -920,7 +994,7 @@ const coreNames: MuslimName[] = [
     name: "Salahuddin",
     arabic: "صلاح الدين",
     meaning: "Righteousness of the Faith",
-    detailedMeaning: "Compound name meaning 'righteousness of the religion.' Made famous by the legendary Salahuddin al-Ayyubi who liberated Jerusalem.",
+    detailedMeaning: "Compound name meaning 'righteousness of the religion.' Made famous by the legendary Salahuddin al-Ayyubi who liberated Jerusalem with chivalry and mercy.",
     gender: "male",
     origin: "Arabic",
     isQuranic: false,
@@ -938,7 +1012,7 @@ const coreNames: MuslimName[] = [
     name: "Halima",
     arabic: "حليمة",
     meaning: "Gentle, Patient",
-    detailedMeaning: "From Arabic root meaning 'to be gentle' or 'patient.' Halima al-Sa'diyya was the wet nurse of Prophet Muhammad ﷺ.",
+    detailedMeaning: "From Arabic root meaning 'to be gentle' or 'patient.' Halima al-Sa'diyya was the wet nurse of Prophet Muhammad ﷺ who experienced miraculous blessings in her care of him.",
     gender: "female",
     origin: "Arabic",
     isQuranic: false,
@@ -946,12 +1020,12 @@ const coreNames: MuslimName[] = [
     themes: ["gentleness", "patience", "nurture"],
     variations: ["Haleema", "Halimah"],
     similarNonArabic: [{ name: "Patience", meaning: "Patient", origin: "English" }],
-    famousBearers: [{ name: "Halima al-Sa'diyya", description: "Wet nurse of Prophet Muhammad ﷺ, experienced miraculous blessings in her care of him" }],
+    famousBearers: [{ name: "Halima al-Sa'diyya", description: "Wet nurse of Prophet Muhammad ﷺ, experienced miraculous blessings" }],
     quranicReferences: [],
     hadithReferences: [],
     pronunciation: "ha-LEE-mah"
   },
-  // === SOUTH ASIAN NAMES ===
+  // === ADDITIONAL ARABIC NAMES ===
   {
     slug: "aamir",
     name: "Aamir",
@@ -959,7 +1033,7 @@ const coreNames: MuslimName[] = [
     meaning: "Prosperous, Full of Life",
     detailedMeaning: "From Arabic root meaning 'to live long' or 'to prosper.' Distinct from Amir (prince). Popular across South Asian Muslim communities.",
     gender: "male",
-    origin: "South Asian",
+    origin: "Arabic",
     isQuranic: false,
     popularity: 78,
     themes: ["prosperity", "life", "abundance"],
@@ -977,7 +1051,7 @@ const coreNames: MuslimName[] = [
     meaning: "Alive, Living, Prosperous",
     detailedMeaning: "South Asian spelling variant of Aisha. One of the most popular Muslim female names in Pakistan, India, and Bangladesh.",
     gender: "female",
-    origin: "South Asian",
+    origin: "Arabic",
     isQuranic: false,
     popularity: 87,
     themes: ["life", "wisdom", "knowledge"],
@@ -1000,19 +1074,18 @@ const coreNames: MuslimName[] = [
     popularity: 79,
     themes: ["justice", "leadership", "wisdom"],
     variations: ["Faysal", "Feisal"],
-    similarNonArabic: [{ name: "Judge", meaning: "One who decides", origin: "English" }],
+    similarNonArabic: [],
     famousBearers: [{ name: "King Faisal of Saudi Arabia", description: "Modernizing Saudi king known for oil diplomacy and Islamic solidarity" }],
     quranicReferences: [],
     hadithReferences: [],
     pronunciation: "FAY-sal"
   },
-  // === PERSIAN NAMES ===
   {
     slug: "parisa",
     name: "Parisa",
     arabic: "پریسا",
     meaning: "Like a Fairy, Beautiful",
-    detailedMeaning: "Persian name meaning 'like a fairy' or 'beautiful as paradise.' Popular among Persian-speaking Muslim communities in Iran, Afghanistan, and Tajikistan.",
+    detailedMeaning: "Persian name meaning 'like a fairy' or 'beautiful as paradise.' Popular among Persian-speaking Muslim communities.",
     gender: "female",
     origin: "Persian",
     isQuranic: false,
@@ -1024,24 +1097,6 @@ const coreNames: MuslimName[] = [
     quranicReferences: [],
     hadithReferences: [],
     pronunciation: "pa-REE-sah"
-  },
-  {
-    slug: "dariush",
-    name: "Dariush",
-    arabic: "داریوش",
-    meaning: "Possessing Goodness",
-    detailedMeaning: "An ancient Persian name meaning 'possessing goodness' or 'upholder of the good.' Used by Muslim Iranians and Afghans.",
-    gender: "male",
-    origin: "Persian",
-    isQuranic: false,
-    popularity: 66,
-    themes: ["goodness", "strength", "leadership"],
-    variations: ["Darius", "Dara"],
-    similarNonArabic: [{ name: "Darius", meaning: "Upholder of good", origin: "Greek/Persian" }],
-    famousBearers: [],
-    quranicReferences: [],
-    hadithReferences: [],
-    pronunciation: "da-ree-OOSH"
   },
   {
     slug: "soraya",
@@ -1061,7 +1116,6 @@ const coreNames: MuslimName[] = [
     hadithReferences: [],
     pronunciation: "so-RAY-ah"
   },
-  // === TURKISH NAMES ===
   {
     slug: "elif",
     name: "Elif",
@@ -1098,7 +1152,6 @@ const coreNames: MuslimName[] = [
     hadithReferences: [],
     pronunciation: "beh-RAHT"
   },
-  // === SOUTHEAST ASIAN NAMES ===
   {
     slug: "nurul",
     name: "Nurul",
@@ -1122,9 +1175,9 @@ const coreNames: MuslimName[] = [
     name: "Rizwan",
     arabic: "رضوان",
     meaning: "Acceptance, Good Will",
-    detailedMeaning: "From Arabic root meaning 'to be pleased.' Ridwan is the angel in charge of Paradise in Islamic tradition. Popular in South and Southeast Asian communities.",
+    detailedMeaning: "From Arabic root meaning 'to be pleased.' Ridwan is the angel in charge of Paradise in Islamic tradition.",
     gender: "male",
-    origin: "South Asian",
+    origin: "Arabic",
     isQuranic: true,
     popularity: 74,
     themes: ["acceptance", "paradise", "blessing"],
@@ -1140,7 +1193,7 @@ const coreNames: MuslimName[] = [
     name: "Siti",
     arabic: "ستي",
     meaning: "Lady, Noble Woman",
-    detailedMeaning: "Derived from Arabic 'Sayyidati' meaning 'my lady.' The most popular female name prefix in Indonesia and Malaysia, used as a title of respect.",
+    detailedMeaning: "Derived from Arabic 'Sayyidati' meaning 'my lady.' The most popular female name prefix in Indonesia and Malaysia.",
     gender: "female",
     origin: "Southeast Asian",
     isQuranic: false,
@@ -1153,13 +1206,12 @@ const coreNames: MuslimName[] = [
     hadithReferences: [],
     pronunciation: "SEE-tee"
   },
-  // === MORE AFRICAN NAMES ===
   {
     slug: "mamadou",
     name: "Mamadou",
     arabic: "محمد",
     meaning: "Praised, Praiseworthy",
-    detailedMeaning: "West African (Fulani/Mandinka) form of Muhammad. One of the most common Muslim names in West Africa, particularly in Senegal, Mali, Guinea, and Gambia.",
+    detailedMeaning: "West African (Fulani/Mandinka) form of Muhammad. One of the most common Muslim names in West Africa.",
     gender: "male",
     origin: "African",
     isQuranic: true,
@@ -1177,7 +1229,7 @@ const coreNames: MuslimName[] = [
     name: "Aminata",
     arabic: "أمينة",
     meaning: "Trustworthy, Faithful",
-    detailedMeaning: "West African feminine form of Amina/Aminah. Extremely popular across West Africa as a Muslim name honoring the Prophet's mother.",
+    detailedMeaning: "West African feminine form of Amina/Aminah. Extremely popular across West Africa honoring the Prophet's mother.",
     gender: "female",
     origin: "African",
     isQuranic: false,
@@ -1206,7 +1258,16 @@ const coreNames: MuslimName[] = [
     famousBearers: [],
     quranicReferences: [],
     hadithReferences: [],
-    pronunciation: "MOO-sah"
+    pronunciation: "MOO-sah",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Moses",
+      bibleContext: "Moses in the Bible (Exodus) led the Israelites out of Egypt, received the Ten Commandments on Mount Sinai, and is the central prophet of the Old Testament.",
+      inTorah: true,
+      torahName: "Moshe (מֹשֶׁה)",
+      torahContext: "Moshe Rabbeinu (Moses our Teacher) is the greatest prophet in Judaism who received the Torah at Sinai and led the Exodus from Egypt",
+      sharedProphet: true
+    }
   },
   {
     slug: "rahma",
@@ -1249,14 +1310,14 @@ const coreNames: MuslimName[] = [
     name: "Rumaisa",
     arabic: "رميساء",
     meaning: "Bouquet, Bundle of Flowers",
-    detailedMeaning: "A name of Umm Sulaym, a distinguished female companion of the Prophet ﷺ known for her wisdom, patience, and contributions to early Islam.",
+    detailedMeaning: "A name of Umm Sulaym, a distinguished female companion of the Prophet ﷺ known for her wisdom and patience.",
     gender: "female",
     origin: "Arabic",
     isQuranic: false,
     popularity: 69,
     themes: ["beauty", "nature", "wisdom"],
     variations: ["Rumaysaa", "Rumaisah"],
-    similarNonArabic: [{ name: "Bouquet", meaning: "Bundle of flowers", origin: "French" }],
+    similarNonArabic: [],
     famousBearers: [{ name: "Umm Sulaym (Rumaisa)", description: "Wise female companion, mother of Anas ibn Malik (servant of the Prophet)" }],
     quranicReferences: [],
     hadithReferences: [],
@@ -1296,7 +1357,15 @@ const coreNames: MuslimName[] = [
     famousBearers: [],
     quranicReferences: [{ surah: "Al-Baqarah", ayah: "2:35", text: "And We said, 'O Adam, dwell, you and your wife, in Paradise (Jannah) and eat therefrom in abundance wherever you will.'" }],
     hadithReferences: [{ source: "Sahih Muslim", text: "The Prophet ﷺ said: 'In Paradise there are things which no eye has seen, no ear has heard, and no human mind has imagined.'" }],
-    pronunciation: "JAN-nah"
+    pronunciation: "JAN-nah",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Garden of Eden",
+      bibleContext: "The Garden of Eden in Genesis 2-3 is God's paradise where Adam and Eve lived before the Fall. The concept of a heavenly paradise is shared across all Abrahamic faiths.",
+      inTorah: true,
+      torahName: "Gan Eden (גַּן עֵדֶן)",
+      torahContext: "Gan Eden in the Torah is both the original garden and the World to Come (Olam HaBa) — the reward for the righteous"
+    }
   },
   {
     slug: "hakim",
@@ -1334,6 +1403,505 @@ const coreNames: MuslimName[] = [
     hadithReferences: [],
     pronunciation: "nah-EE-mah"
   },
+  // === NEW ARABIC NAMES - MASSIVE EXPANSION ===
+  {
+    slug: "waleed",
+    name: "Waleed",
+    arabic: "وليد",
+    meaning: "Newborn, Child",
+    detailedMeaning: "From Arabic root meaning 'to be born.' Represents new beginnings and the joy of birth. Popular across Arab communities.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 76,
+    themes: ["life", "beginning", "joy"],
+    variations: ["Walid", "Waled"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Walid ibn al-Mughira", description: "Father of Khalid ibn al-Walid" }],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "wa-LEED"
+  },
+  {
+    slug: "saad",
+    name: "Saad",
+    arabic: "سعد",
+    meaning: "Good Luck, Happiness",
+    detailedMeaning: "From Arabic root meaning 'to be happy' or 'fortunate.' A letter of the Quran (Surah Sad). Multiple companions bore this name.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 77,
+    themes: ["happiness", "blessing", "fortune"],
+    variations: ["Sa'd", "Saeed"],
+    similarNonArabic: [{ name: "Felix", meaning: "Lucky", origin: "Latin" }],
+    famousBearers: [
+      { name: "Sa'd ibn Abi Waqqas", description: "One of the ten promised Paradise, first to shoot an arrow in Islam, conqueror of Persia" },
+      { name: "Sa'd ibn Mu'adh", description: "Chief of the Aws tribe, praised by the Prophet ﷺ" }
+    ],
+    quranicReferences: [{ surah: "Sad", ayah: "38:1", text: "Sad. By the Quran, full of reminding." }],
+    hadithReferences: [],
+    pronunciation: "SAAD"
+  },
+  {
+    slug: "jameel",
+    name: "Jameel",
+    arabic: "جميل",
+    meaning: "Beautiful, Handsome",
+    detailedMeaning: "From Arabic root meaning 'beauty.' Al-Jameel is one of Allah's names — 'Indeed Allah is Beautiful and loves beauty.' (Hadith)",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 75,
+    themes: ["beauty", "grace", "elegance"],
+    variations: ["Jamil", "Gameel"],
+    similarNonArabic: [{ name: "Kenneth", meaning: "Handsome", origin: "Scottish" }],
+    famousBearers: [],
+    quranicReferences: [],
+    hadithReferences: [{ source: "Sahih Muslim", text: "The Prophet ﷺ said: 'Indeed, Allah is Beautiful and He loves beauty.'" }],
+    pronunciation: "ja-MEEL"
+  },
+  {
+    slug: "lina",
+    name: "Lina",
+    arabic: "لينة",
+    meaning: "Tender, Young Palm Tree",
+    detailedMeaning: "From Arabic root meaning 'tender' or 'soft.' Also refers to a young palm tree mentioned in the Quran. Represents tenderness and growth.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 79,
+    themes: ["tenderness", "growth", "beauty"],
+    variations: ["Leena", "Linah"],
+    similarNonArabic: [{ name: "Linda", meaning: "Pretty", origin: "Spanish" }],
+    famousBearers: [],
+    quranicReferences: [{ surah: "Al-Hashr", ayah: "59:5", text: "Whatever you cut down of palm trees (Linah) or left standing on their trunks — it was by permission of Allah." }],
+    hadithReferences: [],
+    pronunciation: "LEE-nah"
+  },
+  {
+    slug: "othman",
+    name: "Othman",
+    arabic: "عثمان",
+    meaning: "Baby Bustard, Wise",
+    detailedMeaning: "Alternative transliteration of Uthman, the third Rightly Guided Caliph who compiled the Quran.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 75,
+    themes: ["generosity", "modesty", "wisdom"],
+    variations: ["Uthman", "Osman", "Usman"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Uthman ibn Affan", description: "Third Caliph, compiled the Quran into one standardized text" }],
+    quranicReferences: [],
+    hadithReferences: [{ source: "Sahih Muslim", text: "The Prophet ﷺ said: 'Should I not feel shy before a man before whom the angels feel shy?'" }],
+    pronunciation: "uth-MAAN"
+  },
+  {
+    slug: "malak",
+    name: "Malak",
+    arabic: "ملاك",
+    meaning: "Angel",
+    detailedMeaning: "From Arabic root meaning 'angel' or 'messenger.' In Islam, angels (malā'ikah) are created from light and serve Allah. Note: Some scholars prefer naming children after specific attributes rather than 'angel' directly.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 82,
+    themes: ["purity", "light", "grace"],
+    variations: ["Malaak", "Malaka"],
+    similarNonArabic: [{ name: "Angela", meaning: "Angel", origin: "Greek" }],
+    famousBearers: [],
+    quranicReferences: [{ surah: "Al-Baqarah", ayah: "2:30", text: "And when your Lord said to the angels (malā'ikah), 'Indeed, I will make upon the earth a successive authority.'" }],
+    hadithReferences: [],
+    pronunciation: "ma-LAK"
+  },
+  {
+    slug: "zakaria",
+    name: "Zakaria",
+    arabic: "زكريا",
+    meaning: "God Remembers",
+    detailedMeaning: "Arabic form of Zechariah. Prophet Zakariyya was the guardian of Maryam and father of Yahya (John the Baptist). He prayed for a son in old age and Allah granted his prayer.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 76,
+    themes: ["faith", "patience", "prayer", "devotion"],
+    variations: ["Zakariyya", "Zekeriya"],
+    similarNonArabic: [{ name: "Zechariah", meaning: "God remembers", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Zakariyya (AS)", description: "Guardian of Maryam, father of Prophet Yahya, prayed for a son in old age" }],
+    quranicReferences: [
+      { surah: "Maryam", ayah: "19:2-7", text: "A mention of the mercy of your Lord to His servant Zakariyya — When he called to his Lord a private supplication. He said, 'My Lord, indeed my bones have weakened...' [Allah said,] 'O Zakariyya, indeed We give you good tidings of a boy whose name will be Yahya.'" },
+      { surah: "Ali Imran", ayah: "3:37", text: "...Her Lord accepted her with good acceptance and caused her to grow in a good manner and put her in the care of Zakariyya." }
+    ],
+    hadithReferences: [],
+    pronunciation: "za-ka-REE-ah",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Zechariah",
+      bibleContext: "Zechariah in the New Testament (Luke 1) was a priest married to Elizabeth, father of John the Baptist. He was struck mute for doubting the angel's prophecy.",
+      inTorah: true,
+      torahName: "Zekharyah (זְכַרְיָה)",
+      torahContext: "Zekharyah is one of the twelve minor prophets in the Hebrew Bible who prophesied about the restoration of Jerusalem",
+      sharedProphet: true
+    }
+  },
+  {
+    slug: "dunya",
+    name: "Dunya",
+    arabic: "دنيا",
+    meaning: "The World, Worldly Life",
+    detailedMeaning: "From Arabic meaning 'the near' or 'worldly life.' In Islamic theology, dunya is the temporary world as opposed to the eternal akhirah (afterlife). As a name, it can represent appreciation for the gift of life.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 70,
+    themes: ["life", "beauty", "temporality"],
+    variations: ["Dunia", "Donya"],
+    similarNonArabic: [{ name: "Terra", meaning: "Earth", origin: "Latin" }],
+    famousBearers: [],
+    quranicReferences: [{ surah: "Al-Kahf", ayah: "18:46", text: "Wealth and children are the adornment of the worldly life (hayat al-dunya)..." }],
+    hadithReferences: [],
+    pronunciation: "DUN-yah"
+  },
+  {
+    slug: "yahya",
+    name: "Yahya",
+    arabic: "يحيى",
+    meaning: "He Lives, God Gives Life",
+    detailedMeaning: "Arabic form of John the Baptist. Prophet Yahya was the son of Zakariyya, described in the Quran as noble, chaste, a prophet, and from among the righteous. Allah chose this name — 'We have not assigned this name to anyone before.'",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 79,
+    themes: ["life", "purity", "devotion", "righteousness"],
+    variations: ["Yehia", "Ihya"],
+    similarNonArabic: [{ name: "John", meaning: "God is gracious", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Yahya (AS)", description: "Son of Zakariyya, known as John the Baptist in Christianity, described as noble, chaste, and righteous" }],
+    quranicReferences: [
+      { surah: "Maryam", ayah: "19:7", text: "[He was told], 'O Zakariyya, indeed We give you good tidings of a boy whose name will be Yahya. We have not assigned to any before [this] name.'" },
+      { surah: "Maryam", ayah: "19:12-15", text: "'O Yahya, take the Scripture with determination.' And We gave him judgment while yet a boy. And affection from Us and purity, and he was fearing of Allah." }
+    ],
+    hadithReferences: [],
+    pronunciation: "YAH-yah",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "John the Baptist",
+      bibleContext: "John the Baptist in the Gospels (Luke 1, Matthew 3) was the forerunner of Jesus, who baptized people in the Jordan River. He is honored as a major prophet in Christianity.",
+      inTorah: false,
+      sharedProphet: true
+    }
+  },
+  {
+    slug: "amal",
+    name: "Amal",
+    arabic: "أمل",
+    meaning: "Hope, Aspiration",
+    detailedMeaning: "From Arabic root meaning 'hope.' Represents aspiration, optimism, and trust in Allah's plan. A beautiful name that encourages looking forward with faith.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 78,
+    themes: ["hope", "faith", "positivity"],
+    variations: ["Amala", "Amel"],
+    similarNonArabic: [{ name: "Hope", meaning: "Hope", origin: "English" }],
+    famousBearers: [{ name: "Amal Clooney", description: "Lebanese-British human rights lawyer" }],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "AH-mal"
+  },
+  {
+    slug: "sufyan",
+    name: "Sufyan",
+    arabic: "سفيان",
+    meaning: "Fast Walker, One Who Moves Swiftly",
+    detailedMeaning: "From Arabic root suggesting speed and decisiveness. Two great scholars bore this name — Sufyan al-Thawri and Sufyan ibn Uyaynah — both renowned hadith masters.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 73,
+    themes: ["strength", "knowledge", "determination"],
+    variations: ["Sofyan", "Sufyaan"],
+    similarNonArabic: [],
+    famousBearers: [
+      { name: "Sufyan al-Thawri", description: "One of the greatest hadith scholars, 'Prince of the Believers in Hadith'" },
+      { name: "Sufyan ibn Uyaynah", description: "Renowned hadith scholar and jurist" }
+    ],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "suf-YAAN"
+  },
+  {
+    slug: "rania",
+    name: "Rania",
+    arabic: "رانيا",
+    meaning: "Gazing, Queenly",
+    detailedMeaning: "From Arabic root meaning 'to gaze' or 'to look at with admiration.' Represents beauty and regal elegance.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 78,
+    themes: ["beauty", "nobility", "elegance"],
+    variations: ["Raniya", "Rani"],
+    similarNonArabic: [{ name: "Regina", meaning: "Queen", origin: "Latin" }],
+    famousBearers: [{ name: "Queen Rania of Jordan", description: "Queen consort of Jordan, humanitarian and education advocate" }],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "RAH-nee-ah"
+  },
+  {
+    slug: "talha",
+    name: "Talha",
+    arabic: "طلحة",
+    meaning: "Banana Tree, One Who Searches",
+    detailedMeaning: "Talha ibn Ubaidullah was one of the ten companions promised Paradise. He protected the Prophet ﷺ with his own body at the Battle of Uhud, losing the use of his hand.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 74,
+    themes: ["sacrifice", "courage", "devotion"],
+    variations: ["Talhah"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Talha ibn Ubaidullah", description: "One of the ten promised Paradise, shielded the Prophet ﷺ at Uhud with his own body" }],
+    quranicReferences: [],
+    hadithReferences: [{ source: "Sahih Bukhari", text: "The Prophet ﷺ said about Talha: 'He who desires to see a martyr walking on the face of the earth, let him look at Talha ibn Ubaidullah.'" }],
+    pronunciation: "TAL-hah"
+  },
+  {
+    slug: "sumayya",
+    name: "Sumayya",
+    arabic: "سُمَيَّة",
+    meaning: "High, Elevated",
+    detailedMeaning: "Variant transliteration of Sumaya. The first martyr of Islam who chose death over renouncing her faith.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 70,
+    themes: ["sacrifice", "courage", "faith"],
+    variations: ["Sumaya", "Soumaya"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Sumayyah bint Khayyat", description: "First martyr in Islam" }],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "su-MAY-yah"
+  },
+  {
+    slug: "ishaq",
+    name: "Ishaq",
+    arabic: "إسحاق",
+    meaning: "He Will Laugh",
+    detailedMeaning: "Arabic form of Isaac. Prophet Ishaq was the son of Ibrahim and Sarah, born miraculously in their old age. He is the father of Yaqub (Jacob).",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 72,
+    themes: ["joy", "faith", "miracle", "blessing"],
+    variations: ["Ishaaq", "Isaac"],
+    similarNonArabic: [{ name: "Isaac", meaning: "He laughs", origin: "Hebrew" }],
+    famousBearers: [{ name: "Prophet Ishaq (AS)", description: "Son of Ibrahim, father of Yaqub, born miraculously to Sarah in old age" }],
+    quranicReferences: [
+      { surah: "Hud", ayah: "11:71", text: "And his wife was standing, and she smiled. Then We gave her good tidings of Ishaq, and after Ishaq, Yaqub." },
+      { surah: "As-Saffat", ayah: "37:112", text: "And We gave him good tidings of Ishaq, a prophet from among the righteous." }
+    ],
+    hadithReferences: [],
+    pronunciation: "is-HAAQ",
+    scriptureContext: {
+      inBible: true,
+      bibleName: "Isaac",
+      bibleContext: "Isaac (Genesis 21-28) was the long-awaited son of Abraham and Sarah, born when they were very old. He is the father of Jacob and Esau, and through Jacob, the patriarch of the twelve tribes.",
+      inTorah: true,
+      torahName: "Yitzchak (יִצְחָק)",
+      torahContext: "Yitzchak is the second patriarch of Judaism. His near-sacrifice (Akedat Yitzchak) on Mount Moriah is central to Jewish theology — it tested Avraham's faith and is commemorated in the Rosh Hashanah liturgy.",
+      sharedProphet: true
+    }
+  },
+  {
+    slug: "ward",
+    name: "Ward",
+    arabic: "ورد",
+    meaning: "Rose, Flower",
+    detailedMeaning: "From Arabic meaning 'rose' or 'flower.' A poetic name evoking the beauty and fragrance of a rose garden.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 73,
+    themes: ["beauty", "nature", "elegance"],
+    variations: ["Warda", "Wardah"],
+    similarNonArabic: [{ name: "Rose", meaning: "Rose flower", origin: "English" }],
+    famousBearers: [],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "WARD"
+  },
+  {
+    slug: "muadh",
+    name: "Muadh",
+    arabic: "معاذ",
+    meaning: "Protected, Sheltered",
+    detailedMeaning: "From Arabic root meaning 'to seek refuge.' Muadh ibn Jabal was one of the most knowledgeable companions, sent by the Prophet ﷺ as a judge and teacher to Yemen.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 71,
+    themes: ["knowledge", "protection", "wisdom"],
+    variations: ["Mu'adh", "Moaz"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Muadh ibn Jabal", description: "Scholar-companion sent as judge to Yemen, praised by the Prophet for his knowledge of halal and haram" }],
+    quranicReferences: [],
+    hadithReferences: [{ source: "Sahih Bukhari", text: "The Prophet ﷺ said: 'The most knowledgeable of my Ummah regarding halal and haram is Muadh ibn Jabal.'" }],
+    pronunciation: "mu-AADH"
+  },
+  {
+    slug: "hibah",
+    name: "Hibah",
+    arabic: "هبة",
+    meaning: "Gift, Grant",
+    detailedMeaning: "From Arabic root meaning 'to give' or 'to grant.' Represents a gift from Allah, reflecting gratitude for blessings.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 72,
+    themes: ["gift", "blessing", "gratitude"],
+    variations: ["Hiba", "Heba"],
+    similarNonArabic: [{ name: "Dorothy", meaning: "Gift of God", origin: "Greek" }],
+    famousBearers: [],
+    quranicReferences: [{ surah: "Ali Imran", ayah: "3:38", text: "...My Lord, grant me (hab li) from Yourself a good offspring. Indeed, You are the Hearer of supplication." }],
+    hadithReferences: [],
+    pronunciation: "HI-bah"
+  },
+  {
+    slug: "uwais",
+    name: "Uwais",
+    arabic: "أويس",
+    meaning: "Small Wolf",
+    detailedMeaning: "Uwais al-Qarni is considered the best of the Tabi'in (generation after the companions). Despite never meeting the Prophet ﷺ, the Prophet mentioned him by name and told companions to ask him for prayers.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 68,
+    themes: ["humility", "devotion", "purity"],
+    variations: ["Owais", "Aws"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Uwais al-Qarni", description: "Best of the Tabi'in, praised by the Prophet ﷺ despite never meeting him, known for his devotion to his mother" }],
+    quranicReferences: [],
+    hadithReferences: [{ source: "Sahih Muslim", text: "The Prophet ﷺ said to Umar: 'If you can ask Uwais al-Qarni to pray for your forgiveness, then do so.'" }],
+    pronunciation: "u-WAYS"
+  },
+  {
+    slug: "shams",
+    name: "Shams",
+    arabic: "شمس",
+    meaning: "Sun",
+    detailedMeaning: "From Arabic meaning 'sun.' The sun is referenced multiple times in the Quran including Surah Ash-Shams. Represents radiance, light, and divine creation.",
+    gender: "unisex",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 72,
+    themes: ["light", "radiance", "creation"],
+    variations: ["Shamsa", "Shamsuddin"],
+    similarNonArabic: [{ name: "Sol", meaning: "Sun", origin: "Latin" }, { name: "Helios", meaning: "Sun", origin: "Greek" }],
+    famousBearers: [{ name: "Shams Tabrizi", description: "Wandering dervish who transformed Rumi, one of the most influential spiritual figures" }],
+    quranicReferences: [{ surah: "Ash-Shams", ayah: "91:1", text: "By the sun (ash-shams) and its brightness." }],
+    hadithReferences: [],
+    pronunciation: "SHAMS"
+  },
+  {
+    slug: "qamar",
+    name: "Qamar",
+    arabic: "قمر",
+    meaning: "Moon",
+    detailedMeaning: "From Arabic meaning 'moon.' The moon holds special significance in Islam — the Islamic calendar is lunar, and the crescent moon is a widely recognized symbol. Surah Al-Qamar is dedicated to it.",
+    gender: "unisex",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 71,
+    themes: ["light", "beauty", "guidance"],
+    variations: ["Qamaruddin", "Kamar"],
+    similarNonArabic: [{ name: "Luna", meaning: "Moon", origin: "Latin" }],
+    famousBearers: [],
+    quranicReferences: [{ surah: "Al-Qamar", ayah: "54:1", text: "The Hour has come near, and the moon (al-qamar) has split." }],
+    hadithReferences: [],
+    pronunciation: "QA-mar"
+  },
+  {
+    slug: "sakinah",
+    name: "Sakinah",
+    arabic: "سكينة",
+    meaning: "Tranquility, Peace of Mind",
+    detailedMeaning: "From Arabic root meaning 'to be still' or 'tranquil.' In the Quran, Sakinah refers to a divine peace that Allah sends down upon believers' hearts during times of trial.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: true,
+    popularity: 73,
+    themes: ["peace", "tranquility", "faith", "serenity"],
+    variations: ["Sakina", "Sakeena"],
+    similarNonArabic: [{ name: "Serena", meaning: "Serene, Calm", origin: "Latin" }, { name: "Irene", meaning: "Peace", origin: "Greek" }],
+    famousBearers: [{ name: "Sakinah bint Hussain", description: "Granddaughter of the Prophet ﷺ through Hussain" }],
+    quranicReferences: [
+      { surah: "Al-Fath", ayah: "48:4", text: "It is He who sent down tranquility (as-sakinah) into the hearts of the believers that they would increase in faith along with their [present] faith." },
+      { surah: "At-Tawbah", ayah: "9:40", text: "...Then Allah sent down His tranquility (sakinah) upon him and supported him with soldiers you did not see." }
+    ],
+    hadithReferences: [],
+    pronunciation: "sa-KEE-nah",
+    scriptureContext: {
+      inTorah: true,
+      torahName: "Shekhinah (שְׁכִינָה)",
+      torahContext: "The Shekhinah in Judaism refers to the divine presence of God dwelling among the people. The Arabic Sakinah and Hebrew Shekhinah share the same Semitic root, both referring to God's peace and presence."
+    }
+  },
+  {
+    slug: "tawfiq",
+    name: "Tawfiq",
+    arabic: "توفيق",
+    meaning: "Success, Divine Guidance to Success",
+    detailedMeaning: "From Arabic root meaning 'to succeed' or 'to guide towards success.' Represents Allah's enabling grace — the idea that true success only comes through divine guidance.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 72,
+    themes: ["success", "guidance", "faith"],
+    variations: ["Taufiq", "Tevfik"],
+    similarNonArabic: [{ name: "Victor", meaning: "Conqueror", origin: "Latin" }],
+    famousBearers: [],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "taw-FEEQ"
+  },
+  {
+    slug: "lubna",
+    name: "Lubna",
+    arabic: "لبنى",
+    meaning: "Storax Tree (A Sweet-Scented Tree)",
+    detailedMeaning: "From Arabic meaning 'storax tree,' known for its sweet fragrance and beauty. A poetic and melodic name popular in Arabic literature.",
+    gender: "female",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 71,
+    themes: ["beauty", "nature", "elegance"],
+    variations: ["Lubnah"],
+    similarNonArabic: [{ name: "Laurel", meaning: "Laurel tree", origin: "English" }],
+    famousBearers: [],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "LUB-nah"
+  },
+  {
+    slug: "suhaib",
+    name: "Suhaib",
+    arabic: "صهيب",
+    meaning: "Reddish-Haired, Brave",
+    detailedMeaning: "Suhaib al-Rumi was a Roman-born companion who embraced Islam early and gave up all his wealth to migrate. The Prophet ﷺ praised his sacrifice.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 68,
+    themes: ["sacrifice", "courage", "faith"],
+    variations: ["Suhayb", "Sohaib"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Suhaib al-Rumi", description: "Roman-born companion who sacrificed all his wealth to migrate for Islam" }],
+    quranicReferences: [],
+    hadithReferences: [{ source: "Various", text: "When Suhaib arrived in Medina having given up all his wealth, the Prophet ﷺ said: 'The trade was profitable, O Suhaib! The trade was profitable!'" }],
+    pronunciation: "su-HAYB"
+  },
 ];
 
 export const namesDatabase: MuslimName[] = [
@@ -1364,41 +1932,30 @@ function scoreMatch(name: MuslimName, query: string): number {
   const lq = query.toLowerCase();
   let score = 0;
 
-  // Exact name match
   if (name.name.toLowerCase() === lq) return 100;
-  // Name starts with query
   if (name.name.toLowerCase().startsWith(lq)) score += 50;
-  // Name contains query
   else if (name.name.toLowerCase().includes(lq)) score += 30;
 
-  // Fuzzy name match (for typos)
   const nameDist = levenshtein(name.name.toLowerCase(), lq);
   if (nameDist <= 2) score += Math.max(0, 25 - nameDist * 10);
 
-  // Meaning match
   if (name.meaning.toLowerCase().includes(lq)) score += 20;
   if (name.detailedMeaning.toLowerCase().includes(lq)) score += 10;
-
-  // Arabic match
   if (name.arabic.includes(query)) score += 40;
-
-  // Theme match
   if (name.themes.some(t => t.toLowerCase().includes(lq))) score += 15;
-
-  // Variation match
   if (name.variations.some(v => v.toLowerCase().includes(lq))) score += 35;
-  // Fuzzy variation match
   if (name.variations.some(v => levenshtein(v.toLowerCase(), lq) <= 2)) score += 20;
-
-  // Origin match
   if (name.origin.toLowerCase().includes(lq)) score += 10;
-
-  // Slug match
   if (name.slug.includes(lq)) score += 25;
 
-  // Popularity boost
-  score += name.popularity * 0.05;
+  // Scripture context search
+  if (name.scriptureContext) {
+    if (name.scriptureContext.bibleName?.toLowerCase().includes(lq)) score += 30;
+    if (name.scriptureContext.torahName?.toLowerCase().includes(lq)) score += 30;
+    if (name.scriptureContext.bibleContext?.toLowerCase().includes(lq)) score += 10;
+  }
 
+  score += name.popularity * 0.05;
   return score;
 }
 
@@ -1435,16 +1992,11 @@ export function suggestFromMeaning(meaning: string): MuslimName[] {
   for (const name of namesDatabase) {
     let score = 0;
     for (const word of words) {
-      // Direct slug match
       if (name.slug === word) { score += 50; continue; }
-      // Theme match
       if (name.themes.includes(word)) score += 10;
-      // Meaning keyword match
       if (name.meaning.toLowerCase().includes(word)) score += 8;
       if (name.detailedMeaning.toLowerCase().includes(word)) score += 4;
-      // Name match
       if (name.name.toLowerCase().includes(word)) score += 15;
-      // Variation match
       if (name.variations.some(v => v.toLowerCase().includes(word))) score += 12;
     }
     if (score > 0) scored.push({ name, score });

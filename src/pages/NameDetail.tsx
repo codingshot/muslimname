@@ -1,12 +1,12 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { findNameBySlug, namesDatabase } from "@/data/names";
-import { getMappingContext, christianToMuslimNameMapping } from "@/data/nameMapping";
+import { christianToMuslimNameMapping } from "@/data/nameMapping";
 import Layout from "@/components/Layout";
 import NameDetailSkeleton from "@/components/NameDetailSkeleton";
 import NameCard from "@/components/NameCard";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, ArrowRight } from "lucide-react";
+import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function NameDetail() {
@@ -45,7 +45,6 @@ export default function NameDetail() {
     })
     .slice(0, 3);
 
-  // Check if this name appears in the reverse mapping (is a Muslim equivalent of a Western name)
   const reverseMapping: { westernName: string; connection: string }[] = [];
   for (const [western, data] of Object.entries(christianToMuslimNameMapping)) {
     if (data.muslimNames.some(n => n.toLowerCase() === name.slug || n.toLowerCase() === name.name.toLowerCase())) {
@@ -55,9 +54,9 @@ export default function NameDetail() {
 
   return (
     <Layout>
-      <article className="container mx-auto px-4 py-8 max-w-4xl">
+      <article className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
         {/* Back */}
-        <Link to="/names" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary mb-6 transition-colors">
+        <Link to="/names" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary mb-4 md:mb-6 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to all names
         </Link>
 
@@ -65,26 +64,32 @@ export default function NameDetail() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-hero geometric-pattern rounded-2xl p-8 md:p-12 mb-8"
+          className="bg-gradient-hero geometric-pattern rounded-2xl p-6 sm:p-8 md:p-12 mb-6 md:mb-8"
         >
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-1">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground mb-1">
                 {name.name}
               </h1>
-              <p className="font-arabic text-3xl md:text-4xl text-primary-foreground/80">{name.arabic}</p>
+              <p className="font-arabic text-2xl sm:text-3xl md:text-4xl text-primary-foreground/80">{name.arabic}</p>
             </div>
-            <div className="flex flex-col items-start md:items-end gap-2">
-              <div className="flex gap-2">
+            <div className="flex flex-col items-start sm:items-end gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {name.isQuranic && (
-                  <Badge className="bg-secondary text-secondary-foreground border-0">📖 Quranic</Badge>
+                  <Link to="/names?scripture=quran">
+                    <Badge className="bg-secondary text-secondary-foreground border-0 cursor-pointer hover:bg-secondary/80">📖 Quranic</Badge>
+                  </Link>
                 )}
-                <Badge className="bg-primary-foreground/20 text-primary-foreground border-0 capitalize">{name.gender}</Badge>
+                <Link to={`/names?gender=${name.gender}`}>
+                  <Badge className="bg-primary-foreground/20 text-primary-foreground border-0 capitalize cursor-pointer hover:bg-primary-foreground/30">{name.gender}</Badge>
+                </Link>
               </div>
-              <p className="text-primary-foreground/70 text-sm">{name.origin}</p>
+              <Link to={`/names?origin=${encodeURIComponent(name.origin)}`} className="text-primary-foreground/70 text-sm hover:text-primary-foreground transition-colors">
+                {name.origin}
+              </Link>
             </div>
           </div>
-          <div className="mt-6 flex items-center gap-3 flex-wrap">
+          <div className="mt-4 sm:mt-6 flex items-center gap-2 sm:gap-3 flex-wrap">
             <div className="flex items-center gap-2 bg-primary-foreground/10 rounded-lg px-3 py-1.5">
               <Volume2 className="w-4 h-4 text-primary-foreground/70" />
               <span className="text-primary-foreground text-sm font-medium">{name.pronunciation}</span>
@@ -92,13 +97,39 @@ export default function NameDetail() {
             {name.themes.map(theme => (
               <Link
                 key={theme}
-                to={`/names?q=${theme}`}
+                to={`/names?themes=${theme}`}
                 className="px-2.5 py-1 rounded-full bg-primary-foreground/10 text-primary-foreground text-xs capitalize hover:bg-primary-foreground/20 transition-colors"
               >
                 {theme}
               </Link>
             ))}
           </div>
+          {/* Scripture badges */}
+          {name.scriptureContext && (
+            <div className="mt-3 flex items-center gap-2 flex-wrap">
+              {name.scriptureContext.inBible && (
+                <Link to="/names?scripture=bible">
+                  <Badge className="bg-primary-foreground/10 text-primary-foreground border-0 text-[10px] cursor-pointer hover:bg-primary-foreground/20">
+                    ✝️ In Bible as "{name.scriptureContext.bibleName}"
+                  </Badge>
+                </Link>
+              )}
+              {name.scriptureContext.inTorah && (
+                <Link to="/names?scripture=torah">
+                  <Badge className="bg-primary-foreground/10 text-primary-foreground border-0 text-[10px] cursor-pointer hover:bg-primary-foreground/20">
+                    ✡️ In Torah as "{name.scriptureContext.torahName}"
+                  </Badge>
+                </Link>
+              )}
+              {name.scriptureContext.sharedProphet && (
+                <Link to="/names?scripture=shared">
+                  <Badge className="bg-secondary/80 text-secondary-foreground border-0 text-[10px] cursor-pointer hover:bg-secondary/60">
+                    🤝 Shared Prophet
+                  </Badge>
+                </Link>
+              )}
+            </div>
+          )}
         </motion.div>
 
         {/* Meaning */}
@@ -106,24 +137,66 @@ export default function NameDetail() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-card rounded-xl border border-border p-6 mb-6"
+          className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-4 sm:mb-6"
         >
-          <h2 className="font-display text-xl font-semibold mb-3 flex items-center gap-2">
+          <h2 className="font-display text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2">
             <Star className="w-5 h-5 text-secondary" /> Meaning
           </h2>
-          <p className="text-lg font-medium text-foreground mb-2">{name.meaning}</p>
-          <p className="text-muted-foreground leading-relaxed">{name.detailedMeaning}</p>
+          <p className="text-base sm:text-lg font-medium text-foreground mb-2">{name.meaning}</p>
+          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{name.detailedMeaning}</p>
         </motion.section>
+
+        {/* Scripture Cross-References */}
+        {name.scriptureContext && (name.scriptureContext.inBible || name.scriptureContext.inTorah) && (
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12 }}
+            className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-4 sm:mb-6"
+          >
+            <h2 className="font-display text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
+              <Book className="w-5 h-5 text-secondary" /> Across the Abrahamic Traditions
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {/* Quran */}
+              <div className="bg-teal-light rounded-lg p-4 border-l-4 border-primary">
+                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">📖 In the Quran</p>
+                <p className="font-display text-lg font-semibold text-foreground">{name.name} ({name.arabic})</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {name.isQuranic ? "Directly mentioned in the Quran" : "Used in Islamic tradition"}
+                </p>
+              </div>
+
+              {/* Bible */}
+              {name.scriptureContext.inBible && (
+                <div className="bg-muted/50 rounded-lg p-4 border-l-4 border-muted-foreground/30">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">✝️ In the Bible</p>
+                  <p className="font-display text-lg font-semibold text-foreground">{name.scriptureContext.bibleName}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{name.scriptureContext.bibleContext}</p>
+                </div>
+              )}
+
+              {/* Torah */}
+              {name.scriptureContext.inTorah && (
+                <div className="bg-gold-light/30 rounded-lg p-4 border-l-4 border-secondary/50 sm:col-span-2">
+                  <p className="text-xs font-semibold text-secondary uppercase tracking-wider mb-1">✡️ In the Torah</p>
+                  <p className="font-display text-lg font-semibold text-foreground">{name.scriptureContext.torahName}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{name.scriptureContext.torahContext}</p>
+                </div>
+              )}
+            </div>
+          </motion.section>
+        )}
 
         {/* Western Name Equivalents */}
         {reverseMapping.length > 0 && (
           <motion.section
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.12 }}
-            className="bg-card rounded-xl border border-border p-6 mb-6"
+            transition={{ delay: 0.14 }}
+            className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-4 sm:mb-6"
           >
-            <h2 className="font-display text-xl font-semibold mb-3 flex items-center gap-2">
+            <h2 className="font-display text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2">
               🔄 Western Name Equivalent
             </h2>
             <div className="space-y-3">
@@ -143,21 +216,21 @@ export default function NameDetail() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="bg-card rounded-xl border border-border p-6 mb-6"
+            className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-4 sm:mb-6"
           >
-            <h2 className="font-display text-xl font-semibold mb-4 flex items-center gap-2">
+            <h2 className="font-display text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-secondary" /> Quranic References
             </h2>
             <div className="space-y-4">
               {name.quranicReferences.map((ref, i) => (
                 <div key={i} className="bg-teal-light rounded-lg p-4 border-l-4 border-primary">
-                  <p className="text-foreground italic leading-relaxed">"{ref.text}"</p>
-                  <div className="flex items-center gap-2 mt-2">
+                  <p className="text-foreground italic leading-relaxed text-sm sm:text-base">"{ref.text}"</p>
+                  <div className="flex items-center gap-2 mt-2 flex-wrap">
                     <p className="text-sm text-primary font-medium">
                       Surah {ref.surah} ({ref.ayah})
                     </p>
                     <a
-                      href={`https://quran.com/${ref.ayah.split(":")[0]}/${ref.ayah.split(":")[1]}`}
+                      href={`https://quran.com/${ref.ayah.split(":")[0]}/${ref.ayah.split(":")[1]?.split("-")[0]}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-primary hover:underline inline-flex items-center gap-1"
@@ -177,16 +250,16 @@ export default function NameDetail() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-card rounded-xl border border-border p-6 mb-6"
+            className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-4 sm:mb-6"
           >
-            <h2 className="font-display text-xl font-semibold mb-4 flex items-center gap-2">
+            <h2 className="font-display text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-secondary" /> Hadith References
             </h2>
             <div className="space-y-4">
               {name.hadithReferences.map((ref, i) => (
                 <div key={i} className="bg-gold-light/30 rounded-lg p-4 border-l-4 border-secondary">
-                  <p className="text-foreground italic leading-relaxed">"{ref.text}"</p>
-                  <div className="flex items-center gap-2 mt-2">
+                  <p className="text-foreground italic leading-relaxed text-sm sm:text-base">"{ref.text}"</p>
+                  <div className="flex items-center gap-2 mt-2 flex-wrap">
                     <p className="text-sm text-secondary font-medium">{ref.source}</p>
                     <a
                       href={`https://sunnah.com/search?q=${encodeURIComponent(ref.text.slice(0, 50))}`}
@@ -209,9 +282,9 @@ export default function NameDetail() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-card rounded-xl border border-border p-6 mb-6"
+            className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-4 sm:mb-6"
           >
-            <h2 className="font-display text-xl font-semibold mb-4 flex items-center gap-2">
+            <h2 className="font-display text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
               <Users className="w-5 h-5 text-secondary" /> Famous Bearers
             </h2>
             <div className="space-y-3">
@@ -221,8 +294,8 @@ export default function NameDetail() {
                     <span className="text-primary font-display font-bold text-sm">{bearer.name[0]}</span>
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">{bearer.name}</p>
-                    <p className="text-sm text-muted-foreground">{bearer.description}</p>
+                    <p className="font-medium text-foreground text-sm sm:text-base">{bearer.name}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">{bearer.description}</p>
                   </div>
                 </div>
               ))}
@@ -231,20 +304,22 @@ export default function NameDetail() {
         )}
 
         {/* Variations & Similar */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
           {name.variations.length > 0 && (
             <motion.section
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-card rounded-xl border border-border p-5 sm:p-6"
             >
               <h2 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
                 <Globe className="w-5 h-5 text-secondary" /> Regional Variations
               </h2>
               <div className="flex flex-wrap gap-2">
                 {name.variations.map(v => (
-                  <Badge key={v} variant="outline" className="text-sm">{v}</Badge>
+                  <Link key={v} to={`/names?q=${encodeURIComponent(v)}`}>
+                    <Badge variant="outline" className="text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors">{v}</Badge>
+                  </Link>
                 ))}
               </div>
             </motion.section>
@@ -255,7 +330,7 @@ export default function NameDetail() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35 }}
-              className="bg-card rounded-xl border border-border p-6"
+              className="bg-card rounded-xl border border-border p-5 sm:p-6"
             >
               <h2 className="font-display text-lg font-semibold mb-3">Similar Non-Arabic Names</h2>
               <div className="space-y-2">
@@ -272,9 +347,9 @@ export default function NameDetail() {
 
         {/* Similar Names */}
         {similarNames.length > 0 && (
-          <section className="mt-12">
-            <h2 className="font-display text-2xl font-semibold mb-4">You might also like</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <section className="mt-8 md:mt-12">
+            <h2 className="font-display text-xl sm:text-2xl font-semibold mb-4">You might also like</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {similarNames.map((n, i) => (
                 <NameCard key={n.slug} name={n} index={i} />
               ))}
