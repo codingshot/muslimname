@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, BookOpen, Volume2 } from "lucide-react";
+import { Volume2, Book } from "lucide-react";
 import type { MuslimName } from "@/data/names";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -14,20 +14,20 @@ export default function NameCard({ name, index = 0 }: NameCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.05, duration: 0.4 }}
+      transition={{ delay: index * 0.03, duration: 0.3 }}
     >
       <Link
         to={`/name/${name.slug}`}
-        className="group block bg-card rounded-xl border border-border p-5 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+        className="group block bg-card rounded-xl border border-border p-4 sm:p-5 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
       >
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <h3 className="font-display text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+        <div className="flex items-start justify-between mb-2 sm:mb-3">
+          <div className="min-w-0 flex-1">
+            <h3 className="font-display text-lg sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors truncate">
               {name.name}
             </h3>
-            <p className="font-arabic text-lg text-secondary mt-0.5">{name.arabic}</p>
+            <p className="font-arabic text-base sm:text-lg text-secondary mt-0.5">{name.arabic}</p>
           </div>
-          <div className="flex flex-col items-end gap-1.5">
+          <div className="flex flex-col items-end gap-1 shrink-0 ml-2">
             {name.isQuranic && (
               <Badge className="bg-secondary/20 text-secondary border-secondary/30 text-[10px] font-semibold uppercase tracking-wider">
                 Quranic
@@ -39,20 +39,23 @@ export default function NameCard({ name, index = 0 }: NameCardProps) {
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-          <span className="font-medium text-foreground">{name.meaning}</span> — {name.detailedMeaning.slice(0, 100)}...
+        <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 line-clamp-2">
+          <span className="font-medium text-foreground">{name.meaning}</span> — {name.detailedMeaning.slice(0, 80)}...
         </p>
 
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
           {name.themes.slice(0, 3).map(theme => (
             <span
               key={theme}
-              className="px-2 py-0.5 rounded-full bg-teal-light text-primary text-[11px] font-medium capitalize"
+              className="px-1.5 sm:px-2 py-0.5 rounded-full bg-teal-light text-primary text-[10px] sm:text-[11px] font-medium capitalize"
             >
               {theme}
             </span>
           ))}
-          <span className="text-[11px] text-muted-foreground ml-auto">{name.pronunciation}</span>
+          {name.scriptureContext?.sharedProphet && (
+            <span className="text-[10px] text-secondary">🤝 Shared</span>
+          )}
+          <span className="text-[10px] sm:text-[11px] text-muted-foreground ml-auto">{name.pronunciation}</span>
         </div>
       </Link>
     </motion.div>
