@@ -1,9 +1,10 @@
 import { useState, useMemo, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
-import { suggestFromMeaning, namesDatabase } from "@/data/names";
+import { suggestFromMeaning, namesDatabase, findNameBySlug } from "@/data/names";
 import { getMappingContext, type NameMapping } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -136,6 +137,11 @@ export default function GeneratorPage() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Discover Your Muslim Name — Name Generator | MuslimName.me</title>
+        <meta name="description" content="Find your Islamic name equivalent. Enter your Christian, Hebrew, or Western name and discover meaningful Muslim names with Quranic references and legal name change guides." />
+        <link rel="canonical" href="https://muslimname.me/generator" />
+      </Helmet>
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -185,6 +191,7 @@ export default function GeneratorPage() {
               value={currentName}
               onChange={e => setCurrentName(e.target.value)}
               placeholder="Enter your name (e.g., David, Sarah, Michael...)"
+              aria-label="Enter your current name to discover Islamic equivalent"
               className="h-12 rounded-xl text-base"
             />
 
@@ -210,15 +217,22 @@ export default function GeneratorPage() {
                       )}
                       <p className="text-xs text-muted-foreground">{mappingInfo.connection}</p>
                       <div className="flex gap-2 flex-wrap pt-1">
-                        {mappingInfo.muslimNames.map(n => (
-                          <Link
-                            key={n}
-                            to={`/name/${n.toLowerCase()}`}
-                            className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2 py-1 rounded-full"
-                          >
-                            <BookOpen className="w-3 h-3" /> View {n}
-                          </Link>
-                        ))}
+                        {mappingInfo.muslimNames.map(n => {
+                          const nameData = findNameBySlug(n);
+                          return nameData ? (
+                            <Link
+                              key={n}
+                              to={`/name/${nameData.slug}`}
+                              className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2 py-1 rounded-full"
+                            >
+                              <BookOpen className="w-3 h-3" /> View {nameData.name}
+                            </Link>
+                          ) : (
+                            <span key={n} className="text-xs text-primary font-medium bg-primary/5 px-2 py-1 rounded-full capitalize">
+                              {n}
+                            </span>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>

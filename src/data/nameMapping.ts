@@ -465,15 +465,59 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
 };
 
 
+/**
+ * Nicknames and variants that map to canonical Western names in the mapping.
+ * Enables "John Smith" → "john", "Mike" → "michael", "Jim" → "james", etc.
+ */
+const westernNameVariants: Record<string, string> = {
+  johnny: "john", jon: "john", jack: "john", johnnie: "john", juan: "john", jean: "john", giovanni: "john", hans: "john", ian: "john", sean: "john", shawn: "john",
+  mike: "michael", mikey: "michael", mick: "michael", mickey: "michael", miguel: "michael",
+  jim: "james", jimmy: "james", jamie: "james",
+  bill: "william", billy: "william", will: "william", liam: "william",
+  bob: "robert", bobby: "robert", rob: "robert",
+  dave: "david", davey: "david", danny: "daniel", dan: "daniel",
+  steve: "steven", stevie: "steven",
+  chris: "christopher", matt: "matthew", mattie: "matthew",
+  joe: "joseph", joey: "joseph", jose: "joseph",
+  tony: "anthony", tom: "thomas", tommy: "thomas",
+  sam: "samuel", sammy: "samuel",
+  ben: "benjamin", benny: "benjamin", binyamin: "benjamin",
+  josh: "joshua", andy: "andrew", alex: "alexander", nick: "nicholas",
+  kate: "katherine", kathy: "katherine", katie: "katherine", katy: "katherine",
+  liz: "elizabeth", lizzy: "elizabeth", beth: "elizabeth", eliza: "elizabeth", betsy: "elizabeth",
+  meg: "margaret", maggie: "margaret", peg: "margaret",
+  ann: "anna", anne: "anna", annie: "anna",
+  sue: "susan", suzy: "susan", susie: "susan",
+  jenny: "jennifer", jen: "jennifer",
+  amy: "amanda", mandy: "amanda",
+  emily: "emily", em: "emily",
+  sarah: "sarah", sara: "sarah",
+  rachel: "rachel", rach: "rachel",
+};
+
 // Get all mapped Western names for quick lookup
-export function getWesternNameSuggestions(name: string): string[] {
-  const mapping = christianToMuslimNameMapping[name.toLowerCase()];
-  return mapping ? mapping.muslimNames : [];
+export function getWesternNameSuggestions(name: string | null | undefined): string[] {
+  const key = resolveMappingKey(name);
+  if (!key) return [];
+  const mapping = christianToMuslimNameMapping[key];
+  return mapping?.muslimNames ?? [];
 }
 
-// Get context for a mapping
-export function getMappingContext(name: string): NameMapping | null {
-  return christianToMuslimNameMapping[name.toLowerCase()] || null;
+/** Resolves input (full name, nickname, variant) to canonical mapping key. */
+function resolveMappingKey(name: string | null | undefined): string {
+  const raw = typeof name === "string" ? name.trim().toLowerCase() : "";
+  if (!raw) return "";
+  const first = raw.split(/\s+/)[0] || raw;
+  if (christianToMuslimNameMapping[first]) return first;
+  return westernNameVariants[first] ?? first;
+}
+
+// Get context for a mapping (robust to null/undefined/whitespace)
+// Uses first name only for "John Smith", and resolves nicknames (Mike → Michael)
+export function getMappingContext(name: string | null | undefined): NameMapping | null {
+  const key = resolveMappingKey(name);
+  if (!key) return null;
+  return christianToMuslimNameMapping[key] ?? null;
 }
 
 // Get all names in a category

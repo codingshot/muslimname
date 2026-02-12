@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { useSearchParams, Link } from "react-router-dom";
 import { Search, X, ChevronDown, BookOpen } from "lucide-react";
 import { namesDatabase, searchNames, getOrigins, getThemes } from "@/data/names";
@@ -45,6 +46,9 @@ function FilterDropdown({
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-label={`${label}: ${active?.label || value}`}
         className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors border ${
           value !== "all"
             ? "bg-primary text-primary-foreground border-primary"
@@ -99,6 +103,9 @@ function ThemesDropdown({
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-label={`Themes filter${selected.length > 0 ? `: ${selected.length} selected` : ""}`}
         className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors border ${
           selected.length > 0
             ? "bg-primary text-primary-foreground border-primary"
@@ -208,6 +215,11 @@ export default function NamesPage() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Browse Muslim Names — Meanings, Origins &amp; Quranic References | MuslimName.me</title>
+        <meta name="description" content={`Explore ${namesDatabase.length}+ Islamic names with meanings, origins, and Quranic references. Search by name, meaning, or filter by gender and scripture.`} />
+        <link rel="canonical" href="https://muslimname.me/names" />
+      </Helmet>
       <div className="container mx-auto px-4 py-6 md:py-8">
         {/* Header */}
         <motion.div
@@ -237,7 +249,8 @@ export default function NamesPage() {
             {query && (
               <button
                 onClick={() => setQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-muted text-muted-foreground"
+                aria-label="Clear search"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full hover:bg-muted text-muted-foreground min-w-[36px] min-h-[36px] flex items-center justify-center"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -335,10 +348,16 @@ export default function NamesPage() {
           {!loading && results.length === 0 && (
             <div className="text-center py-12 md:py-16">
               <p className="text-lg font-display font-semibold text-foreground mb-2">No names found</p>
-              <p className="text-muted-foreground mb-4">Try adjusting your search or filters</p>
-              <button onClick={clearFilters} className="text-primary hover:underline text-sm font-medium">
-                Clear all filters
-              </button>
+              <p className="text-muted-foreground mb-4">Try adjusting your search or filters, or discover names by meaning</p>
+              <div className="flex gap-3 justify-center flex-wrap">
+                <button onClick={clearFilters} className="text-primary hover:underline text-sm font-medium">
+                  Clear all filters
+                </button>
+                <span className="text-muted-foreground">·</span>
+                <Link to="/generator" className="text-primary hover:underline text-sm font-medium">
+                  Try the Name Generator
+                </Link>
+              </div>
             </div>
           )}
         </div>

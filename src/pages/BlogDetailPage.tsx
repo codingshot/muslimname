@@ -87,11 +87,26 @@ export default function BlogDetailPage() {
               td: ({ children }) => (
                 <TableCell className="text-muted-foreground text-sm">{children}</TableCell>
               ),
-              a: ({ href, children }) => (
-                <Link to={href || "#"} className="text-primary hover:underline font-medium">
-                  {children}
-                </Link>
-              ),
+              a: ({ href, children }) => {
+                const isInternal = href?.startsWith("/") && !href.startsWith("//");
+                if (isInternal && href) {
+                  return (
+                    <Link to={href} className="text-primary hover:underline font-medium">
+                      {children}
+                    </Link>
+                  );
+                }
+                return (
+                  <a
+                    href={href || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline font-medium"
+                  >
+                    {children}
+                  </a>
+                );
+              },
             }}
           >
             {post.content}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { legalNameChangeDatabase, type LegalNameChangeGuide } from "@/data/legalNameChange";
@@ -31,19 +31,47 @@ function formatUSD(range: [number, number]) {
   return `$${range[0].toLocaleString()} - $${range[1].toLocaleString()}`;
 }
 
+const PROGRESS_SAVE_DEBOUNCE_MS = 250;
+
 // --- Progress checklist hook (localStorage) ---
 function useStepProgress(countryCode: string, totalSteps: number) {
   const key = `legal-progress-${countryCode}`;
   const [completed, setCompleted] = useState<boolean[]>(() => {
     try {
       const saved = localStorage.getItem(key);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const arr = JSON.parse(saved);
+        if (Array.isArray(arr) && arr.length === totalSteps) return arr;
+        // Resize if step count changed
+        return Array.from({ length: totalSteps }, (_, i) => !!arr[i]);
+      }
     } catch {}
     return Array(totalSteps).fill(false);
   });
 
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const completedRef = useRef(completed);
+  completedRef.current = completed;
+
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(completed));
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      try {
+        localStorage.setItem(key, JSON.stringify(completedRef.current));
+      } catch {
+        // QuotaExceeded or private mode
+      }
+      timerRef.current = null;
+    }, PROGRESS_SAVE_DEBOUNCE_MS);
+
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        try {
+          localStorage.setItem(key, JSON.stringify(completedRef.current));
+        } catch {}
+      }
+    };
   }, [completed, key]);
 
   const toggle = useCallback((i: number) => {

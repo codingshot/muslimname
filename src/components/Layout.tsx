@@ -1,10 +1,8 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Search, Heart, Menu, X, Sparkles, Scale, User, Shuffle } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
-import { namesDatabase } from "@/data/names";
-import logo from "@/assets/logo.png";
 
 const navLinks = [
   { to: "/names", label: "Browse Names" },
@@ -17,12 +15,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const handleRandomQuranic = useCallback(async () => {
+    const { namesDatabase } = await import("@/data/names");
+    const quranic = namesDatabase.filter(n => n.isQuranic);
+    const random = quranic[Math.floor(Math.random() * quranic.length)];
+    if (random) navigate(`/name/${random.slug}`);
+  }, [navigate]);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:outline-none"
+      >
+        Skip to main content
+      </a>
       <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="MuslimName.me" className="w-8 h-8" />
+            <img src="/favicon.ico" alt="MuslimName.me" width={32} height={32} className="w-8 h-8" fetchPriority="high" />
             <span className="font-display text-xl font-bold text-foreground">
               Muslim<span className="text-primary">Name</span>.me
             </span>
@@ -65,7 +76,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-muted text-foreground"
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className="md:hidden p-2 rounded-lg hover:bg-muted text-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -101,14 +114,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      <main className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1">{children}</main>
 
       <footer className="border-t border-border bg-card">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <img src={logo} alt="MuslimName.me" className="w-7 h-7" />
+                <img src="/favicon.ico" alt="MuslimName.me" width={28} height={28} className="w-7 h-7" loading="lazy" />
                 <span className="font-display text-lg font-bold">MuslimName.me</span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
@@ -159,11 +172,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/names?gender=male" className="hover:text-primary transition-colors">Male Names</Link>
                 <Link to="/names?gender=female" className="hover:text-primary transition-colors">Female Names</Link>
                 <button
-                  onClick={() => {
-                    const quranic = namesDatabase.filter(n => n.isQuranic);
-                    const random = quranic[Math.floor(Math.random() * quranic.length)];
-                    if (random) navigate(`/name/${random.slug}`);
-                  }}
+                  onClick={handleRandomQuranic}
                   className="text-left hover:text-primary transition-colors inline-flex items-center gap-1.5"
                 >
                   <Shuffle className="w-3.5 h-3.5" /> Random Quranic Name

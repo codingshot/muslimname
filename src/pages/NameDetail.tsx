@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useState, useEffect, useCallback } from "react";
 import { findNameBySlug, namesDatabase } from "@/data/names";
 import { christianToMuslimNameMapping } from "@/data/nameMapping";
@@ -17,7 +18,8 @@ export default function NameDetail() {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const { isFavorite, toggleFavorite } = useProfile();
 
-  useEffect(() => {
+  // Defer voice preload until user interacts with speak button (saves initial work)
+  const preloadOnInteraction = useCallback(() => {
     preloadVoices();
   }, []);
 
@@ -27,7 +29,8 @@ export default function NameDetail() {
     return () => clearTimeout(t);
   }, [slug]);
 
-  const handleSpeak = useCallback((arabic: string, name: string) => {
+  const handleSpeak = useCallback(async (arabic: string, name: string) => {
+    await preloadVoices(); // Ensure voices ready before first speak
     setIsSpeaking(true);
     speakArabic(arabic, name);
     // Reset speaking state after a delay
@@ -69,6 +72,14 @@ export default function NameDetail() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{name.name} — Islamic Name Meaning &amp; Origin | MuslimName.me</title>
+        <meta name="description" content={`${name.meaning}. ${name.detailedMeaning.slice(0, 100)}${name.detailedMeaning.length > 100 ? "…" : ""}`} />
+        <link rel="canonical" href={`https://muslimname.me/name/${name.slug}`} />
+        <meta property="og:title" content={`${name.name} — Islamic Name | MuslimName.me`} />
+        <meta property="og:description" content={name.meaning} />
+        <meta property="og:url" content={`https://muslimname.me/name/${name.slug}`} />
+      </Helmet>
       <article className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
         {/* Back */}
         <Link to="/names" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary mb-4 md:mb-6 transition-colors">
@@ -118,6 +129,8 @@ export default function NameDetail() {
           <div className="mt-4 sm:mt-6 flex items-center gap-2 sm:gap-3 flex-wrap">
             <button
               onClick={() => handleSpeak(name.arabic, name.name)}
+              onMouseEnter={preloadOnInteraction}
+              onFocus={preloadOnInteraction}
               className={`flex items-center gap-2 rounded-lg px-3 py-1.5 transition-all ${
                 isSpeaking
                   ? "bg-primary text-primary-foreground"

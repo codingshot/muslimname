@@ -127,14 +127,14 @@ export default function WesternNamesPage() {
                   <ArrowRight className="w-3 h-3 text-primary shrink-0" />
                   <div className="flex gap-1.5 flex-wrap">
                     {m.muslimNames.map(name => {
-                      const nameData = findNameBySlug(name.toLowerCase());
+                      const nameData = findNameBySlug(name);
                       return nameData ? (
                         <Link
                           key={name}
-                          to={`/name/${name.toLowerCase()}`}
+                          to={`/name/${nameData.slug}`}
                           className="text-primary font-semibold hover:underline capitalize"
                         >
-                          {name}
+                          {nameData.name}
                         </Link>
                       ) : (
                         <span key={name} className="text-primary font-semibold capitalize">{name}</span>

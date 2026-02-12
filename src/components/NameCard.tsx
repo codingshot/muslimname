@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import type { MuslimName } from "@/data/names";
@@ -10,7 +11,7 @@ interface NameCardProps {
   index?: number;
 }
 
-export default function NameCard({ name, index = 0 }: NameCardProps) {
+function NameCard({ name, index = 0 }: NameCardProps) {
   const { isFavorite, toggleFavorite } = useProfile();
   const starred = isFavorite(name.slug);
 
@@ -84,3 +85,5 @@ export default function NameCard({ name, index = 0 }: NameCardProps) {
     </motion.div>
   );
 }
+
+export default memo(NameCard);

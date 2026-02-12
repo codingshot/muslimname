@@ -2153,6 +2153,4272 @@ export const legalNameChangeDatabase: LegalNameChangeGuide[] = [
     ],
     religiousExemptions: "Korean courts accept religious conversion as a 'justifiable reason' for name changes. The Korea Muslim Federation can provide supporting documentation.",
     lastUpdated: "2026-02"
+  },
+  {
+    country: "American Samoa",
+    countryCode: "AS",
+    flag: "🇦🇸",
+    overview: "American Samoa handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Andorra",
+    countryCode: "AD",
+    flag: "🇦🇩",
+    overview: "Andorra handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Angola",
+    countryCode: "AO",
+    flag: "🇦🇴",
+    overview: "Angola handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Anguilla",
+    countryCode: "AI",
+    flag: "🇦🇮",
+    overview: "Anguilla handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Antigua and Barbuda",
+    countryCode: "AG",
+    flag: "🇦🇬",
+    overview: "Antigua and Barbuda handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Armenia",
+    countryCode: "AM",
+    flag: "🇦🇲",
+    overview: "Armenia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Aruba",
+    countryCode: "AW",
+    flag: "🇦🇼",
+    overview: "Aruba handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Azerbaijan",
+    countryCode: "AZ",
+    flag: "🇦🇿",
+    overview: "Azerbaijan handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bahamas",
+    countryCode: "BS",
+    flag: "🇧🇸",
+    overview: "Bahamas handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Barbados",
+    countryCode: "BB",
+    flag: "🇧🇧",
+    overview: "Barbados handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Belarus",
+    countryCode: "BY",
+    flag: "🇧🇾",
+    overview: "Belarus handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Belize",
+    countryCode: "BZ",
+    flag: "🇧🇿",
+    overview: "Belize handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Benin",
+    countryCode: "BJ",
+    flag: "🇧🇯",
+    overview: "Benin handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bermuda",
+    countryCode: "BM",
+    flag: "🇧🇲",
+    overview: "Bermuda handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bhutan",
+    countryCode: "BT",
+    flag: "🇧🇹",
+    overview: "Bhutan handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bolivia, Plurinational State of",
+    countryCode: "BO",
+    flag: "🇧🇴",
+    overview: "Bolivia, Plurinational State of handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Botswana",
+    countryCode: "BW",
+    flag: "🇧🇼",
+    overview: "Botswana handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Bulgaria",
+    countryCode: "BG",
+    flag: "🇧🇬",
+    overview: "Bulgaria handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Burkina Faso",
+    countryCode: "BF",
+    flag: "🇧🇫",
+    overview: "Burkina Faso handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Burundi",
+    countryCode: "BI",
+    flag: "🇧🇮",
+    overview: "Burundi handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cabo Verde",
+    countryCode: "CV",
+    flag: "🇨🇻",
+    overview: "Cabo Verde handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cambodia",
+    countryCode: "KH",
+    flag: "🇰🇭",
+    overview: "Cambodia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cameroon",
+    countryCode: "CM",
+    flag: "🇨🇲",
+    overview: "Cameroon handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cayman Islands",
+    countryCode: "KY",
+    flag: "🇰🇾",
+    overview: "Cayman Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Central African Republic",
+    countryCode: "CF",
+    flag: "🇨🇫",
+    overview: "Central African Republic handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Chad",
+    countryCode: "TD",
+    flag: "🇹🇩",
+    overview: "Chad handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Chile",
+    countryCode: "CL",
+    flag: "🇨🇱",
+    overview: "Chile handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Comoros",
+    countryCode: "KM",
+    flag: "🇰🇲",
+    overview: "Comoros handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Congo",
+    countryCode: "CG",
+    flag: "🇨🇬",
+    overview: "Congo handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Congo, Democratic Republic of the",
+    countryCode: "CD",
+    flag: "🇨🇩",
+    overview: "Congo, Democratic Republic of the handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cook Islands",
+    countryCode: "CK",
+    flag: "🇨🇰",
+    overview: "Cook Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Costa Rica",
+    countryCode: "CR",
+    flag: "🇨🇷",
+    overview: "Costa Rica handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Côte d'Ivoire",
+    countryCode: "CI",
+    flag: "🇨🇮",
+    overview: "Côte d'Ivoire handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Croatia",
+    countryCode: "HR",
+    flag: "🇭🇷",
+    overview: "Croatia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cuba",
+    countryCode: "CU",
+    flag: "🇨🇺",
+    overview: "Cuba handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Curaçao",
+    countryCode: "CW",
+    flag: "🇨🇼",
+    overview: "Curaçao handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Cyprus",
+    countryCode: "CY",
+    flag: "🇨🇾",
+    overview: "Cyprus handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Czechia",
+    countryCode: "CZ",
+    flag: "🇨🇿",
+    overview: "Czechia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Djibouti",
+    countryCode: "DJ",
+    flag: "🇩🇯",
+    overview: "Djibouti handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Dominica",
+    countryCode: "DM",
+    flag: "🇩🇲",
+    overview: "Dominica handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Dominican Republic",
+    countryCode: "DO",
+    flag: "🇩🇴",
+    overview: "Dominican Republic handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Ecuador",
+    countryCode: "EC",
+    flag: "🇪🇨",
+    overview: "Ecuador handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "El Salvador",
+    countryCode: "SV",
+    flag: "🇸🇻",
+    overview: "El Salvador handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Equatorial Guinea",
+    countryCode: "GQ",
+    flag: "🇬🇶",
+    overview: "Equatorial Guinea handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Eritrea",
+    countryCode: "ER",
+    flag: "🇪🇷",
+    overview: "Eritrea handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Estonia",
+    countryCode: "EE",
+    flag: "🇪🇪",
+    overview: "Estonia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Eswatini",
+    countryCode: "SZ",
+    flag: "🇸🇿",
+    overview: "Eswatini handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Falkland Islands",
+    countryCode: "FK",
+    flag: "🇫🇰",
+    overview: "Falkland Islands (Malvinas) handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Faroe Islands",
+    countryCode: "FO",
+    flag: "🇫🇴",
+    overview: "Faroe Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Fiji",
+    countryCode: "FJ",
+    flag: "🇫🇯",
+    overview: "Fiji handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "French Guiana",
+    countryCode: "GF",
+    flag: "🇬🇫",
+    overview: "French Guiana handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "French Polynesia",
+    countryCode: "PF",
+    flag: "🇵🇫",
+    overview: "French Polynesia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Gabon",
+    countryCode: "GA",
+    flag: "🇬🇦",
+    overview: "Gabon handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Gambia",
+    countryCode: "GM",
+    flag: "🇬🇲",
+    overview: "Gambia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Georgia",
+    countryCode: "GE",
+    flag: "🇬🇪",
+    overview: "Georgia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Greenland",
+    countryCode: "GL",
+    flag: "🇬🇱",
+    overview: "Greenland handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Grenada",
+    countryCode: "GD",
+    flag: "🇬🇩",
+    overview: "Grenada handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Guadeloupe",
+    countryCode: "GP",
+    flag: "🇬🇵",
+    overview: "Guadeloupe handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Guam",
+    countryCode: "GU",
+    flag: "🇬🇺",
+    overview: "Guam handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Guatemala",
+    countryCode: "GT",
+    flag: "🇬🇹",
+    overview: "Guatemala handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Guinea",
+    countryCode: "GN",
+    flag: "🇬🇳",
+    overview: "Guinea handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Guinea-Bissau",
+    countryCode: "GW",
+    flag: "🇬🇼",
+    overview: "Guinea-Bissau handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Guyana",
+    countryCode: "GY",
+    flag: "🇬🇾",
+    overview: "Guyana handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Haiti",
+    countryCode: "HT",
+    flag: "🇭🇹",
+    overview: "Haiti handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Honduras",
+    countryCode: "HN",
+    flag: "🇭🇳",
+    overview: "Honduras handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Hong Kong",
+    countryCode: "HK",
+    flag: "🇭🇰",
+    overview: "Hong Kong handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Hungary",
+    countryCode: "HU",
+    flag: "🇭🇺",
+    overview: "Hungary handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Iceland",
+    countryCode: "IS",
+    flag: "🇮🇸",
+    overview: "Iceland handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Israel",
+    countryCode: "IL",
+    flag: "🇮🇱",
+    overview: "Israel handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Jamaica",
+    countryCode: "JM",
+    flag: "🇯🇲",
+    overview: "Jamaica handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Kiribati",
+    countryCode: "KI",
+    flag: "🇰🇮",
+    overview: "Kiribati handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Korea, Democratic People's Republic of",
+    countryCode: "KP",
+    flag: "🇰🇵",
+    overview: "Korea, Democratic People's Republic of handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Lao People's Democratic Republic",
+    countryCode: "LA",
+    flag: "🇱🇦",
+    overview: "Lao People's Democratic Republic handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Latvia",
+    countryCode: "LV",
+    flag: "🇱🇻",
+    overview: "Latvia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Lesotho",
+    countryCode: "LS",
+    flag: "🇱🇸",
+    overview: "Lesotho handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Liberia",
+    countryCode: "LR",
+    flag: "🇱🇷",
+    overview: "Liberia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Liechtenstein",
+    countryCode: "LI",
+    flag: "🇱🇮",
+    overview: "Liechtenstein handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Lithuania",
+    countryCode: "LT",
+    flag: "🇱🇹",
+    overview: "Lithuania handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Luxembourg",
+    countryCode: "LU",
+    flag: "🇱🇺",
+    overview: "Luxembourg handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Macao",
+    countryCode: "MO",
+    flag: "🇲🇴",
+    overview: "Macao handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Madagascar",
+    countryCode: "MG",
+    flag: "🇲🇬",
+    overview: "Madagascar handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Malawi",
+    countryCode: "MW",
+    flag: "🇲🇼",
+    overview: "Malawi handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Mali",
+    countryCode: "ML",
+    flag: "🇲🇱",
+    overview: "Mali handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Malta",
+    countryCode: "MT",
+    flag: "🇲🇹",
+    overview: "Malta handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Marshall Islands",
+    countryCode: "MH",
+    flag: "🇲🇭",
+    overview: "Marshall Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Martinique",
+    countryCode: "MQ",
+    flag: "🇲🇶",
+    overview: "Martinique handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Mauritania",
+    countryCode: "MR",
+    flag: "🇲🇷",
+    overview: "Mauritania handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Mauritius",
+    countryCode: "MU",
+    flag: "🇲🇺",
+    overview: "Mauritius handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Mayotte",
+    countryCode: "YT",
+    flag: "🇾🇹",
+    overview: "Mayotte handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Micronesia, Federated States of",
+    countryCode: "FM",
+    flag: "🇫🇲",
+    overview: "Micronesia, Federated States of handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Moldova, Republic of",
+    countryCode: "MD",
+    flag: "🇲🇩",
+    overview: "Moldova, Republic of handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Monaco",
+    countryCode: "MC",
+    flag: "🇲🇨",
+    overview: "Monaco handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Mongolia",
+    countryCode: "MN",
+    flag: "🇲🇳",
+    overview: "Mongolia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Montenegro",
+    countryCode: "ME",
+    flag: "🇲🇪",
+    overview: "Montenegro handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Montserrat",
+    countryCode: "MS",
+    flag: "🇲🇸",
+    overview: "Montserrat handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Mozambique",
+    countryCode: "MZ",
+    flag: "🇲🇿",
+    overview: "Mozambique handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Namibia",
+    countryCode: "NA",
+    flag: "🇳🇦",
+    overview: "Namibia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Nauru",
+    countryCode: "NR",
+    flag: "🇳🇷",
+    overview: "Nauru handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Nepal",
+    countryCode: "NP",
+    flag: "🇳🇵",
+    overview: "Nepal handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "New Caledonia",
+    countryCode: "NC",
+    flag: "🇳🇨",
+    overview: "New Caledonia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Nicaragua",
+    countryCode: "NI",
+    flag: "🇳🇮",
+    overview: "Nicaragua handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Niger",
+    countryCode: "NE",
+    flag: "🇳🇪",
+    overview: "Niger handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Niue",
+    countryCode: "NU",
+    flag: "🇳🇺",
+    overview: "Niue handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Norfolk Island",
+    countryCode: "NF",
+    flag: "🇳🇫",
+    overview: "Norfolk Island handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "North Macedonia",
+    countryCode: "MK",
+    flag: "🇲🇰",
+    overview: "North Macedonia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Northern Mariana Islands",
+    countryCode: "MP",
+    flag: "🇲🇵",
+    overview: "Northern Mariana Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Palau",
+    countryCode: "PW",
+    flag: "🇵🇼",
+    overview: "Palau handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Palestine, State of",
+    countryCode: "PS",
+    flag: "🇵🇸",
+    overview: "Palestine, State of handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Panama",
+    countryCode: "PA",
+    flag: "🇵🇦",
+    overview: "Panama handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Papua New Guinea",
+    countryCode: "PG",
+    flag: "🇵🇬",
+    overview: "Papua New Guinea handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Paraguay",
+    countryCode: "PY",
+    flag: "🇵🇾",
+    overview: "Paraguay handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Peru",
+    countryCode: "PE",
+    flag: "🇵🇪",
+    overview: "Peru handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Pitcairn",
+    countryCode: "PN",
+    flag: "🇵🇳",
+    overview: "Pitcairn handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Puerto Rico",
+    countryCode: "PR",
+    flag: "🇵🇷",
+    overview: "Puerto Rico handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Réunion",
+    countryCode: "RE",
+    flag: "🇷🇪",
+    overview: "Réunion handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Romania",
+    countryCode: "RO",
+    flag: "🇷🇴",
+    overview: "Romania handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Rwanda",
+    countryCode: "RW",
+    flag: "🇷🇼",
+    overview: "Rwanda handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Saint Barthélemy",
+    countryCode: "BL",
+    flag: "🇧🇱",
+    overview: "Saint Barthélemy handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Saint Kitts and Nevis",
+    countryCode: "KN",
+    flag: "🇰🇳",
+    overview: "Saint Kitts and Nevis handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Saint Lucia",
+    countryCode: "LC",
+    flag: "🇱🇨",
+    overview: "Saint Lucia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Saint Martin",
+    countryCode: "MF",
+    flag: "🇲🇫",
+    overview: "Saint Martin (French part) handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Saint Pierre and Miquelon",
+    countryCode: "PM",
+    flag: "🇵🇲",
+    overview: "Saint Pierre and Miquelon handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Saint Vincent and the Grenadines",
+    countryCode: "VC",
+    flag: "🇻🇨",
+    overview: "Saint Vincent and the Grenadines handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Samoa",
+    countryCode: "WS",
+    flag: "🇼🇸",
+    overview: "Samoa handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "San Marino",
+    countryCode: "SM",
+    flag: "🇸🇲",
+    overview: "San Marino handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Sao Tome and Principe",
+    countryCode: "ST",
+    flag: "🇸🇹",
+    overview: "Sao Tome and Principe handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Serbia",
+    countryCode: "RS",
+    flag: "🇷🇸",
+    overview: "Serbia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Seychelles",
+    countryCode: "SC",
+    flag: "🇸🇨",
+    overview: "Seychelles handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Sierra Leone",
+    countryCode: "SL",
+    flag: "🇸🇱",
+    overview: "Sierra Leone handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Sint Maarten",
+    countryCode: "SX",
+    flag: "🇸🇽",
+    overview: "Sint Maarten (Dutch part) handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Slovakia",
+    countryCode: "SK",
+    flag: "🇸🇰",
+    overview: "Slovakia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Slovenia",
+    countryCode: "SI",
+    flag: "🇸🇮",
+    overview: "Slovenia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Solomon Islands",
+    countryCode: "SB",
+    flag: "🇸🇧",
+    overview: "Solomon Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "South Georgia and the South Sandwich Islands",
+    countryCode: "GS",
+    flag: "🇬🇸",
+    overview: "South Georgia and the South Sandwich Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "South Sudan",
+    countryCode: "SS",
+    flag: "🇸🇸",
+    overview: "South Sudan handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Sri Lanka",
+    countryCode: "LK",
+    flag: "🇱🇰",
+    overview: "Sri Lanka handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Suriname",
+    countryCode: "SR",
+    flag: "🇸🇷",
+    overview: "Suriname handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Syrian Arab Republic",
+    countryCode: "SY",
+    flag: "🇸🇾",
+    overview: "Syrian Arab Republic handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Taiwan, Province of China",
+    countryCode: "TW",
+    flag: "🇹🇼",
+    overview: "Taiwan, Province of China handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Timor-Leste",
+    countryCode: "TL",
+    flag: "🇹🇱",
+    overview: "Timor-Leste handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Togo",
+    countryCode: "TG",
+    flag: "🇹🇬",
+    overview: "Togo handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Tokelau",
+    countryCode: "TK",
+    flag: "🇹🇰",
+    overview: "Tokelau handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Tonga",
+    countryCode: "TO",
+    flag: "🇹🇴",
+    overview: "Tonga handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Trinidad and Tobago",
+    countryCode: "TT",
+    flag: "🇹🇹",
+    overview: "Trinidad and Tobago handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Turks and Caicos Islands",
+    countryCode: "TC",
+    flag: "🇹🇨",
+    overview: "Turks and Caicos Islands handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Tuvalu",
+    countryCode: "TV",
+    flag: "🇹🇻",
+    overview: "Tuvalu handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Uganda",
+    countryCode: "UG",
+    flag: "🇺🇬",
+    overview: "Uganda handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Ukraine",
+    countryCode: "UA",
+    flag: "🇺🇦",
+    overview: "Ukraine handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Uruguay",
+    countryCode: "UY",
+    flag: "🇺🇾",
+    overview: "Uruguay handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Vanuatu",
+    countryCode: "VU",
+    flag: "🇻🇺",
+    overview: "Vanuatu handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Venezuela, Bolivarian Republic of",
+    countryCode: "VE",
+    flag: "🇻🇪",
+    overview: "Venezuela, Bolivarian Republic of handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Viet Nam",
+    countryCode: "VN",
+    flag: "🇻🇳",
+    overview: "Viet Nam handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Virgin Islands",
+    countryCode: "VG",
+    flag: "🇻🇬",
+    overview: "Virgin Islands (British) handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Virgin Islands",
+    countryCode: "VI",
+    flag: "🇻🇮",
+    overview: "Virgin Islands (U.S.) handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Wallis and Futuna",
+    countryCode: "WF",
+    flag: "🇼🇫",
+    overview: "Wallis and Futuna handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Western Sahara",
+    countryCode: "EH",
+    flag: "🇪🇭",
+    overview: "Western Sahara handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Zambia",
+    countryCode: "ZM",
+    flag: "🇿🇲",
+    overview: "Zambia handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
+  },
+  {
+    country: "Zimbabwe",
+    countryCode: "ZW",
+    flag: "🇿🇼",
+    overview: "Zimbabwe handles name changes through the civil registry or equivalent authority. Procedures vary by jurisdiction. Contact your local registry office or vital statistics department for specific requirements.",
+    estimatedCost: "Varies by jurisdiction",
+    estimatedCostUSD: [20, 300],
+    estimatedTimeline: "4 - 16 weeks",
+    estimatedTimelineWeeks: [4, 16],
+    difficulty: "moderate",
+    steps: [
+      { title: "Contact Civil Registry", description: "Inquire at your local civil registry, vital statistics office, or municipality about name change procedures.", documents: ["ID","Birth certificate"] },
+      { title: "Gather Documents", description: "Obtain required documents, which may include proof of identity, birth certificate, and a written statement of reason.", documents: ["ID","Birth certificate","Application form"] },
+      { title: "Submit Application", description: "Submit the application according to local procedures. Some jurisdictions require a court order or newspaper publication.", documents: ["Application","Supporting documents"] },
+      { title: "Update Records", description: "Once approved, update your ID, passport, and other official records.", documents: ["Approval or court order","Old documents"] }
+    ],
+    tips: [
+      "Verify current requirements with local authorities before starting",
+      "Local Islamic centers may provide conversion documentation if needed",
+      "Keep certified copies of all submitted and received documents"
+    ],
+    resources: [
+      { title: "Contact local civil registry", url: "#" }
+    ],
+    religiousExemptions: "Many countries accept religious conversion as a valid reason for name changes. Confirm with local authorities.",
+    lastUpdated: "2026-02"
   }
 ];
 

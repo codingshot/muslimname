@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const featuredNames = namesDatabase.slice(0, 6);
 const featuredBlogs = blogPosts.slice(0, 3);
@@ -37,7 +36,7 @@ const Index = () => {
       <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})` }}
+          style={{ backgroundImage: "url(/hero-bg.jpg)" }}
         />
         <div className="absolute inset-0 bg-gradient-hero opacity-85" />
         <div className="absolute inset-0 geometric-pattern" />
@@ -70,6 +69,7 @@ const Index = () => {
                   value={currentName}
                   onChange={e => setCurrentName(e.target.value)}
                   placeholder="Enter your name (e.g., David, Sarah, Michael)"
+                  aria-label="Enter your current name to discover Islamic equivalent"
                   className="pl-10 h-12 rounded-xl bg-primary-foreground text-foreground border-0 text-base"
                 />
               </div>

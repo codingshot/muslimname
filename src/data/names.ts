@@ -36,6 +36,7 @@ export interface MuslimName {
 
 import { prophetsNames } from "./companionsAndProphets";
 import { quranicNames } from "./quranicNames";
+import { resolveSlugAlias } from "./slugAliases";
 
 const coreNames: MuslimName[] = [
   {
@@ -3816,24 +3817,25 @@ function levenshtein(a: string, b: string): number {
 }
 
 function scoreMatch(name: MuslimName, query: string): number {
-  const lq = query.toLowerCase();
+  const lq = (query || "").toLowerCase();
+  if (!lq) return 0;
   let score = 0;
 
-  if (name.name.toLowerCase() === lq) return 100;
-  if (name.name.toLowerCase().startsWith(lq)) score += 50;
-  else if (name.name.toLowerCase().includes(lq)) score += 30;
+  if (name.name?.toLowerCase() === lq) return 100;
+  if (name.name?.toLowerCase().startsWith(lq)) score += 50;
+  else if (name.name?.toLowerCase().includes(lq)) score += 30;
 
-  const nameDist = levenshtein(name.name.toLowerCase(), lq);
+  const nameDist = levenshtein((name.name || "").toLowerCase(), lq);
   if (nameDist <= 2) score += Math.max(0, 25 - nameDist * 10);
 
-  if (name.meaning.toLowerCase().includes(lq)) score += 20;
-  if (name.detailedMeaning.toLowerCase().includes(lq)) score += 10;
-  if (name.arabic.includes(query)) score += 40;
-  if (name.themes.some(t => t.toLowerCase().includes(lq))) score += 15;
-  if (name.variations.some(v => v.toLowerCase().includes(lq))) score += 35;
-  if (name.variations.some(v => levenshtein(v.toLowerCase(), lq) <= 2)) score += 20;
-  if (name.origin.toLowerCase().includes(lq)) score += 10;
-  if (name.slug.includes(lq)) score += 25;
+  if (name.meaning?.toLowerCase().includes(lq)) score += 20;
+  if (name.detailedMeaning?.toLowerCase().includes(lq)) score += 10;
+  if (name.arabic?.includes(query)) score += 40;
+  if (name.themes?.some(t => t.toLowerCase().includes(lq))) score += 15;
+  if (name.variations?.some(v => v.toLowerCase().includes(lq))) score += 35;
+  if (name.variations?.some(v => levenshtein(v.toLowerCase(), lq) <= 2)) score += 20;
+  if (name.origin?.toLowerCase().includes(lq)) score += 10;
+  if (name.slug?.includes(lq)) score += 25;
 
   // Scripture context search
   if (name.scriptureContext) {
@@ -3842,14 +3844,15 @@ function scoreMatch(name: MuslimName, query: string): number {
     if (name.scriptureContext.bibleContext?.toLowerCase().includes(lq)) score += 10;
   }
 
-  score += name.popularity * 0.05;
+  score += (name.popularity ?? 0) * 0.05;
   return score;
 }
 
-export function searchNames(query: string): MuslimName[] {
-  if (!query.trim()) return [...namesDatabase];
+export function searchNames(query: string | null | undefined): MuslimName[] {
+  const q = typeof query === "string" ? query.trim() : "";
+  if (!q) return [...namesDatabase];
   const results = namesDatabase
-    .map(n => ({ name: n, score: scoreMatch(n, query) }))
+    .map(n => ({ name: n, score: scoreMatch(n, q) }))
     .filter(r => r.score > 5)
     .sort((a, b) => b.score - a.score);
   return results.map(r => r.name);
@@ -3873,14 +3876,15 @@ export function filterNames(criteria: {
 }
 
 export function suggestFromMeaning(meaning: string): MuslimName[] {
-  const words = meaning.toLowerCase().split(/\s+/);
+  const words = meaning.toLowerCase().split(/\s+/).filter(w => w.length > 1);
   const scored: { name: MuslimName; score: number }[] = [];
 
   for (const name of namesDatabase) {
     let score = 0;
     for (const word of words) {
-      if (name.slug === word) { score += 50; continue; }
-      if (name.themes.includes(word)) score += 10;
+      const resolved = resolveSlugAlias(word);
+      if (name.slug === word || name.slug === resolved) { score += 50; continue; }
+      if (name.themes.includes(word) || name.themes.includes(resolved)) score += 10;
       if (name.meaning.toLowerCase().includes(word)) score += 8;
       if (name.detailedMeaning.toLowerCase().includes(word)) score += 4;
       if (name.name.toLowerCase().includes(word)) score += 15;
@@ -3892,8 +3896,26 @@ export function suggestFromMeaning(meaning: string): MuslimName[] {
   return scored.sort((a, b) => b.score - a.score).map(s => s.name);
 }
 
-export function findNameBySlug(slug: string): MuslimName | undefined {
-  return namesDatabase.find(n => n.slug === slug);
+export function findNameBySlug(slug: string | null | undefined): MuslimName | undefined {
+  const normalized = typeof slug === "string" ? slug.toLowerCase().trim() : "";
+  if (!normalized || normalized.length > 80) return undefined;
+  if (/[<>"'\s]/.test(normalized)) return undefined; // Reject suspicious input
+  const direct = namesDatabase.find(n => n.slug === normalized);
+  if (direct) return direct;
+  const aliased = resolveSlugAlias(normalized);
+  if (aliased !== normalized) return namesDatabase.find(n => n.slug === aliased);
+  return undefined;
+}
+
+/**
+ * Resolves a mapping muslimName to a DB slug if possible (direct or via alias).
+ * Use when rendering links from mapping data.
+ */
+export function resolveMappingSlugToDb(mappingName: string): string | null {
+  const slug = mappingName?.toLowerCase().trim();
+  if (!slug) return null;
+  const found = findNameBySlug(slug);
+  return found ? found.slug : null;
 }
 
 export function getOrigins(): string[] {
