@@ -34,7 +34,12 @@ export default function GeneratorPage() {
       setCurrentName(urlName);
       setGenerated(true);
       setLoading(true);
-      setTimeout(() => setLoading(false), 600);
+      setTimeout(() => {
+        setLoading(false);
+        setTimeout(() => {
+          resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 150);
+      }, 600);
     }
   }, []);
 
@@ -216,18 +221,23 @@ export default function GeneratorPage() {
 
           {/* Meanings */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <label className="block font-display font-semibold text-foreground mb-2">
-              What qualities inspire you?
-            </label>
+            <div className="flex items-center justify-between mb-2">
+              <label className="block font-display font-semibold text-foreground">
+                What qualities inspire you?
+              </label>
+              {selectedMeanings.length > 0 && (
+                <span className="text-xs text-primary font-medium">{selectedMeanings.length} selected</span>
+              )}
+            </div>
             <p className="text-sm text-muted-foreground mb-3">
               Select meanings you want your name to represent
             </p>
-            <div className="flex gap-2 flex-wrap">
+            <div className={`flex gap-1.5 flex-wrap ${generated ? "max-h-24 overflow-hidden relative" : ""}`}>
               {meaningKeywords.map(m => (
                 <button
                   key={m}
                   onClick={() => toggleMeaning(m)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium capitalize transition-all ${
+                  className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize transition-all ${
                     selectedMeanings.includes(m)
                       ? "bg-primary text-primary-foreground shadow-glow scale-105"
                       : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
@@ -236,6 +246,9 @@ export default function GeneratorPage() {
                   {m}
                 </button>
               ))}
+              {generated && (
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+              )}
             </div>
           </motion.div>
 
@@ -257,7 +270,7 @@ export default function GeneratorPage() {
             ref={resultsRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl mx-auto mt-12 scroll-mt-6"
+            className="max-w-5xl mx-auto mt-12 scroll-mt-24"
           >
             <h2 className="font-display text-2xl font-semibold mb-6 text-center">
               {mappingInfo ? (
