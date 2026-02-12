@@ -9,7 +9,6 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { to: "/names", label: "Browse Names" },
   { to: "/generator", label: "Name Generator" },
-  { to: "/blogs", label: "Blog" },
   { to: "/legal-guide", label: "Legal Guide" },
 ];
 
