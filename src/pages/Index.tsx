@@ -5,23 +5,26 @@ import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import { namesDatabase } from "@/data/names";
+import { getMappingContext, totalMappings } from "@/data/nameMapping";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const featuredNames = namesDatabase.slice(0, 6);
 
 const Index = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [currentName, setCurrentName] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = (e: React.FormEvent) => {
+  const mappingInfo = currentName.trim() ? getMappingContext(currentName.trim()) : null;
+
+  const handleDiscover = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/names?q=${encodeURIComponent(searchQuery.trim())}`);
+    if (currentName.trim()) {
+      navigate(`/generator?name=${encodeURIComponent(currentName.trim())}`);
     } else {
-      navigate("/names");
+      navigate("/generator");
     }
   };
 
@@ -54,28 +57,50 @@ const Index = () => {
             </h1>
 
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-lg mx-auto leading-relaxed">
-              Find meaningful Islamic names with authentic origins, Quranic significance, and practical guidance for your new journey
+              Enter your current name and we'll find its Islamic equivalent — connecting your identity across Abrahamic traditions
             </p>
 
-            <form onSubmit={handleSearch} className="flex gap-2 max-w-md mx-auto mb-6">
+            <form onSubmit={handleDiscover} className="flex gap-2 max-w-md mx-auto mb-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  placeholder="Try 'peaceful' or 'servant of Allah'"
+                  value={currentName}
+                  onChange={e => setCurrentName(e.target.value)}
+                  placeholder="Enter your name (e.g., David, Sarah, Michael)"
                   className="pl-10 h-12 rounded-xl bg-primary-foreground text-foreground border-0 text-base"
                 />
               </div>
               <Button type="submit" size="lg" className="h-12 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6">
-                Search
+                <Sparkles className="w-4 h-4 mr-1.5" /> Discover
               </Button>
             </form>
 
-            <div className="flex items-center justify-center gap-4 text-sm text-primary-foreground/60">
-              <span>{namesDatabase.length}+ Names</span>
+            {/* Live mapping preview */}
+            <AnimatePresence>
+              {mappingInfo && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, height: 0 }}
+                  animate={{ opacity: 1, y: 0, height: "auto" }}
+                  exit={{ opacity: 0, y: -8, height: 0 }}
+                  className="max-w-md mx-auto mb-4"
+                >
+                  <div className="bg-primary-foreground/15 backdrop-blur-sm rounded-xl px-4 py-3 text-left">
+                    <p className="text-sm text-primary-foreground">
+                      <span className="font-semibold capitalize">{currentName}</span> → <span className="text-gold font-semibold">{mappingInfo.muslimNames.join(", ")}</span>
+                      {mappingInfo.hebrewOrigin && (
+                        <span className="text-primary-foreground/60 text-xs ml-2">Hebrew: {mappingInfo.hebrewOrigin}</span>
+                      )}
+                    </p>
+                    <p className="text-xs text-primary-foreground/60 mt-1">{mappingInfo.connection}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <div className="flex items-center justify-center gap-4 text-sm text-primary-foreground/60 flex-wrap">
+              <span>{totalMappings}+ Christian/Western Names Mapped</span>
               <span>•</span>
-              <span>Scholarly Verified</span>
+              <span>{namesDatabase.length}+ Islamic Names</span>
               <span>•</span>
               <span>Free Forever</span>
             </div>
@@ -88,9 +113,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { icon: Sparkles, title: "Smart Name Generator", desc: "Get personalized suggestions based on your preferences, heritage, and desired meanings" },
-              { icon: BookOpen, title: "Quranic & Sunnah References", desc: "Every name comes with authentic scholarly sources, hadith references, and Quranic context" },
-              { icon: Scale, title: "Legal Name Change Support", desc: "Step-by-step guides, document templates, and cost calculators for your country" },
+              { icon: Sparkles, title: "Name Discovery Journey", desc: "Enter your Christian, Hebrew, or Western name and discover its Islamic equivalent with spiritual context across traditions", link: "/generator" },
+              { icon: BookOpen, title: "Quran, Bible & Torah Links", desc: "See how names connect across all three Abrahamic scriptures with verified references and Hebrew origins", link: "/names" },
+              { icon: Scale, title: "Legal Name Change Support", desc: "Step-by-step guides for 40+ countries with verified sources, costs, and timelines", link: "/legal-guide" },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -98,13 +123,14 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-xl p-6 shadow-card text-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                <Link to={item.link} className="block bg-card rounded-xl p-6 shadow-card text-center hover:shadow-card-hover transition-shadow">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -135,7 +161,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — Name Discovery Flow */}
       <section className="py-16 bg-gradient-hero geometric-pattern">
         <div className="container mx-auto px-4 text-center">
           <motion.div
@@ -144,14 +170,14 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Find Your Name?
+              What's the Islamic Version of Your Name?
             </h2>
             <p className="text-primary-foreground/80 max-w-md mx-auto mb-8">
-              Our generator considers your heritage, preferences, and desired meanings to suggest the perfect Muslim name
+              We've mapped {totalMappings}+ Christian, Hebrew, and Western names to their Islamic equivalents with spiritual context from all three Abrahamic traditions
             </p>
             <Link to="/generator">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 h-14 px-8 text-lg rounded-xl">
-                <Sparkles className="w-5 h-5 mr-2" /> Start Name Generator
+                <Sparkles className="w-5 h-5 mr-2" /> Start Your Name Journey
               </Button>
             </Link>
           </motion.div>
