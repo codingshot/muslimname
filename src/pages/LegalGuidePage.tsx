@@ -3,11 +3,33 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { legalNameChangeDatabase, type LegalNameChangeGuide } from "@/data/legalNameChange";
 import { motion, AnimatePresence } from "framer-motion";
-import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw } from "lucide-react";
+import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw, Filter } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
 const difficultyOrder: Record<string, number> = { easy: 0, moderate: 1, complex: 2 };
+
+// Price filter presets
+const priceFilters = [
+  { label: "All Prices", key: "all", match: () => true },
+  { label: "Free", key: "free", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] === 0 },
+  { label: "Under $50", key: "under50", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] < 50 },
+  { label: "Under $200", key: "under200", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] < 200 },
+  { label: "$200+", key: "over200", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] >= 200 },
+];
+
+const timeFilters = [
+  { label: "Any Time", key: "all", match: () => true },
+  { label: "Under 4 wks", key: "under4", match: (g: LegalNameChangeGuide) => g.estimatedTimelineWeeks[1] <= 4 },
+  { label: "Under 8 wks", key: "under8", match: (g: LegalNameChangeGuide) => g.estimatedTimelineWeeks[1] <= 8 },
+  { label: "Under 12 wks", key: "under12", match: (g: LegalNameChangeGuide) => g.estimatedTimelineWeeks[1] <= 12 },
+];
+
+function formatUSD(range: [number, number]) {
+  if (range[0] === 0 && range[1] === 0) return "Free";
+  if (range[0] === 0) return `Free - $${range[1].toLocaleString()}`;
+  return `$${range[0].toLocaleString()} - $${range[1].toLocaleString()}`;
+}
 
 // --- Progress checklist hook (localStorage) ---
 function useStepProgress(countryCode: string, totalSteps: number) {
@@ -48,7 +70,6 @@ function DifficultyBadge({ difficulty }: { difficulty: string }) {
 }
 
 function CountryCard({ guide, onClick }: { guide: LegalNameChangeGuide; onClick: () => void }) {
-  // Show progress if any steps completed
   const key = `legal-progress-${guide.countryCode}`;
   const [progress, setProgress] = useState(0);
   useEffect(() => {
@@ -85,9 +106,12 @@ function CountryCard({ guide, onClick }: { guide: LegalNameChangeGuide; onClick:
           </div>
         </div>
       )}
-      <div className="flex items-center gap-4 text-xs text-muted-foreground mt-auto pt-3 border-t border-border">
-        <span className="flex items-center gap-1"><DollarSign className="w-3 h-3 text-secondary" />{guide.estimatedCost.split("(")[0].trim()}</span>
-        <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-secondary" />{guide.estimatedTimeline}</span>
+      <div className="flex flex-col gap-1.5 mt-auto pt-3 border-t border-border">
+        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+          <span className="flex items-center gap-1"><DollarSign className="w-3 h-3 text-secondary" />{guide.estimatedCost.split("(")[0].trim()}</span>
+          <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-secondary" />{guide.estimatedTimeline}</span>
+        </div>
+        <span className="text-[10px] text-muted-foreground/70">≈ {formatUSD(guide.estimatedCostUSD)} USD</span>
       </div>
       <div className="mt-3 flex items-center gap-1.5">
         <span className="text-xs text-primary font-medium">View full guide →</span>
@@ -134,6 +158,7 @@ function CountryDetail({ guide, onBack }: { guide: LegalNameChangeGuide; onBack:
               <span className="text-xs text-muted-foreground flex items-center gap-1"><DollarSign className="w-3 h-3" />{guide.estimatedCost}</span>
               <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="w-3 h-3" />{guide.estimatedTimeline}</span>
             </div>
+            <p className="text-[10px] text-muted-foreground/70 mt-1">≈ {formatUSD(guide.estimatedCostUSD)} USD</p>
           </div>
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed">{guide.overview}</p>
@@ -276,11 +301,18 @@ export default function LegalGuidePage() {
   const [search, setSearch] = useState("");
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [filterDifficulty, setFilterDifficulty] = useState<string>("all");
+  const [filterPrice, setFilterPrice] = useState<string>("all");
+  const [filterTime, setFilterTime] = useState<string>("all");
+
+  const activePriceFilter = priceFilters.find(f => f.key === filterPrice) ?? priceFilters[0];
+  const activeTimeFilter = timeFilters.find(f => f.key === filterTime) ?? timeFilters[0];
 
   const filtered = legalNameChangeDatabase
     .filter(g => {
       if (search && !g.country.toLowerCase().includes(search.toLowerCase())) return false;
       if (filterDifficulty !== "all" && g.difficulty !== filterDifficulty) return false;
+      if (!activePriceFilter.match(g)) return false;
+      if (!activeTimeFilter.match(g)) return false;
       return true;
     })
     .sort((a, b) => (difficultyOrder[a.difficulty] ?? 1) - (difficultyOrder[b.difficulty] ?? 1));
@@ -288,6 +320,9 @@ export default function LegalGuidePage() {
   const selectedGuide = selectedCountry
     ? legalNameChangeDatabase.find(g => g.countryCode === selectedCountry)
     : null;
+
+  const freeCount = legalNameChangeDatabase.filter(g => g.estimatedCostUSD[0] === 0).length;
+  const activeFilterCount = (filterDifficulty !== "all" ? 1 : 0) + (filterPrice !== "all" ? 1 : 0) + (filterTime !== "all" ? 1 : 0);
 
   return (
     <Layout>
@@ -317,23 +352,68 @@ export default function LegalGuidePage() {
                 </p>
               </motion.div>
 
-              {/* Search & Filters */}
-              <div className="max-w-md mx-auto mb-6">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input
-                    value={search}
-                    onChange={e => setSearch(e.target.value)}
-                    placeholder="Search countries..."
-                    className="pl-10 h-11 rounded-xl bg-card"
-                  />
-                  {search && (
-                    <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-muted text-muted-foreground">
-                      <X className="w-4 h-4" />
-                    </button>
-                  )}
+              {/* Stats — clickable */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto mb-6">
+                {[
+                  { label: "Countries", value: legalNameChangeDatabase.length, action: () => { setFilterDifficulty("all"); setFilterPrice("all"); setFilterTime("all"); setSearch(""); } },
+                  { label: "Easy Process", value: legalNameChangeDatabase.filter(g => g.difficulty === "easy").length, action: () => { setFilterDifficulty("easy"); setFilterPrice("all"); setFilterTime("all"); } },
+                  { label: "Free Options", value: freeCount, action: () => { setFilterPrice("free"); setFilterDifficulty("all"); setFilterTime("all"); } },
+                ].map(stat => (
+                  <button
+                    key={stat.label}
+                    onClick={stat.action}
+                    className="bg-card rounded-xl border border-border p-3 text-center hover:border-primary hover:shadow-card-hover transition-all cursor-pointer"
+                  >
+                    <p className="font-display text-xl sm:text-2xl font-bold text-primary">{stat.value}</p>
+                    <p className="text-[10px] text-muted-foreground">{stat.label}</p>
+                  </button>
+                ))}
+              </div>
+
+              {/* Search & Inline Filters */}
+              <div className="max-w-3xl mx-auto mb-6">
+                {/* Search + Filter row */}
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-3">
+                  <div className="relative flex-1">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Input
+                      value={search}
+                      onChange={e => setSearch(e.target.value)}
+                      placeholder="Search countries..."
+                      className="pl-10 h-10 rounded-xl bg-card"
+                    />
+                    {search && (
+                      <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-muted text-muted-foreground">
+                        <X className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Price filter dropdown */}
+                  <select
+                    value={filterPrice}
+                    onChange={e => setFilterPrice(e.target.value)}
+                    className="h-10 rounded-xl bg-card border border-border px-3 text-xs font-medium text-foreground cursor-pointer"
+                  >
+                    {priceFilters.map(f => (
+                      <option key={f.key} value={f.key}>{f.label}</option>
+                    ))}
+                  </select>
+
+                  {/* Time filter dropdown */}
+                  <select
+                    value={filterTime}
+                    onChange={e => setFilterTime(e.target.value)}
+                    className="h-10 rounded-xl bg-card border border-border px-3 text-xs font-medium text-foreground cursor-pointer"
+                  >
+                    {timeFilters.map(f => (
+                      <option key={f.key} value={f.key}>{f.label}</option>
+                    ))}
+                  </select>
                 </div>
-                <div className="flex gap-2 mt-3 justify-center flex-wrap">
+
+                {/* Difficulty pills */}
+                <div className="flex gap-1.5 flex-wrap items-center">
                   {["all", "easy", "moderate", "complex"].map(d => (
                     <button
                       key={d}
@@ -347,22 +427,43 @@ export default function LegalGuidePage() {
                       {d === "all" ? "All" : d}
                     </button>
                   ))}
+
+                  {activeFilterCount > 0 && (
+                    <button
+                      onClick={() => { setFilterDifficulty("all"); setFilterPrice("all"); setFilterTime("all"); setSearch(""); }}
+                      className="ml-auto text-xs text-primary hover:underline flex items-center gap-1"
+                    >
+                      <X className="w-3 h-3" /> Clear filters ({activeFilterCount})
+                    </button>
+                  )}
                 </div>
+
+                {/* Active filter chips */}
+                {activeFilterCount > 0 && (
+                  <div className="flex gap-1.5 flex-wrap mt-2">
+                    {filterDifficulty !== "all" && (
+                      <button onClick={() => setFilterDifficulty("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors capitalize">
+                        {filterDifficulty} <X className="w-3 h-3" />
+                      </button>
+                    )}
+                    {filterPrice !== "all" && (
+                      <button onClick={() => setFilterPrice("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                        {activePriceFilter.label} <X className="w-3 h-3" />
+                      </button>
+                    )}
+                    {filterTime !== "all" && (
+                      <button onClick={() => setFilterTime("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                        {activeTimeFilter.label} <X className="w-3 h-3" />
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto mb-6 sm:mb-8">
-                {[
-                  { label: "Countries", value: legalNameChangeDatabase.length },
-                  { label: "Easy Process", value: legalNameChangeDatabase.filter(g => g.difficulty === "easy").length },
-                  { label: "Free Options", value: legalNameChangeDatabase.filter(g => g.estimatedCost.includes("£0") || g.estimatedCost.includes("€0") || g.estimatedCost.includes("$0")).length },
-                ].map(stat => (
-                  <div key={stat.label} className="bg-card rounded-xl border border-border p-3 text-center">
-                    <p className="font-display text-xl sm:text-2xl font-bold text-primary">{stat.value}</p>
-                    <p className="text-[10px] text-muted-foreground">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+              {/* Results count */}
+              <p className="text-xs text-muted-foreground mb-4 text-center">
+                Showing {filtered.length} of {legalNameChangeDatabase.length} countries
+              </p>
 
               {/* Card Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
@@ -378,7 +479,13 @@ export default function LegalGuidePage() {
               {filtered.length === 0 && (
                 <div className="text-center py-12">
                   <p className="text-lg font-display font-semibold text-foreground mb-2">No countries found</p>
-                  <p className="text-muted-foreground text-sm">Try a different search term</p>
+                  <p className="text-muted-foreground text-sm mb-4">Try adjusting your filters</p>
+                  <button
+                    onClick={() => { setFilterDifficulty("all"); setFilterPrice("all"); setFilterTime("all"); setSearch(""); }}
+                    className="text-sm text-primary hover:underline"
+                  >
+                    Clear all filters
+                  </button>
                 </div>
               )}
 
