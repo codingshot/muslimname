@@ -1,13 +1,15 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import { suggestFromMeaning, namesDatabase } from "@/data/names";
-import { getMappingContext } from "@/data/nameMapping";
+import { getMappingContext, type NameMapping } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Sparkles, RefreshCw, Info } from "lucide-react";
+import { Sparkles, RefreshCw, Info, ArrowRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const meaningKeywords = [
   "grace", "strong", "light", "beautiful", "pure", "faithful",
@@ -17,11 +19,23 @@ const meaningKeywords = [
 ];
 
 export default function GeneratorPage() {
-  const [currentName, setCurrentName] = useState("");
+  const [searchParams] = useSearchParams();
+  const [currentName, setCurrentName] = useState(searchParams.get("name") || "");
   const [selectedMeanings, setSelectedMeanings] = useState<string[]>([]);
   const [gender, setGender] = useState<"all" | "male" | "female" | "unisex">("all");
   const [generated, setGenerated] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Auto-generate if name came from URL
+  useEffect(() => {
+    const urlName = searchParams.get("name");
+    if (urlName) {
+      setCurrentName(urlName);
+      setGenerated(true);
+      setLoading(true);
+      setTimeout(() => setLoading(false), 600);
+    }
+  }, []);
 
   const mappingInfo = useMemo(() => {
     if (!currentName.trim()) return null;
@@ -73,33 +87,33 @@ export default function GeneratorPage() {
           className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-medium mb-4">
-            <Sparkles className="w-4 h-4" /> Name Generator
+            <Sparkles className="w-4 h-4" /> Name Discovery Journey
           </div>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
             Discover Your Muslim Name
           </h1>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Tell us about yourself and what matters to you — we'll suggest meaningful Islamic names that resonate with your identity
+            Enter your Christian, Hebrew, or Western name to find its Islamic equivalent — or explore by meaning and qualities
           </p>
         </motion.div>
 
         <div className="max-w-2xl mx-auto space-y-8">
-          {/* Current Name */}
+          {/* Current Name — Primary CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
             <label className="block font-display font-semibold text-foreground mb-2">
-              Your Current Name <span className="text-muted-foreground font-body font-normal text-sm">(optional)</span>
+              What's your current name?
             </label>
             <p className="text-sm text-muted-foreground mb-3">
-              We'll find Muslim names with similar meaning or spiritual significance to your current name
+              We've mapped 200+ Christian, Hebrew & Western names to their Islamic equivalents
             </p>
             <Input
               value={currentName}
               onChange={e => setCurrentName(e.target.value)}
-              placeholder="Enter your first name..."
+              placeholder="Enter your name (e.g., David, Sarah, Michael...)"
               className="h-12 rounded-xl text-base"
             />
 
-            {/* Mapping info */}
+            {/* Live mapping info */}
             <AnimatePresence>
               {mappingInfo && (
                 <motion.div
@@ -110,16 +124,38 @@ export default function GeneratorPage() {
                 >
                   <div className="flex items-start gap-2">
                     <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
+                    <div className="space-y-2">
                       <p className="text-sm font-medium text-foreground">
-                        "{currentName}" maps to: <span className="text-primary">{mappingInfo.muslimNames.join(", ")}</span>
+                        <span className="capitalize">{currentName}</span> → <span className="text-primary font-semibold">{mappingInfo.muslimNames.join(", ")}</span>
                       </p>
-                      <p className="text-xs text-muted-foreground mt-1">{mappingInfo.connection}</p>
+                      {mappingInfo.hebrewOrigin && (
+                        <p className="text-xs text-muted-foreground">
+                          <span className="font-medium">Hebrew origin:</span> {mappingInfo.hebrewOrigin}
+                        </p>
+                      )}
+                      <p className="text-xs text-muted-foreground">{mappingInfo.connection}</p>
+                      <div className="flex gap-2 flex-wrap pt-1">
+                        {mappingInfo.muslimNames.map(n => (
+                          <Link
+                            key={n}
+                            to={`/name/${n.toLowerCase()}`}
+                            className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2 py-1 rounded-full"
+                          >
+                            <BookOpen className="w-3 h-3" /> View {n}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
+
+            {currentName.trim() && !mappingInfo && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                We don't have a direct mapping for "{currentName}" yet, but you can still explore by meaning below
+              </p>
+            )}
           </motion.div>
 
           {/* Gender */}
@@ -148,7 +184,7 @@ export default function GeneratorPage() {
               What qualities inspire you?
             </label>
             <p className="text-sm text-muted-foreground mb-3">
-              Select the meanings and qualities you want your name to represent
+              Select meanings you want your name to represent
             </p>
             <div className="flex gap-2 flex-wrap">
               {meaningKeywords.map(m => (
@@ -174,7 +210,7 @@ export default function GeneratorPage() {
               onClick={handleGenerate}
               className="bg-gradient-hero text-primary-foreground h-14 px-8 text-lg rounded-xl hover:opacity-90 transition-opacity"
             >
-              {generated ? <><RefreshCw className="w-5 h-5 mr-2" /> Regenerate Names</> : <><Sparkles className="w-5 h-5 mr-2" /> Generate Names</>}
+              {generated ? <><RefreshCw className="w-5 h-5 mr-2" /> Regenerate Names</> : <><Sparkles className="w-5 h-5 mr-2" /> Discover My Muslim Names</>}
             </Button>
           </motion.div>
         </div>
@@ -187,7 +223,11 @@ export default function GeneratorPage() {
             className="max-w-5xl mx-auto mt-12"
           >
             <h2 className="font-display text-2xl font-semibold mb-6 text-center">
-              Your Suggested Names
+              {mappingInfo ? (
+                <>Islamic Names Connected to <span className="text-primary capitalize">{currentName}</span></>
+              ) : (
+                "Your Suggested Names"
+              )}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {loading
