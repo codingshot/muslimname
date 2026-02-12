@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, BookOpen, Tag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import {
+  Table, TableHeader, TableBody, TableHead, TableRow, TableCell,
+} from "@/components/ui/table";
 
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -31,9 +35,11 @@ export default function BlogDetailPage() {
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <div className="flex gap-2 flex-wrap mb-4">
             {post.tags.map(tag => (
-              <Badge key={tag} variant="outline" className="text-xs capitalize">
-                <Tag className="w-3 h-3 mr-1" /> {tag}
-              </Badge>
+              <Link key={tag} to={`/blogs?tag=${encodeURIComponent(tag)}`}>
+                <Badge variant="outline" className="text-xs capitalize cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Tag className="w-3 h-3 mr-1" /> {tag}
+                </Badge>
+              </Link>
             ))}
           </div>
 
@@ -58,14 +64,38 @@ export default function BlogDetailPage() {
             prose-strong:text-foreground
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
             prose-li:text-muted-foreground
-            prose-table:text-sm
-            prose-th:text-foreground prose-th:font-semibold prose-th:bg-muted prose-th:px-3 prose-th:py-2
-            prose-td:px-3 prose-td:py-2 prose-td:text-muted-foreground prose-td:border-border
             prose-blockquote:border-primary prose-blockquote:text-muted-foreground
             prose-em:text-foreground/80
           "
         >
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              table: ({ children }) => (
+                <div className="my-6 rounded-lg border border-border overflow-hidden not-prose">
+                  <Table>{children}</Table>
+                </div>
+              ),
+              thead: ({ children }) => <TableHeader>{children}</TableHeader>,
+              tbody: ({ children }) => <TableBody>{children}</TableBody>,
+              tr: ({ children }) => <TableRow>{children}</TableRow>,
+              th: ({ children }) => (
+                <TableHead className="bg-muted text-foreground font-semibold text-sm">
+                  {children}
+                </TableHead>
+              ),
+              td: ({ children }) => (
+                <TableCell className="text-muted-foreground text-sm">{children}</TableCell>
+              ),
+              a: ({ href, children }) => (
+                <Link to={href || "#"} className="text-primary hover:underline font-medium">
+                  {children}
+                </Link>
+              ),
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </motion.div>
 
         {/* CTA */}
