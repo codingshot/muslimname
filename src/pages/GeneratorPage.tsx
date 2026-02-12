@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
@@ -25,6 +25,7 @@ export default function GeneratorPage() {
   const [gender, setGender] = useState<"all" | "male" | "female" | "unisex">("all");
   const [generated, setGenerated] = useState(false);
   const [loading, setLoading] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   // Auto-generate if name came from URL
   useEffect(() => {
@@ -51,7 +52,12 @@ export default function GeneratorPage() {
   const handleGenerate = () => {
     setLoading(true);
     setGenerated(true);
-    setTimeout(() => setLoading(false), 600);
+    setTimeout(() => {
+      setLoading(false);
+      setTimeout(() => {
+        resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }, 600);
   };
 
   const results = useMemo(() => {
@@ -218,9 +224,10 @@ export default function GeneratorPage() {
         {/* Results */}
         {generated && (
           <motion.div
+            ref={resultsRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl mx-auto mt-12"
+            className="max-w-5xl mx-auto mt-12 scroll-mt-6"
           >
             <h2 className="font-display text-2xl font-semibold mb-6 text-center">
               {mappingInfo ? (
