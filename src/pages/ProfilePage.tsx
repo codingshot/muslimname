@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useProfile, type FavoriteEntry, type NamePosition } from "@/hooks/useProfile";
 import { useCountry } from "@/hooks/useCountry";
@@ -9,7 +9,7 @@ import { getMappingContext, getDidYouMeanSuggestions } from "@/data/nameMapping"
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, GripVertical, Trash2, Settings, Heart, Sparkles, ArrowRight, Search, Globe } from "lucide-react";
+import { Star, GripVertical, Trash2, Settings, Heart, Sparkles, ArrowRight, Search, Globe, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const meaningKeywords = [
@@ -20,6 +20,7 @@ const meaningKeywords = [
 ];
 
 export default function ProfilePage() {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const { profile, updateSettings, toggleFavorite, togglePosition, setFavoritePosition, addAsFirstOrLast, reorderFavorites } = useProfile();
   const { country, setCountry } = useCountry();
@@ -241,11 +242,13 @@ export default function ProfilePage() {
                     return suggestions.length > 0 ? (
                       <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
                         <span className="text-xs text-muted-foreground">Did you mean:</span>
-                        {suggestions.map(({ displayName }) => (
+                        {suggestions.map(({ displayName, canonicalKey }) => (
                           <button
-                            key={displayName}
+                            key={canonicalKey}
                             type="button"
                             onClick={() => updateSettings({ currentFirstName: displayName })}
+                            onDoubleClick={() => navigate(`/western-names/${canonicalKey}`)}
+                            title="Double-click to see full details"
                             className="text-xs font-medium text-primary hover:underline bg-primary/10 px-2 py-0.5 rounded-full"
                           >
                             {displayName}
@@ -293,6 +296,25 @@ export default function ProfilePage() {
                   {profile.settings.country ? "Manual selection" : "Detected from your location"}
                 </p>
               )}
+            </div>
+
+            {/* Show Mapping Sources */}
+            <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
+              <h3 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-primary" /> Name Reference Options
+              </h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                When enabled, source URLs for name data will be shown on the Western Name Reference and name mapping detail pages.
+              </p>
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={profile.settings.showMappingSources ?? false}
+                  onChange={e => updateSettings({ showMappingSources: e.target.checked || undefined })}
+                  className="rounded border-border"
+                />
+                <span className="text-sm font-medium">Keep / show sources</span>
+              </label>
             </div>
 
             {/* Gender Preference */}

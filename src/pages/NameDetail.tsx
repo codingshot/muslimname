@@ -87,8 +87,9 @@ export default function NameDetail() {
     <Layout>
       <Helmet>
         <title>{name.name} — Islamic Name Meaning &amp; Origin | MuslimName.me</title>
-        <meta name="description" content={`${name.meaning}. ${name.detailedMeaning.slice(0, 100)}${name.detailedMeaning.length > 100 ? "…" : ""}`} />
+        <meta name="description" content={`${name.meaning}. ${name.detailedMeaning.slice(0, 120)}${name.detailedMeaning.length > 120 ? "…" : ""}`} />
         <link rel="canonical" href={`https://muslimname.me/name/${name.slug}`} />
+        <meta name="keywords" content={`${name.name}, Islamic name, Muslim name, ${name.meaning}, Arabic name${name.isQuranic ? ", Quranic name" : ""}`} />
         {/* Open Graph / Share Cards — rich previews when shared */}
         <meta property="og:title" content={`${name.name} — Islamic Name Meaning & Origin | MuslimName.me`} />
         <meta property="og:description" content={`${name.meaning}.${name.arabic ? ` ${name.arabic}.` : ""} Meanings, Quranic references, pronunciation & more. Discover your ideal Muslim name.`} />
@@ -111,13 +112,14 @@ export default function NameDetail() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
-            headline: `${name.name} — Islamic Name Meaning & Origin`,
+            "@type": "DefinedTerm",
+            name: name.name,
             description: name.meaning,
             url: `https://muslimname.me/name/${name.slug}`,
-            publisher: { "@type": "Organization", name: "MuslimName.me", url: "https://muslimname.me" },
-            image: "https://muslimname.me/og-image.png",
-            ...(name.arabic && { inLanguage: "ar", alternateName: name.arabic }),
+            alternateName: name.arabic || name.variations?.[0],
+            ...(name.arabic && { inLanguage: "ar" }),
+            ...(name.isQuranic && { termCode: "quranic" }),
+            inDefinedTermSet: { "@type": "DefinedTermSet", name: "Islamic Names", url: "https://muslimname.me/names" },
           })}
         </script>
       </Helmet>
@@ -133,54 +135,88 @@ export default function NameDetail() {
           animate={{ opacity: 1, y: 0 }}
           className="bg-card rounded-2xl border border-border p-6 sm:p-8 md:p-12 mb-6 md:mb-8"
         >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
+          {/* Row 1: Name + quick actions (star, share) — primary focus */}
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div className="min-w-0 flex-1">
               <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1">
                 {name.name}
               </h1>
               <p className="font-arabic text-2xl sm:text-3xl md:text-4xl text-primary">{name.arabic}</p>
             </div>
-            <div className="flex flex-col items-start sm:items-end gap-2">
-              <div className="flex gap-2 flex-wrap items-center">
-                <ShareName name={name.name} slug={name.slug} meaning={name.meaning} arabic={name.arabic} />
-                <button
-                  onClick={() => setAddPosition("first")}
-                  className="px-3 py-1.5 rounded-lg text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                >
-                  Add as First Name
-                </button>
-                <button
-                  onClick={() => setAddPosition("last")}
-                  className="px-3 py-1.5 rounded-lg text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
-                >
-                  Add as Last Name
-                </button>
-                <button
-                  onClick={() => toggleFavorite(name.slug)}
-                  className={`p-2 rounded-lg transition-all ${
-                    isFavorite(name.slug)
-                      ? "text-secondary bg-secondary/10"
-                      : "text-muted-foreground hover:text-secondary hover:bg-secondary/10"
-                  }`}
-                  aria-label={isFavorite(name.slug) ? "Remove from favorites" : "Add to favorites"}
-                >
-                  <Star className={`w-5 h-5 ${isFavorite(name.slug) ? "fill-current" : ""}`} />
-                </button>
-                {name.isQuranic && (
-                  <Link to="/names?scripture=quran">
-                    <Badge className="bg-secondary/20 text-secondary border-secondary/30 cursor-pointer hover:bg-secondary/30">📖 Quranic</Badge>
-                  </Link>
-                )}
-                <Link to={`/names?gender=${name.gender}`}>
-                  <Badge variant="outline" className="capitalize cursor-pointer hover:bg-muted">{name.gender}</Badge>
-                </Link>
-              </div>
-              <Link to={`/names?origin=${encodeURIComponent(name.origin)}`} className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                {name.origin}
-              </Link>
+            <div className="flex items-center gap-1.5 shrink-0 sm:self-start">
+              <button
+                onClick={() => toggleFavorite(name.slug)}
+                className={`p-2.5 rounded-xl transition-all ${
+                  isFavorite(name.slug)
+                    ? "text-secondary bg-secondary/15"
+                    : "text-muted-foreground hover:text-secondary hover:bg-secondary/10"
+                }`}
+                aria-label={isFavorite(name.slug) ? "Remove from favorites" : "Add to favorites"}
+              >
+                <Star className={`w-5 h-5 ${isFavorite(name.slug) ? "fill-current" : ""}`} />
+              </button>
+              <ShareName name={name.name} slug={name.slug} meaning={name.meaning} arabic={name.arabic} />
             </div>
           </div>
-          <div className="mt-4 sm:mt-6 flex items-center gap-2 sm:gap-3 flex-wrap">
+
+          {/* Row 2: Badges — Quranic, Gender, Origin grouped as metadata */}
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            {name.isQuranic && (
+              <Link to="/names?scripture=quran">
+                <Badge className="bg-secondary/20 text-secondary border-secondary/30 cursor-pointer hover:bg-secondary/30 text-xs">
+                  📖 Quranic
+                </Badge>
+              </Link>
+            )}
+            <Link to={`/names?gender=${name.gender}`}>
+              <Badge variant="outline" className="capitalize cursor-pointer hover:bg-muted text-xs">
+                {name.gender}
+              </Badge>
+            </Link>
+            <Link to={`/names?origin=${encodeURIComponent(name.origin)}`} className="text-muted-foreground text-sm hover:text-primary transition-colors">
+              {name.origin}
+            </Link>
+            {name.scriptureContext?.inBible && (
+              <Link to="/names?scripture=bible">
+                <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
+                  ✝️ Bible
+                </Badge>
+              </Link>
+            )}
+            {name.scriptureContext?.inTorah && (
+              <Link to="/names?scripture=torah">
+                <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
+                  ✡️ Torah
+                </Badge>
+              </Link>
+            )}
+            {name.scriptureContext?.sharedProphet && (
+              <Link to="/names?scripture=shared">
+                <Badge className="bg-secondary/20 text-secondary border-secondary/30 text-[10px] cursor-pointer hover:bg-secondary/30">
+                  🤝 Shared Prophet
+                </Badge>
+              </Link>
+            )}
+          </div>
+
+          {/* Row 3: Add as First/Last — primary CTAs */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button
+              onClick={() => setAddPosition("first")}
+              className="px-4 py-2 rounded-xl text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+            >
+              Add as First Name
+            </button>
+            <button
+              onClick={() => setAddPosition("last")}
+              className="px-4 py-2 rounded-xl text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
+            >
+              Add as Last Name
+            </button>
+          </div>
+
+          {/* Row 4: Pronunciation + theme tags — explore more */}
+          <div className="mt-5 pt-4 border-t border-border flex flex-wrap items-center gap-2 sm:gap-3">
             <button
               onClick={() => handleSpeak(name.arabic, name.name)}
               onMouseEnter={preloadOnInteraction}
@@ -205,32 +241,6 @@ export default function NameDetail() {
               </Link>
             ))}
           </div>
-          {/* Scripture badges */}
-          {name.scriptureContext && (
-            <div className="mt-3 flex items-center gap-2 flex-wrap">
-              {name.scriptureContext.inBible && (
-                <Link to="/names?scripture=bible">
-                  <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
-                    ✝️ In Bible as "{name.scriptureContext.bibleName}"
-                  </Badge>
-                </Link>
-              )}
-              {name.scriptureContext.inTorah && (
-                <Link to="/names?scripture=torah">
-                  <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
-                    ✡️ In Torah as "{name.scriptureContext.torahName}"
-                  </Badge>
-                </Link>
-              )}
-              {name.scriptureContext.sharedProphet && (
-                <Link to="/names?scripture=shared">
-                  <Badge className="bg-secondary/20 text-secondary border-secondary/30 text-[10px] cursor-pointer hover:bg-secondary/30">
-                    🤝 Shared Prophet
-                  </Badge>
-                </Link>
-              )}
-            </div>
-          )}
         </motion.div>
 
         {/* Meaning */}
@@ -241,7 +251,7 @@ export default function NameDetail() {
           className="bg-card rounded-xl border border-border p-5 sm:p-6 mb-4 sm:mb-6"
         >
           <h2 className="font-display text-lg sm:text-xl font-semibold mb-3 flex items-center gap-2">
-            <Star className="w-5 h-5 text-secondary" /> Meaning
+            <BookOpen className="w-5 h-5 text-secondary" /> Meaning
           </h2>
           <p className="text-base sm:text-lg font-medium text-foreground mb-2">{name.meaning}</p>
           <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{name.detailedMeaning}</p>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions } from "@/data/names";
-import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, totalMappings } from "@/data/nameMapping";
+import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, totalMappings } from "@/data/nameMapping";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -109,6 +109,8 @@ const Index = () => {
                         key={canonicalKey}
                         type="button"
                         onClick={() => { setCurrentName(displayName); setShowSuggestions(false); }}
+                        onDoubleClick={() => { setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
+                        title="Double-click to see full details"
                         className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
                       >
                         {displayName}
@@ -146,12 +148,34 @@ const Index = () => {
                   exit={{ opacity: 0, y: -8, height: 0 }}
                   className="max-w-md mx-auto mb-4"
                 >
-                  <div className="bg-primary-foreground/15 backdrop-blur-sm rounded-xl px-4 py-3 text-left">
+                  <div className="bg-primary-foreground/15 backdrop-blur-sm rounded-xl px-4 py-3 text-left hover:bg-primary-foreground/20 transition-colors">
                     <p className="text-sm text-primary-foreground">
-                      <span className="font-semibold capitalize">{currentName}</span> → <span className="text-gold font-semibold">{mappingInfo.muslimNames.join(", ")}</span>
-                      {mappingInfo.hebrewOrigin && (
-                        <span className="text-primary-foreground/60 text-xs ml-2">Hebrew: {mappingInfo.hebrewOrigin}</span>
-                      )}
+                      {(() => {
+                        const k = getCanonicalMappingKey(currentName.trim());
+                        return (
+                          <>
+                            {k ? (
+                              <Link to={`/western-names/${k}`} className="font-semibold capitalize hover:underline">
+                                {currentName}
+                              </Link>
+                            ) : (
+                              <span className="font-semibold capitalize">{currentName}</span>
+                            )}
+                            {" → "}
+                            {mappingInfo.muslimNames.map((mn, i) => (
+                              <span key={mn}>
+                                {i > 0 && ", "}
+                                <Link to={`/name/${mn}`} className="text-gold font-semibold hover:underline">
+                                  {mn}
+                                </Link>
+                              </span>
+                            ))}
+                            {mappingInfo.hebrewOrigin && (
+                              <span className="text-primary-foreground/60 text-xs ml-2">Hebrew: {mappingInfo.hebrewOrigin}</span>
+                            )}
+                          </>
+                        );
+                      })()}
                     </p>
                     <p className="text-xs text-primary-foreground/60 mt-1">{mappingInfo.connection}</p>
                   </div>
@@ -168,11 +192,13 @@ const Index = () => {
                   >
                     <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl px-4 py-3 text-left flex flex-wrap items-center gap-1.5">
                       <span className="text-xs text-primary-foreground/80">Did you mean:</span>
-                      {didYouMeanSuggestions.map(({ displayName }) => (
+                      {didYouMeanSuggestions.map(({ displayName, canonicalKey }) => (
                         <button
-                          key={displayName}
+                          key={canonicalKey}
                           type="button"
                           onClick={() => setCurrentName(displayName)}
+                          onDoubleClick={() => navigate(`/western-names/${canonicalKey}`)}
+                          title="Double-click to see full details"
                           className="text-xs font-medium text-gold hover:underline bg-primary-foreground/20 hover:bg-primary-foreground/30 px-2 py-1 rounded-full transition-colors"
                         >
                           {displayName}

@@ -7,6 +7,8 @@ export interface ProfileSettings {
   genderPreference: "all" | "male" | "female" | "unisex";
   /** ISO 3166-1 alpha-2 country code for name recommendations (manual override; else IP-detected) */
   country?: string;
+  /** Show source URLs for name mapping data (e.g. on Western Name Reference) */
+  showMappingSources?: boolean;
 }
 
 export type NamePosition = "first" | "last";

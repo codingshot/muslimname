@@ -220,6 +220,17 @@ export default function NamesPage() {
         <title>Browse Muslim Names — Meanings, Origins &amp; Quranic References | MuslimName.me</title>
         <meta name="description" content={`Explore ${namesDatabase.length}+ Islamic names with meanings, origins, and Quranic references. Search by name, meaning, or filter by gender and scripture.`} />
         <link rel="canonical" href="https://muslimname.me/names" />
+        <meta name="keywords" content="Muslim names, Islamic names, Quranic names, Arabic names, baby names Muslim, name meanings" />
+        <meta property="og:title" content="Browse Muslim Names — Meanings & Quranic References | MuslimName.me" />
+        <meta property="og:description" content={`${namesDatabase.length}+ Islamic names with meanings, origins, Quranic references. Search by name or meaning.`} />
+        <meta property="og:url" content="https://muslimname.me/names" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="MuslimName.me" />
+        <meta property="og:image" content="https://muslimname.me/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ummahbuild" />
+        <meta name="twitter:title" content="Browse Muslim Names | MuslimName.me" />
+        <meta name="twitter:description" content={`${namesDatabase.length}+ Islamic names with meanings & Quranic references.`} />
       </Helmet>
       <div className="container mx-auto px-4 py-6 md:py-8">
         {/* Header */}

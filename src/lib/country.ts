@@ -24,6 +24,8 @@ export const COUNTRY_OPTIONS: CountryInfo[] = [
   { code: "PK", name: "Pakistan" },
   { code: "BD", name: "Bangladesh" },
   { code: "ID", name: "Indonesia" },
+  { code: "VN", name: "Vietnam" },
+  { code: "TH", name: "Thailand" },
   { code: "EG", name: "Egypt" },
   { code: "SA", name: "Saudi Arabia" },
   { code: "MY", name: "Malaysia" },

@@ -5,12 +5,12 @@ import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import { suggestFromMeaning, namesDatabase, findNameBySlug, getQuickNameSuggestions } from "@/data/names";
-import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, type NameMapping } from "@/data/nameMapping";
+import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, type NameMapping } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Sparkles, RefreshCw, Info, ArrowRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useProfile } from "@/hooks/useProfile";
 import { useCountry } from "@/hooks/useCountry";
 
@@ -25,6 +25,7 @@ const meaningKeywords = [
 ];
 
 export default function GeneratorPage() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { profile, updateSettings } = useProfile();
   const { country } = useCountry();
@@ -159,6 +160,17 @@ export default function GeneratorPage() {
         <title>Discover Your Muslim Name — Name Generator | MuslimName.me</title>
         <meta name="description" content="Find your Islamic name equivalent. Enter your Christian, Hebrew, or Western name and discover meaningful Muslim names with Quranic references and legal name change guides." />
         <link rel="canonical" href="https://muslimname.me/generator" />
+        <meta name="keywords" content="Muslim name generator, Islamic name equivalent, convert name to Muslim, Christian name Islamic, revert name finder" />
+        <meta property="og:title" content="Discover Your Muslim Name — Generator | MuslimName.me" />
+        <meta property="og:description" content="Enter your current name and find its Islamic equivalent. Quranic references, meanings & legal name change guides." />
+        <meta property="og:url" content="https://muslimname.me/generator" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="MuslimName.me" />
+        <meta property="og:image" content="https://muslimname.me/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ummahbuild" />
+        <meta name="twitter:title" content="Discover Your Muslim Name | MuslimName.me" />
+        <meta name="twitter:description" content="Enter your name and find its Islamic equivalent. Quranic references & legal guides." />
       </Helmet>
       <div className="container mx-auto px-4 py-8">
         <motion.div
@@ -236,6 +248,8 @@ export default function GeneratorPage() {
                             setCurrentName(rest ? `${displayName} ${rest}` : displayName);
                             setShowSuggestions(false);
                           }}
+                          onDoubleClick={() => { setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
+                          title="Double-click to see full details"
                           className="block w-full text-left px-3 py-2 text-sm hover:bg-muted rounded-lg"
                         >
                           {displayName}
@@ -269,7 +283,12 @@ export default function GeneratorPage() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="mt-3 bg-teal-light rounded-xl p-4 border border-primary/20"
+                  role="button"
+                  tabIndex={0}
+                  onDoubleClick={() => { const k = getCanonicalMappingKey(currentName.trim()); if (k) navigate(`/western-names/${k}`); }}
+                  onKeyDown={e => { if (e.key === "Enter") { const k = getCanonicalMappingKey(currentName.trim()); if (k) navigate(`/western-names/${k}`); } }}
+                  title="Double-click to see full details"
+                  className="mt-3 bg-teal-light rounded-xl p-4 border border-primary/20 cursor-pointer hover:border-primary/40 transition-colors"
                 >
                   <div className="flex items-start gap-2">
                     <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -323,6 +342,8 @@ export default function GeneratorPage() {
                           const rest = currentName.trim().split(/\s+/).slice(1).join(" ");
                           setCurrentName(rest ? `${displayName} ${rest}` : displayName);
                         }}
+                        onDoubleClick={() => navigate(`/western-names/${canonicalKey}`)}
+                        title="Double-click to see full details"
                         className="text-xs font-medium text-primary hover:underline bg-primary/10 hover:bg-primary/20 px-2 py-1 rounded-full transition-colors"
                       >
                         {displayName}

@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import { christianToMuslimNameMapping, getMappingContext } from "@/data/nameMapping";
+import { christianToMuslimNameMapping } from "@/data/nameMapping";
+import { useProfile } from "@/hooks/useProfile";
 import { findNameBySlug } from "@/data/names";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -36,6 +38,14 @@ const categories = [
   { key: "italian-female", label: "Italian Female" },
   { key: "spanish-male", label: "Spanish Male" },
   { key: "spanish-female", label: "Spanish Female" },
+  { key: "indonesian-male", label: "Indonesian Male" },
+  { key: "indonesian-female", label: "Indonesian Female" },
+  { key: "vietnamese-male", label: "Vietnamese Male" },
+  { key: "vietnamese-female", label: "Vietnamese Female" },
+  { key: "vietnamese-unisex", label: "Vietnamese Unisex" },
+  { key: "thai-male", label: "Thai Male" },
+  { key: "thai-female", label: "Thai Female" },
+  { key: "thai-unisex", label: "Thai Unisex" },
   { key: "tribal-male", label: "Tribal Male" },
   { key: "tribal-female", label: "Tribal Female" },
   { key: "hebrew", label: "Hebrew" },
@@ -45,6 +55,8 @@ const categories = [
 export default function WesternNamesPage() {
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const { profile } = useProfile();
+  const showSources = profile.settings.showMappingSources ?? false;
 
   const allMappings = useMemo(() => {
     return Object.entries(christianToMuslimNameMapping)
@@ -86,11 +98,30 @@ export default function WesternNamesPage() {
     german: allMappings.filter(m => m.category.startsWith("german")).length,
     italian: allMappings.filter(m => m.category.startsWith("italian")).length,
     spanish: allMappings.filter(m => m.category.startsWith("spanish")).length,
+    indonesian: allMappings.filter(m => m.category.startsWith("indonesian")).length,
+    vietnamese: allMappings.filter(m => m.category.startsWith("vietnamese")).length,
+    thai: allMappings.filter(m => m.category.startsWith("thai")).length,
     tribal: allMappings.filter(m => m.category.startsWith("tribal")).length,
   }), [allMappings]);
 
   return (
     <Layout>
+      <Helmet>
+        <title>Western to Muslim Name Reference — {stats.total}+ Names Mapped | MuslimName.me</title>
+        <meta name="description" content={`Find Islamic equivalents for ${stats.total}+ Western, Christian, Hindu, Chinese, Japanese & more names. Search by name or meaning. Biblical, Latin, Spanish, Arabic name mappings.`} />
+        <link rel="canonical" href="https://muslimname.me/western-names" />
+        <meta name="keywords" content="Western name to Muslim, Christian name Islamic equivalent, name conversion Islam, David Muslim name, Sarah Islamic name, convert name Muslim" />
+        <meta property="og:title" content={`Western to Muslim Name Reference — ${stats.total}+ Names | MuslimName.me`} />
+        <meta property="og:description" content="Find Islamic equivalents for Western, Christian, Hindu, Chinese & more names. Search by name or meaning." />
+        <meta property="og:url" content="https://muslimname.me/western-names" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="MuslimName.me" />
+        <meta property="og:image" content="https://muslimname.me/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ummahbuild" />
+        <meta name="twitter:title" content="Western to Muslim Name Reference | MuslimName.me" />
+        <meta name="twitter:description" content={`${stats.total}+ names mapped to Islamic equivalents. Biblical, Latin, Hindu, Chinese, Japanese & more.`} />
+      </Helmet>
       <div className="container mx-auto px-4 py-8">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-medium mb-4">
@@ -116,6 +147,9 @@ export default function WesternNamesPage() {
             <span className="text-muted-foreground"><strong className="text-foreground">{stats.korean}</strong> Korean</span>
             <span className="text-muted-foreground"><strong className="text-foreground">{stats.hindu}</strong> Hindu</span>
             <span className="text-muted-foreground"><strong className="text-foreground">{stats.latin}</strong> Latin</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.indonesian}</strong> Indonesian</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.vietnamese}</strong> Vietnamese</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.thai}</strong> Thai</span>
             <span className="text-muted-foreground"><strong className="text-foreground">{stats.tribal}</strong> Tribal</span>
           </div>
         </motion.div>
@@ -166,12 +200,17 @@ export default function WesternNamesPage() {
                 className="bg-card rounded-xl border border-border p-4 hover:shadow-card-hover transition-all hover:-translate-y-0.5"
               >
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-display text-lg font-semibold text-foreground">{m.westernName}</h3>
+                  <Link
+                    to={`/western-names/${m.key}`}
+                    className="font-display text-lg font-semibold text-foreground hover:text-primary hover:underline"
+                  >
+                    {m.westernName}
+                  </Link>
                   <Badge variant="outline" className="text-[10px] capitalize shrink-0">
                     {m.category.replace("-", " ")
                       .replace("biblical", "📖").replace("western", "🌍").replace("hebrew", "✡").replace("virtue", "✨")
                       .replace("latin", "🏛").replace("hindu", "🪷").replace("chinese", "中").replace("portuguese", "🇵🇹").replace("tribal", "🌿")
-                      .replace("russian", "🇷🇺").replace("japanese", "🇯🇵").replace("korean", "🇰🇷").replace("french", "🇫🇷").replace("german", "🇩🇪").replace("italian", "🇮🇹").replace("spanish", "🇪🇸")}
+                      .replace("russian", "🇷🇺").replace("japanese", "🇯🇵").replace("korean", "🇰🇷").replace("french", "🇫🇷").replace("german", "🇩🇪").replace("italian", "🇮🇹").replace("spanish", "🇪🇸").replace("indonesian", "🇮🇩").replace("vietnamese", "🇻🇳").replace("thai", "🇹🇭")}
                   </Badge>
                 </div>
 
@@ -200,6 +239,13 @@ export default function WesternNamesPage() {
                 </p>
 
                 <p className="text-xs text-muted-foreground line-clamp-2">{m.connection}</p>
+
+                {showSources && m.sources && m.sources.length > 0 && (
+                  <p className="text-[10px] text-muted-foreground mt-1 truncate" title={m.sources.join(", ")}>
+                    Sources: {m.sources.slice(0, 2).map(u => new URL(u).hostname).join(", ")}
+                    {m.sources.length > 2 ? "…" : ""}
+                  </p>
+                )}
 
                 {m.hebrewOrigin && (
                   <p className="text-[10px] text-secondary mt-2 font-mono">{m.hebrewOrigin}</p>

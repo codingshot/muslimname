@@ -14,6 +14,7 @@ const NamesPage = lazy(() => import("./pages/NamesPage"));
 const NameDetail = lazy(() => import("./pages/NameDetail"));
 const GeneratorPage = lazy(() => import("./pages/GeneratorPage"));
 const WesternNamesPage = lazy(() => import("./pages/WesternNamesPage"));
+const NameMappingDetailPage = lazy(() => import("./pages/NameMappingDetailPage"));
 const LegalGuidePage = lazy(() => import("./pages/LegalGuidePage"));
 const ContributePage = lazy(() => import("./pages/ContributePage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
@@ -77,6 +78,15 @@ const App = () => (
               element={
                 <PageSuspense>
                   <WesternNamesPage />
+                </PageSuspense>
+              }
+            />
+            {/* Hidden route: individual name mapping detail (e.g. /western-names/an) */}
+            <Route
+              path="/western-names/:key"
+              element={
+                <PageSuspense>
+                  <NameMappingDetailPage />
                 </PageSuspense>
               }
             />

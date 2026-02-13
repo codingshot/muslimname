@@ -1,0 +1,20 @@
+/** Chinese character → Pinyin for multilanguage detection (simplified/traditional) */
+export const chineseCharToPinyin: Record<string, string> = {
+  "伟": "wei", "明": "ming", "俊": "jun", "雷": "lei", "浩": "hao",
+  "健": "jian", "龙": "long", "龍": "long",
+  "静": "jing", "丽": "li", "麗": "li", "美": "mei", "燕": "yan",
+  "晓": "xiao", "曉": "xiao", "英": "ying", "琳": "lin",
+  "宇": "yu", "轩": "xuan", "澤": "ze", "泽": "ze", "波": "bo", "江": "jiang",
+  "鑫": "xin", "铭": "ming", "銘": "ming", "杰": "jie", "傑": "jie",
+  "鹏": "peng", "鵬": "peng", "欣": "xin", "志": "zhi", "德": "de",
+  "勇": "yong", "超": "chao", "帅": "shuai", "帥": "shuai", "斌": "bin",
+  "永": "yong", "嘉": "jia", "子": "zi", "涵": "han", "豪": "hao",
+  "奕": "yi", "辰": "chen", "宸": "chen", "恒": "heng", "恆": "heng",
+  "诚": "cheng", "誠": "cheng", "远": "yuan", "遠": "yuan",
+  "景": "jing", "洋": "yang", "晨": "chen", "涛": "tao", "濤": "tao",
+  "雪": "xue", "芳": "fang", "丹": "dan", "霞": "xia", "瑶": "yao",
+  "珍": "zhen", "玉": "yu", "兰": "lan", "蘭": "lan", "春": "chun",
+  "冬": "dong", "慧": "hui", "颖": "ying", "婷": "ting", "怡": "yi",
+  "强": "qiang", "強": "qiang", "华": "hua", "華": "hua", "梅": "mei",
+  "娟": "juan", "敏": "min",
+};
