@@ -3875,8 +3875,20 @@ export function filterNames(criteria: {
   });
 }
 
+/** Expands meaning words using virtueToThemes for broader matching */
+function expandMeaningWords(words: string[]): string[] {
+  const expanded = new Set<string>();
+  for (const w of words) {
+    expanded.add(w);
+    const themes = virtueToThemes[w];
+    if (themes) themes.forEach(t => expanded.add(t));
+  }
+  return [...expanded];
+}
+
 export function suggestFromMeaning(meaning: string): MuslimName[] {
-  const words = meaning.toLowerCase().split(/\s+/).filter(w => w.length > 1);
+  const rawWords = meaning.toLowerCase().split(/\s+/).filter(w => w.length > 1);
+  const words = expandMeaningWords(rawWords);
   const scored: { name: MuslimName; score: number }[] = [];
 
   for (const name of namesDatabase) {
@@ -3884,16 +3896,45 @@ export function suggestFromMeaning(meaning: string): MuslimName[] {
     for (const word of words) {
       const resolved = resolveSlugAlias(word);
       if (name.slug === word || name.slug === resolved) { score += 50; continue; }
-      if (name.themes.includes(word) || name.themes.includes(resolved)) score += 10;
-      if (name.meaning.toLowerCase().includes(word)) score += 8;
-      if (name.detailedMeaning.toLowerCase().includes(word)) score += 4;
+      if (name.themes.includes(word) || name.themes.includes(resolved)) score += 12;
+      if (name.meaning.toLowerCase().includes(word)) score += 10;
+      if (name.detailedMeaning.toLowerCase().includes(word)) score += 5;
       if (name.name.toLowerCase().includes(word)) score += 15;
       if (name.variations.some(v => v.toLowerCase().includes(word))) score += 12;
+      if (word.length >= 3 && name.meaning.toLowerCase().includes(word)) score += 6;
     }
     if (score > 0) scored.push({ name, score });
   }
 
   return scored.sort((a, b) => b.score - a.score).map(s => s.name);
+}
+
+/** Fast prefix/partial suggestions for Muslim names while typing. */
+export function getQuickNameSuggestions(
+  input: string | null | undefined,
+  limit = 8
+): MuslimName[] {
+  const q = typeof input === "string" ? input.trim().toLowerCase() : "";
+  if (!q || q.length < 2) return [];
+  const results: { name: MuslimName; score: number }[] = [];
+  for (const n of namesDatabase) {
+    let score = 0;
+    const nameLow = n.name.toLowerCase();
+    const slugLow = n.slug.toLowerCase();
+    if (nameLow.startsWith(q)) score += 40;
+    else if (slugLow.startsWith(q)) score += 35;
+    else if (nameLow.includes(q)) score += 20;
+    else if (slugLow.includes(q)) score += 18;
+    else if (n.variations.some(v => v.toLowerCase().includes(q))) score += 25;
+    if (score > 0) {
+      score += (n.popularity ?? 0) * 0.03;
+      results.push({ name: n, score });
+    }
+  }
+  return results
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(r => r.name);
 }
 
 export function findNameBySlug(slug: string | null | undefined): MuslimName | undefined {
@@ -3927,3 +3968,36 @@ export function getThemes(): string[] {
   namesDatabase.forEach(n => n.themes.forEach(t => themes.add(t)));
   return [...themes].sort();
 }
+
+/** Returns a random name; optionally filtered by gender. */
+export function getRandomName(gender?: "male" | "female" | "unisex"): MuslimName {
+  let pool = namesDatabase;
+  if (gender) pool = pool.filter(n => n.gender === gender || n.gender === "unisex");
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+/** Returns a deterministic "name of the day" based on date. Same date = same name. */
+export function getNameOfTheDay(): MuslimName {
+  const today = new Date();
+  const seed = today.getFullYear() * 10000 + today.getMonth() * 100 + today.getDate();
+  const idx = seed % namesDatabase.length;
+  return namesDatabase[idx];
+}
+
+/** Virtue/meaning keywords mapped to themes for better discovery. */
+export const virtueToThemes: Record<string, string[]> = {
+  patience: ["patience", "perseverance"],
+  light: ["guidance", "wisdom"],
+  mercy: ["compassion", "virtue"],
+  strength: ["strength", "courage"],
+  wisdom: ["wisdom", "knowledge"],
+  beauty: ["beauty"],
+  purity: ["purity", "virtue"],
+  faith: ["devotion", "faith"],
+  courage: ["courage", "strength"],
+  peace: ["peace"],
+  love: ["compassion", "love"],
+  guidance: ["guidance"],
+  nobility: ["nobility"],
+  blessing: ["blessing"],
+};

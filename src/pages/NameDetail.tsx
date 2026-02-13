@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect, useCallback } from "react";
 import { findNameBySlug, namesDatabase } from "@/data/names";
@@ -8,15 +8,28 @@ import NameDetailSkeleton from "@/components/NameDetailSkeleton";
 import NameCard from "@/components/NameCard";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book } from "lucide-react";
+import { ShareName } from "@/components/ShareName";
 import { motion } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { speakArabic, preloadVoices } from "@/lib/pronunciation";
 
 export default function NameDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [loading, setLoading] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const { isFavorite, toggleFavorite } = useProfile();
+  const navigate = useNavigate();
+  const { isFavorite, toggleFavorite, addAsFirstOrLast } = useProfile();
+  const [addPosition, setAddPosition] = useState<"first" | "last" | null>(null);
 
   // Defer voice preload until user interacts with speak button (saves initial work)
   const preloadOnInteraction = useCallback(() => {
@@ -76,9 +89,37 @@ export default function NameDetail() {
         <title>{name.name} — Islamic Name Meaning &amp; Origin | MuslimName.me</title>
         <meta name="description" content={`${name.meaning}. ${name.detailedMeaning.slice(0, 100)}${name.detailedMeaning.length > 100 ? "…" : ""}`} />
         <link rel="canonical" href={`https://muslimname.me/name/${name.slug}`} />
-        <meta property="og:title" content={`${name.name} — Islamic Name | MuslimName.me`} />
-        <meta property="og:description" content={name.meaning} />
+        {/* Open Graph / Share Cards — rich previews when shared */}
+        <meta property="og:title" content={`${name.name} — Islamic Name Meaning & Origin | MuslimName.me`} />
+        <meta property="og:description" content={`${name.meaning}.${name.arabic ? ` ${name.arabic}.` : ""} Meanings, Quranic references, pronunciation & more. Discover your ideal Muslim name.`} />
         <meta property="og:url" content={`https://muslimname.me/name/${name.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://muslimname.me/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${name.name} — Islamic name meaning "${name.meaning}" on MuslimName.me`} />
+        <meta property="og:site_name" content="MuslimName.me" />
+        <meta property="og:locale" content="en_US" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ummahbuild" />
+        <meta name="twitter:title" content={`${name.name} — Islamic Name | MuslimName.me`} />
+        <meta name="twitter:description" content={`${name.meaning}.${name.arabic ? ` ${name.arabic}.` : ""} Meanings, Quranic refs & more.`} />
+        <meta name="twitter:image" content="https://muslimname.me/og-image.png" />
+        <meta name="twitter:image:alt" content={`${name.name} — Islamic name on MuslimName.me`} />
+        {/* JSON-LD for rich results */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: `${name.name} — Islamic Name Meaning & Origin`,
+            description: name.meaning,
+            url: `https://muslimname.me/name/${name.slug}`,
+            publisher: { "@type": "Organization", name: "MuslimName.me", url: "https://muslimname.me" },
+            image: "https://muslimname.me/og-image.png",
+            ...(name.arabic && { inLanguage: "ar", alternateName: name.arabic }),
+          })}
+        </script>
       </Helmet>
       <article className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
         {/* Back */}
@@ -101,6 +142,19 @@ export default function NameDetail() {
             </div>
             <div className="flex flex-col items-start sm:items-end gap-2">
               <div className="flex gap-2 flex-wrap items-center">
+                <ShareName name={name.name} slug={name.slug} meaning={name.meaning} arabic={name.arabic} />
+                <button
+                  onClick={() => setAddPosition("first")}
+                  className="px-3 py-1.5 rounded-lg text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                >
+                  Add as First Name
+                </button>
+                <button
+                  onClick={() => setAddPosition("last")}
+                  className="px-3 py-1.5 rounded-lg text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
+                >
+                  Add as Last Name
+                </button>
                 <button
                   onClick={() => toggleFavorite(name.slug)}
                   className={`p-2 rounded-lg transition-all ${
@@ -424,6 +478,27 @@ export default function NameDetail() {
           </section>
         )}
 
+        {/* Share this name */}
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+          className="mt-8 md:mt-12 bg-card rounded-xl border border-border p-5 sm:p-6"
+        >
+          <h2 className="font-display text-lg font-semibold mb-3">Share this name</h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Help others discover {name.name}. Copy the link, share to social media, or use your device&apos;s share menu.
+          </p>
+          <ShareName
+            name={name.name}
+            slug={name.slug}
+            meaning={name.meaning}
+            arabic={name.arabic}
+            variant="inline"
+            className="flex flex-wrap gap-2"
+          />
+        </motion.section>
+
         {/* External References */}
         <motion.section
           initial={{ opacity: 0, y: 16 }}
@@ -465,6 +540,34 @@ export default function NameDetail() {
             External links open in a new tab. MuslimName.me is not responsible for external content.
           </p>
         </motion.section>
+
+        {/* Add as First/Last confirmation */}
+        <AlertDialog open={!!addPosition} onOpenChange={(open) => !open && setAddPosition(null)}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                Add {name.name} as a {addPosition === "first" ? "First" : "Last"} Name?
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                This will save {name.name} to your favorites as a {addPosition === "first" ? "first" : "last"} name contender and take you to your profile.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={() => {
+                  if (addPosition) {
+                    addAsFirstOrLast(name.slug, addPosition);
+                    setAddPosition(null);
+                    navigate(`/profile?scroll=${addPosition}`);
+                  }
+                }}
+              >
+                Add & Go to Profile
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </article>
     </Layout>
   );

@@ -1,0 +1,18 @@
+---
+description: Conventions for editing name mappings
+globs: src/data/nameMapping.ts
+alwaysApply: false
+---
+
+# Name Mapping Conventions
+
+When editing `nameMapping.ts`:
+
+- **Keys:** Lowercase, no diacritics. Add `normalizeDiacritics`-friendly variant (e.g. `joao`) if the common form has diacritics (`João`).
+- **No duplicate keys:** Each key in `christianToMuslimNameMapping` must be unique. Check before adding.
+- **muslimNames:** Prefer slugs that exist in `namesDatabase`. Use `findNameBySlug` to verify.
+- **category:** Must match `NameMappingCategory`. See `docs/NAME_LOOKUP_GUIDE.md` and `.cursor/skills/expand-name-mappings/reference.md`.
+- **Chinese:** Add `originalScript` and corresponding entry in `chineseCharToPinyin` if supporting character lookup.
+- **New language group:** Add to `NameMappingCategory`, add names, then update `WesternNamesPage.tsx` (categories, stats, badge).
+
+Use the `expand-name-mappings` skill when adding names for new countries/regions.

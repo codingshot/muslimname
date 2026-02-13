@@ -5,6 +5,8 @@ export interface ProfileSettings {
   currentLastName: string;
   preferredMeanings: string[];
   genderPreference: "all" | "male" | "female" | "unisex";
+  /** ISO 3166-1 alpha-2 country code for name recommendations (manual override; else IP-detected) */
+  country?: string;
 }
 
 export type NamePosition = "first" | "last";
@@ -65,6 +67,7 @@ interface ProfileContextValue {
   isFavorite: (slug: string) => boolean;
   togglePosition: (slug: string, pos: NamePosition) => void;
   setFavoritePosition: (slug: string, position: "first" | "last" | "undecided") => void;
+  addAsFirstOrLast: (slug: string, position: NamePosition) => void;
   reorderFavorites: (startIndex: number, endIndex: number) => void;
 }
 
@@ -120,6 +123,21 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
     }));
   }, []);
 
+  /** Add name to favorites with position, creating entry if needed */
+  const addAsFirstOrLast = useCallback((slug: string, position: NamePosition) => {
+    setProfile(prev => {
+      const exists = prev.favorites.find(f => f.slug === slug);
+      const nextFavorites = exists
+        ? prev.favorites.map(f =>
+            f.slug === slug
+              ? { ...f, positions: f.positions.includes(position) ? f.positions : [...f.positions, position] }
+              : f
+          )
+        : [...prev.favorites, { slug, positions: [position], rank: prev.favorites.length }];
+      return { ...prev, favorites: nextFavorites };
+    });
+  }, []);
+
   const setFavoritePosition = useCallback((slug: string, position: "first" | "last" | "undecided") => {
     setProfile(prev => ({
       ...prev,
@@ -149,6 +167,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
     isFavorite,
     togglePosition,
     setFavoritePosition,
+    addAsFirstOrLast,
     reorderFavorites,
   };
 

@@ -4,29 +4,50 @@ import { useState, useMemo, useDeferredValue } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
-import { namesDatabase } from "@/data/names";
-import { getMappingContext, getDidYouMeanSuggestions, totalMappings } from "@/data/nameMapping";
+import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions } from "@/data/names";
+import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, totalMappings } from "@/data/nameMapping";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCountry } from "@/hooks/useCountry";
 
 const featuredNames = namesDatabase.slice(0, 6);
 const featuredBlogs = blogPosts.slice(0, 3);
+const nameOfTheDay = getNameOfTheDay();
+
+const exploreByVirtue = [
+  { label: "Patience", theme: "patience", icon: "🌿" },
+  { label: "Light", theme: "guidance", icon: "✨" },
+  { label: "Mercy", theme: "compassion", icon: "💚" },
+  { label: "Strength", theme: "strength", icon: "🦁" },
+  { label: "Wisdom", theme: "wisdom", icon: "📖" },
+  { label: "Beauty", theme: "beauty", icon: "🌸" },
+];
 
 const Index = () => {
   const [currentName, setCurrentName] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
+  const { country } = useCountry();
 
   const mappingInfo = currentName.trim() ? getMappingContext(currentName.trim()) : null;
   const deferredNameForSuggestions = useDeferredValue(
     mappingInfo ? "" : currentName.trim()
   );
   const didYouMeanSuggestions = useMemo(
-    () => getDidYouMeanSuggestions(deferredNameForSuggestions, 3),
-    [deferredNameForSuggestions]
+    () => getDidYouMeanSuggestions(deferredNameForSuggestions, 3, { countryCode: country ?? undefined }),
+    [deferredNameForSuggestions, country]
   );
+  const typingSuggestions = useMemo(() => {
+    const first = currentName.trim().split(/\s+/)[0];
+    if (!first || first.length < 2) return { mapping: [], muslim: [] };
+    return {
+      mapping: getCombinedTypingSuggestions(first, { limit: 4, countryCode: country ?? undefined }),
+      muslim: getQuickNameSuggestions(first, 3),
+    };
+  }, [currentName, country]);
 
   const handleDiscover = (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,14 +92,43 @@ const Index = () => {
 
             <form onSubmit={handleDiscover} className="flex gap-2 max-w-md mx-auto mb-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
                 <Input
                   value={currentName}
-                  onChange={e => setCurrentName(e.target.value)}
+                  onChange={e => { setCurrentName(e.target.value); setShowSuggestions(true); }}
+                  onFocus={() => currentName.trim().length >= 2 && setShowSuggestions(true)}
+                  onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
                   placeholder="Enter your name (e.g., David, Sarah, Michael)"
                   aria-label="Enter your current name to discover Islamic equivalent"
                   className="pl-10 h-12 rounded-xl bg-primary-foreground text-foreground border-0 text-base"
                 />
+                {showSuggestions && (typingSuggestions.mapping.length > 0 || typingSuggestions.muslim.length > 0) && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-card/95 backdrop-blur border border-border rounded-xl shadow-lg z-50 py-2 max-h-48 overflow-y-auto">
+                    {typingSuggestions.mapping.map(({ displayName, canonicalKey }) => (
+                      <button
+                        key={canonicalKey}
+                        type="button"
+                        onClick={() => { setCurrentName(displayName); setShowSuggestions(false); }}
+                        className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
+                      >
+                        {displayName}
+                      </button>
+                    ))}
+                    {typingSuggestions.muslim.length > 0 && typingSuggestions.mapping.length > 0 && (
+                      <div className="border-t border-border my-1" />
+                    )}
+                    {typingSuggestions.muslim.map(n => (
+                      <Link
+                        key={n.slug}
+                        to={`/name/${n.slug}`}
+                        onClick={() => setShowSuggestions(false)}
+                        className="block px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
+                      >
+                        {n.name} — {n.meaning}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
               <Button type="submit" size="lg" className="h-12 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6">
                 <Sparkles className="w-4 h-4 mr-1.5" /> Discover
@@ -169,6 +219,57 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </Link>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Name of the Day */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Name of the Day</p>
+            <Link
+              to={`/name/${nameOfTheDay.slug}`}
+              className="block bg-card rounded-xl p-5 border border-border hover:border-primary/40 hover:shadow-card-hover transition-all group"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    {nameOfTheDay.name}
+                  </h3>
+                  <p className="font-arabic text-xl text-primary mt-1">{nameOfTheDay.arabic}</p>
+                  <p className="text-sm text-muted-foreground mt-2">{nameOfTheDay.meaning}</p>
+                  <div className="flex gap-2 mt-2 flex-wrap">
+                    {nameOfTheDay.themes.slice(0, 3).map(t => (
+                      <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary capitalize">{t}</span>
+                    ))}
+                  </div>
+                </div>
+                <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore by Virtue */}
+      <section className="py-10">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-6">
+            <h2 className="font-display text-xl font-bold mb-1">Explore by Meaning</h2>
+            <p className="text-sm text-muted-foreground">Find names that reflect virtues you value</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+            {exploreByVirtue.map(({ label, theme, icon }) => (
+              <Link
+                key={theme}
+                to={`/names?themes=${theme}`}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-muted hover:bg-primary/10 hover:text-primary text-sm font-medium transition-colors"
+              >
+                <span>{icon}</span>
+                {label}
+              </Link>
             ))}
           </div>
         </div>

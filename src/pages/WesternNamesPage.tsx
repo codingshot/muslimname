@@ -14,6 +14,30 @@ const categories = [
   { key: "biblical-female", label: "Biblical Female" },
   { key: "western-male", label: "Western Male" },
   { key: "western-female", label: "Western Female" },
+  { key: "latin-male", label: "Latin Male" },
+  { key: "latin-female", label: "Latin Female" },
+  { key: "hindu-male", label: "Hindu Male" },
+  { key: "hindu-female", label: "Hindu Female" },
+  { key: "chinese-male", label: "Chinese Male" },
+  { key: "chinese-female", label: "Chinese Female" },
+  { key: "portuguese-male", label: "Portuguese Male" },
+  { key: "portuguese-female", label: "Portuguese Female" },
+  { key: "russian-male", label: "Russian Male" },
+  { key: "russian-female", label: "Russian Female" },
+  { key: "japanese-male", label: "Japanese Male" },
+  { key: "japanese-female", label: "Japanese Female" },
+  { key: "korean-male", label: "Korean Male" },
+  { key: "korean-female", label: "Korean Female" },
+  { key: "french-male", label: "French Male" },
+  { key: "french-female", label: "French Female" },
+  { key: "german-male", label: "German Male" },
+  { key: "german-female", label: "German Female" },
+  { key: "italian-male", label: "Italian Male" },
+  { key: "italian-female", label: "Italian Female" },
+  { key: "spanish-male", label: "Spanish Male" },
+  { key: "spanish-female", label: "Spanish Female" },
+  { key: "tribal-male", label: "Tribal Male" },
+  { key: "tribal-female", label: "Tribal Female" },
   { key: "hebrew", label: "Hebrew" },
   { key: "virtue", label: "Virtue" },
 ] as const;
@@ -41,7 +65,8 @@ export default function WesternNamesPage() {
         m.westernName.toLowerCase().includes(q) ||
         m.muslimNames.some(n => n.toLowerCase().includes(q)) ||
         m.meaning.toLowerCase().includes(q) ||
-        m.connection.toLowerCase().includes(q)
+        m.connection.toLowerCase().includes(q) ||
+        (m.originalScript && m.originalScript.includes(search.trim()))
       );
     });
   }, [allMappings, search, categoryFilter]);
@@ -50,6 +75,18 @@ export default function WesternNamesPage() {
     total: allMappings.length,
     biblical: allMappings.filter(m => m.category.startsWith("biblical")).length,
     western: allMappings.filter(m => m.category.startsWith("western")).length,
+    latin: allMappings.filter(m => m.category.startsWith("latin")).length,
+    hindu: allMappings.filter(m => m.category.startsWith("hindu")).length,
+    chinese: allMappings.filter(m => m.category.startsWith("chinese")).length,
+    portuguese: allMappings.filter(m => m.category.startsWith("portuguese")).length,
+    russian: allMappings.filter(m => m.category.startsWith("russian")).length,
+    japanese: allMappings.filter(m => m.category.startsWith("japanese")).length,
+    korean: allMappings.filter(m => m.category.startsWith("korean")).length,
+    french: allMappings.filter(m => m.category.startsWith("french")).length,
+    german: allMappings.filter(m => m.category.startsWith("german")).length,
+    italian: allMappings.filter(m => m.category.startsWith("italian")).length,
+    spanish: allMappings.filter(m => m.category.startsWith("spanish")).length,
+    tribal: allMappings.filter(m => m.category.startsWith("tribal")).length,
   }), [allMappings]);
 
   return (
@@ -63,11 +100,23 @@ export default function WesternNamesPage() {
             Western to Muslim Name Reference
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Explore {stats.total}+ Western, Christian, and Hebrew names mapped to their Islamic equivalents with shared meanings and Abrahamic connections
+            Explore {stats.total}+ names from Western, Latin, Hindu, Chinese, Portuguese, Tribal, and Hebrew traditions mapped to their Islamic equivalents
           </p>
-          <div className="flex justify-center gap-4 mt-4 text-sm">
+          <div className="flex flex-wrap justify-center gap-3 mt-4 text-sm">
             <span className="text-muted-foreground"><strong className="text-foreground">{stats.biblical}</strong> Biblical</span>
             <span className="text-muted-foreground"><strong className="text-foreground">{stats.western}</strong> Western</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.spanish}</strong> Spanish</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.portuguese}</strong> Portuguese</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.russian}</strong> Russian</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.french}</strong> French</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.german}</strong> German</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.italian}</strong> Italian</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.chinese}</strong> Chinese</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.japanese}</strong> Japanese</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.korean}</strong> Korean</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.hindu}</strong> Hindu</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.latin}</strong> Latin</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.tribal}</strong> Tribal</span>
           </div>
         </motion.div>
 
@@ -119,7 +168,10 @@ export default function WesternNamesPage() {
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="font-display text-lg font-semibold text-foreground">{m.westernName}</h3>
                   <Badge variant="outline" className="text-[10px] capitalize shrink-0">
-                    {m.category.replace("-", " ").replace("biblical", "📖").replace("western", "🌍").replace("hebrew", "✡").replace("virtue", "✨")}
+                    {m.category.replace("-", " ")
+                      .replace("biblical", "📖").replace("western", "🌍").replace("hebrew", "✡").replace("virtue", "✨")
+                      .replace("latin", "🏛").replace("hindu", "🪷").replace("chinese", "中").replace("portuguese", "🇵🇹").replace("tribal", "🌿")
+                      .replace("russian", "🇷🇺").replace("japanese", "🇯🇵").replace("korean", "🇰🇷").replace("french", "🇫🇷").replace("german", "🇩🇪").replace("italian", "🇮🇹").replace("spanish", "🇪🇸")}
                   </Badge>
                 </div>
 

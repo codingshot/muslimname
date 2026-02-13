@@ -4,32 +4,39 @@ import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
-import { suggestFromMeaning, namesDatabase, findNameBySlug } from "@/data/names";
-import { getMappingContext, getDidYouMeanSuggestions, type NameMapping } from "@/data/nameMapping";
+import { suggestFromMeaning, namesDatabase, findNameBySlug, getQuickNameSuggestions } from "@/data/names";
+import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, type NameMapping } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Sparkles, RefreshCw, Info, ArrowRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useProfile } from "@/hooks/useProfile";
+import { useCountry } from "@/hooks/useCountry";
 
 const meaningKeywords = [
   "grace", "strong", "light", "beautiful", "pure", "faithful",
   "wise", "life", "courage", "peace", "noble", "love", "leader",
   "eternal", "mercy", "patience", "joy", "knowledge", "sacrifice",
-  "devotion", "justice", "beauty", "strength", "purity", "guidance"
+  "devotion", "justice", "beauty", "strength", "purity", "guidance",
+  "blessing", "truth", "brave", "virtue", "lion", "garden",
+  "star", "flower", "faith", "worship", "compassion", "exalted",
+  "heaven", "paradise", "forgiving", "grateful", "humble"
 ];
 
 export default function GeneratorPage() {
   const [searchParams] = useSearchParams();
   const { profile, updateSettings } = useProfile();
+  const { country } = useCountry();
   const initialName = searchParams.get("name") || 
     [profile.settings.currentFirstName, profile.settings.currentLastName].filter(Boolean).join(" ");
   const [currentName, setCurrentName] = useState(initialName);
+  const [customMeaning, setCustomMeaning] = useState("");
   const [selectedMeanings, setSelectedMeanings] = useState<string[]>([]);
   const [gender, setGender] = useState<"all" | "male" | "female" | "unisex">(profile.settings.genderPreference);
   const [generated, setGenerated] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   // Sync current name to profile first/last name settings
@@ -68,14 +75,20 @@ export default function GeneratorPage() {
     return getMappingContext(currentName.trim());
   }, [currentName]);
 
-  // Defer expensive fuzzy-match when typing (no exact match)
   const deferredNameForSuggestions = useDeferredValue(
     mappingInfo ? "" : currentName.trim()
   );
   const didYouMeanSuggestions = useMemo(
-    () => getDidYouMeanSuggestions(deferredNameForSuggestions, 4),
-    [deferredNameForSuggestions]
+    () => getDidYouMeanSuggestions(deferredNameForSuggestions, 4, { countryCode: country ?? undefined }),
+    [deferredNameForSuggestions, country]
   );
+  const typingSuggestions = useMemo(() => {
+    const first = currentName.trim().split(/\s+/)[0];
+    if (!first || first.length < 2) return [];
+    const mapping = getCombinedTypingSuggestions(first, { limit: 5, countryCode: country ?? undefined });
+    const muslim = getQuickNameSuggestions(first, 4);
+    return { mapping, muslim };
+  }, [currentName, country]);
 
   const toggleMeaning = (m: string) => {
     setSelectedMeanings(prev =>
@@ -98,24 +111,24 @@ export default function GeneratorPage() {
     if (!generated || loading) return [];
     const searchTerms = [...selectedMeanings];
 
+    if (customMeaning.trim()) {
+      searchTerms.push(...customMeaning.trim().toLowerCase().split(/[\s,]+/).filter(w => w.length > 1));
+    }
+
     if (currentName.trim() && mappingInfo) {
       searchTerms.push(...mappingInfo.muslimNames);
-      // Also add meaning keywords from the mapping as fallback search terms
-      // This ensures results appear even if the mapped Muslim name isn't in the DB
       const meaningWords = mappingInfo.meaning.toLowerCase().split(/[\s,]+/).filter(w => w.length > 2);
       searchTerms.push(...meaningWords);
-      // Add connection keywords too for broader matching
       const connectionWords = mappingInfo.connection.toLowerCase().split(/[\s,]+/).filter(w => w.length > 3);
       searchTerms.push(...connectionWords.slice(0, 5));
     }
 
-    // Work with partial params — no need to fill everything
     const hasName = currentName.trim().length > 0;
     const hasMeanings = selectedMeanings.length > 0;
+    const hasCustomMeaning = customMeaning.trim().length > 0;
     const hasGender = gender !== "all";
 
-    // If nothing is filled at all, show random names
-    if (!hasName && !hasMeanings && !hasGender) {
+    if (!hasName && !hasMeanings && !hasCustomMeaning && !hasGender) {
       const shuffled = [...namesDatabase].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, 9);
     }
@@ -124,17 +137,13 @@ export default function GeneratorPage() {
       ? suggestFromMeaning(searchTerms.join(" "))
       : [...namesDatabase];
 
-    if (hasGender) {
-      names = names.filter(n => n.gender === gender);
-    }
+    if (hasGender) names = names.filter(n => n.gender === gender);
 
-    // If only gender selected and no search terms, shuffle for variety
-    if (!hasName && !hasMeanings && hasGender) {
+    if (!hasName && !hasMeanings && !hasCustomMeaning && hasGender) {
       names = [...names].sort(() => Math.random() - 0.5);
     }
 
-    // If we have a mapping but no results yet, fall back to similar themed names
-    if (names.length === 0 && mappingInfo) {
+    if (names.length === 0 && (mappingInfo || hasCustomMeaning)) {
       names = [...namesDatabase]
         .filter(n => !hasGender || n.gender === gender)
         .sort(() => Math.random() - 0.5)
@@ -142,7 +151,7 @@ export default function GeneratorPage() {
     }
 
     return names.slice(0, 9);
-  }, [generated, loading, currentName, selectedMeanings, gender, mappingInfo]);
+  }, [generated, loading, currentName, customMeaning, selectedMeanings, gender, mappingInfo]);
 
   return (
     <Layout>
@@ -196,13 +205,62 @@ export default function GeneratorPage() {
             <p className="text-sm text-muted-foreground mb-3">
               We've mapped 200+ Christian, Hebrew & Western names to their Islamic equivalents
             </p>
-            <Input
-              value={currentName}
-              onChange={e => setCurrentName(e.target.value)}
-              placeholder="Enter your name (e.g., David, Sarah, Michael...)"
-              aria-label="Enter your current name to discover Islamic equivalent"
-              className="h-12 rounded-xl text-base"
-            />
+            <div className="relative">
+              <Input
+                value={currentName}
+                onChange={e => { setCurrentName(e.target.value); setShowSuggestions(true); }}
+                onFocus={() => currentName.trim().length >= 2 && setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+                placeholder="Enter your name (e.g., David, Sarah, Michael...)"
+                aria-label="Enter your current name to discover Islamic equivalent"
+                aria-autocomplete="list"
+                aria-controls="name-suggestions"
+                className="h-12 rounded-xl text-base"
+              />
+              {showSuggestions && (typingSuggestions.mapping.length > 0 || typingSuggestions.muslim.length > 0) && (
+                <div
+                  id="name-suggestions"
+                  role="listbox"
+                  className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-lg z-50 py-2 max-h-60 overflow-y-auto"
+                >
+                  {typingSuggestions.mapping.length > 0 && (
+                    <div className="px-3 py-1">
+                      <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">Western names</p>
+                      {typingSuggestions.mapping.map(({ displayName, canonicalKey }) => (
+                        <button
+                          key={canonicalKey}
+                          type="button"
+                          role="option"
+                          onClick={() => {
+                            const rest = currentName.trim().split(/\s+/).slice(1).join(" ");
+                            setCurrentName(rest ? `${displayName} ${rest}` : displayName);
+                            setShowSuggestions(false);
+                          }}
+                          className="block w-full text-left px-3 py-2 text-sm hover:bg-muted rounded-lg"
+                        >
+                          {displayName}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {typingSuggestions.muslim.length > 0 && (
+                    <div className="px-3 py-1 border-t border-border mt-1 pt-2">
+                      <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">Islamic names</p>
+                      {typingSuggestions.muslim.map(n => (
+                        <Link
+                          key={n.slug}
+                          to={`/name/${n.slug}`}
+                          onClick={() => setShowSuggestions(false)}
+                          className="block px-3 py-2 text-sm hover:bg-muted rounded-lg"
+                        >
+                          {n.name} <span className="text-muted-foreground text-xs">— {n.meaning}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
 
             {/* Live mapping info */}
             <AnimatePresence>
@@ -250,32 +308,39 @@ export default function GeneratorPage() {
             </AnimatePresence>
 
             {currentName.trim() && !mappingInfo && (
-              <div className="mt-3 space-y-2">
+              <div className="mt-3 space-y-3">
                 <p className="text-xs text-muted-foreground">
-                    We don't have a direct mapping for "{currentName.trim().split(/\s+/)[0]}"
-                  </p>
-                  {didYouMeanSuggestions.length > 0 ? (
-                        <div className="flex flex-wrap gap-1.5 items-center">
-                          <span className="text-xs text-muted-foreground">Did you mean:</span>
-                          {didYouMeanSuggestions.map(({ displayName, canonicalKey }) => (
-                            <button
-                              key={canonicalKey}
-                              type="button"
-                              onClick={() => {
-                                const rest = currentName.trim().split(/\s+/).slice(1).join(" ");
-                                setCurrentName(rest ? `${displayName} ${rest}` : displayName);
-                              }}
-                              className="text-xs font-medium text-primary hover:underline bg-primary/10 hover:bg-primary/20 px-2 py-1 rounded-full transition-colors"
-                            >
-                              {displayName}
-                            </button>
-                          ))}
-                        </div>
-                ) : (
-                  <p className="text-xs text-muted-foreground">
-                    You can still explore by meaning below
-                  </p>
+                  We don&apos;t have a direct mapping for &quot;{currentName.trim().split(/\s+/)[0]}&quot;
+                </p>
+                {didYouMeanSuggestions.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 items-center">
+                    <span className="text-xs text-muted-foreground">Did you mean:</span>
+                    {didYouMeanSuggestions.map(({ displayName, canonicalKey }) => (
+                      <button
+                        key={canonicalKey}
+                        type="button"
+                        onClick={() => {
+                          const rest = currentName.trim().split(/\s+/).slice(1).join(" ");
+                          setCurrentName(rest ? `${displayName} ${rest}` : displayName);
+                        }}
+                        className="text-xs font-medium text-primary hover:underline bg-primary/10 hover:bg-primary/20 px-2 py-1 rounded-full transition-colors"
+                      >
+                        {displayName}
+                      </button>
+                    ))}
+                  </div>
                 )}
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground block mb-1">
+                    Optional: What does your name mean? (e.g., gift of God, strong, light)
+                  </label>
+                  <Input
+                    value={customMeaning}
+                    onChange={e => setCustomMeaning(e.target.value)}
+                    placeholder="Enter meaning to find similar names..."
+                    className="h-9 text-sm"
+                  />
+                </div>
               </div>
             )}
           </motion.div>

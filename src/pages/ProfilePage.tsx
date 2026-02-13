@@ -1,13 +1,15 @@
-import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useProfile, type FavoriteEntry, type NamePosition } from "@/hooks/useProfile";
-import { findNameBySlug } from "@/data/names";
+import { useCountry } from "@/hooks/useCountry";
+import { COUNTRY_OPTIONS } from "@/lib/country";
+import { findNameBySlug, searchNames } from "@/data/names";
 import { getMappingContext, getDidYouMeanSuggestions } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, GripVertical, Trash2, Settings, Heart, Sparkles, ArrowRight } from "lucide-react";
+import { Star, GripVertical, Trash2, Settings, Heart, Sparkles, ArrowRight, Search, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const meaningKeywords = [
@@ -18,10 +20,14 @@ const meaningKeywords = [
 ];
 
 export default function ProfilePage() {
-  const { profile, updateSettings, toggleFavorite, togglePosition, setFavoritePosition, reorderFavorites } = useProfile();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { profile, updateSettings, toggleFavorite, togglePosition, setFavoritePosition, addAsFirstOrLast, reorderFavorites } = useProfile();
+  const { country, setCountry } = useCountry();
   const [activeTab, setActiveTab] = useState<"favorites" | "settings">("favorites");
   const dragItem = useRef<number | null>(null);
   const dragOverItem = useRef<number | null>(null);
+  const firstSectionRef = useRef<HTMLDivElement>(null);
+  const lastSectionRef = useRef<HTMLDivElement>(null);
 
   const firstNameMapping = profile.settings.currentFirstName
     ? getMappingContext(profile.settings.currentFirstName)
@@ -45,6 +51,17 @@ export default function ProfilePage() {
 
   const firstNameEntries = profile.favorites.filter(f => f.positions.includes("first"));
   const lastNameEntries = profile.favorites.filter(f => f.positions.includes("last"));
+
+  useEffect(() => {
+    const scroll = searchParams.get("scroll");
+    if (!scroll) return;
+    setActiveTab("favorites");
+    const el = scroll === "first" ? firstSectionRef.current : scroll === "last" ? lastSectionRef.current : null;
+    if (el) {
+      setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      setSearchParams(prev => { const next = new URLSearchParams(prev); next.delete("scroll"); return next; }, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
 
   return (
     <Layout>
@@ -86,12 +103,18 @@ export default function ProfilePage() {
 
         {activeTab === "favorites" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+            {/* Quick Add - always shown in favorites tab */}
+            <QuickAddNames
+              isFavorite={(slug: string) => profile.favorites.some(f => f.slug === slug)}
+              addAsFirstOrLast={addAsFirstOrLast}
+            />
+
             {profile.favorites.length === 0 ? (
               <div className="text-center py-16 bg-card rounded-xl border border-border">
                 <Star className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">No favorites yet</h3>
                 <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
-                  Browse names and tap the star icon to save your favorites. You can tag them as first or last name contenders.
+                  Use Quick Add above or browse names and tap the star icon to save your favorites. You can tag them as first or last name contenders.
                 </p>
                 <Link to="/names">
                   <Button className="rounded-xl">
@@ -102,22 +125,26 @@ export default function ProfilePage() {
             ) : (
               <>
                 {/* First Name Contenders */}
-                <DropSection
-                  title="📝 First Name Contenders"
-                  targetPosition="first"
-                  entries={firstNameEntries}
-                  onDrop={setFavoritePosition}
-                  emptyMessage="Drag names here or click the 'First' tag to add"
-                />
+                <div ref={firstSectionRef}>
+                    <DropSection
+                    title="📝 First Name Contenders"
+                    targetPosition="first"
+                    entries={firstNameEntries}
+                    onDrop={setFavoritePosition}
+                    emptyMessage="Drag names here or click the 'First' tag to add"
+                  />
+                </div>
 
                 {/* Last Name Contenders */}
-                <DropSection
-                  title="📝 Last Name Contenders"
-                  targetPosition="last"
-                  entries={lastNameEntries}
-                  onDrop={setFavoritePosition}
-                  emptyMessage="Drag names here or click the 'Last' tag to add"
-                />
+                <div ref={lastSectionRef}>
+                    <DropSection
+                    title="📝 Last Name Contenders"
+                    targetPosition="last"
+                    entries={lastNameEntries}
+                    onDrop={setFavoritePosition}
+                    emptyMessage="Drag names here or click the 'Last' tag to add"
+                  />
+                </div>
 
                 {/* All Saved Names */}
                 <div className="rounded-xl p-4 bg-card border border-border">
@@ -210,7 +237,7 @@ export default function ProfilePage() {
                       → Maps to: <span className="font-semibold">{firstNameMapping.muslimNames.join(", ")}</span>
                     </p>
                   ) : (profile.settings.currentFirstName ?? "").trim() && (() => {
-                    const suggestions = getDidYouMeanSuggestions(profile.settings.currentFirstName ?? "", 3);
+                    const suggestions = getDidYouMeanSuggestions(profile.settings.currentFirstName ?? "", 3, { countryCode: country ?? undefined });
                     return suggestions.length > 0 ? (
                       <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
                         <span className="text-xs text-muted-foreground">Did you mean:</span>
@@ -238,6 +265,34 @@ export default function ProfilePage() {
                   />
                 </div>
               </div>
+            </div>
+
+            {/* Region / Country */}
+            <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
+              <h3 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
+                <Globe className="w-5 h-5 text-primary" /> Region / Country
+              </h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                We use your country to recommend names popular in your region. Set manually or we'll detect from your location.
+              </p>
+              <select
+                value={profile.settings.country ?? (country ?? "")}
+                onChange={e => {
+                  const v = e.target.value;
+                  updateSettings({ country: v || undefined });
+                }}
+                className="w-full max-w-xs rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="">Auto-detect</option>
+                {COUNTRY_OPTIONS.map(c => (
+                  <option key={c.code} value={c.code}>{c.name}</option>
+                ))}
+              </select>
+              {country && (
+                <p className="mt-1.5 text-xs text-muted-foreground">
+                  {profile.settings.country ? "Manual selection" : "Detected from your location"}
+                </p>
+              )}
             </div>
 
             {/* Gender Preference */}
@@ -305,6 +360,71 @@ export default function ProfilePage() {
         )}
       </div>
     </Layout>
+  );
+}
+
+/** Quick add names via search without leaving profile */
+function QuickAddNames({
+  isFavorite,
+  addAsFirstOrLast,
+}: {
+  isFavorite: (slug: string) => boolean;
+  addAsFirstOrLast: (slug: string, pos: NamePosition) => void;
+}) {
+  const [query, setQuery] = useState("");
+  const [focused, setFocused] = useState(false);
+  const results = query.trim() ? searchNames(query).slice(0, 8) : [];
+
+  return (
+    <div className="rounded-xl p-4 bg-card border border-border">
+      <h3 className="font-display text-base font-semibold text-foreground mb-2 flex items-center gap-2">
+        <Search className="w-4 h-4 text-primary" /> Quick Add Name
+      </h3>
+      <p className="text-xs text-muted-foreground mb-3">
+        Search and add names to your favorites without leaving this page
+      </p>
+      <div className="relative">
+        <input
+          type="search"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setTimeout(() => setFocused(false), 150)}
+          placeholder="Type a name to search…"
+          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+        {focused && results.length > 0 && (
+          <div className="absolute top-full left-0 right-0 mt-1 z-20 rounded-lg border border-border bg-card shadow-lg overflow-hidden">
+            {results.map(n => (
+              <div
+                key={n.slug}
+                className="flex items-center justify-between gap-2 px-3 py-2 hover:bg-muted/50 border-b border-border last:border-0"
+              >
+                <Link to={`/name/${n.slug}`} className="flex-1 min-w-0">
+                  <span className="font-display font-semibold text-foreground">{n.name}</span>
+                  <span className="font-arabic text-sm text-secondary ml-1">{n.arabic}</span>
+                  <p className="text-xs text-muted-foreground truncate">{n.meaning}</p>
+                </Link>
+                <div className="flex gap-1 shrink-0">
+                  <button
+                    onClick={() => addAsFirstOrLast(n.slug, "first")}
+                    className="px-2 py-1 rounded-md text-[10px] font-semibold uppercase bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                  >
+                    First
+                  </button>
+                  <button
+                    onClick={() => addAsFirstOrLast(n.slug, "last")}
+                    className="px-2 py-1 rounded-md text-[10px] font-semibold uppercase bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
+                  >
+                    Last
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 

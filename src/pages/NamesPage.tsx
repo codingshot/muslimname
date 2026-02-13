@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
-import { useSearchParams, Link } from "react-router-dom";
-import { Search, X, ChevronDown, BookOpen } from "lucide-react";
-import { namesDatabase, searchNames, getOrigins, getThemes } from "@/data/names";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
+import { Search, X, ChevronDown, BookOpen, Shuffle } from "lucide-react";
+import { namesDatabase, searchNames, getOrigins, getThemes, getRandomName } from "@/data/names";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import Layout from "@/components/Layout";
@@ -141,6 +141,7 @@ function ThemesDropdown({
 
 export default function NamesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const query = searchParams.get("q") || "";
   const gender = searchParams.get("gender") || "all";
@@ -300,6 +301,13 @@ export default function NamesPage() {
                 Clear all
               </button>
             )}
+            <button
+              type="button"
+              onClick={() => navigate(`/name/${getRandomName().slug}`)}
+              className="ml-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Shuffle className="w-3.5 h-3.5" /> Surprise me
+            </button>
           </div>
 
           {/* Active filter chips */}
