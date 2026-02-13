@@ -36,7 +36,7 @@ export interface MuslimName {
 
 import { prophetsNames } from "./companionsAndProphets";
 import { quranicNames } from "./quranicNames";
-import { resolveSlugAlias } from "./slugAliases";
+import { resolveSlugAlias, slugAliases } from "./slugAliases";
 
 const coreNames: MuslimName[] = [
   {
@@ -3797,6 +3797,18 @@ export const namesDatabase: MuslimName[] = _merged.filter(n => {
   return true;
 });
 
+/** O(1) slug → name lookup. Built once at load. Includes alias mappings. */
+const slugToNameMap = new Map<string, MuslimName>();
+for (const n of namesDatabase) {
+  slugToNameMap.set(n.slug.toLowerCase(), n);
+}
+for (const [alias, target] of Object.entries(slugAliases)) {
+  const name = slugToNameMap.get(target);
+  if (name && !slugToNameMap.has(alias.toLowerCase())) {
+    slugToNameMap.set(alias.toLowerCase(), name);
+  }
+}
+
 // === IMPROVED SEARCH ALGORITHM WITH FUZZY MATCHING AND SCORING ===
 
 function levenshtein(a: string, b: string): number {
@@ -3941,11 +3953,10 @@ export function findNameBySlug(slug: string | null | undefined): MuslimName | un
   const normalized = typeof slug === "string" ? slug.toLowerCase().trim() : "";
   if (!normalized || normalized.length > 80) return undefined;
   if (/[<>"'\s]/.test(normalized)) return undefined; // Reject suspicious input
-  const direct = namesDatabase.find(n => n.slug === normalized);
+  const direct = slugToNameMap.get(normalized);
   if (direct) return direct;
   const aliased = resolveSlugAlias(normalized);
-  if (aliased !== normalized) return namesDatabase.find(n => n.slug === aliased);
-  return undefined;
+  return aliased !== normalized ? slugToNameMap.get(aliased) : undefined;
 }
 
 /**

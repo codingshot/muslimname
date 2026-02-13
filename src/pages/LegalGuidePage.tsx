@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import { legalNameChangeDatabase, type LegalNameChangeGuide } from "@/data/legalNameChange";
 import { getRelatedCountries } from "@/data/countryRelations";
 import { motion, AnimatePresence } from "framer-motion";
-import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw, Filter } from "lucide-react";
+import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw, Filter, LayoutGrid, Table2, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
@@ -368,25 +368,45 @@ function CountryDetail({
   );
 }
 
+type SortColumn = "country" | "difficulty" | "cost" | "timeline";
+type SortDir = "asc" | "desc";
+
 export default function LegalGuidePage() {
   const [search, setSearch] = useState("");
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [filterDifficulty, setFilterDifficulty] = useState<string>("all");
   const [filterPrice, setFilterPrice] = useState<string>("all");
   const [filterTime, setFilterTime] = useState<string>("all");
+  const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
+  const [sortBy, setSortBy] = useState<SortColumn>("country");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
 
   const activePriceFilter = priceFilters.find(f => f.key === filterPrice) ?? priceFilters[0];
   const activeTimeFilter = timeFilters.find(f => f.key === filterTime) ?? timeFilters[0];
 
-  const filtered = legalNameChangeDatabase
-    .filter(g => {
+  const handleSort = useCallback((col: SortColumn) => {
+    setSortBy(col);
+    setSortDir(prev => (prev === "asc" && sortBy === col ? "desc" : "asc"));
+  }, [sortBy]);
+
+  const filtered = useMemo(() => {
+    let list = legalNameChangeDatabase.filter(g => {
       if (search && !g.country.toLowerCase().includes(search.toLowerCase())) return false;
       if (filterDifficulty !== "all" && g.difficulty !== filterDifficulty) return false;
       if (!activePriceFilter.match(g)) return false;
       if (!activeTimeFilter.match(g)) return false;
       return true;
-    })
-    .sort((a, b) => (difficultyOrder[a.difficulty] ?? 1) - (difficultyOrder[b.difficulty] ?? 1));
+    });
+    const mult = sortDir === "asc" ? 1 : -1;
+    list = [...list].sort((a, b) => {
+      if (sortBy === "country") return mult * a.country.localeCompare(b.country);
+      if (sortBy === "difficulty") return mult * ((difficultyOrder[a.difficulty] ?? 1) - (difficultyOrder[b.difficulty] ?? 1));
+      if (sortBy === "cost") return mult * (a.estimatedCostUSD[0] - b.estimatedCostUSD[0]);
+      if (sortBy === "timeline") return mult * (a.estimatedTimelineWeeks[0] - b.estimatedTimelineWeeks[0]);
+      return 0;
+    });
+    return list;
+  }, [search, filterDifficulty, activePriceFilter, activeTimeFilter, sortBy, sortDir]);
 
   const selectedGuide = selectedCountry
     ? legalNameChangeDatabase.find(g => g.countryCode === selectedCountry)
@@ -532,12 +552,35 @@ export default function LegalGuidePage() {
                 )}
               </div>
 
-              {/* Results count */}
-              <p className="text-xs text-muted-foreground mb-4 text-center">
-                Showing {filtered.length} of {legalNameChangeDatabase.length} countries
-              </p>
+              {/* Results count + view toggle */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4">
+                <p className="text-xs text-muted-foreground">
+                  Showing {filtered.length} of {legalNameChangeDatabase.length} countries
+                </p>
+                <div className="flex rounded-lg border border-border p-0.5 bg-muted/30">
+                  <button
+                    onClick={() => setViewMode("cards")}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                      viewMode === "cards" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                    aria-pressed={viewMode === "cards"}
+                  >
+                    <LayoutGrid className="w-3.5 h-3.5" /> Cards
+                  </button>
+                  <button
+                    onClick={() => setViewMode("table")}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                      viewMode === "table" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                    aria-pressed={viewMode === "table"}
+                  >
+                    <Table2 className="w-3.5 h-3.5" /> Table
+                  </button>
+                </div>
+              </div>
 
               {/* Card Grid */}
+              {viewMode === "cards" && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {filtered.map((guide) => (
                   <CountryCard
@@ -547,6 +590,89 @@ export default function LegalGuidePage() {
                   />
                 ))}
               </div>
+              )}
+
+              {/* Table view */}
+              {viewMode === "table" && (
+              <div className="rounded-xl border border-border overflow-hidden bg-card">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-border bg-muted/50">
+                        <th>
+                          <button
+                            onClick={() => handleSort("country")}
+                            className="w-full flex items-center gap-1.5 px-4 py-3 text-left font-semibold hover:bg-muted/80 transition-colors"
+                          >
+                            Country
+                            {sortBy === "country" ? (sortDir === "asc" ? <ArrowUp className="w-3.5 h-3.5" /> : <ArrowDown className="w-3.5 h-3.5" />) : <ArrowUpDown className="w-3.5 h-3.5 text-muted-foreground/50" />}
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            onClick={() => handleSort("difficulty")}
+                            className="w-full flex items-center gap-1.5 px-4 py-3 text-left font-semibold hover:bg-muted/80 transition-colors"
+                          >
+                            Difficulty
+                            {sortBy === "difficulty" ? (sortDir === "asc" ? <ArrowUp className="w-3.5 h-3.5" /> : <ArrowDown className="w-3.5 h-3.5" />) : <ArrowUpDown className="w-3.5 h-3.5 text-muted-foreground/50" />}
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            onClick={() => handleSort("cost")}
+                            className="w-full flex items-center gap-1.5 px-4 py-3 text-left font-semibold hover:bg-muted/80 transition-colors"
+                          >
+                            Cost
+                            {sortBy === "cost" ? (sortDir === "asc" ? <ArrowUp className="w-3.5 h-3.5" /> : <ArrowDown className="w-3.5 h-3.5" />) : <ArrowUpDown className="w-3.5 h-3.5 text-muted-foreground/50" />}
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            onClick={() => handleSort("timeline")}
+                            className="w-full flex items-center gap-1.5 px-4 py-3 text-left font-semibold hover:bg-muted/80 transition-colors"
+                          >
+                            Timeline
+                            {sortBy === "timeline" ? (sortDir === "asc" ? <ArrowUp className="w-3.5 h-3.5" /> : <ArrowDown className="w-3.5 h-3.5" />) : <ArrowUpDown className="w-3.5 h-3.5 text-muted-foreground/50" />}
+                          </button>
+                        </th>
+                        <th className="px-4 py-3 text-left font-semibold text-muted-foreground w-20">Guide</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filtered.map((guide) => (
+                        <tr
+                          key={guide.countryCode}
+                          className="border-b border-border last:border-0 hover:bg-muted/30 transition-colors"
+                        >
+                          <td className="px-4 py-3">
+                            <button
+                              onClick={() => { setSelectedCountry(guide.countryCode); window.scrollTo(0, 0); }}
+                              className="flex items-center gap-2 text-left font-medium text-primary hover:underline"
+                            >
+                              <span className="text-xl">{guide.flag}</span>
+                              {guide.country}
+                            </button>
+                          </td>
+                          <td className="px-4 py-3">
+                            <DifficultyBadge difficulty={guide.difficulty} />
+                          </td>
+                          <td className="px-4 py-3 text-muted-foreground">{formatUSD(guide.estimatedCostUSD)}</td>
+                          <td className="px-4 py-3 text-muted-foreground">{guide.estimatedTimeline}</td>
+                          <td className="px-4 py-3">
+                            <button
+                              onClick={() => { setSelectedCountry(guide.countryCode); window.scrollTo(0, 0); }}
+                              className="text-xs font-medium text-primary hover:underline"
+                            >
+                              View →
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              )}
 
               {filtered.length === 0 && (
                 <div className="text-center py-12">

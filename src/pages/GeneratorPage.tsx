@@ -6,9 +6,11 @@ import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import { suggestFromMeaning, namesDatabase, findNameBySlug, getQuickNameSuggestions } from "@/data/names";
 import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, type NameMapping } from "@/data/nameMapping";
+import { getFiqhRuling } from "@/data/fiqh";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Sparkles, RefreshCw, Info, ArrowRight, BookOpen } from "lucide-react";
+import FiqhPanel from "@/components/FiqhPanel";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { useProfile } from "@/hooks/useProfile";
@@ -320,6 +322,9 @@ export default function GeneratorPage() {
                           );
                         })}
                       </div>
+                      <div className="mt-2">
+                        <FiqhPanel name={currentName} fiqh={getFiqhRuling(currentName, mappingInfo)} compact />
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -331,6 +336,7 @@ export default function GeneratorPage() {
                 <p className="text-xs text-muted-foreground">
                   We don&apos;t have a direct mapping for &quot;{currentName.trim().split(/\s+/)[0]}&quot;
                 </p>
+                <FiqhPanel name={currentName} fiqh={getFiqhRuling(currentName, null)} compact />
                 {didYouMeanSuggestions.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 items-center">
                     <span className="text-xs text-muted-foreground">Did you mean:</span>

@@ -1,8 +1,16 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Search, Heart, Menu, X, Sparkles, Scale, User, Shuffle } from "lucide-react";
-import { useState, useCallback } from "react";
+import { Search, Heart, Menu, X, Sparkles, Scale, User, Shuffle, Star } from "lucide-react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { to: "/names", label: "Browse Names" },
@@ -12,8 +20,24 @@ const navLinks = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [favoriteNames, setFavoriteNames] = useState<{ slug: string; name: string }[]>([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { profile } = useProfile();
+  const favoriteCount = profile.favorites.length;
+
+  useEffect(() => {
+    if (!dropdownOpen || favoriteCount === 0) return;
+    import("@/data/names").then(({ findNameBySlug }) => {
+      setFavoriteNames(
+        profile.favorites.slice(0, 6).map(f => ({
+          slug: f.slug,
+          name: findNameBySlug(f.slug)?.name ?? f.slug,
+        }))
+      );
+    });
+  }, [dropdownOpen, favoriteCount, profile.favorites]);
 
   const handleRandomQuranic = useCallback(async () => {
     const { namesDatabase } = await import("@/data/names");
@@ -63,17 +87,57 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Search className="w-3.5 h-3.5" />
               Search names...
             </Link>
-            <Link
-              to="/profile"
-              className={`p-2 rounded-lg transition-colors ${
-                location.pathname === "/profile"
-                  ? "bg-primary text-primary-foreground"
-                  : "hover:bg-muted text-muted-foreground hover:text-foreground"
-              }`}
-              aria-label="My Profile"
-            >
-              <User className="w-5 h-5" />
-            </Link>
+            <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
+              <DropdownMenuTrigger
+                className={`p-2 rounded-lg transition-colors relative ${
+                  location.pathname === "/profile"
+                    ? "bg-primary text-primary-foreground"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                }`}
+                aria-label={`My Profile${favoriteCount > 0 ? `, ${favoriteCount} favorites` : ""}`}
+              >
+                <User className="w-5 h-5" />
+                {favoriteCount > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 flex items-center justify-center bg-primary text-primary-foreground text-[10px] font-bold rounded-full">
+                    {favoriteCount > 99 ? "99+" : favoriteCount}
+                  </span>
+                )}
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[200px]">
+                <DropdownMenuItem asChild>
+                  <Link to="/profile" onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 cursor-pointer">
+                    <User className="w-4 h-4" /> My Profile
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                {favoriteCount > 0 ? (
+                  <>
+                    <DropdownMenuLabel className="text-xs text-muted-foreground font-normal px-2 py-1">
+                      Quick access — Favorites ({favoriteCount})
+                    </DropdownMenuLabel>
+                    {favoriteNames.map(({ slug, name }) => (
+                      <DropdownMenuItem key={slug} asChild>
+                        <Link to={`/name/${slug}`} onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 cursor-pointer">
+                          <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
+                          <span className="truncate">{name}</span>
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                    <DropdownMenuItem asChild>
+                      <Link to="/profile" onClick={() => setDropdownOpen(false)} className="text-primary font-medium cursor-pointer">
+                        View all {favoriteCount} favorites →
+                      </Link>
+                    </DropdownMenuItem>
+                  </>
+                ) : (
+                  <DropdownMenuItem asChild>
+                    <Link to="/names" onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 cursor-pointer">
+                      <Star className="w-3.5 h-3.5 text-muted-foreground shrink-0" /> Browse names to add favorites
+                    </Link>
+                  </DropdownMenuItem>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
@@ -94,6 +158,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="md:hidden overflow-hidden border-t border-border"
             >
               <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
+                <Link
+                  to="/profile"
+                  onClick={() => setMobileOpen(false)}
+                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors flex items-center justify-between ${
+                    location.pathname === "/profile"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:bg-muted"
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <Heart className="w-4 h-4" /> My Favorites
+                  </span>
+                  {favoriteCount > 0 && (
+                    <span className={`text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center ${
+                      location.pathname === "/profile" ? "bg-primary-foreground/20" : "bg-primary/20 text-primary"
+                    }`}>
+                      {favoriteCount}
+                    </span>
+                  )}
+                </Link>
                 {navLinks.map(link => (
                   <Link
                     key={link.to}
@@ -166,6 +250,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-display font-semibold mb-3">Explore</h4>
               <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+                <Link to="/profile" className="hover:text-primary transition-colors inline-flex items-center gap-1.5">
+                  My Favorites {favoriteCount > 0 && <span className="text-primary">({favoriteCount})</span>}
+                </Link>
                 <Link to="/names" className="hover:text-primary transition-colors">Browse Names</Link>
                 <Link to="/generator" className="hover:text-primary transition-colors">Name Generator</Link>
                 <Link to="/western-names" className="hover:text-primary transition-colors">Western Name Reference</Link>

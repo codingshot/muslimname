@@ -326,6 +326,8 @@ export function getCanonicalMappingKey(name: string | null | undefined): string 
 }
 
 /** Similar mappings: by shared Muslim names, and by same category. Excludes current key. */
+const SIMILAR_LIMIT = 12;
+
 export function getSimilarMappings(key: string): {
   bySharedMuslimNames: [string, NameMapping][];
   byCategory: [string, NameMapping][];
@@ -335,15 +337,22 @@ export function getSimilarMappings(key: string): {
   const muslimSet = new Set(m.muslimNames.map(n => n.toLowerCase()));
   const byShared: [string, NameMapping][] = [];
   const byCategory: [string, NameMapping][] = [];
+  const sharedKeys = new Set<string>();
+
   for (const [k, v] of Object.entries(christianToMuslimNameMapping)) {
     if (k === key) continue;
     const hasShared = v.muslimNames.some(n => muslimSet.has(n.toLowerCase()));
-    if (hasShared) byShared.push([k, v]);
-    if (v.category === m.category) byCategory.push([k, v]);
+    if (hasShared) {
+      byShared.push([k, v]);
+      sharedKeys.add(k);
+    } else if (v.category === m.category) {
+      byCategory.push([k, v]);
+    }
+    if (byShared.length >= SIMILAR_LIMIT && byCategory.length >= SIMILAR_LIMIT) break;
   }
   return {
-    bySharedMuslimNames: byShared.slice(0, 12),
-    byCategory: byCategory.filter(([k]) => !byShared.some(([s]) => s === k)).slice(0, 12),
+    bySharedMuslimNames: byShared.slice(0, SIMILAR_LIMIT),
+    byCategory: byCategory.filter(([k]) => !sharedKeys.has(k)).slice(0, SIMILAR_LIMIT),
   };
 }
 

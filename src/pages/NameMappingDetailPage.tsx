@@ -2,7 +2,9 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { christianToMuslimNameMapping, getSimilarMappings } from "@/data/nameMapping";
+import { getFiqhRuling } from "@/data/fiqh";
 import { findNameBySlug } from "@/data/names";
+import FiqhPanel from "@/components/FiqhPanel";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles, ExternalLink, Globe, BookOpen, Link2 } from "lucide-react";
 import { useProfile } from "@/hooks/useProfile";
@@ -28,6 +30,7 @@ export default function NameMappingDetailPage() {
   });
 
   const muslimStr = mapping.muslimNames.map(n => findNameBySlug(n)?.name ?? n).join(", ");
+  const fiqh = getFiqhRuling(displayName, mapping);
   const seoTitle = `${displayName} → Islamic Equivalent (${muslimStr}) | MuslimName.me`;
   const seoDesc = `${displayName} means "${mapping.meaning}". Islamic equivalents: ${muslimStr}. ${mapping.connection.slice(0, 80)}${mapping.connection.length > 80 ? "…" : ""}`;
   const canonicalUrl = `https://muslimname.me/western-names/${canonicalKey}`;
@@ -123,6 +126,11 @@ export default function NameMappingDetailPage() {
               Popular in: {mapping.popularIn.join(", ")}
             </p>
           )}
+
+          {/* Islamic fiqh ruling */}
+          <div className="mt-4">
+            <FiqhPanel name={displayName} fiqh={fiqh} />
+          </div>
 
           {/* Similar names in other cultures */}
           {(bySharedMuslimNames.length > 0 || byCategory.length > 0) && (

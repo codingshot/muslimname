@@ -1200,6 +1200,214 @@ For converts, 'Abd names are especially meaningful:
 - They connect you to a tradition going back to the Prophet's companions
 - **Abdullah** is particularly popular — it was the name of the Prophet's own father
     `
+  },
+  {
+    slug: "korean-names-islamic-equivalents",
+    title: "Korean Names and Their Islamic Equivalents: A Guide for New Muslims",
+    metaDescription: "Discover Islamic name equivalents for popular South Korean names. Seo-jun, Min-jun, Seo-yun, and 100+ Korean names mapped to Muslim names with meaning.",
+    excerpt: "South Korea is overwhelmingly non-Muslim — but if you're a Korean revert, your name can still connect to beautiful Islamic equivalents. We've mapped 100 popular Korean names.",
+    tags: ["korean", "names", "conversion", "multilingual"],
+    relatedSlugs: ["choosing-muslim-name-after-converting", "christian-names-islamic-equivalents", "multilingual-name-discovery-islam"],
+    content: `
+## Why Korean Names?
+
+South Korea has one of the smallest Muslim populations in East Asia. Most Korean given names are rooted in Hanja (Chinese characters) or pure Hangul — not traditionally Islamic. When a Korean person reverts to Islam, finding a name that honors both heritage and faith can feel challenging.
+
+MuslimName.me now maps 100 popular South Korean names (50 male, 50 female) to Islamic equivalents based on meaning, sound, and spiritual resonance.
+
+## How We Map Korean Names
+
+Korean names use hyphenated romanization: **Seo-jun**, **Min-jun**, **Ha-yun**. Our system:
+
+1. **Strips hyphens** — "Seo-jun" → Seojun
+2. **Accepts variants** — Si-woo, Siu; Woo-jin, Ujin; Yi-jun, Ijun
+3. **Matches by meaning** — Korean syllables (서, 민, 지, etc.) often carry meanings we align with Arabic equivalents
+
+## Popular Korean Male Names and Equivalents
+
+| Korean (Romanized) | Hangul | Islamic Equivalent | Connection |
+|---|---|---|---|
+| Seo-jun | 서준 | Sadiq, Safiy | Auspicious; Sadiq = truthful |
+| Min-jun | 민준 | Karim, Adil | Clever; Karim = generous |
+| Do-yun | 도윤 | Rahmah, Fadl | Path of mercy |
+| Ji-ho | 지호 | Huda, Hidaya | Wisdom; Huda = guidance |
+| Su-ho | 수호 | Hafiz, Wali | Guard; Hafiz = protector |
+| Si-u / Si-woo | 시우 | Sama, Rauf | Universe; Sama = sky |
+| U-jin / Woo-jin | 우진 | Aziz, Jalil | Help; Aziz = mighty |
+| Ji-u | 지우 | Huda, Hidaya | Wisdom (unisex) |
+| Hyun | 현 | Hasan, Hakeem | Virtuous; Hakeem = wise |
+| Min-ho | 민호 | Amin, Hakeem | Clever; Amin = trustworthy |
+
+## Popular Korean Female Names and Equivalents
+
+| Korean (Romanized) | Hangul | Islamic Equivalent | Connection |
+|---|---|---|---|
+| Seo-yun | 서윤 | Safiya, Warda | Auspicious; Safiya = pure |
+| Seo-yeon | 서연 | Safiya, Sundus | Auspicious; Sundus = fine silk |
+| Ha-yun | 하윤 | Rahmah, Naeem | Summer; Rahmah = mercy |
+| Seo-hyeon | 서현 | Basira, Safiya | Auspicious; Basira = insightful |
+| Ha-eun | 하은 | Rahmah, Naeem | Kindness; Naeem = comfort |
+| Min-seo | 민서 | Safiya, Sundus | Clever; Safiya = pure |
+| Ji-yu | 지유 | Warda, Jamila | Wisdom; Warda = rose |
+
+## Unisex Korean Names
+
+Many Korean names work for both genders: **Ji-u**, **Ji-won**, **Yeon-u**. We provide equivalents that suit either: Huda, Hidaya, Raja, Lubna, Warda.
+
+## Tips for Korean Reverts
+
+1. **You can keep your Korean name** — Islam doesn't require Arabization. If your name has a good meaning, it's fine.
+2. **Add a Muslim name informally** — Many reverts use their Islamic name at the masjid and Korean name elsewhere.
+3. **Choose by meaning** — If your Korean name means "wisdom" (지), names like Huda (guidance) or Hikma (wisdom) resonate.
+4. **Consider pronunciation** — Names like Noor, Safiya, Karim, Sadiq are easy for Korean speakers.
+
+Use our [Name Generator](/generator) to search your Korean name — with or without hyphens — and discover your Islamic equivalent.
+    `
+  },
+  {
+    slug: "fiqh-names-when-change-required",
+    title: "Fiqh of Names: When Is Changing Your Name Required in Islam?",
+    metaDescription: "Islamic rulings on name changes: when must you change your name (shirk, servitude to others) vs when it's recommended or permissible. Based on Quran and hadith.",
+    excerpt: "Not every name needs changing. Islam distinguishes between names that must be changed (shirk), those recommended to change, and those perfectly fine to keep.",
+    tags: ["fiqh", "names", "shirk", "conversion"],
+    relatedSlugs: ["is-changing-name-required-islam", "meaning-of-abd-names-islam", "choosing-muslim-name-after-converting"],
+    content: `
+## The Four Categories of Name Rulings
+
+Islamic scholars classify names into four rulings:
+
+1. **Obligatory to change (wajib)** — Names involving shirk or explicit kufr
+2. **Recommended to change (mustahabb)** — Names with bad, arrogant, or inappropriate meanings
+3. **Permissible (mubah)** — Neutral or good names
+4. **Preferred (mustahabb)** — Names indicating servitude to Allah, prophets, or virtuous meanings
+
+## Names That Must Be Changed
+
+### Servitude to Other Than Allah
+
+The Prophet ﷺ explicitly changed names that expressed worship of anything besides Allah. The word **Abd** (عبد) means "servant" or "worshipper." When combined with Allah's names — Abdullah, Abdur-Rahman — it's the most beloved naming tradition. But "Abd" + anything else is problematic:
+
+- **Abd al-Masih** — Servant of the Messiah (Jesus)
+- **Abd al-Rasul** — Servant of the Messenger
+- **Abd al-Ka'bah** — Servant of the Kaaba
+- **Abd al-Husayn** — Servant of a human
+- **Abd al-Shams** — Servant of the sun (created thing)
+
+The Quran states: *"Do not invoke any deity besides Him"* (28:88). Names that linguistically express servitude to other than Allah contradict tawhid.
+
+### Divinity Claims
+
+- **Malik al-Amlak** — "King of kings." The Prophet ﷺ said: *"The most despicable name in the sight of Allah is a man named 'King of kings'; there is no king except Allah."*
+- Using Allah's exclusive names (e.g. Ar-Rahman, Al-Qahhar) for humans without the "Abd" prefix
+
+### Deity Names
+
+Names of idols or deities used in religious veneration — Shiva, Vishnu, Zeus, etc. — when clearly tied to worship of other than Allah.
+
+## Names Recommended to Change
+
+The Prophet ﷺ changed names with harsh or negative meanings:
+
+- **Harb** (War) → **Salm** (Peace)
+- Names meaning bitter, rough, arrogant, or inviting mockery
+
+## Names That Are Fine to Keep
+
+- **Christian, Hebrew, Western names** — David, Mary, John, Sarah, Grace, Hope
+- **Culturally neutral names** — Most modern names carry no problematic connotations
+- **Names with positive meanings** — Islam does not require Arabization
+
+## Quran and Hadith Foundations
+
+**Quran:** Luqman 31:13 — *"Indeed, shirk is a great injustice."*  
+**Hadith:** The Prophet ﷺ changed names involving shirk and names with bad meanings. He kept names that were acceptable.
+
+## What MuslimName.me Does
+
+Our [Name Generator](/generator) includes **fiqh detection**. When you enter a name, we show:
+- Whether it must be changed (obligatory)
+- Whether it's recommended to change
+- Whether it's permissible
+- Suggested Muslim names when change is recommended
+
+This helps reverts and parents make informed decisions based on scholarly consensus.
+    `
+  },
+  {
+    slug: "multilingual-name-discovery-islam",
+    title: "Multilingual Name Discovery: Finding Your Islamic Equivalent in Any Language",
+    metaDescription: "Discover Islamic name equivalents for Korean, Chinese, Japanese, Thai, Vietnamese, Hindi, Russian, Spanish, and Portuguese names. 1700+ names mapped.",
+    excerpt: "Your name might be Korean, Chinese, Thai, or Vietnamese — and we've mapped thousands of names from non-Muslim-majority cultures to beautiful Islamic equivalents.",
+    tags: ["multilingual", "names", "conversion", "international"],
+    relatedSlugs: ["korean-names-islamic-equivalents", "christian-names-islamic-equivalents", "choosing-muslim-name-after-converting"],
+    content: `
+## Islam Is Global — So Are Names
+
+Islam has over 1.8 billion followers across every continent. Converts come from Korea, China, Japan, Thailand, Vietnam, Brazil, Russia, France, and everywhere in between. Most reverts grew up with names that have no obvious Islamic equivalent — until now.
+
+MuslimName.me maps **1700+ names** from dozens of languages and cultures to Islamic equivalents, with meaning, spiritual context, and Quranic references.
+
+## Languages and Regions We Support
+
+### East Asian Names
+
+- **Korean** — 100 popular South Korean names (Seo-jun, Min-jun, Seo-yun, Ha-yun, etc.)
+- **Chinese** — Pinyin and character-based names (Ming, Wei, Xiu, Lin)
+- **Japanese** — Common Japanese given names (Yuki, Sora, Hana, Yuna)
+
+### Southeast Asian Names
+
+- **Thai** — Thai romanized names
+- **Vietnamese** — Names with diacritics normalized (Đức → Duc)
+
+### South Asian Names
+
+- **Hindi** — Popular Indian names
+- **Bengali** — Names from Bangladesh and West Bengal
+
+### European and Latin American Names
+
+- **Spanish** — José → Yusuf, María → Maryam, Jesús → Isa
+- **Portuguese** — João, Maria, Pedro, Ana
+- **French** — Pierre, Marie, Louis, Sophie
+- **Russian** — Ivan, Dmitri, Anastasia
+- **German** — Common Germanic names
+
+### Abrahamic Names
+
+- **Hebrew** — Direct equivalents (Avraham → Ibrahim, Moshe → Musa)
+- **Christian/Western** — David, Mary, John, Elizabeth, and hundreds more
+
+## How Multilingual Mapping Works
+
+1. **Romanization normalization** — We strip diacritics (José → jose), handle hyphens (Seo-jun → seojun), and accept spelling variants.
+2. **Meaning-based matching** — When a name means "wisdom," "light," or "grace," we suggest Islamic names with similar meanings.
+3. **Sound and heritage** — For names without direct equivalents, we offer names that feel similar or honor the person's cultural background.
+4. **Category tags** — Each mapping is tagged (korean-male, japanese-female, biblical-male, etc.) so you can browse by origin.
+
+## Examples Across Languages
+
+| Original Name | Language | Islamic Equivalent | Connection |
+|---|---|---|---|
+| Seo-jun | Korean | Sadiq, Safiy | Auspicious; truthful |
+| Ming | Chinese | Noor, Munir | Bright; light |
+| Yuki | Japanese | Baraka, Rahma | Snow; blessing |
+| José | Spanish | Yusuf | Same root (Joseph) |
+| João | Portuguese | Yahya | John |
+| Dmitri | Russian | Dawud, Danyal | Gift; David/Daniel |
+| Pierre | French | Salman, Sakhrah | Stone; rock |
+
+## For Reverts from Non-Muslim Cultures
+
+If you're the only Muslim in your family or community, your name might feel "foreign" to Islamic spaces. Remember:
+
+1. **You don't have to change it** — If your name has a good or neutral meaning, it's permissible.
+2. **You can add a Muslim name** — Use it at the masjid, with Muslim friends, or as a middle name.
+3. **Explore equivalents** — Our database helps you find names that bridge your heritage and your faith.
+4. **Share your journey** — Many reverts keep their birth name to start conversations: "My name is Min-jun, my Muslim name is Karim."
+
+Use our [Name Generator](/generator) or [Browse Names](/names) to discover your Islamic equivalent — in any language.
+    `
   }
 ];
 
