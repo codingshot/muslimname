@@ -5,6 +5,8 @@ import {
   chineseCharToPinyin,
   getNamesForSearch,
   allMappedWesternNames,
+  muslimNameToWesternKeys,
+  categoryToWesternKeys,
 } from "./nameMappingData";
 import type { NameMapping } from "./nameMappingData";
 export type { NameMapping, NameMappingCategory } from "./nameMappingData";
@@ -138,6 +140,8 @@ function similarity(a: string, b: string): number {
   if (!a || !b) return 0;
   const al = a.toLowerCase().slice(0, 25);
   const bl = b.toLowerCase().slice(0, 25);
+  const lenDiff = Math.abs(al.length - bl.length);
+  if (lenDiff > 8) return 0; // too different in length — skip expensive ops
   if (bl.startsWith(al)) return 0.88 + Math.min(0.08, al.length * 0.008);
   if (al.startsWith(bl)) return 0.72 + Math.min(0.1, bl.length * 0.01);
   if (bl.includes(al) && al.length >= 3) return 0.7 + al.length * 0.02;
@@ -325,7 +329,7 @@ export function getCanonicalMappingKey(name: string | null | undefined): string 
   return christianToMuslimNameMapping[key] ? key : null;
 }
 
-/** Similar mappings: by shared Muslim names, and by same category. Excludes current key. */
+/** Similar mappings: by shared Muslim names, and by same category. Excludes current key. Uses pre-built indexes for O(1) lookup. */
 const SIMILAR_LIMIT = 12;
 
 export function getSimilarMappings(key: string): {
@@ -334,25 +338,31 @@ export function getSimilarMappings(key: string): {
 } {
   const m = christianToMuslimNameMapping[key];
   if (!m) return { bySharedMuslimNames: [], byCategory: [] };
-  const muslimSet = new Set(m.muslimNames.map(n => n.toLowerCase()));
-  const byShared: [string, NameMapping][] = [];
-  const byCategory: [string, NameMapping][] = [];
   const sharedKeys = new Set<string>();
 
-  for (const [k, v] of Object.entries(christianToMuslimNameMapping)) {
-    if (k === key) continue;
-    const hasShared = v.muslimNames.some(n => muslimSet.has(n.toLowerCase()));
-    if (hasShared) {
-      byShared.push([k, v]);
-      sharedKeys.add(k);
-    } else if (v.category === m.category) {
-      byCategory.push([k, v]);
-    }
-    if (byShared.length >= SIMILAR_LIMIT && byCategory.length >= SIMILAR_LIMIT) break;
+  for (const mn of m.muslimNames) {
+    const keys = muslimNameToWesternKeys.get(mn.toLowerCase());
+    if (keys) for (const k of keys) if (k !== key) sharedKeys.add(k);
   }
+  const byShared: [string, NameMapping][] = [];
+  for (const k of sharedKeys) {
+    const v = christianToMuslimNameMapping[k];
+    if (v) byShared.push([k, v]);
+    if (byShared.length >= SIMILAR_LIMIT) break;
+  }
+
+  const catKeys = categoryToWesternKeys.get(m.category) ?? [];
+  const byCategory: [string, NameMapping][] = [];
+  for (const k of catKeys) {
+    if (k === key || sharedKeys.has(k)) continue;
+    const v = christianToMuslimNameMapping[k];
+    if (v) byCategory.push([k, v]);
+    if (byCategory.length >= SIMILAR_LIMIT) break;
+  }
+
   return {
     bySharedMuslimNames: byShared.slice(0, SIMILAR_LIMIT),
-    byCategory: byCategory.filter(([k]) => !sharedKeys.has(k)).slice(0, SIMILAR_LIMIT),
+    byCategory: byCategory.slice(0, SIMILAR_LIMIT),
   };
 }
 

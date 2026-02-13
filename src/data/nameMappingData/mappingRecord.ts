@@ -274,7 +274,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
    "mason": { muslimNames: ["malik"], meaning: "Stone Worker", connection: "Mason = builder; Malik means king/authority", category: "western-male" },
    "logan": { muslimNames: ["layan"], meaning: "Small Hollow", connection: "Logan = small; Layan means tenderness/softness", category: "western-male" },
    "aiden": { muslimNames: ["haydan"], meaning: "Little Fire", connection: "Aiden = fiery; Haydan means moving/active", category: "western-male" },
-   "jonathan": { muslimNames: ["yunus"], meaning: "God is Gracious", connection: "Jonathan = given by God; Yunus is the whale prophet", category: "western-male" },
+   "jonathan": { muslimNames: ["yahya", "ata"], meaning: "Yahweh Has Given", connection: "Jonathan = God has given; Yahya (John) shares the same root — both mean 'God gives.' Jonah/Yunus is a different prophet (the whale).", hebrewOrigin: "יונתן (Yonatan)", category: "western-male" },
    "gregory": { muslimNames: ["gharibi"], meaning: "Vigilant", connection: "Gregory = watchful; Gharibi means noble stranger", category: "western-male" },
    "carl": { muslimNames: ["kamal"], meaning: "Free Man", connection: "Carl = free man; Kamal means perfection/completeness", category: "western-male" },
    "wayne": { muslimNames: ["waseem"], meaning: "Wagon Maker", connection: "Wayne = craftsman; Waseem means handsome/graceful", category: "western-male" },
@@ -957,6 +957,9 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "fernando": { muslimNames: ["farouq", "faris"], meaning: "Brave Journey", connection: "Fernando = bold; Farouq means distinguisher, Faris means knight", category: "spanish-male" },
   "alejandro": { muslimNames: ["iskandar", "aziz"], meaning: "Defender", connection: "Alejandro = Alexander; Iskandar in Arabic", category: "spanish-male" },
   "rosa": { muslimNames: ["warda", "zahra"], meaning: "Rose", connection: "Rosa = rose; Warda means rose in Arabic", category: "spanish-female" },
+  "rodrigo": { muslimNames: ["rashid", "faris"], meaning: "Famous Ruler", connection: "Rodrigo = Roderick; Rashid means rightly guided, Faris means knight", category: "spanish-male" },
+  "helen": { muslimNames: ["noor", "hilal"], meaning: "Light, Torch", connection: "Helen = light; Noor means divine light, Hilal means crescent", category: "western-female" },
+  "felicity": { muslimNames: ["sa'ida", "bahjah"], meaning: "Happiness", connection: "Felicity = happiness; Sa'ida means blessed, Bahjah means joy", category: "western-female" },
 
   // ===========================
   // INDONESIAN NAMES (Sanskrit/Javanese/non-Arabic)

@@ -17,4 +17,15 @@ export const chineseCharToPinyin: Record<string, string> = {
   "冬": "dong", "慧": "hui", "颖": "ying", "婷": "ting", "怡": "yi",
   "强": "qiang", "強": "qiang", "华": "hua", "華": "hua", "梅": "mei",
   "娟": "juan", "敏": "min",
+  // Extended common name characters
+  "雯": "wen", "文": "wen", "飞": "fei", "峰": "feng", "博": "bo",
+  "成": "cheng", "刚": "gang", "剛": "gang", "红": "hong", "紅": "hong",
+  "辉": "hui", "輝": "hui", "磊": "lei", "莉": "li", "玲": "ling",
+  "娜": "na", "萍": "ping", "琴": "qin", "清": "qing", "荣": "rong",
+  "榮": "rong", "瑞": "rui", "艳": "yan", "豔": "yan", "阳": "yang",
+  "陽": "yang", "杨": "yang", "楊": "yang", "云": "yun", "雲": "yun",
+  "建": "jian", "威": "wei", "维": "wei", "維": "wei",
+  "秀": "xiu", "雅": "ya", "妍": "yan", "宜": "yi",
+  "莹": "ying", "瑩": "ying", "雨": "yu", "悦": "yue",
+  "哲": "zhe", "振": "zhen", "智": "zhi", "紫": "zi", "梓": "zi",
 };
