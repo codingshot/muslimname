@@ -1,4 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import BottomNav from "@/components/BottomNav";
+import { prefetchDiscover, prefetchNamesPage, prefetchGenerator, prefetchLegalGuide, prefetchProfile, prefetchNameDetail } from "@/lib/prefetch";
 import { Search, Heart, Menu, X, Sparkles, Scale, User, Shuffle, Star } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,9 +15,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const navLinks = [
-  { to: "/names", label: "Browse Names" },
-  { to: "/generator", label: "Name Generator" },
-  { to: "/legal-guide", label: "Legal Guide" },
+  { to: "/discover", label: "Discover", prefetch: prefetchDiscover },
+  { to: "/names", label: "Browse Names", prefetch: prefetchNamesPage },
+  { to: "/generator", label: "Name Generator", prefetch: prefetchGenerator },
+  { to: "/legal-guide", label: "Legal Guide", prefetch: prefetchLegalGuide },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -68,6 +71,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link
                 key={link.to}
                 to={link.to}
+                onMouseEnter={() => link.prefetch?.()}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   location.pathname === link.to
                     ? "bg-primary text-primary-foreground"
@@ -82,6 +86,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-2">
             <Link
               to="/names"
+              onMouseEnter={() => prefetchNamesPage()}
               className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
               <Search className="w-3.5 h-3.5" />
@@ -117,14 +122,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </DropdownMenuLabel>
                     {favoriteNames.map(({ slug, name }) => (
                       <DropdownMenuItem key={slug} asChild>
-                        <Link to={`/name/${slug}`} onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 cursor-pointer">
+                        <Link to={`/name/${slug}`} onClick={() => setDropdownOpen(false)} onMouseEnter={() => prefetchNameDetail()} className="flex items-center gap-2 cursor-pointer">
                           <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
                           <span className="truncate">{name}</span>
                         </Link>
                       </DropdownMenuItem>
                     ))}
                     <DropdownMenuItem asChild>
-                      <Link to="/profile" onClick={() => setDropdownOpen(false)} className="text-primary font-medium cursor-pointer">
+                      <Link to="/profile" onClick={() => setDropdownOpen(false)} onMouseEnter={() => prefetchProfile()} className="text-primary font-medium cursor-pointer">
                         View all {favoriteCount} favorites →
                       </Link>
                     </DropdownMenuItem>
@@ -198,9 +203,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence>
       </header>
 
-      <main id="main-content" className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1 pb-16 md:pb-0">{children}</main>
 
-      <footer className="border-t border-border bg-card">
+      <BottomNav />
+
+      <footer className="border-t border-border bg-card pb-20 md:pb-12">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div>

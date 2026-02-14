@@ -372,8 +372,9 @@ export function getNamesByCategory(category: NameMapping["category"]): [string, 
 }
 
 /** Mappings popular in a given country (ISO 3166-1 alpha-2, e.g. "BR", "NG") */
-export function getMappingsByCountry(countryCode: string): [string, NameMapping][] {
-  const code = countryCode.toUpperCase();
+export function getMappingsByCountry(countryCode: string | null | undefined): [string, NameMapping][] {
+  const code = (countryCode ?? "").trim().toUpperCase();
+  if (!code || code.length !== 2) return [];
   return Object.entries(christianToMuslimNameMapping).filter(
     ([, v]) => v.popularIn?.includes(code)
   );

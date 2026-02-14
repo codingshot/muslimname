@@ -20,6 +20,7 @@ const ContributePage = lazy(() => import("./pages/ContributePage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+const DiscoverPage = lazy(() => import("./pages/DiscoverPage"));
 const BlogsPage = lazy(() => import("./pages/BlogsPage"));
 const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -119,6 +120,14 @@ const App = () => (
               element={
                 <PageSuspense>
                   <PrivacyPage />
+                </PageSuspense>
+              }
+            />
+            <Route
+              path="/discover"
+              element={
+                <PageSuspense>
+                  <DiscoverPage />
                 </PageSuspense>
               }
             />

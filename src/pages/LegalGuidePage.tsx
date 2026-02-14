@@ -3,8 +3,12 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { legalNameChangeDatabase, type LegalNameChangeGuide } from "@/data/legalNameChange";
 import { getRelatedCountries } from "@/data/countryRelations";
+import { getMappingsByCountry } from "@/data/nameMapping";
+import { findNameBySlug } from "@/data/names";
 import { motion, AnimatePresence } from "framer-motion";
-import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw, Filter, LayoutGrid, Table2, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useCountry } from "@/hooks/useCountry";
+import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw, Filter, LayoutGrid, Table2, ArrowUpDown, ArrowUp, ArrowDown, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
@@ -98,7 +102,7 @@ function DifficultyBadge({ difficulty }: { difficulty: string }) {
   );
 }
 
-function CountryCard({ guide, onClick }: { guide: LegalNameChangeGuide; onClick: () => void }) {
+function CountryCard({ guide, onClick, isUserLocation }: { guide: LegalNameChangeGuide; onClick: () => void; isUserLocation?: boolean }) {
   const key = `legal-progress-${guide.countryCode}`;
   const [progress, setProgress] = useState(0);
   useEffect(() => {
@@ -116,10 +120,17 @@ function CountryCard({ guide, onClick }: { guide: LegalNameChangeGuide; onClick:
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       onClick={onClick}
-      className="bg-card rounded-xl border border-border p-4 sm:p-5 text-left hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+      className={`bg-card rounded-xl border p-4 sm:p-5 text-left hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col h-full ${
+        isUserLocation ? "border-primary ring-1 ring-primary/20" : "border-border"
+      }`}
     >
       <div className="flex items-start justify-between mb-3">
-        <span className="text-3xl">{guide.flag}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-3xl">{guide.flag}</span>
+          {isUserLocation && (
+            <Badge className="bg-primary/15 text-primary border-primary/30 text-[10px] shrink-0">Your location</Badge>
+          )}
+        </div>
         <DifficultyBadge difficulty={guide.difficulty} />
       </div>
       <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-1">{guide.country}</h3>
@@ -310,15 +321,15 @@ function CountryDetail({
                 <button
                   key={r.countryCode}
                   onClick={() => { onSelectCountry(r.countryCode); window.scrollTo(0, 0); }}
-                  className="flex items-center gap-2 p-2.5 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-colors text-left"
+                  className="flex items-start gap-2 p-2.5 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-colors text-left min-w-0 overflow-hidden"
                 >
                   <span className="text-xl shrink-0">{r.flag}</span>
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0 flex-1 overflow-hidden">
                     <p className="text-sm font-medium text-foreground truncate">{r.country}</p>
-                    <p className="text-[10px] text-muted-foreground flex items-center gap-1">
-                      <span>{r.estimatedCost.split("(")[0].trim()}</span>
+                    <p className="text-[10px] text-muted-foreground truncate mt-0.5">{r.estimatedCost?.split("(")[0]?.trim() ?? ""}</p>
+                    <div className="mt-1">
                       <DifficultyBadge difficulty={r.difficulty} />
-                    </p>
+                    </div>
                   </div>
                 </button>
               ))}
@@ -326,6 +337,51 @@ function CountryDetail({
           </div>
         );
       }, [guide.countryCode, guide.difficulty, guide.estimatedCostUSD])}
+
+      {/* Popular names in this country (from name mapping) */}
+      {(() => {
+        if (!guide.countryCode?.trim()) return null;
+        const mappings = getMappingsByCountry(guide.countryCode.trim());
+        if (mappings.length === 0) return null;
+        const displayMappings = mappings
+          .filter(([, m]) => m.muslimNames?.length)
+          .slice(0, 12);
+        if (displayMappings.length === 0) return null;
+        return (
+          <div className="bg-card rounded-xl border border-border p-4 sm:p-5 mb-4">
+            <h3 className="font-display text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-primary" /> Popular names in {guide.country}
+            </h3>
+            <p className="text-xs text-muted-foreground mb-3">
+              Names commonly used in {guide.country} and their Islamic equivalents — useful when choosing your new name.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {displayMappings.map(([key, m]) => {
+                const muslimStr = (m.muslimNames ?? []).map(mn => findNameBySlug(mn)?.name ?? mn).join(", ");
+                return (
+                  <Link
+                    key={key}
+                    to={`/western-names/${key}`}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-muted/80 hover:bg-primary/10 text-sm text-foreground hover:text-primary transition-colors border border-transparent hover:border-primary/30"
+                  >
+                    <span className="font-medium capitalize">{key}</span>
+                    <span className="text-muted-foreground">→</span>
+                    <span className="text-primary">{muslimStr || "—"}</span>
+                  </Link>
+                );
+              })}
+            </div>
+            {mappings.length > 12 && (
+              <Link
+                to="/western-names"
+                className="inline-block mt-3 text-xs text-primary hover:underline font-medium"
+              >
+                View all {mappings.length} name mappings →
+              </Link>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Tips & Resources side by side */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
@@ -372,6 +428,7 @@ type SortColumn = "country" | "difficulty" | "cost" | "timeline";
 type SortDir = "asc" | "desc";
 
 export default function LegalGuidePage() {
+  const { country: userCountry } = useCountry();
   const [search, setSearch] = useState("");
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [filterDifficulty, setFilterDifficulty] = useState<string>("all");
@@ -405,8 +462,17 @@ export default function LegalGuidePage() {
       if (sortBy === "timeline") return mult * (a.estimatedTimelineWeeks[0] - b.estimatedTimelineWeeks[0]);
       return 0;
     });
+    // Pin user's country guide first (from settings or IP detection)
+    const code = userCountry?.trim().toUpperCase();
+    if (code && code.length === 2) {
+      const idx = list.findIndex(g => g.countryCode === code);
+      if (idx > 0) {
+        const [match] = list.splice(idx, 1);
+        list.unshift(match);
+      }
+    }
     return list;
-  }, [search, filterDifficulty, activePriceFilter, activeTimeFilter, sortBy, sortDir]);
+  }, [search, filterDifficulty, activePriceFilter, activeTimeFilter, sortBy, sortDir, userCountry]);
 
   const selectedGuide = selectedCountry
     ? legalNameChangeDatabase.find(g => g.countryCode === selectedCountry)
@@ -587,6 +653,7 @@ export default function LegalGuidePage() {
                     key={guide.countryCode}
                     guide={guide}
                     onClick={() => { setSelectedCountry(guide.countryCode); window.scrollTo(0, 0); }}
+                    isUserLocation={!!(userCountry?.trim() && userCountry.trim().toUpperCase() === guide.countryCode)}
                   />
                 ))}
               </div>
@@ -642,7 +709,9 @@ export default function LegalGuidePage() {
                       {filtered.map((guide) => (
                         <tr
                           key={guide.countryCode}
-                          className="border-b border-border last:border-0 hover:bg-muted/30 transition-colors"
+                          className={`border-b border-border last:border-0 hover:bg-muted/30 transition-colors ${
+                            userCountry?.trim() && userCountry.trim().toUpperCase() === guide.countryCode ? "bg-primary/5" : ""
+                          }`}
                         >
                           <td className="px-4 py-3">
                             <button
@@ -651,6 +720,9 @@ export default function LegalGuidePage() {
                             >
                               <span className="text-xl">{guide.flag}</span>
                               {guide.country}
+                              {userCountry?.trim() && userCountry.trim().toUpperCase() === guide.countryCode && (
+                                <Badge className="bg-primary/15 text-primary border-primary/30 text-[10px] ml-1">Your location</Badge>
+                              )}
                             </button>
                           </td>
                           <td className="px-4 py-3">

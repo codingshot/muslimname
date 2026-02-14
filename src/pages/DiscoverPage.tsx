@@ -1,0 +1,199 @@
+import { useState, useEffect, useCallback, useRef } from "react";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { prefetchNameDetail } from "@/lib/prefetch";
+import { motion, AnimatePresence } from "framer-motion";
+import { Play, Pause, ChevronLeft, ChevronRight, Star, Search } from "lucide-react";
+import Layout from "@/components/Layout";
+import { namesDatabase, type MuslimName } from "@/data/names";
+import { useProfile } from "@/hooks/useProfile";
+import { Badge } from "@/components/ui/badge";
+
+const AUTOPLAY_INTERVAL_MS = 4500;
+
+export default function DiscoverPage() {
+  const { toggleFavorite, isFavorite, addAsFirstOrLast } = useProfile();
+  const [index, setIndex] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const [names, setNames] = useState<MuslimName[]>(() =>
+    [...namesDatabase].sort(() => Math.random() - 0.5).slice(0, 100)
+  );
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const current = names[index];
+
+  const goNext = useCallback(() => {
+    setIndex(i => (i + 1) % names.length);
+  }, [names.length]);
+
+  const goPrev = useCallback(() => {
+    setIndex(i => (i - 1 + names.length) % names.length);
+  }, [names.length]);
+
+  useEffect(() => {
+    if (!playing || !current) return;
+    timerRef.current = setTimeout(goNext, AUTOPLAY_INTERVAL_MS);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [playing, current, goNext]);
+
+  const handleFavorite = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (current) toggleFavorite(current.slug);
+  };
+
+  const handleAddFirst = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (current) addAsFirstOrLast(current.slug, "first");
+  };
+
+  const handleAddLast = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (current) addAsFirstOrLast(current.slug, "last");
+  };
+
+  const shufflePool = useCallback(() => {
+    setNames(prev => [...prev].sort(() => Math.random() - 0.5));
+    setIndex(0);
+  }, []);
+
+  if (!current) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-16 text-center">
+          <p className="text-muted-foreground">Loading...</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  return (
+    <Layout>
+      <Helmet>
+        <title>Discover Names — Autoplay | MuslimName.me</title>
+        <meta name="description" content="Discover Muslim names one at a time. Swipe through, favorite, and add to your first or last name contenders." />
+      </Helmet>
+      <div className="min-h-[calc(100vh-8rem)] flex flex-col">
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+          <h1 className="font-display text-lg font-semibold">Discover Names</h1>
+          <div className="flex items-center gap-1">
+            <Link
+              to="/names"
+              className="p-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground"
+              aria-label="Search names"
+            >
+              <Search className="w-5 h-5" />
+            </Link>
+            <button
+              onClick={shufflePool}
+              className="text-xs text-muted-foreground hover:text-primary px-2 py-1"
+            >
+              Shuffle
+            </button>
+          </div>
+        </div>
+
+        {/* Main card area */}
+        <div className="flex-1 flex flex-col items-center justify-center px-4 py-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.slug}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="w-full max-w-md"
+            >
+              <Link to={`/name/${current.slug}`} className="block" onMouseEnter={() => prefetchNameDetail()}>
+                <div className="bg-card rounded-2xl border border-border p-8 shadow-card hover:shadow-card-hover transition-shadow">
+                  <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground text-center mb-1">
+                    {current.name}
+                  </h2>
+                  <p className="font-arabic text-2xl sm:text-3xl text-primary text-center mb-3">
+                    {current.arabic}
+                  </p>
+                  <p className="text-center text-muted-foreground text-sm mb-4">
+                    {current.meaning}
+                  </p>
+                  <div className="flex justify-center gap-2 flex-wrap">
+                    {current.isQuranic && (
+                      <Badge className="bg-secondary/20 text-secondary border-secondary/30 text-[10px]">Quranic</Badge>
+                    )}
+                    <Badge variant="outline" className="text-[10px] capitalize">{current.gender}</Badge>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Quick actions */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button
+              onClick={handleFavorite}
+              className={`p-3 rounded-full transition-colors ${
+                isFavorite(current.slug)
+                  ? "bg-secondary/20 text-secondary"
+                  : "bg-muted hover:bg-muted/80 text-muted-foreground hover:text-secondary"
+              }`}
+              aria-label={isFavorite(current.slug) ? "Remove from favorites" : "Add to favorites"}
+            >
+              <Star className={`w-6 h-6 ${isFavorite(current.slug) ? "fill-current" : ""}`} />
+            </button>
+            <button
+              onClick={handleAddFirst}
+              className="px-4 py-2 rounded-xl text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+            >
+              Add as First
+            </button>
+            <button
+              onClick={handleAddLast}
+              className="px-4 py-2 rounded-xl text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
+            >
+              Add as Last
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom controls bar */}
+        <div className="sticky bottom-0 left-0 right-0 bg-card/95 backdrop-blur border-t border-border px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          <div className="max-w-md mx-auto flex items-center justify-between gap-4">
+            <button
+              onClick={goPrev}
+              className="p-3 rounded-full bg-muted hover:bg-muted/80 text-foreground transition-colors"
+              aria-label="Previous name"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => setPlaying(p => !p)}
+              className="flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+              aria-label={playing ? "Pause" : "Play"}
+            >
+              {playing ? (
+                <>
+                  <Pause className="w-5 h-5" /> Pause
+                </>
+              ) : (
+                <>
+                  <Play className="w-5 h-5" /> Play
+                </>
+              )}
+            </button>
+            <button
+              onClick={goNext}
+              className="p-3 rounded-full bg-muted hover:bg-muted/80 text-foreground transition-colors"
+              aria-label="Next name"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+          <p className="text-center text-xs text-muted-foreground mt-2">
+            {index + 1} of {names.length}
+          </p>
+        </div>
+      </div>
+    </Layout>
+  );
+}

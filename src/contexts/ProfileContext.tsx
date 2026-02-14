@@ -127,12 +127,13 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
 
   /** Add name to favorites with position, creating entry if needed */
   const addAsFirstOrLast = useCallback((slug: string, position: NamePosition) => {
+    if (!slug?.trim()) return;
     setProfile(prev => {
       const exists = prev.favorites.find(f => f.slug === slug);
       const nextFavorites = exists
         ? prev.favorites.map(f =>
             f.slug === slug
-              ? { ...f, positions: f.positions.includes(position) ? f.positions : [...f.positions, position] }
+              ? { ...f, positions: (f.positions ?? []).includes(position) ? (f.positions ?? []) : [...(f.positions ?? []), position] }
               : f
           )
         : [...prev.favorites, { slug, positions: [position], rank: prev.favorites.length }];

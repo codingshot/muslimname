@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { christianToMuslimNameMapping, getSimilarMappings } from "@/data/nameMapping";
+import { getCountryFlag, getCountryName } from "@/lib/country";
 import { getFiqhRuling } from "@/data/fiqh";
 import { findNameBySlug } from "@/data/names";
 import FiqhPanel from "@/components/FiqhPanel";
@@ -122,8 +123,14 @@ export default function NameMappingDetailPage() {
           )}
 
           {mapping.popularIn && mapping.popularIn.length > 0 && (
-            <p className="text-xs text-muted-foreground mb-4">
-              Popular in: {mapping.popularIn.join(", ")}
+            <p className="text-xs text-muted-foreground mb-4 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+              <span>Popular in:</span>
+              {mapping.popularIn.map((code, i) => (
+                <span key={code} className="inline-flex items-center gap-1">
+                  {i > 0 && <span className="text-muted-foreground/50">,</span>}
+                  {getCountryFlag(code)} {getCountryName(code)}
+                </span>
+              ))}
             </p>
           )}
 

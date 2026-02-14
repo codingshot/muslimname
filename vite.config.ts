@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => ({
             if (id.includes("react-markdown") || id.includes("remark-") || id.includes("rehype-")) return "vendor-markdown";
           }
           if (id.includes("legalNameChange")) return "data-legal";
+          if (id.includes("blogs.ts")) return "data-blogs";
           if (id.includes("/names.ts") || id.includes("quranicNames") || id.includes("companionsAndProphets")) return "data-names";
           if (id.includes("nameMappingData") || id.includes("nameMapping.ts")) return "data-mapping";
         },

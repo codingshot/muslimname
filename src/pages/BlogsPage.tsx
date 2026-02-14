@@ -1,4 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
+import { prefetchBlogDetail } from "@/lib/prefetch";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { blogPosts } from "@/data/blogs";
@@ -70,7 +71,7 @@ export default function BlogsPage() {
         {/* Featured Post */}
         {featured && (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Link to={`/blogs/${featured.slug}`} className="block mb-10">
+            <Link to={`/blogs/${featured.slug}`} className="block mb-10" onMouseEnter={() => prefetchBlogDetail()}>
               <div className="bg-gradient-hero rounded-2xl p-8 md:p-12 text-white hover:opacity-95 transition-opacity">
                 <Badge className="bg-white/20 text-white border-white/30 mb-4">Featured Guide</Badge>
                 <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">{featured.title}</h2>
@@ -97,7 +98,7 @@ export default function BlogsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.05 }}
               >
-                <Link to={`/blogs/${post.slug}`} className="block group h-full">
+                <Link to={`/blogs/${post.slug}`} className="block group h-full" onMouseEnter={() => prefetchBlogDetail()}>
                   <article className="bg-card rounded-xl border border-border p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                     <div className="flex gap-1.5 flex-wrap mb-3">
                       {post.tags.slice(0, 2).map(tag => (

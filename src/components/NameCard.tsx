@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import { prefetchNameDetail } from "@/lib/prefetch";
 import { Star } from "lucide-react";
 import type { MuslimName } from "@/data/names";
 import { motion } from "framer-motion";
@@ -42,6 +43,7 @@ function NameCard({ name, index = 0 }: NameCardProps) {
         <Link
           to={`/name/${name.slug}`}
           className="block"
+          onMouseEnter={() => prefetchNameDetail()}
         >
           <div className="flex items-start justify-between mb-2 sm:mb-3 pr-8">
             <div className="min-w-0 flex-1">

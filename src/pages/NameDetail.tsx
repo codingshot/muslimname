@@ -1,26 +1,16 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect, useCallback } from "react";
-import { findNameBySlug, namesDatabase } from "@/data/names";
+import { findNameBySlug, namesDatabase, getRandomName } from "@/data/names";
 import { christianToMuslimNameMapping } from "@/data/nameMapping";
 import Layout from "@/components/Layout";
 import NameDetailSkeleton from "@/components/NameDetailSkeleton";
 import NameCard from "@/components/NameCard";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book } from "lucide-react";
+import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book, Shuffle } from "lucide-react";
 import { ShareName } from "@/components/ShareName";
 import { motion } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import { speakArabic, preloadVoices } from "@/lib/pronunciation";
 
 export default function NameDetail() {
@@ -29,7 +19,6 @@ export default function NameDetail() {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const navigate = useNavigate();
   const { isFavorite, toggleFavorite, addAsFirstOrLast } = useProfile();
-  const [addPosition, setAddPosition] = useState<"first" | "last" | null>(null);
 
   // Defer voice preload until user interacts with speak button (saves initial work)
   const preloadOnInteraction = useCallback(() => {
@@ -38,7 +27,7 @@ export default function NameDetail() {
 
   useEffect(() => {
     setLoading(true);
-    const t = setTimeout(() => setLoading(false), 300);
+    const t = setTimeout(() => setLoading(false), 100);
     return () => clearTimeout(t);
   }, [slug]);
 
@@ -67,18 +56,20 @@ export default function NameDetail() {
     return <Layout><NameDetailSkeleton /></Layout>;
   }
 
+  const nameThemes = name.themes ?? [];
   const similarNames = namesDatabase
-    .filter(n => n.slug !== name.slug && n.themes.some(t => name.themes.includes(t)))
+    .filter(n => n.slug !== name.slug && (n.themes ?? []).some(t => nameThemes.includes(t)))
     .sort((a, b) => {
-      const aShared = a.themes.filter(t => name.themes.includes(t)).length;
-      const bShared = b.themes.filter(t => name.themes.includes(t)).length;
+      const aShared = (a.themes ?? []).filter(t => nameThemes.includes(t)).length;
+      const bShared = (b.themes ?? []).filter(t => nameThemes.includes(t)).length;
       return bShared - aShared;
     })
     .slice(0, 3);
 
   const reverseMapping: { westernName: string; connection: string }[] = [];
   for (const [western, data] of Object.entries(christianToMuslimNameMapping)) {
-    if (data.muslimNames.some(n => n.toLowerCase() === name.slug || n.toLowerCase() === name.name.toLowerCase())) {
+    const muslimNames = data.muslimNames ?? [];
+    if (muslimNames.some(m => m.toLowerCase() === name.slug || m.toLowerCase() === (name.name ?? "").toLowerCase())) {
       reverseMapping.push({ westernName: western, connection: data.connection });
     }
   }
@@ -87,7 +78,7 @@ export default function NameDetail() {
     <Layout>
       <Helmet>
         <title>{name.name} — Islamic Name Meaning &amp; Origin | MuslimName.me</title>
-        <meta name="description" content={`${name.meaning}. ${name.detailedMeaning.slice(0, 120)}${name.detailedMeaning.length > 120 ? "…" : ""}`} />
+        <meta name="description" content={`${name.meaning ?? ""}. ${(name.detailedMeaning ?? "").slice(0, 120)}${(name.detailedMeaning ?? "").length > 120 ? "…" : ""}`} />
         <link rel="canonical" href={`https://muslimname.me/name/${name.slug}`} />
         <meta name="keywords" content={`${name.name}, Islamic name, Muslim name, ${name.meaning}, Arabic name${name.isQuranic ? ", Quranic name" : ""}`} />
         {/* Open Graph / Share Cards — rich previews when shared */}
@@ -124,10 +115,19 @@ export default function NameDetail() {
         </script>
       </Helmet>
       <article className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
-        {/* Back */}
-        <Link to="/names" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary mb-4 md:mb-6 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to all names
-        </Link>
+        {/* Back + Random */}
+        <div className="flex items-center justify-between gap-4 mb-4 md:mb-6">
+          <Link to="/names" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <ArrowLeft className="w-4 h-4" /> Back to all names
+          </Link>
+          <button
+            onClick={() => navigate(`/name/${getRandomName(name.gender === "male" || name.gender === "female" ? name.gender : undefined).slug}`)}
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Random name"
+          >
+            <Shuffle className="w-4 h-4" /> Surprise me
+          </button>
+        </div>
 
         {/* Hero */}
         <motion.div
@@ -199,16 +199,16 @@ export default function NameDetail() {
             )}
           </div>
 
-          {/* Row 3: Add as First/Last — primary CTAs */}
+          {/* Row 3: Add as First/Last — primary CTAs (quick add, no popup) */}
           <div className="mt-4 flex flex-wrap gap-2">
             <button
-              onClick={() => setAddPosition("first")}
+              onClick={() => addAsFirstOrLast(name.slug, "first")}
               className="px-4 py-2 rounded-xl text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
             >
               Add as First Name
             </button>
             <button
-              onClick={() => setAddPosition("last")}
+              onClick={() => addAsFirstOrLast(name.slug, "last")}
               className="px-4 py-2 rounded-xl text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
             >
               Add as Last Name
@@ -550,34 +550,6 @@ export default function NameDetail() {
             External links open in a new tab. MuslimName.me is not responsible for external content.
           </p>
         </motion.section>
-
-        {/* Add as First/Last confirmation */}
-        <AlertDialog open={!!addPosition} onOpenChange={(open) => !open && setAddPosition(null)}>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>
-                Add {name.name} as a {addPosition === "first" ? "First" : "Last"} Name?
-              </AlertDialogTitle>
-              <AlertDialogDescription>
-                This will save {name.name} to your favorites as a {addPosition === "first" ? "first" : "last"} name contender and take you to your profile.
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction
-                onClick={() => {
-                  if (addPosition) {
-                    addAsFirstOrLast(name.slug, addPosition);
-                    setAddPosition(null);
-                    navigate(`/profile?scroll=${addPosition}`);
-                  }
-                }}
-              >
-                Add & Go to Profile
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
       </article>
     </Layout>
   );

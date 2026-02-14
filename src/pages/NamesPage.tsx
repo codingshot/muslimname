@@ -1,13 +1,20 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
-import { Search, X, ChevronDown, BookOpen, Shuffle } from "lucide-react";
+import { Search, X, ChevronDown, Shuffle, LayoutGrid, Smartphone } from "lucide-react";
 import { namesDatabase, searchNames, getOrigins, getThemes, getRandomName } from "@/data/names";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import Layout from "@/components/Layout";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const genderFilters = ["all", "male", "female", "unisex"];
 
@@ -154,6 +161,7 @@ export default function NamesPage() {
   const scriptureFilter = searchParams.get("scripture") || "all";
 
   const [loading, setLoading] = useState(true);
+  const [viewMode, setViewMode] = useState<"grid" | "swipe">("grid");
 
   const origins = useMemo(() => getOrigins(), []);
   const themes = useMemo(() => getThemes(), []);
@@ -312,13 +320,35 @@ export default function NamesPage() {
                 Clear all
               </button>
             )}
-            <button
-              type="button"
-              onClick={() => navigate(`/name/${getRandomName().slug}`)}
-              className="ml-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Shuffle className="w-3.5 h-3.5" /> Surprise me
-            </button>
+            <div className="ml-auto flex items-center gap-1">
+              <div className="flex rounded-lg border border-border overflow-hidden" role="group" aria-label="View mode">
+                <button
+                  type="button"
+                  onClick={() => setViewMode("grid")}
+                  className={`p-1.5 ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:text-foreground"}`}
+                  aria-pressed={viewMode === "grid"}
+                  aria-label="Grid view"
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode("swipe")}
+                  className={`p-1.5 ${viewMode === "swipe" ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:text-foreground"}`}
+                  aria-pressed={viewMode === "swipe"}
+                  aria-label="Swipe view"
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={() => navigate(`/name/${getRandomName(gender !== "all" ? gender as "male" | "female" : undefined).slug}`)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Shuffle className="w-3.5 h-3.5" /> Surprise me
+              </button>
+            </div>
           </div>
 
           {/* Active filter chips */}
@@ -352,17 +382,53 @@ export default function NamesPage() {
         <div className="max-w-5xl mx-auto">
           <p className="text-sm text-muted-foreground mb-3">
             {results.length} name{results.length !== 1 ? "s" : ""} found
+            {viewMode === "swipe" && " · Swipe or use arrows to browse"}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-            {loading ? (
-              Array.from({ length: 9 }).map((_, i) => <NameCardSkeleton key={i} />)
-            ) : (
-              results.map((name, i) => (
-                <NameCard key={name.slug} name={name} index={i} />
-              ))
-            )}
-          </div>
+          {viewMode === "grid" ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              {loading ? (
+                Array.from({ length: 9 }).map((_, i) => <NameCardSkeleton key={i} />)
+              ) : (
+                results.map((name, i) => (
+                  <NameCard key={name.slug} name={name} index={i} />
+                ))
+              )}
+            </div>
+          ) : (
+            <div className="relative -mx-4 sm:mx-0 px-4 sm:px-12">
+              {loading ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                  {Array.from({ length: 3 }).map((_, i) => <NameCardSkeleton key={i} />)}
+                </div>
+              ) : results.length > 0 ? (
+                <Carousel
+                  opts={{
+                    align: "center",
+                    loop: true,
+                    dragFree: false,
+                    containScroll: "trimSnaps",
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent className="-ml-2 sm:-ml-4">
+                    {results.map((name, i) => (
+                      <CarouselItem
+                        key={name.slug}
+                        className="pl-2 sm:pl-4 basis-full sm:basis-[85%] md:basis-[70%] lg:basis-[50%] max-w-[420px] mx-auto"
+                      >
+                        <div className="py-2">
+                          <NameCard name={name} index={i} />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="-left-1 sm:-left-10 top-1/2 -translate-y-1/2 flex h-9 w-9 sm:h-10 sm:w-10" />
+                  <CarouselNext className="-right-1 sm:-right-10 top-1/2 -translate-y-1/2 flex h-9 w-9 sm:h-10 sm:w-10" />
+                </Carousel>
+              ) : null}
+            </div>
+          )}
 
           {!loading && results.length === 0 && (
             <div className="text-center py-12 md:py-16">

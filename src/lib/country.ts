@@ -12,6 +12,29 @@ export interface CountryInfo {
   name: string;
 }
 
+/** Convert ISO 3166-1 alpha-2 code to flag emoji (e.g. "US" → "🇺🇸") */
+export function getCountryFlag(code: string): string {
+  if (!code || code.length !== 2) return "";
+  const c = code.toUpperCase();
+  return [...c].map(char => String.fromCodePoint(0x1f1e6 - 65 + char.charCodeAt(0))).join("");
+}
+
+/** Get display name for country code; uses COUNTRY_OPTIONS when available */
+export function getCountryName(code: string): string {
+  const upper = code?.toUpperCase();
+  if (!upper || upper.length !== 2) return code || "";
+  const found = COUNTRY_OPTIONS.find(c => c.code === upper);
+  if (found) return found.name;
+  const names: Record<string, string> = {
+    VN: "Vietnam", CN: "China", KR: "South Korea", JP: "Japan",
+    AE: "UAE", EG: "Egypt", SA: "Saudi Arabia", MY: "Malaysia",
+    ID: "Indonesia", PK: "Pakistan", BD: "Bangladesh", PH: "Philippines",
+    TR: "Turkey", RU: "Russia", MX: "Mexico", AR: "Argentina",
+    CO: "Colombia", GH: "Ghana", ZA: "South Africa", KE: "Kenya",
+  };
+  return names[upper] || upper;
+}
+
 /** Common countries for name popularity (ISO 3166-1 alpha-2) */
 export const COUNTRY_OPTIONS: CountryInfo[] = [
   { code: "BR", name: "Brazil" },

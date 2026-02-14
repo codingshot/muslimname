@@ -3,14 +3,14 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useProfile, type FavoriteEntry, type NamePosition } from "@/hooks/useProfile";
 import { useCountry } from "@/hooks/useCountry";
-import { COUNTRY_OPTIONS } from "@/lib/country";
+import { COUNTRY_OPTIONS, getCountryFlag, getCountryName } from "@/lib/country";
 import { findNameBySlug, searchNames } from "@/data/names";
 import { getMappingContext, getDidYouMeanSuggestions } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, GripVertical, Trash2, Settings, Heart, Sparkles, ArrowRight, Search, Globe, BookOpen } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Star, GripVertical, Trash2, Heart, Sparkles, ArrowRight, Search, Globe, BookOpen, Book } from "lucide-react";
+import { motion } from "framer-motion";
 
 const meaningKeywords = [
   "grace", "strong", "light", "beautiful", "pure", "faithful",
@@ -23,8 +23,7 @@ export default function ProfilePage() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const { profile, updateSettings, toggleFavorite, togglePosition, setFavoritePosition, addAsFirstOrLast, reorderFavorites } = useProfile();
-  const { country, setCountry } = useCountry();
-  const [activeTab, setActiveTab] = useState<"favorites" | "settings">("favorites");
+  const { country } = useCountry();
   const dragItem = useRef<number | null>(null);
   const dragOverItem = useRef<number | null>(null);
   const firstSectionRef = useRef<HTMLDivElement>(null);
@@ -56,7 +55,6 @@ export default function ProfilePage() {
   useEffect(() => {
     const scroll = searchParams.get("scroll");
     if (!scroll) return;
-    setActiveTab("favorites");
     const el = scroll === "first" ? firstSectionRef.current : scroll === "last" ? lastSectionRef.current : null;
     if (el) {
       setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
@@ -72,45 +70,111 @@ export default function ProfilePage() {
             My Profile
           </h1>
           <p className="text-muted-foreground mb-6 text-sm sm:text-base">
-            Manage your favorite names, set preferences, and plan your name choices
+            Add favorites, set preferences, and explore first+last combinations with meanings, Quranic fit, and best matches
           </p>
         </motion.div>
 
-        {/* Tabs */}
-        <div className="flex gap-1 mb-6 bg-muted rounded-lg p-1">
-          {[
-            { key: "favorites" as const, label: "My Favorites", icon: Heart },
-            { key: "settings" as const, label: "Settings", icon: Settings },
-          ].map(tab => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${
-                activeTab === tab.key
-                  ? "bg-background text-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              <tab.icon className="w-4 h-4" />
-              {tab.label}
-              {tab.key === "favorites" && profile.favorites.length > 0 && (
-                <span className="bg-primary text-primary-foreground text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                  {profile.favorites.length}
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+          {/* Quick Add */}
+          <QuickAddNames
+            isFavorite={(slug: string) => profile.favorites.some(f => f.slug === slug)}
+            addAsFirstOrLast={addAsFirstOrLast}
+          />
 
-        {activeTab === "favorites" && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
-            {/* Quick Add - always shown in favorites tab */}
-            <QuickAddNames
-              isFavorite={(slug: string) => profile.favorites.some(f => f.slug === slug)}
-              addAsFirstOrLast={addAsFirstOrLast}
-            />
+          {/* Your Current Name + Islamic mapping */}
+          <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
+            <h3 className="font-display text-lg font-semibold mb-4">Your Current Name</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium text-muted-foreground mb-1.5 block">First Name</label>
+                <Input
+                  value={profile.settings.currentFirstName ?? ""}
+                  onChange={e => updateSettings({ currentFirstName: e.target.value })}
+                  placeholder="e.g., David"
+                  className="rounded-lg"
+                />
+                {firstNameMapping ? (
+                  <p className="mt-1.5 text-xs text-primary">
+                    → Maps to: <span className="font-semibold">{firstNameMapping.muslimNames.join(", ")}</span>
+                  </p>
+                ) : (profile.settings.currentFirstName ?? "").trim() && (() => {
+                  const suggestions = getDidYouMeanSuggestions(profile.settings.currentFirstName ?? "", 3, { countryCode: country ?? undefined });
+                  return suggestions.length > 0 ? (
+                    <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                      <span className="text-xs text-muted-foreground">Did you mean:</span>
+                      {suggestions.map(({ displayName, canonicalKey }) => (
+                        <button
+                          key={canonicalKey}
+                          type="button"
+                          onClick={() => updateSettings({ currentFirstName: displayName })}
+                          onDoubleClick={() => navigate(`/western-names/${canonicalKey}`)}
+                          title="Double-click to see full details"
+                          className="text-xs font-medium text-primary hover:underline bg-primary/10 px-2 py-0.5 rounded-full"
+                        >
+                          {displayName}
+                        </button>
+                      ))}
+                    </div>
+                  ) : null;
+                })()}
+              </div>
+              <div>
+                <label className="text-sm font-medium text-muted-foreground mb-1.5 block">Last Name</label>
+                <Input
+                  value={profile.settings.currentLastName}
+                  onChange={e => updateSettings({ currentLastName: e.target.value })}
+                  placeholder="e.g., Smith"
+                  className="rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
 
-            {profile.favorites.length === 0 ? (
+          {/* Qualities you like + Gender — locally saved */}
+          <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
+            <h3 className="font-display text-lg font-semibold mb-2">Qualities That Matter to You</h3>
+            <p className="text-sm text-muted-foreground mb-4">We use these to highlight name combinations that fit your preferences</p>
+            <div className="flex gap-2 flex-wrap">
+              {meaningKeywords.map(m => (
+                <button
+                  key={m}
+                  onClick={() => {
+                    const current = profile.settings.preferredMeanings;
+                    updateSettings({
+                      preferredMeanings: current.includes(m)
+                        ? current.filter(x => x !== m)
+                        : [...current, m],
+                    });
+                  }}
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium capitalize transition-all ${
+                    profile.settings.preferredMeanings.includes(m)
+                      ? "bg-primary text-primary-foreground shadow-glow scale-105"
+                      : "bg-muted text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {m}
+                </button>
+              ))}
+            </div>
+            <h3 className="font-display text-base font-semibold mt-4 mb-2">Gender Preference</h3>
+            <div className="flex gap-2 flex-wrap">
+              {(["all", "male", "female", "unisex"] as const).map(g => (
+                <button
+                  key={g}
+                  onClick={() => updateSettings({ genderPreference: g })}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-colors ${
+                    profile.settings.genderPreference === g
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {g === "all" ? "No Preference" : g}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {profile.favorites.length === 0 ? (
               <div className="text-center py-16 bg-card rounded-xl border border-border">
                 <Star className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">No favorites yet</h3>
@@ -147,6 +211,17 @@ export default function ProfilePage() {
                   />
                 </div>
 
+                {/* Name Combinations — first+last meaning, Quranic, best fit */}
+                {firstNameEntries.length > 0 && lastNameEntries.length > 0 && (
+                  <NameCombinationsSection
+                    firstEntries={firstNameEntries}
+                    lastEntries={lastNameEntries}
+                    preferredMeanings={profile.settings.preferredMeanings}
+                    findNameBySlug={findNameBySlug}
+                    navigate={navigate}
+                  />
+                )}
+
                 {/* All Saved Names */}
                 <div className="rounded-xl p-4 bg-card border border-border">
                   <h3 className="font-display text-base font-semibold text-foreground mb-3">⭐ All Saved Names</h3>
@@ -168,47 +243,50 @@ export default function ProfilePage() {
                           onDragEnter={() => handleDragEnter(idx)}
                           onDragEnd={handleDragEnd}
                           onDragOver={e => e.preventDefault()}
-                          className="flex items-center gap-3 bg-background rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
+                          className="flex flex-col sm:flex-row sm:items-center gap-3 bg-background rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
                         >
-                          <GripVertical className="w-4 h-4 text-muted-foreground shrink-0" />
-                          <Link to={`/name/${entry.slug}`} className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2">
-                              <span className="font-display font-semibold text-foreground truncate">{nameData.name}</span>
-                              <span className="font-arabic text-sm text-secondary">{nameData.arabic}</span>
-                            </div>
-                            <p className="text-xs text-muted-foreground truncate">{nameData.meaning}</p>
-                          </Link>
-
-                          {/* Position tags */}
-                          <div className="flex gap-1 shrink-0">
-                            <button
-                              onClick={() => togglePosition(entry.slug, "first")}
-                              className={`px-2 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors ${
-                                entry.positions.includes("first")
-                                  ? "bg-primary text-primary-foreground"
-                                  : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-                              }`}
-                            >
-                              First
-                            </button>
-                            <button
-                              onClick={() => togglePosition(entry.slug, "last")}
-                              className={`px-2 py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors ${
-                                entry.positions.includes("last")
-                                  ? "bg-secondary text-secondary-foreground"
-                                  : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-                              }`}
-                            >
-                              Last
-                            </button>
+                          <div className="flex items-start gap-3 min-w-0 flex-1">
+                            <GripVertical className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                            <Link to={`/name/${entry.slug}`} className="flex-1 min-w-0">
+                              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                <span className="font-display font-semibold text-foreground truncate">{nameData.name}</span>
+                                <span className="font-arabic text-sm text-secondary shrink-0">{nameData.arabic}</span>
+                              </div>
+                              <p className="text-xs text-muted-foreground truncate mt-0.5">{nameData.meaning}</p>
+                            </Link>
                           </div>
 
-                          <button
-                            onClick={() => toggleFavorite(entry.slug)}
-                            className="p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors shrink-0"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
+                          {/* Position tags + trash — stack on mobile */}
+                          <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap shrink-0 pl-7 sm:pl-0">
+                            <div className="flex gap-1">
+                              <button
+                                onClick={() => togglePosition(entry.slug, "first")}
+                                className={`px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors min-h-[36px] sm:min-h-0 ${
+                                  entry.positions.includes("first")
+                                    ? "bg-primary text-primary-foreground"
+                                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                                }`}
+                              >
+                                First
+                              </button>
+                              <button
+                                onClick={() => togglePosition(entry.slug, "last")}
+                                className={`px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors min-h-[36px] sm:min-h-0 ${
+                                  entry.positions.includes("last")
+                                    ? "bg-secondary text-secondary-foreground"
+                                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                                }`}
+                              >
+                                Last
+                              </button>
+                            </div>
+                            <button
+                              onClick={() => toggleFavorite(entry.slug)}
+                              className="p-2 sm:p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors shrink-0 min-h-[36px] min-w-[36px] sm:min-h-0 sm:min-w-0 flex items-center justify-center"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </div>
                         </div>
                       );
                     })}
@@ -216,96 +294,36 @@ export default function ProfilePage() {
                 </div>
               </>
             )}
-          </motion.div>
-        )}
 
-        {activeTab === "settings" && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
-            {/* Current Name */}
-            <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
-              <h3 className="font-display text-lg font-semibold mb-4">Your Current Name</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-muted-foreground mb-1.5 block">First Name</label>
-                  <Input
-                    value={profile.settings.currentFirstName ?? ""}
-                    onChange={e => updateSettings({ currentFirstName: e.target.value })}
-                    placeholder="e.g., David"
-                    className="rounded-lg"
-                  />
-                  {firstNameMapping ? (
-                    <p className="mt-1.5 text-xs text-primary">
-                      → Maps to: <span className="font-semibold">{firstNameMapping.muslimNames.join(", ")}</span>
-                    </p>
-                  ) : (profile.settings.currentFirstName ?? "").trim() && (() => {
-                    const suggestions = getDidYouMeanSuggestions(profile.settings.currentFirstName ?? "", 3, { countryCode: country ?? undefined });
-                    return suggestions.length > 0 ? (
-                      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-                        <span className="text-xs text-muted-foreground">Did you mean:</span>
-                        {suggestions.map(({ displayName, canonicalKey }) => (
-                          <button
-                            key={canonicalKey}
-                            type="button"
-                            onClick={() => updateSettings({ currentFirstName: displayName })}
-                            onDoubleClick={() => navigate(`/western-names/${canonicalKey}`)}
-                            title="Double-click to see full details"
-                            className="text-xs font-medium text-primary hover:underline bg-primary/10 px-2 py-0.5 rounded-full"
-                          >
-                            {displayName}
-                          </button>
-                        ))}
-                      </div>
-                    ) : null;
-                  })()}
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-muted-foreground mb-1.5 block">Last Name</label>
-                  <Input
-                    value={profile.settings.currentLastName}
-                    onChange={e => updateSettings({ currentLastName: e.target.value })}
-                    placeholder="e.g., Smith"
-                    className="rounded-lg"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Region / Country */}
-            <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
+          {/* Region + Options */}
+          <div className="bg-card rounded-xl border border-border p-5 sm:p-6 space-y-5">
+            <div>
               <h3 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
                 <Globe className="w-5 h-5 text-primary" /> Region / Country
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                We use your country to recommend names popular in your region. Set manually or we'll detect from your location.
+                We use your country to recommend names popular in your region.
               </p>
               <select
                 value={profile.settings.country ?? (country ?? "")}
-                onChange={e => {
-                  const v = e.target.value;
-                  updateSettings({ country: v || undefined });
-                }}
+                onChange={e => updateSettings({ country: e.target.value || undefined })}
                 className="w-full max-w-xs rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               >
-                <option value="">Auto-detect</option>
+                <option value="">🌐 Auto-detect</option>
                 {COUNTRY_OPTIONS.map(c => (
-                  <option key={c.code} value={c.code}>{c.name}</option>
+                  <option key={c.code} value={c.code}>{getCountryFlag(c.code)} {c.name}</option>
                 ))}
               </select>
-              {country && (
-                <p className="mt-1.5 text-xs text-muted-foreground">
-                  {profile.settings.country ? "Manual selection" : "Detected from your location"}
+              {country && !profile.settings.country && (
+                <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1">
+                  {getCountryFlag(country)} Detected: {getCountryName(country)}
                 </p>
               )}
             </div>
-
-            {/* Show Mapping Sources */}
-            <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
-              <h3 className="font-display text-lg font-semibold mb-3 flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-primary" /> Name Reference Options
+            <div>
+              <h3 className="font-display text-base font-semibold mb-2 flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-primary" /> Name Reference
               </h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                When enabled, source URLs for name data will be shown on the Western Name Reference and name mapping detail pages.
-              </p>
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -313,73 +331,24 @@ export default function ProfilePage() {
                   onChange={e => updateSettings({ showMappingSources: e.target.checked || undefined })}
                   className="rounded border-border"
                 />
-                <span className="text-sm font-medium">Keep / show sources</span>
+                <span className="text-sm font-medium">Show source URLs on mapping pages</span>
               </label>
             </div>
+          </div>
 
-            {/* Gender Preference */}
-            <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
-              <h3 className="font-display text-lg font-semibold mb-3">Gender Preference</h3>
-              <div className="flex gap-2 flex-wrap">
-                {(["all", "male", "female", "unisex"] as const).map(g => (
-                  <button
-                    key={g}
-                    onClick={() => updateSettings({ genderPreference: g })}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-colors ${
-                      profile.settings.genderPreference === g
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {g === "all" ? "No Preference" : g}
-                  </button>
-                ))}
-              </div>
+          {(profile.settings.currentFirstName || profile.settings.preferredMeanings.length > 0) && (
+            <div className="bg-primary/5 rounded-xl border border-primary/20 p-5 text-center">
+              <p className="text-sm text-muted-foreground mb-3">Ready to discover more names based on your preferences?</p>
+              <Link
+                to={`/generator${profile.settings.currentFirstName ? `?name=${encodeURIComponent(profile.settings.currentFirstName)}` : ""}`}
+              >
+                <Button className="rounded-xl">
+                  <Sparkles className="w-4 h-4 mr-2" /> Find My Names <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
-
-            {/* Preferred Meanings */}
-            <div className="bg-card rounded-xl border border-border p-5 sm:p-6">
-              <h3 className="font-display text-lg font-semibold mb-2">Qualities That Matter to You</h3>
-              <p className="text-sm text-muted-foreground mb-4">Select meanings you'd like your name to embody</p>
-              <div className="flex gap-2 flex-wrap">
-                {meaningKeywords.map(m => (
-                  <button
-                    key={m}
-                    onClick={() => {
-                      const current = profile.settings.preferredMeanings;
-                      updateSettings({
-                        preferredMeanings: current.includes(m)
-                          ? current.filter(x => x !== m)
-                          : [...current, m],
-                      });
-                    }}
-                    className={`px-3 py-1.5 rounded-full text-sm font-medium capitalize transition-all ${
-                      profile.settings.preferredMeanings.includes(m)
-                        ? "bg-primary text-primary-foreground shadow-glow scale-105"
-                        : "bg-muted text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {m}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Action */}
-            {(profile.settings.currentFirstName || profile.settings.preferredMeanings.length > 0) && (
-              <div className="bg-primary/5 rounded-xl border border-primary/20 p-5 text-center">
-                <p className="text-sm text-muted-foreground mb-3">Ready to discover names based on your preferences?</p>
-                <Link
-                  to={`/generator${profile.settings.currentFirstName ? `?name=${encodeURIComponent(profile.settings.currentFirstName)}` : ""}`}
-                >
-                  <Button className="rounded-xl">
-                    <Sparkles className="w-4 h-4 mr-2" /> Find My Names <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </div>
-            )}
-          </motion.div>
-        )}
+          )}
+        </motion.div>
       </div>
     </Layout>
   );
@@ -420,31 +389,133 @@ function QuickAddNames({
             {results.map(n => (
               <div
                 key={n.slug}
-                className="flex items-center justify-between gap-2 px-3 py-2 hover:bg-muted/50 border-b border-border last:border-0"
+                className="flex flex-col gap-2 px-3 py-2.5 hover:bg-muted/50 border-b border-border last:border-0"
               >
-                <Link to={`/name/${n.slug}`} className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-2 min-w-0">
                   <span className="font-display font-semibold text-foreground">{n.name}</span>
-                  <span className="font-arabic text-sm text-secondary ml-1">{n.arabic}</span>
-                  <p className="text-xs text-muted-foreground truncate">{n.meaning}</p>
-                </Link>
-                <div className="flex gap-1 shrink-0">
+                  <span className="font-arabic text-sm text-secondary shrink-0">{n.arabic}</span>
+                  <Link
+                    to={`/name/${n.slug}`}
+                    className="text-xs text-muted-foreground hover:text-primary ml-auto shrink-0"
+                  >
+                    View →
+                  </Link>
+                </div>
+                <p className="text-xs text-muted-foreground truncate -mt-1">{n.meaning}</p>
+                <div className="flex gap-2">
                   <button
                     onClick={() => addAsFirstOrLast(n.slug, "first")}
-                    className="px-2 py-1 rounded-md text-[10px] font-semibold uppercase bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold uppercase bg-primary/15 text-primary hover:bg-primary/25 border border-primary/30 transition-colors"
                   >
-                    First
+                    + First
                   </button>
                   <button
                     onClick={() => addAsFirstOrLast(n.slug, "last")}
-                    className="px-2 py-1 rounded-md text-[10px] font-semibold uppercase bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
+                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold uppercase bg-secondary/15 text-secondary hover:bg-secondary/25 border border-secondary/30 transition-colors"
                   >
-                    Last
+                    + Last
                   </button>
                 </div>
               </div>
             ))}
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+/** Name combinations: first+last pairs with combined meaning, Quranic, best fit */
+function NameCombinationsSection({
+  firstEntries,
+  lastEntries,
+  preferredMeanings,
+  findNameBySlug,
+  navigate,
+}: {
+  firstEntries: FavoriteEntry[];
+  lastEntries: FavoriteEntry[];
+  preferredMeanings: string[];
+  findNameBySlug: (slug: string) => { name: string; arabic?: string; meaning: string; isQuranic: boolean; themes: string[]; popularity: number } | undefined;
+  navigate: (path: string) => void;
+}) {
+  const combos = firstEntries.flatMap(fe => {
+    const firstData = findNameBySlug(fe.slug);
+    if (!firstData) return [];
+    const firstThemes = firstData.themes ?? [];
+    return lastEntries.map(le => {
+      const lastData = findNameBySlug(le.slug);
+      if (!lastData) return null;
+      const lastThemes = lastData.themes ?? [];
+      const sharedThemes = firstThemes.filter(t => lastThemes.includes(t));
+      const prefs = preferredMeanings ?? [];
+      const matchesPrefs = prefs.length > 0
+        ? prefs.filter(p => firstThemes.includes(p) || lastThemes.includes(p)).length
+        : 0;
+      const bothQuranic = !!(firstData.isQuranic && lastData.isQuranic);
+      const avgPopularity = ((firstData.popularity ?? 0) + (lastData.popularity ?? 0)) / 2;
+      return {
+        first: firstData,
+        last: lastData,
+        combinedMeaning: `${firstData.meaning ?? ""} + ${lastData.meaning ?? ""}`.trim() || "—",
+        bothQuranic,
+        sharedThemes,
+        matchScore: matchesPrefs * 2 + sharedThemes.length + (bothQuranic ? 1 : 0),
+        avgPopularity,
+      };
+    }).filter(Boolean) as { first: typeof firstData; last: typeof lastData; combinedMeaning: string; bothQuranic: boolean; sharedThemes: string[]; matchScore: number; avgPopularity: number }[];
+  });
+
+  const sorted = [...combos].sort((a, b) => b.matchScore - a.matchScore);
+
+  return (
+    <div className="rounded-xl p-4 bg-card border border-border">
+      <h3 className="font-display text-base font-semibold text-foreground mb-1 flex items-center gap-2">
+        <Book className="w-5 h-5 text-secondary" /> Name Combinations
+      </h3>
+      <p className="text-xs text-muted-foreground mb-3">
+        See how first + last pair together: combined meaning, Quranic names, and best fit for your preferences
+      </p>
+      <div className="space-y-3">
+        {sorted.map(({ first, last, combinedMeaning, bothQuranic, sharedThemes, matchScore, avgPopularity }) => (
+          <div
+            key={`${first.name}-${last.name}`}
+            className="rounded-lg border border-border p-3 bg-background hover:shadow-card-hover transition-shadow"
+          >
+            <div className="flex flex-wrap items-baseline gap-2 mb-1">
+              <button
+                onClick={() => navigate(`/name/${first.slug}`)}
+                className="font-display font-semibold text-primary hover:underline"
+              >
+                {first.name}
+              </button>
+              <span className="text-muted-foreground">+</span>
+              <button
+                onClick={() => navigate(`/name/${last.slug}`)}
+                className="font-display font-semibold text-secondary hover:underline"
+              >
+                {last.name}
+              </button>
+              {bothQuranic && (
+                <Badge className="bg-secondary/20 text-secondary border-secondary/30 text-[10px]">Both Quranic</Badge>
+              )}
+              {matchScore > 0 && (preferredMeanings?.length ?? 0) > 0 && (
+                <Badge variant="outline" className="text-[10px]">Good fit</Badge>
+              )}
+            </div>
+            <p className="text-sm text-muted-foreground mb-2">{combinedMeaning}</p>
+            <div className="flex flex-wrap gap-1.5 text-xs">
+              {sharedThemes.length > 0 && (
+                <span className="text-primary">
+                  Shared: {sharedThemes.map(t => t).join(", ")}
+                </span>
+              )}
+              {avgPopularity >= 70 && (
+                <span className="text-muted-foreground">• Popular choice</span>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -484,7 +555,7 @@ function DropSection({
       {entries.length === 0 ? (
         <p className="text-sm text-muted-foreground italic py-2">{emptyMessage}</p>
       ) : (
-        <div className="flex gap-1.5 flex-wrap">
+        <div className="flex gap-2 flex-wrap">
           {entries.map(entry => {
             const nameData = findNameBySlug(entry.slug);
             if (!nameData) return null;
@@ -492,7 +563,7 @@ function DropSection({
               <Link
                 key={entry.slug}
                 to={`/name/${entry.slug}`}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20 transition-colors min-h-[36px] sm:min-h-0"
               >
                 {nameData.name}
                 <span className="font-arabic text-xs text-secondary">{nameData.arabic}</span>

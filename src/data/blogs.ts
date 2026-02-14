@@ -1408,6 +1408,206 @@ If you're the only Muslim in your family or community, your name might feel "for
 
 Use our [Name Generator](/generator) or [Browse Names](/names) to discover your Islamic equivalent — in any language.
     `
+  },
+  {
+    slug: "hindu-names-islamic-equivalents",
+    title: "Hindu Names and Their Islamic Equivalents: A Guide for Indian Reverts",
+    metaDescription: "Discover Islamic equivalents for popular Hindu names like Arjun, Rohan, Priya, and Diya. Meaning-based mapping for Indian converts to Islam.",
+    excerpt: "If you're an Indian revert with a Hindu name, you can find beautiful Islamic equivalents that preserve the meaning and spirit of your original name.",
+    tags: ["hindu", "names", "conversion", "india"],
+    relatedSlugs: ["christian-names-islamic-equivalents", "multilingual-name-discovery-islam", "south-asian-muslim-names-traditions"],
+    content: `
+## Bridging Traditions: Hindu and Islamic Names
+
+India is home to one of the world's largest Muslim populations and a growing number of reverts. Many Indian reverts have Hindu-origin names — Arjun, Rohan, Priya, Diya — and wonder if there are Islamic equivalents that honor both their heritage and their new faith.
+
+The answer is yes. Islamic names often share the same beautiful meanings: light, wisdom, beloved, strength. We map Hindu names to Islamic equivalents based on meaning, not just sound.
+
+## Popular Hindu Male Names and Islamic Equivalents
+
+| Hindu Name | Meaning | Islamic Equivalent | Connection |
+|---|---|---|---|
+| Arjun | Bright, White, Heroic | Hamza, Asad | Arjun = heroic; Hamza and Asad mean lion — strength |
+| Rohan | Ascending | Rayyan, Rauf | Rohan = ascending; Rayyan is a gate of Paradise |
+| Dev | Divine, God | Abdullah, Abdurrahman | Dev = divine; Abdullah means servant of Allah |
+| Rahul | Efficient, Capable | Raheem, Rahim | Rahul = capable; Raheem means merciful (Ar-Raheem) |
+| Akash | Sky | Samaa, Falak | Akash = sky; Samaa means sky/heaven in Arabic |
+| Vivek | Wisdom | Hikma, Basir | Vivek = wisdom; Hikma means wisdom in Arabic |
+| Amar | Immortal | Ammar, Khalid | Amar = eternal; Khalid means eternal — Khalid ibn al-Walid |
+| Anil | Air, Wind | Anas, Adil | Anil = wind; Anas means friendly |
+
+## Popular Hindu Female Names and Islamic Equivalents
+
+| Hindu Name | Meaning | Islamic Equivalent | Connection |
+|---|---|---|---|
+| Priya | Beloved | Habiba, Wadud | Priya = beloved; Habiba means beloved, Wadud means loving |
+| Ananya | Unique | Wahida, Farida | Ananya = unique; Wahida means unique |
+| Meera | Prosperous, Ocean | Maryam | Meera = ocean; Maryam is honored in Islam |
+| Kavya | Poetry | Shair, Adiba | Kavya = poetry; Adiba means cultured/well-mannered |
+| Diya | Lamp, Light | Noor, Siraj | Diya = lamp; Noor means light, Siraj means lamp |
+| Nisha | Night | Layla, Sahar | Nisha = night; Layla means night, Sahar means dawn |
+| Pooja | Worship, Prayer | Ibadah, Dua | Pooja = worship; Ibadah means worship in Arabic |
+
+## Why Meaning-Based Mapping Matters
+
+Hindu and Islamic naming traditions both value meaning. When we map Arjun (bright/heroic) to Hamza (lion), we're connecting the idea of strength. When we map Diya (lamp) to Noor (light), we're honoring the shared symbolism of light across traditions.
+
+You don't have to abandon the essence of your name — you can find an Islamic name that carries the same spiritual weight.
+
+## Do You Have to Change Your Hindu Name?
+
+No. If your name has a good or neutral meaning (like Priya, meaning beloved), it's permissible to keep it. If you prefer an Islamic equivalent for use at the masjid or with Muslim friends, our [Name Generator](/generator) and [Western Names](/western-names) database can help you find the perfect match.
+    `
+  },
+  {
+    slug: "chinese-names-islamic-equivalents",
+    title: "Chinese Names and Their Islamic Equivalents: A Guide for New Muslims",
+    metaDescription: "Discover Islamic equivalents for popular Chinese names like Ming, Wei, Yong, and Hao. Meaning-based mapping for Chinese converts to Islam.",
+    excerpt: "Chinese reverts often have names with beautiful meanings — bright, strong, brave, prosperous. These map beautifully to Islamic names that share the same spiritual depth.",
+    tags: ["chinese", "names", "conversion", "multilingual"],
+    relatedSlugs: ["korean-names-islamic-equivalents", "multilingual-name-discovery-islam", "choosing-muslim-name-after-converting"],
+    content: `
+## Chinese Names Meet Islamic Tradition
+
+China has a long history of Muslim communities — from the Hui in the east to the Uyghurs in the west. Today, a growing number of ethnic Han Chinese are embracing Islam. If your name is Ming, Wei, Yong, or Hao, you might wonder: is there an Islamic equivalent?
+
+Yes. We map Chinese names to Islamic equivalents based on meaning. Chinese characters often carry profound meanings that translate beautifully into Arabic names.
+
+## Popular Chinese Male Names and Islamic Equivalents
+
+| Chinese Name | Character | Meaning | Islamic Equivalent | Connection |
+|---|---|---|---|---|
+| Ming | 明 | Bright, Clear | Noor, Munir | Ming = bright; Noor means light, Munir means radiant |
+| Wei | 伟 | Great, Mighty | Aziz, Wali | Wei = greatness; Aziz means mighty, Wali means guardian |
+| Yong | 勇 | Brave | Shuja, Hamza | Yong = brave; Shuja means courageous, Hamza means lion |
+| Hao | 浩 | Vast, Grand | Hasan, Jameel | Hao = vast; Hasan means good, Jameel means beautiful |
+| Qiang | 强 | Strong | Quwwah, Aziz | Qiang = strong; Quwwah means strength |
+| Jie | 杰 | Outstanding | Fadl, Karim | Jie = outstanding; Fadl means excellence, Karim means generous |
+| Lei | 雷 | Thunder, Upright | Rauf, Rahim | Lei = thunder; Rauf means compassionate |
+| Xin | 欣/鑫 | Prosperity, Joyful | Barakat, Rizq | Xin = prosperity; Barakat means blessings, Rizq means provision |
+| Ze | 泽 | Grace, Favor | Rahma, Fadl | Ze = grace; Rahma means mercy |
+| Ziheng | 子恒 | Steadfast Child | Thabit, Sabir | Ziheng = steadfast; Thabit means firm, Sabir means patient |
+
+## Compound Chinese Names
+
+Many modern Chinese names combine characters:
+
+- **Yuhang** (宇航) — Space voyage → Siraj, Noor (light)
+- **Haoran** (浩然) — Vast noble spirit → Karim, Rahim (generous, merciful)
+- **Ziming** (志明) — Aspiring and bright → Noor, Hidaya (light, guidance)
+- **Deming** (德明) — Virtuous and bright → Sadiq, Amin (truthful, trustworthy)
+- **Yongle** (永乐) — Forever happy → Farhan, Saad (joyful, fortunate)
+
+## The Shared Love of Meaning
+
+Chinese naming tradition, like Islamic naming, places great weight on meaning. Parents choose characters that express hopes for their child: 明 (bright), 勇 (brave), 泽 (grace). Islamic names do the same — Noor (light), Shuja (courageous), Rahma (mercy).
+
+When you find your Islamic equivalent, you're not losing your identity. You're adding another layer of meaning that connects you to a global community of faith.
+
+Use our [Name Generator](/generator) to discover your Chinese name's Islamic equivalent.
+    `
+  },
+  {
+    slug: "unisex-muslim-names-meaningful-choices",
+    title: "Unisex Muslim Names: Meaningful Choices for Any Gender",
+    metaDescription: "Discover beautiful unisex Muslim names that work for boys and girls. Noor, Karim, Rayyan, and more — names with deep meaning for any child.",
+    excerpt: "Unisex Muslim names offer flexibility and beauty. Whether you're waiting to learn your baby's gender or simply love a name that transcends categories, these choices carry deep meaning.",
+    tags: ["names", "unisex", "baby names", "meaning"],
+    relatedSlugs: ["beautiful-muslim-girl-names", "strong-muslim-boy-names", "choosing-muslim-name-after-converting"],
+    content: `
+## Why Choose a Unisex Muslim Name?
+
+Some parents prefer names that work for any child. Others love names that transcend gender categories. In the Islamic tradition, several beautiful names are considered unisex — carrying the same spiritual weight whether given to a boy or a girl.
+
+## Beloved Unisex Muslim Names
+
+### Light and Radiance
+
+- **Noor** — Light. One of the most popular unisex names. Surah An-Nur: "Allah is the Light of the heavens and the earth."
+- **Siraj** — Lamp. A light that guides others.
+- **Munira** — Luminous, radiant. Carries the same root as Noor.
+
+### Virtue and Character
+
+- **Karim** — Generous. One of the 99 Names of Allah (Al-Karim).
+- **Rahim** — Merciful. From Ar-Rahim, the Most Merciful.
+- **Salam** — Peace. A beautiful name and a greeting among Muslims.
+- **Sabir** — Patient. Sabr (patience) is a cardinal Islamic virtue.
+
+### Nature and Creation
+
+- **Baraka** — Blessing. Barakah is divine blessing that multiplies good.
+- **Hikma** — Wisdom. Valued across all Islamic scholarship.
+
+## Names That Work Across Cultures
+
+Unisex Muslim names often have an advantage: they're easy to pronounce in many languages. Noor, Karim, Rayyan — these names travel well and are recognized by Muslims worldwide.
+
+## For Expecting Parents
+
+If you're pregnant and haven't learned your baby's gender yet, a unisex name lets you prepare one beautiful choice. Or you might simply prefer a name that doesn't box your child into a category — Islam offers many such options.
+
+Browse our [Names](/names) database filtered by "unisex" to discover more.
+    `
+  },
+  {
+    slug: "names-popular-nigeria-brazil-india",
+    title: "Names Popular in Nigeria, Brazil, and India: Regional Favorites",
+    metaDescription: "Discover which Muslim names are most popular among reverts and communities in Nigeria, Brazil, and India. Regional naming trends for new Muslims.",
+    excerpt: "Where you live shapes which names feel familiar. In Nigeria, Brazil, and India, certain Islamic names have become beloved — often because they bridge local and Islamic traditions.",
+    tags: ["names", "regional", "nigeria", "brazil", "india", "popular"],
+    relatedSlugs: ["african-muslim-names-heritage", "popular-muslim-names-for-converts", "hindu-names-islamic-equivalents"],
+    content: `
+## Why Region Matters for Name Choice
+
+Islam is global, but naming is local. In Nigeria, names like Yusuf and Maryam are hugely popular — partly because they map from common English names (Joseph, Mary) that many Nigerians already use. In Brazil, José → Yusuf and Maria → Maryam resonate with a Portuguese-speaking Muslim community. In India, Hindu-origin names like Arjun and Diya have Islamic equivalents (Hamza, Noor) that Indian reverts embrace.
+
+Understanding regional popularity helps you choose a name that feels at home in your community.
+
+## Names Popular in Nigeria
+
+Nigeria has one of Africa's largest Muslim populations and a strong revert community. Names that map from common English and Biblical names are especially popular:
+
+- **Yusuf** (Joseph) — "Best of stories" in the Quran
+- **Dawud** (David) — Prophet and king
+- **Yahya** (John) — Prophet, honored for piety
+- **Maryam** (Mary) — Only woman named in the Quran
+- **Grace** → Hana, Noor — Grace embodies divine favor
+- **Mercy** → Rahma — Divine mercy
+- **Patience** → Sabr — Cardinal Islamic virtue
+- **Peter** → Salman, Sakhrah — Rock; Salman al-Farisi
+
+These names bridge the Christian heritage many Nigerian reverts grew up with and their new Islamic identity.
+
+## Names Popular in Brazil
+
+Brazil's Muslim community is smaller but growing. Portuguese names map beautifully to Islamic equivalents:
+
+- **José** → Yusuf — Joseph
+- **Maria** → Maryam — Mary
+- **João** → Yahya — John
+- **Peter** → Salman — Rock
+- **Joseph** → Yusuf — Popular in both Nigeria and Brazil
+
+Brazilian reverts often choose names that sound familiar to Portuguese speakers while carrying deep Islamic meaning.
+
+## Names Popular in India
+
+India's Muslim population is among the largest in the world, and Hindu reverts often seek meaning-based equivalents:
+
+- **Arjun** → Hamza, Asad — Bright, heroic
+- **Rohan** → Rayyan, Rauf — Ascending
+- **Dev** → Abdullah — Divine
+- **Priya** → Habiba, Wadud — Beloved
+- **Diya** → Noor, Siraj — Lamp, light
+- **Meera** → Maryam — Ocean, prosperity
+
+Indian reverts can honor their cultural names while embracing Islamic equivalents that share the same beautiful meanings.
+
+## Finding Your Regional Fit
+
+Our [Name Generator](/generator) uses your detected or selected country to boost names popular in your region. If you're in Nigeria, Brazil, or India — or hail from those cultures — you'll see suggestions that resonate with your community.
+    `
   }
 ];
 

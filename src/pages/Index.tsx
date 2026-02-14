@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { Search, Sparkles, BookOpen, Scale, Users, ArrowRight, Heart } from "lucide-react";
+import { prefetchBlogDetail } from "@/lib/prefetch";
+import { Search, Sparkles, BookOpen, Scale, Users, ArrowRight, Heart, Shuffle } from "lucide-react";
 import { useState, useMemo, useDeferredValue } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
-import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions } from "@/data/names";
+import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions, getRandomName } from "@/data/names";
 import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, totalMappings } from "@/data/nameMapping";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
@@ -90,7 +91,7 @@ const Index = () => {
               Enter your current name and we'll find its Islamic equivalent — connecting your identity across Abrahamic traditions
             </p>
 
-            <form onSubmit={handleDiscover} className="flex gap-2 max-w-md mx-auto mb-4">
+            <form onSubmit={handleDiscover} className="flex gap-2 max-w-md mx-auto mb-3">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
                 <Input
@@ -136,6 +137,13 @@ const Index = () => {
                 <Sparkles className="w-4 h-4 mr-1.5" /> Discover
               </Button>
             </form>
+            <button
+              type="button"
+              onClick={() => navigate(`/name/${getRandomName().slug}`)}
+              className="inline-flex items-center gap-1.5 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+            >
+              <Shuffle className="w-4 h-4" /> Surprise me with a random name
+            </button>
 
             {/* Live mapping preview */}
             <AnimatePresence mode="wait">
@@ -326,17 +334,17 @@ const Index = () => {
       </section>
 
       {/* CTA — Name Discovery Flow */}
-      <section className="py-16 bg-gradient-hero geometric-pattern">
+      <section className="py-16 bg-primary geometric-pattern">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
               What's the Islamic Version of Your Name?
             </h2>
-            <p className="text-white/90 max-w-md mx-auto mb-8">
+            <p className="text-primary-foreground/90 max-w-md mx-auto mb-8">
               We've mapped {totalMappings}+ Christian, Hebrew, and Western names to their Islamic equivalents with spiritual context from all three Abrahamic traditions
             </p>
             <Link to="/generator">
@@ -358,7 +366,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {featuredBlogs.map((post, i) => (
               <motion.div key={post.slug} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <Link to={`/blogs/${post.slug}`} className="block group h-full">
+                <Link to={`/blogs/${post.slug}`} className="block group h-full" onMouseEnter={() => prefetchBlogDetail()}>
                   <article className="bg-card rounded-xl border border-border p-5 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                     <div className="flex gap-1.5 mb-2">
                       {post.tags.slice(0, 2).map(t => (
