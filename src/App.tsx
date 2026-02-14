@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,6 +9,7 @@ import { ProfileProvider } from "@/contexts/ProfileContext";
 
 import Index from "./pages/Index";
 import Layout from "./components/Layout";
+import { PageErrorBoundary } from "./components/PageErrorBoundary";
 
 // Lazy-load non-critical routes
 const NamesPage = lazy(() => import("./pages/NamesPage"));
@@ -23,159 +25,172 @@ const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const DiscoverPage = lazy(() => import("./pages/DiscoverPage"));
 const BlogsPage = lazy(() => import("./pages/BlogsPage"));
 const BlogDetailPage = lazy(() => import("./pages/BlogDetailPage"));
+const BrandPage = lazy(() => import("./pages/BrandPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-function PageSuspense({ children }: { children: React.ReactNode }) {
+function PageWithFallback({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense
-      fallback={
-        <Layout>
-          <div className="container mx-auto px-4 py-20 flex flex-col items-center justify-center min-h-[50vh]">
-            <div className="flex gap-1.5 mb-4">
-              {[0, 1, 2].map((i) => (
-                <div
-                  key={i}
-                  className="h-2 w-2 rounded-full bg-primary/60 animate-bounce"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                />
-              ))}
+    <PageErrorBoundary>
+      <Suspense
+        fallback={
+          <Layout>
+            <div className="container mx-auto px-4 py-20 flex flex-col items-center justify-center min-h-[50vh]">
+              <div className="flex gap-1.5 mb-4">
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="h-2 w-2 rounded-full bg-primary/60 animate-bounce"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                  />
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground">Loading...</p>
             </div>
-            <p className="text-sm text-muted-foreground">Loading...</p>
-          </div>
-        </Layout>
-      }
-    >
-      {children}
-    </Suspense>
+          </Layout>
+        }
+      >
+        {children}
+      </Suspense>
+    </PageErrorBoundary>
   );
 }
 
 const App = () => (
   <HelmetProvider>
-    <ProfileProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ProfileProvider>
       <TooltipProvider>
         <Toaster />
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<PageErrorBoundary><Index /></PageErrorBoundary>} />
             <Route
               path="/names"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <NamesPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/name/:slug"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <NameDetail />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/generator"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <GeneratorPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/western-names"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <WesternNamesPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             {/* Hidden route: individual name mapping detail (e.g. /western-names/an) */}
             <Route
               path="/western-names/:key"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <NameMappingDetailPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/legal-guide"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <LegalGuidePage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/contribute"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <ContributePage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/terms"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <TermsPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/privacy"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <PrivacyPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/discover"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <DiscoverPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/profile"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <ProfilePage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/blogs"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <BlogsPage />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
             <Route
               path="/blogs/:slug"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <BlogDetailPage />
-                </PageSuspense>
+                </PageWithFallback>
+              }
+            />
+            <Route
+              path="/brand"
+              element={
+                <PageWithFallback>
+                  <BrandPage />
+                </PageWithFallback>
               }
             />
             <Route
               path="*"
               element={
-                <PageSuspense>
+                <PageWithFallback>
                   <NotFound />
-                </PageSuspense>
+                </PageWithFallback>
               }
             />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </ProfileProvider>
+    </ThemeProvider>
   </HelmetProvider>
 );
 

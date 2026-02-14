@@ -1,13 +1,13 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { christianToMuslimNameMapping } from "@/data/nameMapping";
 import { useProfile } from "@/hooks/useProfile";
-import { findNameBySlug } from "@/data/names";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
-import { Search, BookOpen, ArrowRight, Sparkles } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Search, BookOpen, ArrowRight, Sparkles, Shuffle } from "lucide-react";
+import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
 import { motion, AnimatePresence } from "framer-motion";
 
 const categories = [
@@ -53,6 +53,7 @@ const categories = [
 ] as const;
 
 export default function WesternNamesPage() {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const { profile } = useProfile();
@@ -70,39 +71,50 @@ export default function WesternNamesPage() {
 
   const filteredMappings = useMemo(() => {
     return allMappings.filter(m => {
-      if (categoryFilter !== "all" && m.category !== categoryFilter) return false;
+      const cat = m.category ?? "";
+      if (categoryFilter !== "all" && cat !== categoryFilter) return false;
       if (!search.trim()) return true;
       const q = search.toLowerCase();
       return (
         m.westernName.toLowerCase().includes(q) ||
-        m.muslimNames.some(n => n.toLowerCase().includes(q)) ||
-        m.meaning.toLowerCase().includes(q) ||
-        m.connection.toLowerCase().includes(q) ||
+        (m.muslimNames ?? []).some(n => n.toLowerCase().includes(q)) ||
+        (m.meaning ?? "").toLowerCase().includes(q) ||
+        (m.connection ?? "").toLowerCase().includes(q) ||
         (m.originalScript && m.originalScript.includes(search.trim()))
       );
     });
   }, [allMappings, search, categoryFilter]);
 
-  const stats = useMemo(() => ({
-    total: allMappings.length,
-    biblical: allMappings.filter(m => m.category.startsWith("biblical")).length,
-    western: allMappings.filter(m => m.category.startsWith("western")).length,
-    latin: allMappings.filter(m => m.category.startsWith("latin")).length,
-    hindu: allMappings.filter(m => m.category.startsWith("hindu")).length,
-    chinese: allMappings.filter(m => m.category.startsWith("chinese")).length,
-    portuguese: allMappings.filter(m => m.category.startsWith("portuguese")).length,
-    russian: allMappings.filter(m => m.category.startsWith("russian")).length,
-    japanese: allMappings.filter(m => m.category.startsWith("japanese")).length,
-    korean: allMappings.filter(m => m.category.startsWith("korean")).length,
-    french: allMappings.filter(m => m.category.startsWith("french")).length,
-    german: allMappings.filter(m => m.category.startsWith("german")).length,
-    italian: allMappings.filter(m => m.category.startsWith("italian")).length,
-    spanish: allMappings.filter(m => m.category.startsWith("spanish")).length,
-    indonesian: allMappings.filter(m => m.category.startsWith("indonesian")).length,
-    vietnamese: allMappings.filter(m => m.category.startsWith("vietnamese")).length,
-    thai: allMappings.filter(m => m.category.startsWith("thai")).length,
-    tribal: allMappings.filter(m => m.category.startsWith("tribal")).length,
-  }), [allMappings]);
+  const stats = useMemo(() => {
+    const cat = (m: (typeof allMappings)[0]) => m.category ?? "";
+    return {
+      total: allMappings.length,
+      biblical: allMappings.filter(m => cat(m).startsWith("biblical")).length,
+      western: allMappings.filter(m => cat(m).startsWith("western")).length,
+      latin: allMappings.filter(m => cat(m).startsWith("latin")).length,
+      hindu: allMappings.filter(m => cat(m).startsWith("hindu")).length,
+      chinese: allMappings.filter(m => cat(m).startsWith("chinese")).length,
+      portuguese: allMappings.filter(m => cat(m).startsWith("portuguese")).length,
+      russian: allMappings.filter(m => cat(m).startsWith("russian")).length,
+      japanese: allMappings.filter(m => cat(m).startsWith("japanese")).length,
+      korean: allMappings.filter(m => cat(m).startsWith("korean")).length,
+      french: allMappings.filter(m => cat(m).startsWith("french")).length,
+      german: allMappings.filter(m => cat(m).startsWith("german")).length,
+      italian: allMappings.filter(m => cat(m).startsWith("italian")).length,
+      spanish: allMappings.filter(m => cat(m).startsWith("spanish")).length,
+      indonesian: allMappings.filter(m => cat(m).startsWith("indonesian")).length,
+      vietnamese: allMappings.filter(m => cat(m).startsWith("vietnamese")).length,
+      thai: allMappings.filter(m => cat(m).startsWith("thai")).length,
+      tribal: allMappings.filter(m => cat(m).startsWith("tribal")).length,
+    };
+  }, [allMappings]);
+
+  const handleRandomName = useCallback(() => {
+    const pool = filteredMappings.length > 0 ? filteredMappings : allMappings;
+    if (pool.length === 0) return;
+    const random = pool[Math.floor(Math.random() * pool.length)];
+    navigate(`/western-names/${random.key}`);
+  }, [filteredMappings, allMappings, navigate]);
 
   return (
     <Layout>
@@ -162,7 +174,7 @@ export default function WesternNamesPage() {
             <Input
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="Search by Western name, Muslim name, or meaning..."
+              placeholder="Search by name, Muslim equivalent, or meaning..."
               className="pl-10 h-12 rounded-xl text-base"
             />
           </div>
@@ -183,10 +195,20 @@ export default function WesternNamesPage() {
           </div>
         </div>
 
-        {/* Results count */}
-        <p className="text-sm text-muted-foreground mb-4 text-center">
-          {filteredMappings.length} name{filteredMappings.length !== 1 ? "s" : ""} found
-        </p>
+        {/* Results count + Random button */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+          <p className="text-sm text-muted-foreground">
+            {filteredMappings.length} name{filteredMappings.length !== 1 ? "s" : ""} found
+          </p>
+          <button
+            type="button"
+            onClick={handleRandomName}
+            disabled={allMappings.length === 0}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <Shuffle className="w-4 h-4" /> Random Name
+          </button>
+        </div>
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
@@ -208,7 +230,7 @@ export default function WesternNamesPage() {
                     {m.westernName}
                   </Link>
                   <Badge variant="outline" className="text-[10px] capitalize shrink-0">
-                    {m.category.replace("-", " ")
+                    {(m.category ?? "").replace("-", " ")
                       .replace("biblical", "📖").replace("western", "🌍").replace("hebrew", "✡").replace("virtue", "✨")
                       .replace("latin", "🏛").replace("hindu", "🪷").replace("chinese", "中").replace("portuguese", "🇵🇹").replace("tribal", "🌿")
                       .replace("russian", "🇷🇺").replace("japanese", "🇯🇵").replace("korean", "🇰🇷").replace("french", "🇫🇷").replace("german", "🇩🇪").replace("italian", "🇮🇹").replace("spanish", "🇪🇸").replace("indonesian", "🇮🇩").replace("vietnamese", "🇻🇳").replace("thai", "🇹🇭")}
@@ -218,20 +240,14 @@ export default function WesternNamesPage() {
                 <div className="flex items-center gap-1.5 mb-2">
                   <ArrowRight className="w-3 h-3 text-primary shrink-0" />
                   <div className="flex gap-1.5 flex-wrap">
-                    {m.muslimNames.map(name => {
-                      const nameData = findNameBySlug(name);
-                      return nameData ? (
-                        <Link
-                          key={name}
-                          to={`/name/${nameData.slug}`}
-                          className="text-primary font-semibold hover:underline capitalize"
-                        >
-                          {nameData.name}
-                        </Link>
-                      ) : (
-                        <span key={name} className="text-primary font-semibold capitalize">{name}</span>
-                      );
-                    })}
+                    {m.muslimNames.map(name => (
+                      <MuslimNameHoverCard
+                        key={name}
+                        slug={name}
+                        className="text-primary font-semibold hover:underline capitalize"
+                        fallbackDisplay={name}
+                      />
+                    ))}
                   </div>
                 </div>
 
@@ -257,7 +273,7 @@ export default function WesternNamesPage() {
                     to={`/generator?name=${encodeURIComponent(m.westernName)}`}
                     className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
                   >
-                    <Sparkles className="w-3 h-3" /> Find names like {m.westernName}
+                    <Sparkles className="w-3 h-3" /> Find Islamic equivalents for {m.westernName}
                   </Link>
                 </div>
               </motion.div>

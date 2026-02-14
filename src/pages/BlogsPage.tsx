@@ -32,10 +32,10 @@ export default function BlogsPage() {
     <Layout>
       <Helmet>
         <title>{activeTag ? `${activeTag} Articles` : "Islamic Naming Blog"} — Guides & Traditions | MuslimName.me</title>
-        <meta name="description" content="Explore guides on choosing Muslim names, Islamic naming traditions, Quranic name meanings, and resources for converts. Expert articles on Abrahamic name connections." />
+        <meta name="description" content="Guides for converts, reverts & new parents — choosing Muslim names, baby names, cultural name changes, Quranic meanings. Expert articles on Islamic naming." />
         <link rel="canonical" href={activeTag ? `https://muslimname.me/blogs?tag=${encodeURIComponent(activeTag)}` : "https://muslimname.me/blogs"} />
         <meta property="og:title" content={activeTag ? `${activeTag} Articles | MuslimName.me` : "Islamic Naming Blog | MuslimName.me"} />
-        <meta property="og:description" content="Explore guides on choosing Muslim names, Islamic naming traditions, Quranic name meanings, and resources for converts." />
+        <meta property="og:description" content="Guides for converts, reverts & new parents — Muslim names, baby names, cultural name changes. Expert Islamic naming articles." />
         <meta property="og:url" content={activeTag ? `https://muslimname.me/blogs?tag=${encodeURIComponent(activeTag)}` : "https://muslimname.me/blogs"} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://muslimname.me/og-image.png" />

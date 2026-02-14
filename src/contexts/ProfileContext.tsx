@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
 import { toast } from "sonner";
 
+export type NameDisplayFont = "default" | "amiri" | "noto-naskh" | "scheherazade" | "kufi";
+
 export interface ProfileSettings {
   currentFirstName: string;
   currentLastName: string;
@@ -8,8 +10,12 @@ export interface ProfileSettings {
   genderPreference: "all" | "male" | "female" | "unisex";
   /** ISO 3166-1 alpha-2 country code for name recommendations (manual override; else IP-detected) */
   country?: string;
+  /** Currency for legal guide costs (auto from country if unset) */
+  defaultCurrency?: string;
   /** Show source URLs for name mapping data (e.g. on Western Name Reference) */
   showMappingSources?: boolean;
+  /** Font for displaying names (applies across the app) */
+  nameDisplayFont?: NameDisplayFont;
 }
 
 export type NamePosition = "first" | "last";
@@ -120,14 +126,19 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
   const isFavorite = useCallback((slug: string) => profile.favorites.some(f => f.slug === slug), [profile.favorites]);
 
   const togglePosition = useCallback((slug: string, pos: NamePosition) => {
-    setProfile(prev => ({
-      ...prev,
-      favorites: prev.favorites.map(f => {
+    setProfile(prev => {
+      let removed = false;
+      const next = prev.favorites.map(f => {
         if (f.slug !== slug) return f;
         const has = f.positions.includes(pos);
+        if (has) removed = true;
         return { ...f, positions: has ? f.positions.filter(p => p !== pos) : [...f.positions, pos] };
-      }),
-    }));
+      });
+      if (removed) {
+        toast.success(pos === "first" ? "Removed from first name" : "Removed from last name");
+      }
+      return { ...prev, favorites: next };
+    });
   }, []);
 
   /** Add name to favorites with position, creating entry if needed */

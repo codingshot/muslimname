@@ -8,6 +8,7 @@ import { findNameBySlug } from "@/data/names";
 import FiqhPanel from "@/components/FiqhPanel";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles, ExternalLink, Globe, BookOpen, Link2 } from "lucide-react";
+import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
 import { useProfile } from "@/hooks/useProfile";
 
 /** Detail page for a single name mapping (Western/source name → Muslim equivalents). Hidden route. */
@@ -92,19 +93,15 @@ export default function NameMappingDetailPage() {
             {mapping.muslimNames.map(name => {
               const nameData = findNameBySlug(name);
               const isQuranic = nameData && (nameData.isQuranic || (nameData.quranicReferences?.length ?? 0) > 0);
-              return nameData ? (
-                <Link
-                  key={name}
-                  to={`/name/${nameData.slug}`}
-                  className={`font-semibold hover:underline capitalize inline-flex items-center gap-1 ${
-                    isQuranic ? "text-primary" : "text-primary"
-                  }`}
-                >
-                  {nameData.name}
-                  {isQuranic && <BookOpen className="w-3 h-3 text-amber-600" title="In the Quran" />}
-                </Link>
-              ) : (
-                <span key={name} className="text-primary font-semibold capitalize">{name}</span>
+              return (
+                <span key={name} className="inline-flex items-center gap-1">
+                  <MuslimNameHoverCard
+                    slug={name}
+                    className="font-semibold hover:underline capitalize text-primary"
+                    fallbackDisplay={name}
+                  />
+                  {isQuranic && <BookOpen className="w-3 h-3 text-amber-600 shrink-0" title="In the Quran" />}
+                </span>
               );
             })}
           </div>
@@ -207,7 +204,7 @@ export default function NameMappingDetailPage() {
           <Link to={`/generator?name=${encodeURIComponent(displayName)}`} className="mt-6 inline-block">
             <Button className="gap-2">
               <Sparkles className="w-4 h-4" />
-              Find names like {displayName}
+              Find Islamic equivalents for {displayName}
             </Button>
           </Link>
         </div>

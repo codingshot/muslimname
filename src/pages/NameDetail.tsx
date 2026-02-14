@@ -12,13 +12,14 @@ import { ShareName } from "@/components/ShareName";
 import { motion } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
 import { speakArabic, preloadVoices } from "@/lib/pronunciation";
+import { getNameFontClass } from "@/lib/nameFont";
 
 export default function NameDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [loading, setLoading] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const navigate = useNavigate();
-  const { profile, isFavorite, toggleFavorite, addAsFirstOrLast } = useProfile();
+  const { profile, isFavorite, toggleFavorite, addAsFirstOrLast, togglePosition } = useProfile();
 
   // Defer voice preload until user interacts with speak button (saves initial work)
   const preloadOnInteraction = useCallback(() => {
@@ -97,11 +98,11 @@ export default function NameDetail() {
     })
     .slice(0, 3);
 
-  const reverseMapping: { westernName: string; connection: string }[] = [];
+  const reverseMapping: { westernName: string; key: string; connection: string }[] = [];
   for (const [western, data] of Object.entries(christianToMuslimNameMapping)) {
     const muslimNames = data.muslimNames ?? [];
     if (muslimNames.some(m => m.toLowerCase() === name.slug || m.toLowerCase() === (name.name ?? "").toLowerCase())) {
-      reverseMapping.push({ westernName: western, connection: data.connection });
+      reverseMapping.push({ westernName: western, key: western, connection: data.connection });
     }
   }
 
@@ -134,14 +135,26 @@ export default function NameDetail() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "DefinedTerm",
-            name: name.name,
-            description: name.meaning,
-            url: `https://muslimname.me/name/${name.slug}`,
-            alternateName: name.arabic || name.variations?.[0],
-            ...(name.arabic && { inLanguage: "ar" }),
-            ...(name.isQuranic && { termCode: "quranic" }),
-            inDefinedTermSet: { "@type": "DefinedTermSet", name: "Islamic Names", url: "https://muslimname.me/names" },
+            "@graph": [
+              {
+                "@type": "DefinedTerm",
+                name: name.name,
+                description: name.meaning,
+                url: `https://muslimname.me/name/${name.slug}`,
+                alternateName: name.arabic || name.variations?.[0],
+                ...(name.arabic && { inLanguage: "ar" }),
+                ...(name.isQuranic && { termCode: "quranic" }),
+                inDefinedTermSet: { "@type": "DefinedTermSet", name: "Islamic Names", url: "https://muslimname.me/names" },
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: "https://muslimname.me" },
+                  { "@type": "ListItem", position: 2, name: "Browse Names", item: "https://muslimname.me/names" },
+                  { "@type": "ListItem", position: 3, name: name.name, item: `https://muslimname.me/name/${name.slug}` },
+                ],
+              },
+            ],
           })}
         </script>
       </Helmet>
@@ -169,10 +182,10 @@ export default function NameDetail() {
           {/* Row 1: Name + quick actions (star, share) — primary focus */}
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <div className="min-w-0 flex-1">
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1">
+              <h1 className={`${getNameFontClass(profile.settings.nameDisplayFont)} text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1`}>
                 {name.name}
               </h1>
-              <p className="font-arabic text-2xl sm:text-3xl md:text-4xl text-primary">{name.arabic}</p>
+              <p className={`${getNameFontClass(profile.settings.nameDisplayFont)} text-2xl sm:text-3xl md:text-4xl text-primary font-arabic`} style={{ direction: "rtl" }}>{name.arabic}</p>
             </div>
             <div className="flex items-center gap-1.5 shrink-0 sm:self-start">
               <button
@@ -186,7 +199,7 @@ export default function NameDetail() {
               >
                 <Star className={`w-5 h-5 ${isFavorite(name.slug) ? "fill-current" : ""}`} />
               </button>
-              <ShareName name={name.name} slug={name.slug} meaning={name.meaning} arabic={name.arabic} />
+              <ShareName name={name.name} slug={name.slug} meaning={name.meaning} arabic={name.arabic} isQuranic={name.isQuranic} />
             </div>
           </div>
 
@@ -230,7 +243,7 @@ export default function NameDetail() {
             )}
           </div>
 
-          {/* Row 3: Add as First/Last — primary CTAs (quick add, no popup) */}
+          {/* Row 3: Add as First/Last — click to add, click again to remove */}
           {(() => {
             const entry = profile.favorites.find(f => f.slug === name.slug);
             const isInFirst = entry?.positions?.includes("first") ?? false;
@@ -238,25 +251,25 @@ export default function NameDetail() {
             return (
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
-                  onClick={() => addAsFirstOrLast(name.slug, "first")}
+                  onClick={() => (isInFirst ? togglePosition(name.slug, "first") : addAsFirstOrLast(name.slug, "first"))}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                     isInFirst
                       ? "bg-primary text-primary-foreground"
                       : "bg-primary/10 text-primary hover:bg-primary/20"
                   }`}
-                  title={isInFirst ? "Added as first name contender" : "Add as first name contender"}
+                  title={isInFirst ? "Click to remove from first name" : "Add as first name contender"}
                 >
                   {isInFirst && <Check className="w-4 h-4" />}
                   {isInFirst ? "First Name" : "Add as First Name"}
                 </button>
                 <button
-                  onClick={() => addAsFirstOrLast(name.slug, "last")}
+                  onClick={() => (isInLast ? togglePosition(name.slug, "last") : addAsFirstOrLast(name.slug, "last"))}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                     isInLast
                       ? "bg-secondary text-secondary-foreground"
                       : "bg-secondary/10 text-secondary hover:bg-secondary/20"
                   }`}
-                  title={isInLast ? "Added as last name contender" : "Add as last name contender"}
+                  title={isInLast ? "Click to remove from last name" : "Add as last name contender"}
                 >
                   {isInLast && <Check className="w-4 h-4" />}
                   {isInLast ? "Last Name" : "Add as Last Name"}
@@ -362,10 +375,14 @@ export default function NameDetail() {
             </h2>
             <div className="space-y-3">
               {reverseMapping.slice(0, 5).map((m, i) => (
-                <div key={i} className="bg-muted/50 rounded-lg p-3">
-                  <p className="font-medium text-foreground capitalize">{m.westernName}</p>
+                <Link
+                  key={i}
+                  to={`/western-names/${m.key}`}
+                  className="block bg-muted/50 rounded-lg p-3 hover:bg-muted transition-colors"
+                >
+                  <p className="font-medium text-foreground capitalize hover:text-primary hover:underline">{m.westernName}</p>
                   <p className="text-sm text-muted-foreground">{m.connection}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </motion.section>
@@ -554,6 +571,7 @@ export default function NameDetail() {
             slug={name.slug}
             meaning={name.meaning}
             arabic={name.arabic}
+            isQuranic={name.isQuranic}
             variant="inline"
             className="flex flex-wrap gap-2"
           />

@@ -5,6 +5,7 @@ import { Search, Sparkles, BookOpen, Scale, Users, ArrowRight, Heart, Shuffle } 
 import { useState, useMemo, useDeferredValue } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
+import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
 import NameCard from "@/components/NameCard";
 import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions, getRandomName } from "@/data/names";
 import { getMultiNameMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, totalMappings, getMappingAffiliation } from "@/data/nameMapping";
@@ -65,8 +66,9 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>MuslimName.me — Discover Your Muslim Name | Islamic Name Generator</title>
-        <meta name="description" content="Find your ideal Muslim name with our intelligent generator built for new Muslims. Get meanings, pronunciation guides, Quranic references, and legal name change support." />
+        <title>MuslimName.me — Muslim Names for Converts, Reverts & New Babies</title>
+        <meta name="description" content="Find your Muslim name — for converts, reverts, new babies & cultural name changes. 3000+ Islamic names, 1700+ non-Muslim mappings. Meanings, Quranic refs, legal guides. Free & private." />
+        <meta name="keywords" content="Muslim names, Islamic names, convert to Islam names, revert names, new Muslim name, Muslim baby names, name change Islam, cultural name change, Quranic names" />
         <link rel="canonical" href="https://muslimname.me" />
       </Helmet>
       {/* Hero */}
@@ -193,9 +195,11 @@ const Index = () => {
                               {part.mapping.muslimNames.map((mn, j) => (
                                 <span key={mn}>
                                   {j > 0 && ", "}
-                                  <Link to={`/name/${mn}`} className="text-gold font-semibold hover:underline">
-                                    {mn}
-                                  </Link>
+                                  <MuslimNameHoverCard
+                                    slug={mn}
+                                    className="text-gold font-semibold hover:underline"
+                                    fallbackDisplay={mn}
+                                  />
                                 </span>
                               ))}
                               {part.mapping.hebrewOrigin && (
@@ -252,11 +256,11 @@ const Index = () => {
             </AnimatePresence>
 
             <div className="flex items-center justify-center gap-4 text-sm text-primary-foreground/60 flex-wrap">
-              <span>{totalMappings}+ Christian/Western Names Mapped</span>
+              <span>{totalMappings}+ Non-Muslim Names Mapped</span>
               <span>•</span>
               <span>{namesDatabase.length}+ Islamic Names</span>
               <span>•</span>
-              <span>Free Forever</span>
+              <span>Free, open source, local & private</span>
             </div>
           </motion.div>
         </div>

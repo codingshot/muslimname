@@ -4,4 +4,5 @@ export type {
   UserProfile,
   FavoriteEntry,
   NamePosition,
+  NameDisplayFont,
 } from "@/contexts/ProfileContext";

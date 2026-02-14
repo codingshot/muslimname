@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
-import { Search, X, ChevronDown, Shuffle, LayoutGrid, Smartphone } from "lucide-react";
-import { namesDatabase, searchNames, getOrigins, getThemes, getRandomName } from "@/data/names";
+import { Search, X, ChevronDown, Shuffle, LayoutGrid, Smartphone, SlidersHorizontal } from "lucide-react";
+import { namesDatabase, searchNames, getOrigins, getThemes, getRandomName, getSyllableCount, getQuranicRefCount } from "@/data/names";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import Layout from "@/components/Layout";
@@ -15,6 +15,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const genderFilters = ["all", "male", "female", "unisex"];
 
@@ -24,6 +25,22 @@ const scriptureOptions = [
   { key: "bible", label: "✝️ Also in Bible" },
   { key: "torah", label: "✡️ Also in Torah" },
   { key: "shared", label: "🤝 Shared Prophets" },
+];
+
+const syllableOptions = [
+  { key: "all", label: "Any" },
+  { key: "1", label: "1" },
+  { key: "2", label: "2" },
+  { key: "3", label: "3" },
+  { key: "4+", label: "4+" },
+];
+
+const quranRefOptions = [
+  { key: "all", label: "Any" },
+  { key: "0", label: "None" },
+  { key: "1+", label: "1+" },
+  { key: "2+", label: "2+" },
+  { key: "3+", label: "3+" },
 ];
 
 function FilterDropdown({
@@ -159,6 +176,10 @@ export default function NamesPage() {
     return t ? t.split(",").filter(Boolean) : [];
   }, [searchParams]);
   const scriptureFilter = searchParams.get("scripture") || "all";
+  const filterSyllables = searchParams.get("syllables") || "all";
+  const filterStartsWith = (searchParams.get("starts") || "").toLowerCase().slice(0, 2);
+  const filterEndsWith = (searchParams.get("ends") || "").toLowerCase().slice(0, 2);
+  const filterQuranRefs = searchParams.get("quranRefs") || "all";
 
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<"grid" | "swipe">("grid");
@@ -192,6 +213,10 @@ export default function NamesPage() {
   const setGender = (v: string) => updateParam("gender", v);
   const setSelectedOrigin = (v: string) => updateParam("origin", v);
   const setScriptureFilter = (v: string) => updateParam("scripture", v);
+  const setFilterSyllables = (v: string) => updateParam("syllables", v);
+  const setFilterStartsWith = (v: string) => updateParam("starts", v);
+  const setFilterEndsWith = (v: string) => updateParam("ends", v);
+  const setFilterQuranRefs = (v: string) => updateParam("quranRefs", v);
 
   const toggleTheme = (theme: string) => {
     const newThemes = selectedThemes.includes(theme)
@@ -212,11 +237,33 @@ export default function NamesPage() {
     if (scriptureFilter === "bible") names = names.filter(n => n.scriptureContext?.inBible);
     if (scriptureFilter === "torah") names = names.filter(n => n.scriptureContext?.inTorah);
     if (scriptureFilter === "shared") names = names.filter(n => n.scriptureContext?.sharedProphet);
+    if (filterSyllables !== "all") {
+      const target = filterSyllables === "4+" ? 4 : parseInt(filterSyllables, 10);
+      names = names.filter(n => {
+        const count = getSyllableCount(n.name);
+        return filterSyllables === "4+" ? count >= 4 : count === target;
+      });
+    }
+    if (filterStartsWith) {
+      names = names.filter(n => n.name.toLowerCase().startsWith(filterStartsWith));
+    }
+    if (filterEndsWith) {
+      names = names.filter(n => n.name.toLowerCase().endsWith(filterEndsWith));
+    }
+    if (filterQuranRefs !== "all") {
+      names = names.filter(n => {
+        const count = getQuranicRefCount(n);
+        if (filterQuranRefs === "0") return count === 0;
+        const min = parseInt(filterQuranRefs, 10);
+        return count >= min;
+      });
+    }
     if (!query) names.sort((a, b) => b.popularity - a.popularity);
     return names;
-  }, [query, gender, quranicOnly, selectedOrigin, selectedThemes, scriptureFilter]);
+  }, [query, gender, quranicOnly, selectedOrigin, selectedThemes, scriptureFilter, filterSyllables, filterStartsWith, filterEndsWith, filterQuranRefs]);
 
-  const activeFilterCount = (gender !== "all" ? 1 : 0) + (quranicOnly ? 1 : 0) + (selectedOrigin !== "all" ? 1 : 0) + selectedThemes.length + (scriptureFilter !== "all" ? 1 : 0);
+  const advancedActiveCount = (filterSyllables !== "all" ? 1 : 0) + (filterStartsWith ? 1 : 0) + (filterEndsWith ? 1 : 0) + (filterQuranRefs !== "all" ? 1 : 0);
+  const activeFilterCount = (gender !== "all" ? 1 : 0) + (quranicOnly ? 1 : 0) + (selectedOrigin !== "all" ? 1 : 0) + selectedThemes.length + (scriptureFilter !== "all" ? 1 : 0) + advancedActiveCount;
 
   const clearFilters = () => {
     setSearchParams({}, { replace: true });
@@ -225,10 +272,10 @@ export default function NamesPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Browse Muslim Names — Meanings, Origins &amp; Quranic References | MuslimName.me</title>
-        <meta name="description" content={`Explore ${namesDatabase.length}+ Islamic names with meanings, origins, and Quranic references. Search by name, meaning, or filter by gender and scripture.`} />
+        <title>Browse Muslim Names — For Converts, Babies & Name Changes | MuslimName.me</title>
+        <meta name="description" content={`Explore ${namesDatabase.length}+ Islamic names — for converts, reverts, new babies & cultural name changes. Meanings, Quranic references, origins. Filter by gender, scripture & more.`} />
         <link rel="canonical" href="https://muslimname.me/names" />
-        <meta name="keywords" content="Muslim names, Islamic names, Quranic names, Arabic names, baby names Muslim, name meanings" />
+        <meta name="keywords" content="Muslim names, Islamic names, Muslim baby names, Quranic names, convert names, revert names, Arabic names, name meanings" />
         <meta property="og:title" content="Browse Muslim Names — Meanings & Quranic References | MuslimName.me" />
         <meta property="og:description" content={`${namesDatabase.length}+ Islamic names with meanings, origins, Quranic references. Search by name or meaning.`} />
         <meta property="og:url" content="https://muslimname.me/names" />
@@ -315,6 +362,77 @@ export default function NamesPage() {
               onToggle={toggleTheme}
             />
 
+            <Popover>
+              <PopoverTrigger
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors border ${
+                  advancedActiveCount > 0
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-card text-muted-foreground border-border hover:text-foreground hover:border-foreground/20"
+                }`}
+              >
+                <SlidersHorizontal className="w-3 h-3" />
+                Advanced{advancedActiveCount > 0 ? ` (${advancedActiveCount})` : ""}
+                <ChevronDown className="w-3 h-3" />
+              </PopoverTrigger>
+              <PopoverContent align="start" className="w-72 p-4" sideOffset={8}>
+                <div className="space-y-4">
+                  <p className="text-sm font-medium">Advanced filters</p>
+                  <div>
+                    <label className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1.5">Syllables</label>
+                    <div className="flex flex-wrap gap-1">
+                      {syllableOptions.map(o => (
+                        <button
+                          key={o.key}
+                          onClick={() => setFilterSyllables(o.key)}
+                          className={`px-2.5 py-1 rounded text-xs font-medium ${
+                            filterSyllables === o.key ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          {o.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1.5">Starts with (1–2 letters)</label>
+                    <Input
+                      value={filterStartsWith}
+                      onChange={e => setFilterStartsWith(e.target.value.replace(/[^a-zA-Z]/g, "").toLowerCase())}
+                      placeholder="e.g. a or ab"
+                      className="h-8 text-xs"
+                      maxLength={2}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1.5">Ends with (1–2 letters)</label>
+                    <Input
+                      value={filterEndsWith}
+                      onChange={e => setFilterEndsWith(e.target.value.replace(/[^a-zA-Z]/g, "").toLowerCase())}
+                      placeholder="e.g. h or ah"
+                      className="h-8 text-xs"
+                      maxLength={2}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1.5">Quranic references</label>
+                    <div className="flex flex-wrap gap-1">
+                      {quranRefOptions.map(o => (
+                        <button
+                          key={o.key}
+                          onClick={() => setFilterQuranRefs(o.key)}
+                          className={`px-2.5 py-1 rounded text-xs font-medium ${
+                            filterQuranRefs === o.key ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          {o.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+
             {activeFilterCount > 0 && (
               <button onClick={clearFilters} className="text-xs text-primary hover:underline ml-1">
                 Clear all
@@ -374,6 +492,26 @@ export default function NamesPage() {
                   {t} <X className="w-3 h-3" />
                 </button>
               ))}
+              {filterSyllables !== "all" && (
+                <button onClick={() => setFilterSyllables("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                  {syllableOptions.find(s => s.key === filterSyllables)?.label} syll. <X className="w-3 h-3" />
+                </button>
+              )}
+              {filterStartsWith && (
+                <button onClick={() => setFilterStartsWith("")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                  Starts {filterStartsWith} <X className="w-3 h-3" />
+                </button>
+              )}
+              {filterEndsWith && (
+                <button onClick={() => setFilterEndsWith("")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                  Ends {filterEndsWith} <X className="w-3 h-3" />
+                </button>
+              )}
+              {filterQuranRefs !== "all" && (
+                <button onClick={() => setFilterQuranRefs("all")} className="inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-medium px-2.5 py-1 rounded-full hover:bg-primary/20 transition-colors">
+                  {quranRefOptions.find(q => q.key === filterQuranRefs)?.label} refs <X className="w-3 h-3" />
+                </button>
+              )}
             </div>
           )}
         </div>

@@ -6840,7 +6840,7 @@ export const quranicNames: MuslimName[] = [
     variations: ["Rahmah"],
     similarNonArabic: [],
     famousBearers: [],
-    quranicReferences: [{ surah: "Al-Fatiha", ayah: "1:1", text: "In the name of Allah, the Entirely Merciful (Ar-Rahman), the Especially Merciful (Ar-Raheem)." }],
+    quranicReferences: [{ surah: "Al-Fatihah", ayah: "1:1", text: "In the name of Allah, the Entirely Merciful (Ar-Rahman), the Especially Merciful (Ar-Raheem)." }],
     hadithReferences: [],
     pronunciation: "rah-MA"
   },

@@ -24,7 +24,7 @@ const navLinks = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [favoriteNames, setFavoriteNames] = useState<{ slug: string; name: string }[]>([]);
+  const [favoriteNames, setFavoriteNames] = useState<{ slug: string; name: string; positions: string[] }[]>([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [navSearchQuery, setNavSearchQuery] = useState("");
   const [navSearchFocused, setNavSearchFocused] = useState(false);
@@ -46,6 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         profile.favorites.slice(0, 6).map(f => ({
           slug: f.slug,
           name: findNameBySlug(f.slug)?.name ?? f.slug,
+          positions: f.positions ?? [],
         }))
       );
     });
@@ -172,11 +173,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <DropdownMenuLabel className="text-xs text-muted-foreground font-normal px-2 py-1">
                       Quick access — Favorites ({favoriteCount})
                     </DropdownMenuLabel>
-                    {favoriteNames.map(({ slug, name }) => (
+                    {favoriteNames.map(({ slug, name, positions }) => (
                       <DropdownMenuItem key={slug} asChild>
                         <Link to={`/name/${slug}`} onClick={() => setDropdownOpen(false)} onMouseEnter={() => prefetchNameDetail()} className="flex items-center gap-2 cursor-pointer">
                           <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
-                          <span className="truncate">{name}</span>
+                          <span className="truncate flex-1 min-w-0">{name}</span>
+                          {(positions.includes("first") || positions.includes("last")) && (
+                            <span className="flex shrink-0 gap-0.5 text-[10px] font-medium text-muted-foreground">
+                              {positions.includes("first") && <span className="px-1 py-0.5 rounded bg-primary/15 text-primary" title="First name">F</span>}
+                              {positions.includes("last") && <span className="px-1 py-0.5 rounded bg-secondary/20 text-secondary" title="Last name">L</span>}
+                            </span>
+                          )}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -384,7 +391,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/blogs" className="hover:text-primary transition-colors">Blog</Link>
                 <Link to="/legal-guide" className="hover:text-primary transition-colors">Legal Name Change Guide</Link>
                 <Link to="/contribute" className="hover:text-primary transition-colors">Contribute</Link>
-                <a href="https://github.com/codingshot/muslimname" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub Repo</a>
               </div>
             </div>
             <div>

@@ -8,20 +8,24 @@ import { findNameBySlug } from "@/data/names";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useCountry } from "@/hooks/useCountry";
+import { useCurrency } from "@/hooks/useCurrency";
+import { formatCurrency } from "@/lib/currency";
 import { Scale, Clock, DollarSign, ChevronDown, ChevronUp, ExternalLink, CheckCircle2, AlertTriangle, FileText, Search, X, ArrowLeft, Check, RotateCcw, Filter, LayoutGrid, Table2, ArrowUpDown, ArrowUp, ArrowDown, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
 const difficultyOrder: Record<string, number> = { easy: 0, moderate: 1, complex: 2 };
 
-// Price filter presets
-const priceFilters = [
-  { label: "All Prices", key: "all", match: () => true },
-  { label: "Free", key: "free", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] === 0 },
-  { label: "Under $50", key: "under50", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] < 50 },
-  { label: "Under $200", key: "under200", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] < 200 },
-  { label: "$200+", key: "over200", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] >= 200 },
-];
+// Price filter presets (match uses USD; labels localized by currency)
+function getPriceFilters(currency: import("@/lib/currency").CurrencyCode) {
+  return [
+    { label: "All Prices", key: "all", match: () => true },
+    { label: "Free", key: "free", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] === 0 },
+    { label: `Under ${formatCurrency([50, 50], currency, { showApprox: false })}`, key: "under50", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] < 50 },
+    { label: `Under ${formatCurrency([200, 200], currency, { showApprox: false })}`, key: "under200", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] < 200 },
+    { label: `${formatCurrency([200, 200], currency, { showApprox: false })}+`, key: "over200", match: (g: LegalNameChangeGuide) => g.estimatedCostUSD[0] >= 200 },
+  ];
+}
 
 const timeFilters = [
   { label: "Any Time", key: "all", match: () => true },
@@ -30,11 +34,6 @@ const timeFilters = [
   { label: "Under 12 wks", key: "under12", match: (g: LegalNameChangeGuide) => g.estimatedTimelineWeeks[1] <= 12 },
 ];
 
-function formatUSD(range: [number, number]) {
-  if (range[0] === 0 && range[1] === 0) return "Free";
-  if (range[0] === 0) return `Free - $${range[1].toLocaleString()}`;
-  return `$${range[0].toLocaleString()} - $${range[1].toLocaleString()}`;
-}
 
 const PROGRESS_SAVE_DEBOUNCE_MS = 250;
 
@@ -102,7 +101,7 @@ function DifficultyBadge({ difficulty }: { difficulty: string }) {
   );
 }
 
-function CountryCard({ guide, onClick, isUserLocation }: { guide: LegalNameChangeGuide; onClick: () => void; isUserLocation?: boolean }) {
+function CountryCard({ guide, onClick, isUserLocation, currency }: { guide: LegalNameChangeGuide; onClick: () => void; isUserLocation?: boolean; currency: import("@/lib/currency").CurrencyCode }) {
   const key = `legal-progress-${guide.countryCode}`;
   const [progress, setProgress] = useState(0);
   useEffect(() => {
@@ -151,7 +150,7 @@ function CountryCard({ guide, onClick, isUserLocation }: { guide: LegalNameChang
           <span className="flex items-center gap-1"><DollarSign className="w-3 h-3 text-secondary" />{guide.estimatedCost.split("(")[0].trim()}</span>
           <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-secondary" />{guide.estimatedTimeline}</span>
         </div>
-        <span className="text-[10px] text-muted-foreground/70">≈ {formatUSD(guide.estimatedCostUSD)} USD</span>
+        <span className="text-[10px] text-muted-foreground/70">{formatCurrency(guide.estimatedCostUSD, currency)}</span>
       </div>
       <div className="mt-3 flex items-center gap-1.5">
         <span className="text-xs text-primary font-medium">View full guide →</span>
@@ -164,10 +163,12 @@ function CountryDetail({
   guide,
   onBack,
   onSelectCountry,
+  currency,
 }: {
   guide: LegalNameChangeGuide;
   onBack: () => void;
   onSelectCountry: (countryCode: string) => void;
+  currency: import("@/lib/currency").CurrencyCode;
 }) {
   const [expandedSteps, setExpandedSteps] = useState<number[]>([]);
   const { completed, toggle, reset, completedCount } = useStepProgress(guide.countryCode, guide.steps.length);
@@ -206,7 +207,7 @@ function CountryDetail({
               <span className="text-xs text-muted-foreground flex items-center gap-1"><DollarSign className="w-3 h-3" />{guide.estimatedCost}</span>
               <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="w-3 h-3" />{guide.estimatedTimeline}</span>
             </div>
-            <p className="text-[10px] text-muted-foreground/70 mt-1">≈ {formatUSD(guide.estimatedCostUSD)} USD</p>
+            <p className="text-[10px] text-muted-foreground/70 mt-1">{formatCurrency(guide.estimatedCostUSD, currency)}</p>
           </div>
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed">{guide.overview}</p>
@@ -433,6 +434,7 @@ type SortDir = "asc" | "desc";
 
 export default function LegalGuidePage() {
   const { country: userCountry } = useCountry();
+  const { currency } = useCurrency();
   const [search, setSearch] = useState("");
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [filterDifficulty, setFilterDifficulty] = useState<string>("all");
@@ -442,6 +444,7 @@ export default function LegalGuidePage() {
   const [sortBy, setSortBy] = useState<SortColumn>("country");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
 
+  const priceFilters = useMemo(() => getPriceFilters(currency), [currency]);
   const activePriceFilter = priceFilters.find(f => f.key === filterPrice) ?? priceFilters[0];
   const activeTimeFilter = timeFilters.find(f => f.key === filterTime) ?? timeFilters[0];
 
@@ -511,6 +514,7 @@ export default function LegalGuidePage() {
               guide={selectedGuide}
               onBack={() => setSelectedCountry(null)}
               onSelectCountry={(code) => setSelectedCountry(code)}
+              currency={currency}
             />
           ) : (
             <motion.div key="list" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -670,6 +674,7 @@ export default function LegalGuidePage() {
                     guide={guide}
                     onClick={() => { setSelectedCountry(guide.countryCode); window.scrollTo(0, 0); }}
                     isUserLocation={!!(userCountry?.trim() && userCountry.trim().toUpperCase() === guide.countryCode)}
+                    currency={currency}
                   />
                 ))}
               </div>
@@ -744,7 +749,7 @@ export default function LegalGuidePage() {
                           <td className="px-4 py-3">
                             <DifficultyBadge difficulty={guide.difficulty} />
                           </td>
-                          <td className="px-4 py-3 text-muted-foreground">{formatUSD(guide.estimatedCostUSD)}</td>
+                          <td className="px-4 py-3 text-muted-foreground">{formatCurrency(guide.estimatedCostUSD, currency)}</td>
                           <td className="px-4 py-3 text-muted-foreground">{guide.estimatedTimeline}</td>
                           <td className="px-4 py-3">
                             <button

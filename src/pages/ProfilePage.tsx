@@ -4,8 +4,11 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { useProfile, type FavoriteEntry, type NamePosition } from "@/hooks/useProfile";
 import { useCountry } from "@/hooks/useCountry";
+import { useCurrency } from "@/hooks/useCurrency";
 import { COUNTRY_OPTIONS, getCountryFlag, getCountryName } from "@/lib/country";
+import { CURRENCY_OPTIONS, CURRENCY_INFO, getCurrencyForCountry } from "@/lib/currency";
 import { findNameBySlug, searchNames } from "@/data/names";
+import { getNameFontClass, NAME_FONT_OPTIONS } from "@/lib/nameFont";
 import { getMappingContext, getDidYouMeanSuggestions } from "@/data/nameMapping";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -25,6 +28,7 @@ export default function ProfilePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { profile, updateSettings, toggleFavorite, togglePosition, setFavoritePosition, addAsFirstOrLast, reorderFavorites } = useProfile();
   const { country } = useCountry();
+  const { currency, currencyLabel, isAuto, setCurrency } = useCurrency();
   const dragItem = useRef<number | null>(null);
   const dragOverItem = useRef<number | null>(null);
   const firstSectionRef = useRef<HTMLDivElement>(null);
@@ -181,6 +185,23 @@ export default function ProfilePage() {
                 </button>
               ))}
             </div>
+            <h3 className="font-display text-base font-semibold mt-4 mb-2">Name Display Font</h3>
+            <p className="text-sm text-muted-foreground mb-2">Font used when displaying names across the app</p>
+            <div className="flex gap-2 flex-wrap">
+              {NAME_FONT_OPTIONS.map(opt => (
+                <button
+                  key={opt.value}
+                  onClick={() => updateSettings({ nameDisplayFont: opt.value })}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    (profile.settings.nameDisplayFont || "default") === opt.value
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {profile.favorites.length === 0 ? (
@@ -328,6 +349,26 @@ export default function ProfilePage() {
                   {getCountryFlag(country)} Detected: {getCountryName(country)}
                 </p>
               )}
+            </div>
+            <div>
+              <h3 className="font-display text-base font-semibold mb-2 flex items-center gap-2">
+                <span className="text-primary">💱</span> Default Currency
+              </h3>
+              <p className="text-sm text-muted-foreground mb-2">
+                Used for legal guide costs. Auto-defaults from your location.
+              </p>
+              <select
+                value={profile.settings.defaultCurrency ?? ""}
+                onChange={e => setCurrency(e.target.value ? (e.target.value as import("@/lib/currency").CurrencyCode) : null)}
+                className="w-full max-w-xs rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="">
+                  Auto ({currencyLabel}{isAuto && country ? ` from ${getCountryName(country)}` : ""})
+                </option>
+                {CURRENCY_OPTIONS.map(c => (
+                  <option key={c.code} value={c.code}>{CURRENCY_INFO[c.code]?.symbol ?? c.code} {c.label}</option>
+                ))}
+              </select>
             </div>
             <div>
               <h3 className="font-display text-base font-semibold mb-2 flex items-center gap-2">

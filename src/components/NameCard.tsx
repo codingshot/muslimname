@@ -6,6 +6,7 @@ import type { MuslimName } from "@/data/names";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { useProfile } from "@/hooks/useProfile";
+import { getNameFontClass } from "@/lib/nameFont";
 
 interface NameCardProps {
   name: MuslimName;
@@ -13,7 +14,8 @@ interface NameCardProps {
 }
 
 function NameCard({ name, index = 0 }: NameCardProps) {
-  const { isFavorite, toggleFavorite } = useProfile();
+  const { profile, isFavorite, toggleFavorite } = useProfile();
+  const fontClass = getNameFontClass(profile.settings.nameDisplayFont);
   const starred = isFavorite(name.slug);
 
   return (
@@ -47,10 +49,10 @@ function NameCard({ name, index = 0 }: NameCardProps) {
         >
           <div className="flex items-start justify-between mb-2 sm:mb-3 pr-8">
             <div className="min-w-0 flex-1">
-              <h3 className="font-display text-lg sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+              <h3 className={`${fontClass} text-lg sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors truncate`}>
                 {name.name}
               </h3>
-              <p className="font-arabic text-base sm:text-lg text-secondary mt-0.5">{name.arabic}</p>
+              <p className={`${fontClass} text-base sm:text-lg text-secondary mt-0.5`} style={{ direction: "rtl" }}>{name.arabic}</p>
             </div>
             <div className="flex flex-col items-end gap-1 shrink-0 ml-2">
               {name.isQuranic && (

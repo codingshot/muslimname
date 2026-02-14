@@ -58,6 +58,24 @@ const coreNames: MuslimName[] = [
     pronunciation: "ab-DUL-lah"
   },
   {
+    slug: "akhil",
+    name: "Akhil",
+    arabic: "أخيل",
+    meaning: "Complete, Whole",
+    detailedMeaning: "From Arabic root meaning complete or whole. A fitting name for a new beginning.",
+    gender: "male",
+    origin: "Arabic",
+    isQuranic: false,
+    popularity: 45,
+    themes: ["wholeness", "completion", "integrity"],
+    variations: ["Akeel", "Akil"],
+    similarNonArabic: [],
+    famousBearers: [{ name: "Central Cee (Akhil)", description: "British rapper who reverted to Islam in 2026" }],
+    quranicReferences: [],
+    hadithReferences: [],
+    pronunciation: "uh-KEEL"
+  },
+  {
     slug: "fatima",
     name: "Fatima",
     arabic: "فاطمة",
@@ -285,7 +303,7 @@ const coreNames: MuslimName[] = [
     variations: ["Imrane", "Imraan"],
     similarNonArabic: [],
     famousBearers: [{ name: "Imran Khan", description: "Former Pakistani cricketer and politician" }],
-    quranicReferences: [{ surah: "Ali Imran", ayah: "3:35-36", text: "When the wife of Imran said, 'My Lord, indeed I have pledged to You what is in my womb...'" }],
+    quranicReferences: [{ surah: "Al-Imran", ayah: "3:35-36", text: "When the wife of Imran said, 'My Lord, indeed I have pledged to You what is in my womb...'" }],
     hadithReferences: [],
     pronunciation: "im-RAHN",
     scriptureContext: {
@@ -1553,7 +1571,7 @@ const coreNames: MuslimName[] = [
     famousBearers: [{ name: "Prophet Zakariyya (AS)", description: "Guardian of Maryam, father of Prophet Yahya, prayed for a son in old age" }],
     quranicReferences: [
       { surah: "Maryam", ayah: "19:2-7", text: "A mention of the mercy of your Lord to His servant Zakariyya — When he called to his Lord a private supplication. He said, 'My Lord, indeed my bones have weakened...' [Allah said,] 'O Zakariyya, indeed We give you good tidings of a boy whose name will be Yahya.'" },
-      { surah: "Ali Imran", ayah: "3:37", text: "...Her Lord accepted her with good acceptance and caused her to grow in a good manner and put her in the care of Zakariyya." }
+      { surah: "Al-Imran", ayah: "3:37", text: "...Her Lord accepted her with good acceptance and caused her to grow in a good manner and put her in the care of Zakariyya." }
     ],
     hadithReferences: [],
     pronunciation: "za-ka-REE-ah",
@@ -1786,7 +1804,7 @@ const coreNames: MuslimName[] = [
     variations: ["Hiba", "Heba"],
     similarNonArabic: [{ name: "Dorothy", meaning: "Gift of God", origin: "Greek" }],
     famousBearers: [],
-    quranicReferences: [{ surah: "Ali Imran", ayah: "3:38", text: "...My Lord, grant me (hab li) from Yourself a good offspring. Indeed, You are the Hearer of supplication." }],
+    quranicReferences: [{ surah: "Al-Imran", ayah: "3:38", text: "...My Lord, grant me (hab li) from Yourself a good offspring. Indeed, You are the Hearer of supplication." }],
     hadithReferences: [],
     pronunciation: "HI-bah"
   },
@@ -2353,7 +2371,7 @@ const coreNames: MuslimName[] = [
     variations: ["Ta-Ha"],
     similarNonArabic: [],
     famousBearers: [{ name: "Taha Hussein", description: "Pioneering Egyptian author, the 'Dean of Arabic Literature'" }],
-    quranicReferences: [{ surah: "Ta-Ha", ayah: "20:1-2", text: "Ta-Ha. We have not sent down to you the Quran that you be distressed." }],
+    quranicReferences: [{ surah: "Taha", ayah: "20:1-2", text: "Ta-Ha. We have not sent down to you the Quran that you be distressed." }],
     hadithReferences: [],
     pronunciation: "TAH-ha"
   },
@@ -2814,7 +2832,7 @@ const coreNames: MuslimName[] = [
     variations: ["Fatihah"],
     similarNonArabic: [{ name: "Victoria", meaning: "Victory", origin: "Latin" }],
     famousBearers: [],
-    quranicReferences: [{ surah: "Al-Fatiha", ayah: "1:1-7", text: "In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds." }],
+    quranicReferences: [{ surah: "Al-Fatihah", ayah: "1:1-7", text: "In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds." }],
     hadithReferences: [{ source: "Sahih al-Bukhari", text: "The Prophet ﷺ said: 'There is no prayer for the one who does not recite the Opening of the Book (Al-Fatiha).'" }],
     pronunciation: "FA-ti-hah"
   },
@@ -4082,6 +4100,7 @@ function scoreMatch(name: MuslimName, query: string): number {
   if (name.variations?.some(v => levenshtein(v.toLowerCase(), lq) <= 2)) score += 20;
   if (name.origin?.toLowerCase().includes(lq)) score += 10;
   if (name.slug?.includes(lq)) score += 25;
+  if (name.pronunciation?.toLowerCase().includes(lq)) score += 18;
 
   // Scripture context search
   if (name.scriptureContext) {
@@ -4172,6 +4191,7 @@ export function getQuickNameSuggestions(
     else if (nameLow.includes(q)) score += 20;
     else if (slugLow.includes(q)) score += 18;
     else if (n.variations.some(v => v.toLowerCase().includes(q))) score += 25;
+    else if (n.pronunciation?.toLowerCase().includes(q)) score += 22;
     if (score > 0) {
       score += (n.popularity ?? 0) * 0.03;
       results.push({ name: n, score });
@@ -4214,6 +4234,22 @@ export function getThemes(): string[] {
   return [...themes].sort();
 }
 
+/** Count syllables in a name (transliterated). Uses vowel-group heuristic. */
+export function getSyllableCount(name: string): number {
+  if (!name || typeof name !== "string") return 0;
+  const s = name.toLowerCase().replace(/['\u2019]/g, "");
+  const vowelGroups = s.match(/[aeiouy]+/g);
+  if (!vowelGroups) return Math.min(1, s.length); // no vowels: 1 if has chars, else 0
+  return vowelGroups.length;
+}
+
+/** Effective Quranic reference count: explicit refs, or 1 if isQuranic with none. */
+export function getQuranicRefCount(name: MuslimName): number {
+  const refs = name.quranicReferences?.length ?? 0;
+  if (refs > 0) return refs;
+  return name.isQuranic ? 1 : 0;
+}
+
 /** Returns a random name; optionally filtered by gender. */
 export function getRandomName(gender?: "male" | "female" | "unisex"): MuslimName {
   let pool = namesDatabase;
@@ -4245,4 +4281,11 @@ export const virtueToThemes: Record<string, string[]> = {
   guidance: ["guidance"],
   nobility: ["nobility"],
   blessing: ["blessing"],
+  truth: ["faith", "devotion"],
+  honor: ["nobility", "virtue"],
+  hope: ["virtue", "blessing"],
+  joy: ["blessing", "compassion"],
+  grace: ["beauty", "virtue"],
+  righteous: ["virtue", "devotion"],
+  faithful: ["devotion", "faith"],
 };

@@ -2,6 +2,9 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { getBlogBySlug, getRelatedBlogs } from "@/data/blogs";
+import { linkifyNamesInMarkdown } from "@/lib/linkifyNames";
+import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
+import { WesternNameHoverCard } from "@/components/WesternNameHoverCard";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, BookOpen, Tag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -96,6 +99,7 @@ export default function BlogDetailPage() {
         >
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            children={linkifyNamesInMarkdown(post.content)}
             components={{
               table: ({ children }) => (
                 <div className="my-6 rounded-lg border border-border overflow-hidden not-prose">
@@ -116,6 +120,22 @@ export default function BlogDetailPage() {
               a: ({ href, children }) => {
                 const isInternal = href?.startsWith("/") && !href.startsWith("//");
                 if (isInternal && href) {
+                  const nameMatch = href.match(/^\/name\/([^/?#]+)/);
+                  const westernMatch = href.match(/^\/western-names\/([^/?#]+)/);
+                  if (nameMatch) {
+                    return (
+                      <MuslimNameHoverCard slug={decodeURIComponent(nameMatch[1])} className="text-primary hover:underline font-medium">
+                        {children}
+                      </MuslimNameHoverCard>
+                    );
+                  }
+                  if (westernMatch) {
+                    return (
+                      <WesternNameHoverCard keyName={decodeURIComponent(westernMatch[1])} className="text-primary hover:underline font-medium">
+                        {children}
+                      </WesternNameHoverCard>
+                    );
+                  }
                   return (
                     <Link to={href} className="text-primary hover:underline font-medium">
                       {children}
@@ -134,9 +154,7 @@ export default function BlogDetailPage() {
                 );
               },
             }}
-          >
-            {post.content}
-          </ReactMarkdown>
+          />
         </motion.div>
 
         {/* CTA */}

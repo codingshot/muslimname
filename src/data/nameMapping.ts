@@ -440,3 +440,13 @@ export function getMappingsByCountry(countryCode: string | null | undefined): [s
 
 // Get total count
 export const totalMappings = Object.keys(christianToMuslimNameMapping).length;
+
+/** Western/non-Muslim name keys that map to this Muslim name (for links: /western-names/:key) */
+export function getWesternKeysForMuslimName(slug: string): string[] {
+  return muslimNameToWesternKeys.get(slug.toLowerCase()) ?? [];
+}
+
+/** Western/non-Muslim display names that map to this Muslim name (e.g., "dawud" → ["David"]) */
+export function getWesternNamesForMuslimName(slug: string): string[] {
+  return getWesternKeysForMuslimName(slug).map(k => k.charAt(0).toUpperCase() + k.slice(1));
+}

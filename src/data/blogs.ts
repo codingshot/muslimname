@@ -1608,6 +1608,235 @@ Indian reverts can honor their cultural names while embracing Islamic equivalent
 
 Our [Name Generator](/generator) uses your detected or selected country to boost names popular in your region. If you're in Nigeria, Brazil, or India — or hail from those cultures — you'll see suggestions that resonate with your community.
     `
+  },
+  {
+    slug: "muslim-baby-names-new-parents-guide",
+    title: "Muslim Baby Names for New Parents: Quranic, Modern & Cross-Cultural Picks",
+    metaDescription: "Discover beautiful Muslim baby names for your newborn. Quranic names, modern Islamic names, and cross-cultural picks for Muslim parents. 3000+ names with meanings.",
+    excerpt: "Choosing a Muslim name for your baby is one of the first gifts you give them. Whether you want a Quranic classic, a modern favorite, or a name that bridges cultures, this guide helps you find the perfect fit.",
+    tags: ["baby names", "new parents", "quranic", "muslim names", "newborn"],
+    relatedSlugs: ["beautiful-muslim-girl-names", "strong-muslim-boy-names", "muslim-baby-naming-traditions", "quranic-names-meaning-significance"],
+    content: `
+## Muslim Baby Names: Your Complete Guide
+
+Whether you're welcoming your first child or adding to your family, a Muslim name carries spiritual meaning and identity. From Quranic classics like Maryam and Ibrahim to modern favorites like Noor and Rayyan, there's a name for every family.
+
+## Quranic Baby Names (Mentioned in the Quran)
+
+Names from the Quran connect your child directly to scripture. Popular choices for boys include Ibrahim, Yusuf, Musa, Isa, and Sulayman. For girls, Maryam — the only woman named in the Quran — remains a beloved choice. Idris, Nuh, and Dawud also appear in the Quran and carry prophetic significance.
+
+## Modern Muslim Baby Names
+
+Many Muslim parents want names that work globally while staying rooted in faith. Names like Zara, Ayaan, Inaya, and Omar are easy to pronounce across cultures. Noor (light), Karim (generous), and Hana (bliss) offer beautiful meanings without feeling dated.
+
+## Cross-Cultural Muslim Names
+
+If one parent is a revert or your family spans cultures, consider names that bridge traditions. Adam and Noor work in both Islamic and Western contexts. Maryam maps from Mary; Yusuf from Joseph. These names honor your heritage while embracing Islam.
+
+## Popular Picks for 2024
+
+Based on our database, parents are choosing:
+
+**Boys:** Abdullah, Muhammad, Ibrahim, Yusuf, Omar, Adam, Rayyan, Hamza, Bilal, Idris
+
+**Girls:** Aisha, Fatima, Maryam, Zaynab, Khadijah, Noor, Hana, Safiya, Layla, Zara
+
+## How to Choose
+
+Browse our [Names](/names) database by gender, Quranic filter, and theme. Use our [Name Generator](/generator) to find Islamic equivalents if you're drawn to a name from another culture. Your baby's name will stay with them for life — choose with intention and love.
+    `
+  },
+  {
+    slug: "changing-name-culture-to-islam-guide",
+    title: "Changing Your Name from Another Culture to Islam: A Complete Guide",
+    metaDescription: "Convert to Islam and want to change your name? Learn how to find your Islamic equivalent from any culture — Christian, Hindu, Chinese, Korean & more. 1700+ names mapped.",
+    excerpt: "Whether you're from a Christian, Hindu, Chinese, or Western background, your name likely has an Islamic equivalent. This guide helps you find it and decide whether to adopt it.",
+    tags: ["name change", "convert", "revert", "cultural", "islam"],
+    relatedSlugs: ["choosing-muslim-name-after-converting", "christian-names-islamic-equivalents", "multilingual-name-discovery-islam", "is-changing-name-required-islam"],
+    content: `
+## Changing Your Name When Embracing Islam
+
+Converting to Islam is a profound journey. Many reverts wonder: should I change my name? The answer is personal. What we offer is the ability to discover your name's Islamic equivalent — from any culture.
+
+## Names Across Cultures
+
+Our database maps over 1,700 names from diverse traditions to their Islamic equivalents:
+
+- **Christian & Western:** David → Dawud, Mary → Maryam, John → Yahya, Elizabeth → Ilham
+- **Hindu:** Arjun → Hamza, Priya → Habiba, Rohan → Rayyan, Diya → Noor
+- **Chinese:** Ming → Nuran, Wei → Wali, Yong → Yahya, Hao → Karim
+- **Korean:** Min-jun → Amin, Ji-ho → Yahya, Seo-yun → Saffiya
+- **Spanish & Portuguese:** José → Yusuf, María → Maryam, João → Yahya
+
+## Why Cultural Mapping Matters
+
+Your birth name often carries meaning in your original language. Finding an Islamic equivalent preserves that meaning while aligning with your faith. Ibrahim shares roots with Abraham; Maryam with Mary. You're not erasing your past — you're weaving it into your new identity.
+
+## Do You Have to Change Legally?
+
+No. Many reverts use their Muslim name at the masjid and with Muslim friends while keeping their legal name. Others make the change official. Our [Legal Guide](/legal-guide) covers name change procedures in 40+ countries.
+
+## Find Your Islamic Name
+
+Use our [Name Generator](/generator) — enter your current name and we'll show Islamic equivalents with meanings, Quranic references, and pronunciation. Browse [Western Name Reference](/western-names) for 1,700+ mappings. Your perfect Muslim name is waiting.
+    `
+  },
+  {
+    slug: "celebrities-who-reverted-to-islam-and-changed-their-names",
+    title: "Celebrities Who Reverted to Islam and Changed Their Names",
+    metaDescription: "Muhammad Ali, Kareem Abdul-Jabbar, Yusuf Islam, Central Cee and more — celebrities who embraced Islam and adopted new names. With sources and name meanings.",
+    excerpt: "From Muhammad Ali to Central Cee, discover well-known figures who reverted to Islam and chose new names as part of their spiritual journey. Each name tells a story.",
+    tags: ["celebrities", "revert", "conversion", "muslim names", "name change"],
+    relatedSlugs: ["choosing-muslim-name-after-converting", "popular-muslim-names-for-converts", "revert-to-islam-find-your-muslim-name"],
+    content: `
+## Famous Reverts Who Chose New Names
+
+Taking a Muslim name after reverting to Islam is a deeply personal choice. Many well-known figures have done exactly that — embracing Islam and adopting a new name as a symbol of their spiritual rebirth. Here are some prominent examples, with sources.
+
+**Source:** [Wikipedia – List of converts to Islam](https://en.wikipedia.org/wiki/List_of_converts_to_Islam)
+
+---
+
+## Sports
+
+### Muhammad Ali
+The legendary boxer was born Cassius Marcellus Clay Jr. and changed his name to Muhammad Ali after joining the Nation of Islam in the 1960s. His new name — Muhammad (praised) and Ali (exalted) — became synonymous with courage and faith worldwide.
+
+[Source: CBS News – Famous Muslim celebrities](https://www.cbsnews.com/pictures/famous-muslim-celebrities/)
+
+### Kareem Abdul-Jabbar
+The NBA legend was born Ferdinand Lewis Alcindor Jr., converted to Islam in 1971, and took the name Kareem Abdul-Jabbar. Kareem means "generous" or "noble" — one of the 99 Names of Allah. Abdul-Jabbar means "servant of the Almighty."
+
+[Source: Studio Arabiya – 10 celebrities who converted to Islam](https://studioarabiya.com/10-celebrities-who-converted-to-islam/)
+
+### Thomas Partey → Yakubu
+Ghanaian international footballer reportedly converted to Islam and took the Muslim name Yakubu (James/Jacob in Arabic tradition).
+
+[Source: Classic 105 Kenya – Celebrities who converted to Islam](https://www.facebook.com/Classic105Kenya/posts/here-is-a-list-of-celebrities-who-have-converted-to-muslims/1892819794254853/)
+
+---
+
+## Music
+
+### Yusuf Islam (Cat Stevens)
+The musician formerly known as Cat Stevens converted to Islam in the late 1970s and changed his name to Yusuf Islam. Yusuf (Joseph) is a beloved prophetic name — his story is called "the best of stories" in the Quran.
+
+[Source: CBS News – Famous Muslim celebrities](https://www.cbsnews.com/pictures/famous-muslim-celebrities/)
+
+### Q-Tip (Kamaal Ibn John Fareed)
+The rapper from A Tribe Called Quest was born Jonathan Davis and, after converting to Islam, adopted the name Kamaal Ibn John Fareed. Kamaal means "perfection" or "excellence."
+
+[Source: CBS News – Famous Muslim celebrities](https://www.cbsnews.com/pictures/famous-muslim-celebrities/)
+
+### Sinéad O'Connor → Shuhada' Davitt
+The Irish singer announced her conversion to Islam in 2018 and began using the name Shuhada' Davitt. Shuhada means "witnesses" or "martyrs" in Arabic — those who testify to the truth of faith.
+
+[Source: The Week – Five celebrities who converted to Islam](https://theweek.com/97374/five-celebrities-who-converted-to-islam)
+
+### Central Cee → Akhil
+The British rapper, born Oakley Neil Caesar-Su, recently said he took shahada and changed his first name to Akhil. Akhil (أخيل) means "complete" or "whole" in Arabic — a fitting choice for a new beginning.
+
+[Source: LADbible – Central Cee converted to Islam](https://www.ladbible.com/entertainment/celebrity/central-cee-converted-islam-name-change-657380-20260207)
+
+### A. R. Rahman
+The Indian composer was born A. S. Dileep Kumar and, after converting with his family, took the name Allah Rakha Rahman. Rahman is one of the 99 Names of Allah — "the Most Merciful."
+
+[Source: Wikipedia – List of converts to Islam](https://en.wikipedia.org/wiki/List_of_converts_to_Islam)
+
+### Beery Manoch (Saint Loco) → Muhammad Beery Al Fattah
+Indonesian rapper who converted in 2015 and adopted a new Muslim name while keeping his stage identity. Al-Fattah means "the Opener" — one of Allah's names.
+
+[Source: KapanLagi – Celebrities who changed their names](https://en.kapanlagi.com/celebrity/becoming-a-convert-these-6-celebrities-decide-to-change-their-names-who-are-they.html)
+
+### Virgoun → Muhammad Isa
+Indonesian singer who became Muslim in 2013 and took the name Muhammad Isa. Isa (Jesus) is a revered prophet in Islam, honoured throughout the Quran.
+
+[Source: KapanLagi – Celebrities who changed their names](https://en.kapanlagi.com/celebrity/becoming-a-convert-these-6-celebrities-decide-to-change-their-names-who-are-they.html)
+
+---
+
+## Film, Media & Entertainment
+
+### Tanasha Donna → Aisha
+Kenyan media personality and singer is reported to have taken the name Aisha after embracing Islam. Aisha was the wife of Prophet Muhammad ﷺ and one of the most learned scholars in Islamic history — her name means "alive" or "living."
+
+[Source: Pulse Kenya – Kenyan celebrities who became Muslim](https://www.pulse.co.ke/story/kenyan-celebrities-who-became-muslim-the-journey-of-faith-and-why-they-chose-islam-2025122711543304634)
+
+### Sandy Tumiwa → Sandy Maulana Malik Ibrahim Tumiwa
+Indonesian actor who changed his name after converting to Islam, adding Maulana (our master) and Malik Ibrahim (referring to Prophet Ibrahim).
+
+[Source: KapanLagi – Celebrities who changed religion](https://en.kapanlagi.com/celebrity/changing-religion-these-7-celebrities-have-a-new-name-that-sounds-more-religious.html)
+
+### Rakhi Sawant → Fatima (reported)
+Indian entertainer Rakhi Sawant, born Neeru Bheda, has been reported in Indian media as taking the name Fatima after embracing Islam, though her documentation and statements have varied. Fatima was the daughter of Prophet Muhammad ﷺ — a name meaning "one who weans" or "one who abstains."
+
+[Source: Wikipedia – List of converts to Islam](https://en.wikipedia.org/wiki/List_of_converts_to_Islam)
+
+### Cassypool → Yakub
+Kenyan online commentator Cassypool publicly embraced Islam in 2024 and took the name Yakub (Jacob) — the prophet honoured in the Quran as Yaqub.
+
+[Source: Pulse Kenya – Kenyan celebrities who became Muslim](https://www.pulse.co.ke/story/kenyan-celebrities-who-became-muslim-the-journey-of-faith-and-why-they-chose-islam-2025122711543304634)
+
+---
+
+## Football (Soccer)
+
+### Diego Michiels → Diego Muhammad
+Indonesian-Dutch footballer who became Muslim and added "Muhammad" to his name.
+
+[Source: KapanLagi – Celebrities who changed religion](https://en.kapanlagi.com/celebrity/changing-religion-these-7-celebrities-have-a-new-name-that-sounds-more-religious.html)
+
+### Christian Gonzáles → Mustafa Habibi
+Naturalised Indonesian–Uruguayan footballer who converted to Islam and changed his name to Mustafa Habibi. Mustafa means "the Chosen One" (an epithet of Prophet Muhammad ﷺ); Habibi means "my beloved."
+
+[Source: KapanLagi – Celebrities who changed religion](https://en.kapanlagi.com/celebrity/changing-religion-these-7-celebrities-have-a-new-name-that-sounds-more-religious.html)
+
+---
+
+## Your Name, Your Journey
+
+Whether you're inspired by Muhammad Ali, Yusuf Islam, or Central Cee — choosing a Muslim name is a personal decision. Use our [Name Generator](/generator) to find the Islamic equivalent of your birth name, or browse [3,000+ Islamic names](/names) with meanings and Quranic references.
+
+New to the journey? Read our guide on [how to choose a Muslim name after converting](/blogs/choosing-muslim-name-after-converting).
+    `
+  },
+  {
+    slug: "revert-to-islam-find-your-muslim-name",
+    title: "Revert to Islam? Find Your New Muslim Name | Guide for New Muslims",
+    metaDescription: "Just reverted to Islam? Discover your Muslim name. Popular names for reverts, Islamic equivalents for your birth name, and how to choose. Built for new Muslims.",
+    excerpt: "As a new Muslim, choosing a name can affirm your identity. Whether you keep your birth name or adopt an Islamic equivalent, this guide helps you decide — with 3,000+ names and 1,700+ mappings.",
+    tags: ["revert", "convert", "new muslim", "muslim name", "revert names"],
+    relatedSlugs: ["choosing-muslim-name-after-converting", "popular-muslim-names-for-converts", "convert-vs-revert-why-muslims-say-revert", "christian-names-islamic-equivalents"],
+    content: `
+## Welcome to Islam — What About Your Name?
+
+Reverting to Islam is a rebirth. Many new Muslims ask: do I need a new name? The short answer: it's optional but meaningful. This guide helps you find a Muslim name that fits — whether it's the Islamic equivalent of your birth name or a fresh choice.
+
+## Popular Names Among Reverts
+
+Names that bridge traditions are especially beloved:
+
+**From Christian/Western backgrounds:** Maryam (Mary), Ibrahim (Abraham), Yusuf (Joseph), Yahya (John), Aisha, Fatima, Omar, Khadijah, Bilal, Sumayyah
+
+**Universal favorites:** Noor, Abdullah, Adam, Zara, Rayyan, Inaya, Karim, Hana
+
+These names feel familiar to family while carrying deep Islamic meaning. Maryam honors the mother of Isa; Ibrahim the father of prophets.
+
+## Your Birth Name's Islamic Equivalent
+
+Chances are your name has an Islamic counterpart. Enter it in our [Name Generator](/generator) — we've mapped 1,700+ names from Christian, Hindu, Chinese, Korean, and other traditions. David becomes Dawud; Sarah maps to several beautiful options. You might discover your "Muslim name" was always there.
+
+## Taking a New Name: Practical Tips
+
+1. **Say it aloud** — Choose a name you and others can pronounce
+2. **Check the meaning** — Every Muslim name tells a story; find one that resonates
+3. **Consider your community** — Names popular in your masjid can help you feel at home
+4. **No rush** — Some reverts take years to settle on a name. Your faith doesn't depend on it.
+
+## Explore Our Database
+
+Browse [3,000+ Islamic names](/names) with meanings, Quranic references, and origins. Filter by gender, scripture, and theme. Discover the name that feels like you.
+    `
   }
 ];
 

@@ -1,4 +1,4 @@
-import { Share2, Copy, Check, Send } from "lucide-react";
+import { Share2, Copy, Check, Send, ImageIcon } from "lucide-react";
 import { useState, useCallback } from "react";
 import { toast } from "sonner";
 import {
@@ -9,6 +9,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ShareCard } from "@/components/ShareCard";
+import { useProfile } from "@/hooks/useProfile";
 
 const BASE_URL = "https://muslimname.me";
 
@@ -17,6 +19,7 @@ interface ShareNameProps {
   slug: string;
   meaning: string;
   arabic?: string;
+  isQuranic?: boolean;
   className?: string;
   /** Compact dropdown-only, or expanded inline buttons */
   variant?: "dropdown" | "inline";
@@ -26,8 +29,10 @@ function buildShareText(name: string, meaning: string, arabic?: string): string 
   return arabic ? `${name} (${arabic}) — ${meaning}` : `${name} — ${meaning}`;
 }
 
-export function ShareName({ name, slug, meaning, arabic, className, variant = "dropdown" }: ShareNameProps) {
+export function ShareName({ name, slug, meaning, arabic, isQuranic, className, variant = "dropdown" }: ShareNameProps) {
   const [copied, setCopied] = useState<"link" | "text" | false>(false);
+  const [shareCardOpen, setShareCardOpen] = useState(false);
+  const { profile } = useProfile();
 
   const url = `${BASE_URL}/name/${slug}`;
   const shareText = buildShareText(name, meaning, arabic);
@@ -76,6 +81,15 @@ export function ShareName({ name, slug, meaning, arabic, className, variant = "d
 
   const shareButtons = (
     <div className="flex items-center gap-2 flex-wrap">
+      <button
+        type="button"
+        onClick={() => setShareCardOpen(true)}
+        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 text-sm font-medium transition-colors"
+        aria-label="Create share card"
+      >
+        <ImageIcon className="w-4 h-4" />
+        Create card
+      </button>
       <button
         type="button"
         onClick={() => handleCopy(false)}
@@ -154,10 +168,24 @@ export function ShareName({ name, slug, meaning, arabic, className, variant = "d
   );
 
   if (variant === "inline") {
-    return <div className={className}>{shareButtons}</div>;
+    return (
+      <>
+        <div className={className}>{shareButtons}</div>
+        <ShareCard
+          open={shareCardOpen}
+          onOpenChange={setShareCardOpen}
+          name={name}
+          arabic={arabic}
+          meaning={meaning}
+          isQuranic={isQuranic}
+          profileFont={profile.settings.nameDisplayFont}
+        />
+      </>
+    );
   }
 
   return (
+    <>
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
@@ -186,6 +214,11 @@ export function ShareName({ name, slug, meaning, arabic, className, variant = "d
           </DropdownMenuItem>
         )}
         <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={() => setShareCardOpen(true)} className="cursor-pointer">
+          <ImageIcon className="w-4 h-4 mr-2" />
+          Create share card
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => openShare(twitterUrl)} className="cursor-pointer">
           <span className="mr-2 w-4 text-center font-bold">𝕏</span>
           X (Twitter)
@@ -208,5 +241,15 @@ export function ShareName({ name, slug, meaning, arabic, className, variant = "d
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+    <ShareCard
+      open={shareCardOpen}
+      onOpenChange={setShareCardOpen}
+      name={name}
+      arabic={arabic}
+      meaning={meaning}
+      isQuranic={isQuranic}
+      profileFont={profile.settings.nameDisplayFont}
+    />
+    </>
   );
 }

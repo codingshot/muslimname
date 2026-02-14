@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-sitemap.mjs && vite build",
+    "audit-quran-refs": "node scripts/audit-quran-refs.mjs",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
     "generate-country-relations": "node scripts/generate-country-relations.mjs",
     "build:dev": "vite build --mode development",
@@ -50,7 +51,9 @@
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.34.0",
+    "html2canvas": "^1.4.1",
     "input-otp": "^1.4.2",
+    "jszip": "^3.10.1",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",

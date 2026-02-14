@@ -7,10 +7,12 @@ import NameCardSkeleton from "@/components/NameCardSkeleton";
 import { suggestFromMeaning, namesDatabase, findNameBySlug, getQuickNameSuggestions } from "@/data/names";
 import { getMultiNameMappingContext, getCombinedMuslimNamesFromMultiMapping, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, getMappingAffiliation, type NameMapping } from "@/data/nameMapping";
 import { getFiqhRuling } from "@/data/fiqh";
+import { fetchWordMeaning } from "@/lib/dictionary";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Sparkles, RefreshCw, Info, ArrowRight, BookOpen } from "lucide-react";
 import FiqhPanel from "@/components/FiqhPanel";
+import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { useProfile } from "@/hooks/useProfile";
@@ -40,6 +42,7 @@ export default function GeneratorPage() {
   const [generated, setGenerated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [detectedMeaning, setDetectedMeaning] = useState<{ word: string; meaning: string; searchWords: string[] } | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   // Sync current name to profile first/last name settings
@@ -61,7 +64,7 @@ export default function GeneratorPage() {
   useEffect(() => {
     const urlName = searchParams.get("name");
     if (urlName) {
-      setCurrentName(urlName);
+      setCurrentName(decodeURIComponent(urlName));
       setGenerated(true);
       setLoading(true);
       setTimeout(() => {
@@ -71,10 +74,31 @@ export default function GeneratorPage() {
         }, 150);
       }, 600);
     }
-  }, []);
+  }, [searchParams]);
 
   const multiMappingInfo = useMemo(() => getMultiNameMappingContext(currentName.trim()), [currentName]);
   const hasAnyMapping = multiMappingInfo.some(p => p.mapping);
+
+  // When no mapping, try to detect meaning from dictionary (for names like Grace, Hope, Rose)
+  useEffect(() => {
+    if (hasAnyMapping) {
+      setDetectedMeaning(null);
+      return;
+    }
+    const firstWord = currentName.trim().split(/\s+/)[0]?.toLowerCase() ?? "";
+    if (firstWord.length < 3 || !/^[a-z-]+$/.test(firstWord)) {
+      setDetectedMeaning(null);
+      return;
+    }
+    let cancelled = false;
+    fetchWordMeaning(firstWord).then((result) => {
+      if (cancelled || !result) return;
+      setDetectedMeaning({ word: firstWord, meaning: result.meaning, searchWords: result.searchWords });
+    }).catch(() => {
+      if (!cancelled) setDetectedMeaning(null);
+    });
+    return () => { cancelled = true; };
+  }, [currentName, hasAnyMapping]);
 
   const deferredNameForSuggestions = useDeferredValue(
     hasAnyMapping ? "" : currentName.trim()
@@ -117,6 +141,16 @@ export default function GeneratorPage() {
       searchTerms.push(...customMeaning.trim().toLowerCase().split(/[\s,]+/).filter(w => w.length > 1));
     }
 
+    // Use detected dictionary meaning when no mapping (e.g., "Grace" → grace, elegant, charming)
+    if (!hasAnyMapping && detectedMeaning?.searchWords?.length && !customMeaning.trim()) {
+      searchTerms.push(...detectedMeaning.searchWords.slice(0, 8));
+    }
+    // Fallback: use the name itself as search term when no mapping (matches themes/meanings containing the word)
+    if (!hasAnyMapping && searchTerms.length === 0 && currentName.trim()) {
+      const firstWord = currentName.trim().split(/\s+/)[0]?.toLowerCase();
+      if (firstWord && firstWord.length >= 2) searchTerms.push(firstWord);
+    }
+
     if (currentName.trim() && hasAnyMapping) {
       searchTerms.push(...getCombinedMuslimNamesFromMultiMapping(currentName.trim()));
       for (const p of multiMappingInfo) {
@@ -157,15 +191,15 @@ export default function GeneratorPage() {
     }
 
     return names.slice(0, 9);
-  }, [generated, loading, currentName, customMeaning, selectedMeanings, gender, hasAnyMapping, multiMappingInfo]);
+  }, [generated, loading, currentName, customMeaning, selectedMeanings, gender, hasAnyMapping, multiMappingInfo, detectedMeaning]);
 
   return (
     <Layout>
       <Helmet>
-        <title>Discover Your Muslim Name — Name Generator | MuslimName.me</title>
-        <meta name="description" content="Find your Islamic name equivalent. Enter your Christian, Hebrew, or Western name and discover meaningful Muslim names with Quranic references and legal name change guides." />
+        <title>Muslim Name Generator — Find Your Islamic Name | Converts, Reverts & Cultural</title>
+        <meta name="description" content="Find your Islamic name equivalent. Enter your name — Christian, Hindu, Chinese, Korean or Western — and discover Muslim names with Quranic references. For converts, reverts & cultural name changes." />
         <link rel="canonical" href="https://muslimname.me/generator" />
-        <meta name="keywords" content="Muslim name generator, Islamic name equivalent, convert name to Muslim, Christian name Islamic, revert name finder" />
+        <meta name="keywords" content="Muslim name generator, Islamic name equivalent, convert name to Muslim, revert name finder, new Muslim name, cultural name change, Hindu name Islamic, Christian name Muslim" />
         <meta property="og:title" content="Discover Your Muslim Name — Generator | MuslimName.me" />
         <meta property="og:description" content="Enter your current name and find its Islamic equivalent. Quranic references, meanings & legal name change guides." />
         <meta property="og:url" content="https://muslimname.me/generator" />
@@ -220,7 +254,7 @@ export default function GeneratorPage() {
               What's your current name?
             </label>
             <p className="text-sm text-muted-foreground mb-3">
-              We've mapped 200+ Christian, Hebrew & Western names to their Islamic equivalents
+              We've mapped 1,700+ non-Muslim names — Christian, Hindu, Chinese, Korean & more — to Islamic equivalents
             </p>
             <div className="relative">
               <Input
@@ -306,18 +340,21 @@ export default function GeneratorPage() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      role="button"
-                      tabIndex={0}
-                      onDoubleClick={() => { if (part.canonicalKey) navigate(`/western-names/${part.canonicalKey}`); }}
-                      onKeyDown={e => { if (e.key === "Enter" && part.canonicalKey) navigate(`/western-names/${part.canonicalKey}`); }}
-                      title="Double-click to see full details"
-                      className="bg-teal-light rounded-xl p-4 border border-primary/20 cursor-pointer hover:border-primary/40 transition-colors"
+                      className="bg-teal-light rounded-xl p-4 border border-primary/20 hover:border-primary/40 transition-colors"
                     >
                       <div className="flex items-start gap-2">
                         <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                        <div className="space-y-2">
+                        <div className="space-y-2 flex-1 min-w-0">
                           <p className="text-sm font-medium text-foreground">
-                            <span className="capitalize">{part.western}</span> → <span className="text-primary font-semibold">{part.mapping!.muslimNames.join(", ")}</span>
+                            {part.canonicalKey ? (
+                              <Link to={`/western-names/${part.canonicalKey}`} className="capitalize hover:text-primary hover:underline">
+                                {part.western}
+                              </Link>
+                            ) : (
+                              <span className="capitalize">{part.western}</span>
+                            )}
+                            {" → "}
+                            <span className="text-primary font-semibold">{part.mapping!.muslimNames.join(", ")}</span>
                           </p>
                           {part.mapping!.hebrewOrigin && (
                             <p className="text-xs text-muted-foreground">
@@ -326,22 +363,16 @@ export default function GeneratorPage() {
                           )}
                           <p className="text-xs text-muted-foreground">{part.mapping!.connection}</p>
                           <div className="flex gap-2 flex-wrap pt-1">
-                            {part.mapping!.muslimNames.map(n => {
-                              const nameData = findNameBySlug(n);
-                              return nameData ? (
-                                <Link
-                                  key={n}
-                                  to={`/name/${nameData.slug}`}
-                                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2 py-1 rounded-full"
-                                >
-                                  <BookOpen className="w-3 h-3" /> View {nameData.name}
-                                </Link>
-                              ) : (
-                                <span key={n} className="text-xs text-primary font-medium bg-primary/5 px-2 py-1 rounded-full capitalize">
-                                  {n}
-                                </span>
-                              );
-                            })}
+                            {part.mapping!.muslimNames.map(n => (
+                              <MuslimNameHoverCard
+                                key={n}
+                                slug={n}
+                                className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2 py-1 rounded-full"
+                                fallbackDisplay={n}
+                              >
+                                <BookOpen className="w-3 h-3" /> View {findNameBySlug(n)?.name ?? n}
+                              </MuslimNameHoverCard>
+                            ))}
                           </div>
                           <div className="mt-2">
                             <FiqhPanel name={part.western} fiqh={getFiqhRuling(part.western, part.mapping)} compact />
@@ -385,14 +416,25 @@ export default function GeneratorPage() {
                     ))}
                   </div>
                 )}
-                <div>
-                  <label className="text-xs font-medium text-muted-foreground block mb-1">
-                    Optional: What does your name mean? (e.g., gift of God, strong, light)
+                <div className="space-y-2">
+                  {detectedMeaning && (
+                    <p className="text-xs text-muted-foreground flex items-start gap-1.5">
+                      <BookOpen className="w-3.5 h-3.5 mt-0.5 shrink-0 text-primary" />
+                      <span>
+                        <span className="font-medium text-foreground capitalize">{detectedMeaning.word}</span>
+                        {" "}likely means: {detectedMeaning.meaning.slice(0, 80)}{detectedMeaning.meaning.length > 80 ? "…" : ""}
+                        {" "}— we&apos;ll use this to find similar names (via Free Dictionary API).
+                      </span>
+                    </p>
+                  )}
+                  <label className="text-xs font-medium text-muted-foreground block">
+                    {detectedMeaning ? "Override or add more: " : "Optional: What does your name mean? "}
+                    (e.g., gift of God, strong, light)
                   </label>
                   <Input
                     value={customMeaning}
                     onChange={e => setCustomMeaning(e.target.value)}
-                    placeholder="Enter meaning to find similar names..."
+                    placeholder={detectedMeaning ? "Add more meaning words..." : "Enter meaning to find similar names..."}
                     className="h-9 text-sm"
                   />
                 </div>
