@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions, getRandomName } from "@/data/names";
-import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, totalMappings } from "@/data/nameMapping";
+import { getMultiNameMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, totalMappings, getMappingAffiliation } from "@/data/nameMapping";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,20 +33,22 @@ const Index = () => {
   const navigate = useNavigate();
   const { country } = useCountry();
 
-  const mappingInfo = currentName.trim() ? getMappingContext(currentName.trim()) : null;
+  const multiMappingInfo = currentName.trim() ? getMultiNameMappingContext(currentName.trim()) : [];
+  const hasAnyMapping = multiMappingInfo.some(p => p.mapping);
   const deferredNameForSuggestions = useDeferredValue(
-    mappingInfo ? "" : currentName.trim()
+    hasAnyMapping ? "" : currentName.trim()
   );
   const didYouMeanSuggestions = useMemo(
     () => getDidYouMeanSuggestions(deferredNameForSuggestions, 3, { countryCode: country ?? undefined }),
     [deferredNameForSuggestions, country]
   );
   const typingSuggestions = useMemo(() => {
-    const first = currentName.trim().split(/\s+/)[0];
-    if (!first || first.length < 2) return { mapping: [], muslim: [] };
+    const parts = currentName.trim().split(/\s+/).filter(Boolean);
+    const wordToSuggest = parts.length > 1 ? parts[parts.length - 1] : parts[0];
+    if (!wordToSuggest || wordToSuggest.length < 2) return { mapping: [], muslim: [] };
     return {
-      mapping: getCombinedTypingSuggestions(first, { limit: 4, countryCode: country ?? undefined }),
-      muslim: getQuickNameSuggestions(first, 3),
+      mapping: getCombinedTypingSuggestions(wordToSuggest, { limit: 4, countryCode: country ?? undefined }),
+      muslim: getQuickNameSuggestions(wordToSuggest, 3),
     };
   }, [currentName, country]);
 
@@ -105,18 +107,29 @@ const Index = () => {
                 />
                 {showSuggestions && (typingSuggestions.mapping.length > 0 || typingSuggestions.muslim.length > 0) && (
                   <div className="absolute top-full left-0 right-0 mt-1 bg-card/95 backdrop-blur border border-border rounded-xl shadow-lg z-50 py-2 max-h-48 overflow-y-auto">
-                    {typingSuggestions.mapping.map(({ displayName, canonicalKey }) => (
-                      <button
-                        key={canonicalKey}
-                        type="button"
-                        onClick={() => { setCurrentName(displayName); setShowSuggestions(false); }}
-                        onDoubleClick={() => { setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
-                        title="Double-click to see full details"
-                        className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
-                      >
-                        {displayName}
-                      </button>
-                    ))}
+                    {typingSuggestions.mapping.map(({ displayName, canonicalKey }) => {
+                      const aff = getMappingAffiliation(canonicalKey);
+                      const parts = currentName.trim().split(/\s+/).filter(Boolean);
+                      const applySuggestion = () =>
+                        parts.length > 1 ? parts.slice(0, -1).join(" ") + " " + displayName : displayName;
+                      return (
+                        <button
+                          key={canonicalKey}
+                          type="button"
+                          onClick={() => { setCurrentName(applySuggestion()); setShowSuggestions(false); }}
+                          onDoubleClick={() => { setCurrentName(applySuggestion()); setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
+                          title="Double-click to see full details"
+                          className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
+                        >
+                          <span>{displayName}</span>
+                          {aff && (
+                            <span className="ml-1.5 text-xs text-muted-foreground">
+                              {aff.flag && <span className="mr-0.5">{aff.flag}</span>}{aff.label}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
                     {typingSuggestions.muslim.length > 0 && typingSuggestions.mapping.length > 0 && (
                       <div className="border-t border-border my-1" />
                     )}
@@ -147,7 +160,7 @@ const Index = () => {
 
             {/* Live mapping preview */}
             <AnimatePresence mode="wait">
-              {mappingInfo
+              {hasAnyMapping
                 ? (
                 <motion.div
                   key="match"
@@ -158,34 +171,45 @@ const Index = () => {
                 >
                   <div className="bg-primary-foreground/15 backdrop-blur-sm rounded-xl px-4 py-3 text-left hover:bg-primary-foreground/20 transition-colors">
                     <p className="text-sm text-primary-foreground">
-                      {(() => {
-                        const k = getCanonicalMappingKey(currentName.trim());
-                        return (
-                          <>
-                            {k ? (
-                              <Link to={`/western-names/${k}`} className="font-semibold capitalize hover:underline">
-                                {currentName}
-                              </Link>
-                            ) : (
-                              <span className="font-semibold capitalize">{currentName}</span>
-                            )}
-                            {" → "}
-                            {mappingInfo.muslimNames.map((mn, i) => (
-                              <span key={mn}>
-                                {i > 0 && ", "}
-                                <Link to={`/name/${mn}`} className="text-gold font-semibold hover:underline">
-                                  {mn}
+                      {multiMappingInfo.map((part, i) => (
+                        <span key={i}>
+                          {i > 0 && " · "}
+                          {part.mapping ? (
+                            <>
+                              {part.canonicalKey ? (
+                                <Link to={`/western-names/${part.canonicalKey}`} className="font-semibold capitalize hover:underline">
+                                  {part.western}
                                 </Link>
-                              </span>
-                            ))}
-                            {mappingInfo.hebrewOrigin && (
-                              <span className="text-primary-foreground/60 text-xs ml-2">Hebrew: {mappingInfo.hebrewOrigin}</span>
-                            )}
-                          </>
-                        );
-                      })()}
+                              ) : (
+                                <span className="font-semibold capitalize">{part.western}</span>
+                              )}
+                              {" → "}
+                              {part.mapping.muslimNames.map((mn, j) => (
+                                <span key={mn}>
+                                  {j > 0 && ", "}
+                                  <Link to={`/name/${mn}`} className="text-gold font-semibold hover:underline">
+                                    {mn}
+                                  </Link>
+                                </span>
+                              ))}
+                              {part.mapping.hebrewOrigin && (
+                                <span className="text-primary-foreground/60 text-xs ml-1">(Hebrew: {part.mapping.hebrewOrigin})</span>
+                              )}
+                            </>
+                          ) : (
+                            <span className="text-primary-foreground/80">
+                              <span className="capitalize">{part.western}</span>
+                              <span className="text-primary-foreground/60 text-xs ml-1">(no mapping)</span>
+                            </span>
+                          )}
+                        </span>
+                      ))}
                     </p>
-                    <p className="text-xs text-primary-foreground/60 mt-1">{mappingInfo.connection}</p>
+                    {multiMappingInfo.some(p => p.mapping?.connection) && (
+                      <p className="text-xs text-primary-foreground/60 mt-1">
+                        {multiMappingInfo.filter(p => p.mapping?.connection).map(p => p.mapping!.connection).join(" · ")}
+                      </p>
+                    )}
                   </div>
                 </motion.div>
                 )
@@ -200,18 +224,21 @@ const Index = () => {
                   >
                     <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl px-4 py-3 text-left flex flex-wrap items-center gap-1.5">
                       <span className="text-xs text-primary-foreground/80">Did you mean:</span>
-                      {didYouMeanSuggestions.map(({ displayName, canonicalKey }) => (
-                        <button
-                          key={canonicalKey}
-                          type="button"
-                          onClick={() => setCurrentName(displayName)}
-                          onDoubleClick={() => navigate(`/western-names/${canonicalKey}`)}
-                          title="Double-click to see full details"
-                          className="text-xs font-medium text-gold hover:underline bg-primary-foreground/20 hover:bg-primary-foreground/30 px-2 py-1 rounded-full transition-colors"
-                        >
-                          {displayName}
-                        </button>
-                      ))}
+                      {didYouMeanSuggestions.map(({ displayName, canonicalKey }) => {
+                        const aff = getMappingAffiliation(canonicalKey);
+                        return (
+                          <button
+                            key={canonicalKey}
+                            type="button"
+                            onClick={() => setCurrentName(displayName)}
+                            onDoubleClick={() => navigate(`/western-names/${canonicalKey}`)}
+                            title={aff ? `${displayName} — ${aff.label}. Double-click for details` : "Double-click to see full details"}
+                            className="text-xs font-medium text-gold hover:underline bg-primary-foreground/20 hover:bg-primary-foreground/30 px-2 py-1 rounded-full transition-colors"
+                          >
+                            {displayName}{aff ? ` ${aff.flag ? aff.flag + " " : ""}${aff.label}` : ""}
+                          </button>
+                        );
+                      })}
                     </div>
                   </motion.div>
                 )

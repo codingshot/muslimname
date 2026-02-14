@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import { suggestFromMeaning, namesDatabase, findNameBySlug, getQuickNameSuggestions } from "@/data/names";
-import { getMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, type NameMapping } from "@/data/nameMapping";
+import { getMultiNameMappingContext, getCombinedMuslimNamesFromMultiMapping, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, getMappingAffiliation, type NameMapping } from "@/data/nameMapping";
 import { getFiqhRuling } from "@/data/fiqh";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -73,23 +73,22 @@ export default function GeneratorPage() {
     }
   }, []);
 
-  const mappingInfo = useMemo(() => {
-    if (!currentName.trim()) return null;
-    return getMappingContext(currentName.trim());
-  }, [currentName]);
+  const multiMappingInfo = useMemo(() => getMultiNameMappingContext(currentName.trim()), [currentName]);
+  const hasAnyMapping = multiMappingInfo.some(p => p.mapping);
 
   const deferredNameForSuggestions = useDeferredValue(
-    mappingInfo ? "" : currentName.trim()
+    hasAnyMapping ? "" : currentName.trim()
   );
   const didYouMeanSuggestions = useMemo(
     () => getDidYouMeanSuggestions(deferredNameForSuggestions, 4, { countryCode: country ?? undefined }),
     [deferredNameForSuggestions, country]
   );
   const typingSuggestions = useMemo(() => {
-    const first = currentName.trim().split(/\s+/)[0];
-    if (!first || first.length < 2) return [];
-    const mapping = getCombinedTypingSuggestions(first, { limit: 5, countryCode: country ?? undefined });
-    const muslim = getQuickNameSuggestions(first, 4);
+    const parts = currentName.trim().split(/\s+/).filter(Boolean);
+    const wordToSuggest = parts.length > 1 ? parts[parts.length - 1] : parts[0];
+    if (!wordToSuggest || wordToSuggest.length < 2) return { mapping: [], muslim: [] };
+    const mapping = getCombinedTypingSuggestions(wordToSuggest, { limit: 5, countryCode: country ?? undefined });
+    const muslim = getQuickNameSuggestions(wordToSuggest, 4);
     return { mapping, muslim };
   }, [currentName, country]);
 
@@ -118,12 +117,16 @@ export default function GeneratorPage() {
       searchTerms.push(...customMeaning.trim().toLowerCase().split(/[\s,]+/).filter(w => w.length > 1));
     }
 
-    if (currentName.trim() && mappingInfo) {
-      searchTerms.push(...mappingInfo.muslimNames);
-      const meaningWords = mappingInfo.meaning.toLowerCase().split(/[\s,]+/).filter(w => w.length > 2);
-      searchTerms.push(...meaningWords);
-      const connectionWords = mappingInfo.connection.toLowerCase().split(/[\s,]+/).filter(w => w.length > 3);
-      searchTerms.push(...connectionWords.slice(0, 5));
+    if (currentName.trim() && hasAnyMapping) {
+      searchTerms.push(...getCombinedMuslimNamesFromMultiMapping(currentName.trim()));
+      for (const p of multiMappingInfo) {
+        if (p.mapping) {
+          const meaningWords = p.mapping.meaning.toLowerCase().split(/[\s,]+/).filter(w => w.length > 2);
+          searchTerms.push(...meaningWords);
+          const connectionWords = p.mapping.connection.toLowerCase().split(/[\s,]+/).filter(w => w.length > 3);
+          searchTerms.push(...connectionWords.slice(0, 3));
+        }
+      }
     }
 
     const hasName = currentName.trim().length > 0;
@@ -146,7 +149,7 @@ export default function GeneratorPage() {
       names = [...names].sort(() => Math.random() - 0.5);
     }
 
-    if (names.length === 0 && (mappingInfo || hasCustomMeaning)) {
+    if (names.length === 0 && (hasAnyMapping || hasCustomMeaning)) {
       names = [...namesDatabase]
         .filter(n => !hasGender || n.gender === gender)
         .sort(() => Math.random() - 0.5)
@@ -154,7 +157,7 @@ export default function GeneratorPage() {
     }
 
     return names.slice(0, 9);
-  }, [generated, loading, currentName, customMeaning, selectedMeanings, gender, mappingInfo]);
+  }, [generated, loading, currentName, customMeaning, selectedMeanings, gender, hasAnyMapping, multiMappingInfo]);
 
   return (
     <Layout>
@@ -240,23 +243,33 @@ export default function GeneratorPage() {
                   {typingSuggestions.mapping.length > 0 && (
                     <div className="px-3 py-1">
                       <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">Western names</p>
-                      {typingSuggestions.mapping.map(({ displayName, canonicalKey }) => (
-                        <button
-                          key={canonicalKey}
-                          type="button"
-                          role="option"
-                          onClick={() => {
-                            const rest = currentName.trim().split(/\s+/).slice(1).join(" ");
-                            setCurrentName(rest ? `${displayName} ${rest}` : displayName);
-                            setShowSuggestions(false);
-                          }}
-                          onDoubleClick={() => { setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
-                          title="Double-click to see full details"
-                          className="block w-full text-left px-3 py-2 text-sm hover:bg-muted rounded-lg"
-                        >
-                          {displayName}
-                        </button>
-                      ))}
+                      {typingSuggestions.mapping.map(({ displayName, canonicalKey }) => {
+                        const aff = getMappingAffiliation(canonicalKey);
+                        const parts = currentName.trim().split(/\s+/).filter(Boolean);
+                        const applySuggestion = () =>
+                          parts.length > 1 ? parts.slice(0, -1).join(" ") + " " + displayName : displayName;
+                        return (
+                          <button
+                            key={canonicalKey}
+                            type="button"
+                            role="option"
+                            onClick={() => {
+                              setCurrentName(applySuggestion());
+                              setShowSuggestions(false);
+                            }}
+                            onDoubleClick={() => { setCurrentName(applySuggestion()); setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
+                            title="Double-click to see full details"
+                            className="block w-full text-left px-3 py-2 text-sm hover:bg-muted rounded-lg"
+                          >
+                            <span>{displayName}</span>
+                            {aff && (
+                              <span className="ml-1.5 text-xs text-muted-foreground">
+                                {aff.flag && <span className="mr-0.5">{aff.flag}</span>}{aff.label}
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
                   {typingSuggestions.muslim.length > 0 && (
@@ -280,58 +293,73 @@ export default function GeneratorPage() {
 
             {/* Live mapping info */}
             <AnimatePresence>
-              {mappingInfo && (
+              {hasAnyMapping && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  role="button"
-                  tabIndex={0}
-                  onDoubleClick={() => { const k = getCanonicalMappingKey(currentName.trim()); if (k) navigate(`/western-names/${k}`); }}
-                  onKeyDown={e => { if (e.key === "Enter") { const k = getCanonicalMappingKey(currentName.trim()); if (k) navigate(`/western-names/${k}`); } }}
-                  title="Double-click to see full details"
-                  className="mt-3 bg-teal-light rounded-xl p-4 border border-primary/20 cursor-pointer hover:border-primary/40 transition-colors"
+                  className="mt-3 space-y-3"
                 >
-                  <div className="flex items-start gap-2">
-                    <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div className="space-y-2">
-                      <p className="text-sm font-medium text-foreground">
-                        <span className="capitalize">{currentName}</span> → <span className="text-primary font-semibold">{mappingInfo.muslimNames.join(", ")}</span>
-                      </p>
-                      {mappingInfo.hebrewOrigin && (
-                        <p className="text-xs text-muted-foreground">
-                          <span className="font-medium">Hebrew origin:</span> {mappingInfo.hebrewOrigin}
-                        </p>
-                      )}
-                      <p className="text-xs text-muted-foreground">{mappingInfo.connection}</p>
-                      <div className="flex gap-2 flex-wrap pt-1">
-                        {mappingInfo.muslimNames.map(n => {
-                          const nameData = findNameBySlug(n);
-                          return nameData ? (
-                            <Link
-                              key={n}
-                              to={`/name/${nameData.slug}`}
-                              className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2 py-1 rounded-full"
-                            >
-                              <BookOpen className="w-3 h-3" /> View {nameData.name}
-                            </Link>
-                          ) : (
-                            <span key={n} className="text-xs text-primary font-medium bg-primary/5 px-2 py-1 rounded-full capitalize">
-                              {n}
-                            </span>
-                          );
-                        })}
+                  {multiMappingInfo.filter(p => p.mapping).map((part, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      role="button"
+                      tabIndex={0}
+                      onDoubleClick={() => { if (part.canonicalKey) navigate(`/western-names/${part.canonicalKey}`); }}
+                      onKeyDown={e => { if (e.key === "Enter" && part.canonicalKey) navigate(`/western-names/${part.canonicalKey}`); }}
+                      title="Double-click to see full details"
+                      className="bg-teal-light rounded-xl p-4 border border-primary/20 cursor-pointer hover:border-primary/40 transition-colors"
+                    >
+                      <div className="flex items-start gap-2">
+                        <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium text-foreground">
+                            <span className="capitalize">{part.western}</span> → <span className="text-primary font-semibold">{part.mapping!.muslimNames.join(", ")}</span>
+                          </p>
+                          {part.mapping!.hebrewOrigin && (
+                            <p className="text-xs text-muted-foreground">
+                              <span className="font-medium">Hebrew origin:</span> {part.mapping!.hebrewOrigin}
+                            </p>
+                          )}
+                          <p className="text-xs text-muted-foreground">{part.mapping!.connection}</p>
+                          <div className="flex gap-2 flex-wrap pt-1">
+                            {part.mapping!.muslimNames.map(n => {
+                              const nameData = findNameBySlug(n);
+                              return nameData ? (
+                                <Link
+                                  key={n}
+                                  to={`/name/${nameData.slug}`}
+                                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2 py-1 rounded-full"
+                                >
+                                  <BookOpen className="w-3 h-3" /> View {nameData.name}
+                                </Link>
+                              ) : (
+                                <span key={n} className="text-xs text-primary font-medium bg-primary/5 px-2 py-1 rounded-full capitalize">
+                                  {n}
+                                </span>
+                              );
+                            })}
+                          </div>
+                          <div className="mt-2">
+                            <FiqhPanel name={part.western} fiqh={getFiqhRuling(part.western, part.mapping)} compact />
+                          </div>
+                        </div>
                       </div>
-                      <div className="mt-2">
-                        <FiqhPanel name={currentName} fiqh={getFiqhRuling(currentName, mappingInfo)} compact />
-                      </div>
-                    </div>
-                  </div>
+                    </motion.div>
+                  ))}
+                  {multiMappingInfo.some(p => !p.mapping) && (
+                    <p className="text-xs text-muted-foreground">
+                      {multiMappingInfo.filter(p => !p.mapping).map(p => p.western).join(", ")} — not in our mapping database
+                    </p>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {currentName.trim() && !mappingInfo && (
+            {currentName.trim() && !hasAnyMapping && (
               <div className="mt-3 space-y-3">
                 <p className="text-xs text-muted-foreground">
                   We don&apos;t have a direct mapping for &quot;{currentName.trim().split(/\s+/)[0]}&quot;

@@ -9,9 +9,26 @@ import {
   categoryToWesternKeys,
 } from "./nameMappingData";
 import type { NameMapping } from "./nameMappingData";
+import { getCountryName, getCountryFlag } from "@/lib/country";
 export type { NameMapping, NameMappingCategory } from "./nameMappingData";
 
 export { christianToMuslimNameMapping };
+
+/** Affiliation label for a mapping: country (popularIn) or language/culture (category). */
+export function getMappingAffiliation(key: string): { label: string; flag?: string } | null {
+  const m = christianToMuslimNameMapping[key];
+  if (!m) return null;
+  if (m.popularIn?.length) {
+    const code = m.popularIn[0];
+    const label = getCountryName(code) || code;
+    return label ? { label, flag: getCountryFlag(code) || undefined } : null;
+  }
+  if (m.category) {
+    const lang = m.category.split("-")[0];
+    return lang ? { label: lang.charAt(0).toUpperCase() + lang.slice(1) } : null;
+  }
+  return null;
+}
 
 /** Normalize diacritics for multilanguage: José → jose, João → joao, Đức → duc */
 function normalizeDiacritics(s: string): string {
@@ -320,6 +337,47 @@ export function getMappingContext(name: string | null | undefined): NameMapping 
   const key = resolveMappingKey(name);
   if (!key) return null;
   return christianToMuslimNameMapping[key] ?? null;
+}
+
+/** Result for one name part in a multi-name input (e.g. "David Smith" → David + Smith) */
+export interface MultiNameMappingPart {
+  western: string;
+  canonicalKey: string | null;
+  mapping: NameMapping | null;
+}
+
+/**
+ * Map each word in a full name to its Islamic equivalent.
+ * "David Smith" → [{ western: "David", mapping }, { western: "Smith", mapping: null }]
+ * Supports first + last names and multiple middle names.
+ */
+export function getMultiNameMappingContext(input: string | null | undefined): MultiNameMappingPart[] {
+  const raw = typeof input === "string" ? input.trim() : "";
+  if (!raw) return [];
+  const parts = raw.split(/\s+/).filter(Boolean);
+  return parts.map(part => {
+    const key = getCanonicalMappingKey(part);
+    const mapping = key ? (christianToMuslimNameMapping[key] ?? null) : null;
+    return {
+      western: part,
+      canonicalKey: key,
+      mapping,
+    };
+  });
+}
+
+/** All Muslim name equivalents from a multi-name input (for search/display). */
+export function getCombinedMuslimNamesFromMultiMapping(input: string | null | undefined): string[] {
+  const parts = getMultiNameMappingContext(input);
+  const out: string[] = [];
+  for (const p of parts) {
+    if (p.mapping?.muslimNames) {
+      for (const mn of p.mapping.muslimNames) {
+        if (!out.includes(mn)) out.push(mn);
+      }
+    }
+  }
+  return out;
 }
 
 /** Canonical mapping key for a name, or null if no mapping. Use for navigation to /western-names/:key */

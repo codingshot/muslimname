@@ -449,9 +449,14 @@ function NameCombinationsSection({
       const lastThemes = lastData.themes ?? [];
       const sharedThemes = firstThemes.filter(t => lastThemes.includes(t));
       const prefs = preferredMeanings ?? [];
-      const matchesPrefs = prefs.length > 0
-        ? prefs.filter(p => firstThemes.includes(p) || lastThemes.includes(p)).length
-        : 0;
+      const matchedPrefsDetails = prefs
+        .filter(p => firstThemes.includes(p) || lastThemes.includes(p))
+        .map(quality => ({
+          quality,
+          inFirst: firstThemes.includes(quality),
+          inLast: lastThemes.includes(quality),
+        }));
+      const matchesPrefs = matchedPrefsDetails.length;
       const bothQuranic = !!(firstData.isQuranic && lastData.isQuranic);
       const avgPopularity = ((firstData.popularity ?? 0) + (lastData.popularity ?? 0)) / 2;
       return {
@@ -460,10 +465,11 @@ function NameCombinationsSection({
         combinedMeaning: `${firstData.meaning ?? ""} + ${lastData.meaning ?? ""}`.trim() || "—",
         bothQuranic,
         sharedThemes,
+        matchedPrefsDetails,
         matchScore: matchesPrefs * 2 + sharedThemes.length + (bothQuranic ? 1 : 0),
         avgPopularity,
       };
-    }).filter(Boolean) as { first: typeof firstData; last: typeof lastData; combinedMeaning: string; bothQuranic: boolean; sharedThemes: string[]; matchScore: number; avgPopularity: number }[];
+    }).filter(Boolean) as { first: typeof firstData; last: typeof lastData; combinedMeaning: string; bothQuranic: boolean; sharedThemes: string[]; matchedPrefsDetails: { quality: string; inFirst: boolean; inLast: boolean }[]; matchScore: number; avgPopularity: number }[];
   });
 
   const sorted = [...combos].sort((a, b) => b.matchScore - a.matchScore);
@@ -474,10 +480,10 @@ function NameCombinationsSection({
         <Book className="w-5 h-5 text-secondary" /> Name Combinations
       </h3>
       <p className="text-xs text-muted-foreground mb-3">
-        See how first + last pair together: combined meaning, Quranic names, and best fit for your preferences
+        See how your first + last contenders pair together. We rank by how many of your chosen qualities appear in each name, shared themes between both names, and whether both are Quranic.
       </p>
       <div className="space-y-3">
-        {sorted.map(({ first, last, combinedMeaning, bothQuranic, sharedThemes, matchScore, avgPopularity }) => (
+        {sorted.map(({ first, last, combinedMeaning, bothQuranic, sharedThemes, matchedPrefsDetails, matchScore, avgPopularity }) => (
           <div
             key={`${first.name}-${last.name}`}
             className="rounded-lg border border-border p-3 bg-background hover:shadow-card-hover transition-shadow"
@@ -504,14 +510,38 @@ function NameCombinationsSection({
               )}
             </div>
             <p className="text-sm text-muted-foreground mb-2">{combinedMeaning}</p>
-            <div className="flex flex-wrap gap-1.5 text-xs">
+            <div className="space-y-1 text-xs text-muted-foreground">
+              {matchedPrefsDetails.length > 0 && (
+                <p>
+                  <span className="font-medium text-foreground">Matches your picks:</span>{" "}
+                  {matchedPrefsDetails.map(({ quality, inFirst, inLast }, i) => {
+                    const where = inFirst && inLast ? "both" : inFirst ? first.name : last.name;
+                    return (
+                      <span key={quality}>
+                        {quality}
+                        <span className="text-muted-foreground/80"> ({where})</span>
+                        {i < matchedPrefsDetails.length - 1 ? ", " : ""}
+                      </span>
+                    );
+                  })}
+                </p>
+              )}
               {sharedThemes.length > 0 && (
-                <span className="text-primary">
-                  Shared: {sharedThemes.map(t => t).join(", ")}
-                </span>
+                <p>
+                  <span className="font-medium text-foreground">Shared qualities:</span>{" "}
+                  {sharedThemes.join(", ")}
+                </p>
+              )}
+              {bothQuranic && (
+                <p>
+                  <span className="font-medium text-foreground">Both names appear in the Quran</span>
+                </p>
+              )}
+              {matchedPrefsDetails.length === 0 && sharedThemes.length === 0 && !bothQuranic && (
+                <p className="italic">Combined meaning and flow — try pairing with names that share themes</p>
               )}
               {avgPopularity >= 70 && (
-                <span className="text-muted-foreground">• Popular choice</span>
+                <p className="text-muted-foreground/80">Popular choice</p>
               )}
             </div>
           </div>
