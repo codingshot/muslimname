@@ -4250,36 +4250,29 @@ export function getQuranicRefCount(name: MuslimName): number {
   return name.isQuranic ? 1 : 0;
 }
 
-export interface RandomNameFilters {
-  gender?: "all" | "male" | "female";
+export interface RandomNameOptions {
+  gender?: "all" | "male" | "female" | "unisex";
   quranicOnly?: boolean;
   origin?: string;
-  themes?: string[];
 }
 
-/** Returns a random name; optionally filtered by gender. */
-export function getRandomName(gender?: "male" | "female" | "unisex"): MuslimName {
+/** Returns a random name; optionally filtered by gender or full options. */
+export function getRandomName(
+  options?: RandomNameOptions | "male" | "female" | "unisex"
+): MuslimName {
   let pool = namesDatabase;
-  if (gender) pool = pool.filter(n => n.gender === gender || n.gender === "unisex");
-  return pool[Math.floor(Math.random() * pool.length)];
-}
-
-/** Returns a random name with filters (gender, Quranic only, origin, themes). */
-export function getRandomNameFiltered(filters: RandomNameFilters): MuslimName | null {
-  let pool = namesDatabase;
-  if (filters.gender && filters.gender !== "all") {
-    pool = pool.filter(n => n.gender === filters.gender || n.gender === "unisex");
+  const opts: RandomNameOptions | undefined =
+    typeof options === "string"
+      ? { gender: options }
+      : options;
+  if (opts?.gender && opts.gender !== "all") {
+    pool = pool.filter(n => n.gender === opts!.gender || n.gender === "unisex");
   }
-  if (filters.quranicOnly) {
-    pool = pool.filter(n => n.isQuranic);
+  if (opts?.quranicOnly) pool = pool.filter(n => n.isQuranic);
+  if (opts?.origin && opts.origin !== "all") {
+    pool = pool.filter(n => n.origin === opts!.origin);
   }
-  if (filters.origin && filters.origin !== "all") {
-    pool = pool.filter(n => n.origin === filters.origin);
-  }
-  if (filters.themes && filters.themes.length > 0) {
-    pool = pool.filter(n => filters.themes!.some(t => n.themes.includes(t)));
-  }
-  if (pool.length === 0) return null;
+  if (pool.length === 0) return namesDatabase[Math.floor(Math.random() * namesDatabase.length)];
   return pool[Math.floor(Math.random() * pool.length)];
 }
 

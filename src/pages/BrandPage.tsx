@@ -12,6 +12,8 @@ import {
   Square,
   ImageIcon,
   FileArchive,
+  Search,
+  Eye,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -384,6 +386,59 @@ ${DARK_COLORS.map((c) => `- **${c.name}**: \`${c.hex}\` | rgb(${c.rgb}) | hsl(${
             <div className="max-w-md space-y-4">
               <Input placeholder="Placeholder text" />
               <Input placeholder="Disabled" disabled />
+            </div>
+          </section>
+
+          {/* Contrast & Visibility (test dark mode search and text) */}
+          <section>
+            <div className="flex items-center gap-2 mb-6">
+              <Eye className="w-6 h-6 text-primary" />
+              <h2 className="font-display text-2xl font-bold text-foreground">Contrast & Visibility</h2>
+              <Badge variant="secondary">{isDark ? "Dark" : "Light"} Mode</Badge>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">
+              Test text visibility in both themes. Toggle dark mode above and verify all samples remain readable.
+            </p>
+            <div className="rounded-xl border border-border bg-card p-6 space-y-8">
+              <div>
+                <p className="text-sm text-muted-foreground mb-2">Text samples (foreground on background)</p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="rounded-lg border border-border bg-background p-4">
+                    <p className="text-foreground font-medium">Primary text (text-foreground)</p>
+                    <p className="text-muted-foreground text-sm mt-1">Muted text (text-muted-foreground)</p>
+                    <p className="text-primary text-sm mt-1">Primary color link</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-muted p-4">
+                    <p className="text-foreground font-medium">Text on muted bg</p>
+                    <p className="text-muted-foreground text-sm mt-1">Muted on muted</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground mb-2">Search input (must show typed text clearly)</p>
+                <div className="flex items-center gap-2 rounded-lg border border-input bg-muted/50 px-3 py-2 focus-within:bg-background focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20 max-w-sm">
+                  <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
+                  <input
+                    type="search"
+                    data-search-input
+                    placeholder="Search names"
+                    className="flex-1 min-w-0 bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
+                    aria-label="Test search visibility"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Type here — text should stay visible in light and dark mode.
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground mb-2">Primary button / card text</p>
+                <div className="flex flex-wrap gap-3">
+                  <Button>Primary button</Button>
+                  <div className="rounded-lg bg-primary px-4 py-2">
+                    <span className="text-primary-foreground font-medium">Primary foreground on primary</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 

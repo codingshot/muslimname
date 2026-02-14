@@ -2528,6 +2528,24 @@ export const quranicNames: MuslimName[] = [
     pronunciation: "rid-WAN"
   },
   {
+    slug: "rasul",
+    name: "Rasul",
+    arabic: "رسول",
+    meaning: "Messenger",
+    detailedMeaning: "Rasul means 'messenger' in Arabic. In the Qur'an, prophets are called rusul (messengers) sent by Allah. It is a cherished name honoring the concept of divine guidance.",
+    gender: "male",
+    origin: "Arabic (Qur'anic)",
+    isQuranic: true,
+    popularity: 60,
+    themes: ["guidance", "prophethood", "faith"],
+    variations: ["Rasool", "Rasoul"],
+    similarNonArabic: [{ name: "Russell", meaning: "Little red", origin: "French" }],
+    famousBearers: [{ name: "Rasulullah", description: "Messenger of Allah — title of Prophet Muhammad ﷺ" }],
+    quranicReferences: [{ surah: "Al-Baqarah", ayah: "2:285", text: "We make no distinction between any of His messengers (rusulihi)." }],
+    hadithReferences: [],
+    pronunciation: "ra-SOOL"
+  },
+  {
     slug: "rizq",
     name: "Rizq",
     arabic: "رزق",

@@ -2,7 +2,9 @@ import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import { Search, X, ChevronDown, Shuffle, LayoutGrid, Smartphone, SlidersHorizontal } from "lucide-react";
-import { namesDatabase, searchNames, getOrigins, getThemes, getSyllableCount, getQuranicRefCount } from "@/data/names";
+import { namesDatabase, searchNames, getOrigins, getThemes, getRandomName, getSyllableCount, getQuranicRefCount } from "@/data/names";
+import { useProfile } from "@/hooks/useProfile";
+import { RandomSettingsDropdown } from "@/components/RandomSettingsDropdown";
 import NameCard from "@/components/NameCard";
 import NameCardSkeleton from "@/components/NameCardSkeleton";
 import Layout from "@/components/Layout";
@@ -16,7 +18,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { useRandomName } from "@/hooks/useRandomName";
 
 const genderFilters = ["all", "male", "female", "unisex"];
 
@@ -167,7 +168,7 @@ function ThemesDropdown({
 export default function NamesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { pickRandom } = useRandomName();
+  const { profile } = useProfile();
 
   const query = searchParams.get("q") || "";
   const gender = searchParams.get("gender") || "all";
@@ -461,13 +462,23 @@ export default function NamesPage() {
                   <Smartphone className="w-3.5 h-3.5" />
                 </button>
               </div>
-              <button
-                type="button"
-                onClick={pickRandom}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Shuffle className="w-3.5 h-3.5" /> Surprise me
-              </button>
+              <div className="inline-flex items-center gap-0.5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const prefs = profile.settings.randomPreferences ?? {};
+                    navigate(`/name/${getRandomName({
+                      gender: prefs.gender ?? "all",
+                      quranicOnly: prefs.quranicOnly ?? false,
+                      origin: prefs.origin,
+                    }).slug}`);
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Shuffle className="w-3.5 h-3.5" /> Surprise me
+                </button>
+                <RandomSettingsDropdown size="sm" />
+              </div>
             </div>
           </div>
 

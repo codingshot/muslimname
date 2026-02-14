@@ -65,6 +65,7 @@ export const slugAliases: Record<string, string> = {
   ridwan: "rizwan",
   rizwan: "rizwan",
   ridhwan: "rizwan",
+  rusul: "rasul",
   // More common spellings
   yousuf: "yusuf",
   yousif: "yusuf",
@@ -86,7 +87,10 @@ export const slugAliases: Record<string, string> = {
   khadijeh: "khadijah",
   aysha: "aisha",
   ayesha: "aisha",
+  aishah: "aisha",
+  aminah: "amina",
   asiya: "asiyah",
+  dawood: "dawud",
   leila: "layla",
   leyla: "layla",
   nur: "noor",

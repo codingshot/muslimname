@@ -1,13 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomNav from "@/components/BottomNav";
 import { prefetchDiscover, prefetchNamesPage, prefetchGenerator, prefetchLegalGuide, prefetchProfile, prefetchNameDetail } from "@/lib/prefetch";
 import { searchNames } from "@/data/names";
-import { Search, Heart, Menu, X, User, Shuffle, Star } from "lucide-react";
-import { useState, useEffect, useMemo, useDeferredValue } from "react";
+import { Search, Heart, Menu, X, User, Shuffle, Star, Moon, Sun } from "lucide-react";
+import { useState, useCallback, useEffect, useMemo, useDeferredValue } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
-import { useRandomName } from "@/hooks/useRandomName";
-import { RandomButtonWithDropdown } from "@/components/RandomButtonWithDropdown";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { to: "/discover", label: "Discover", prefetch: prefetchDiscover },
@@ -37,8 +36,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return searchNames(deferredNavSearch).slice(0, 8);
   }, [deferredNavSearch]);
   const location = useLocation();
+  const navigate = useNavigate();
   const { profile } = useProfile();
-  const { pickRandom } = useRandomName();
+  const { resolvedTheme, setTheme } = useTheme();
   const favoriteCount = profile.favorites.length;
 
   useEffect(() => {
@@ -53,6 +53,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       );
     });
   }, [dropdownOpen, favoriteCount, profile.favorites]);
+
+  const handleRandomQuranic = useCallback(async () => {
+    const { namesDatabase } = await import("@/data/names");
+    const quranic = namesDatabase.filter(n => n.isQuranic);
+    const random = quranic[Math.floor(Math.random() * quranic.length)];
+    if (random) navigate(`/name/${random.slug}`);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -89,14 +96,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:block">
-              <RandomButtonWithDropdown />
-            </div>
             <div className="relative hidden md:block">
               <div className="flex items-center gap-2 rounded-lg border border-input bg-muted/50 px-3 py-1.5 text-sm focus-within:bg-background focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20">
                 <Search className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                 <input
                   type="search"
+                  data-search-input
                   value={navSearchQuery}
                   onChange={(e) => setNavSearchQuery(e.target.value)}
                   onFocus={() => setNavSearchFocused(true)}
@@ -225,6 +230,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
                     <input
                       type="search"
+                      data-search-input
                       value={navSearchQuery}
                       onChange={(e) => setNavSearchQuery(e.target.value)}
                       onFocus={() => setNavSearchFocused(true)}
@@ -272,9 +278,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       )}
                     </div>
                   )}
-                </div>
-                <div className="px-4 py-2 md:hidden">
-                  <RandomButtonWithDropdown onNavigate={() => setMobileOpen(false)} />
                 </div>
                 <Link
                   to="/profile"
@@ -379,10 +382,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/names?gender=male" className="hover:text-primary transition-colors">Male Names</Link>
                 <Link to="/names?gender=female" className="hover:text-primary transition-colors">Female Names</Link>
                 <button
-                  onClick={pickRandom}
+                  onClick={handleRandomQuranic}
                   className="text-left hover:text-primary transition-colors inline-flex items-center gap-1.5"
                 >
-                  <Shuffle className="w-3.5 h-3.5" /> Random Name
+                  <Shuffle className="w-3.5 h-3.5" /> Random Quranic Name
                 </button>
               </div>
             </div>
@@ -404,14 +407,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
           <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
             <span>© {new Date().getFullYear()} MuslimName.me — Made with ❤️ for the Ummah</span>
-            <a
-              href="https://ummah.build"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-primary hover:underline font-medium"
-            >
-              Built by ummah.build
-            </a>
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-2">
+              <button
+                type="button"
+                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors"
+                aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
+              >
+                {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                {resolvedTheme === "dark" ? "Light" : "Dark"} mode
+              </button>
+              <a
+                href="https://praysap.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                PRAYSAP
+              </a>
+              <a
+                href="https://ummah.build"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                Built by ummah.build
+              </a>
+            </div>
           </div>
         </div>
       </footer>

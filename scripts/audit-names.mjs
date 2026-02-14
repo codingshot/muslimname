@@ -33,24 +33,47 @@ const quranicSlugs = extractSlugs(quranicContent);
 const allSlugs = new Set();
 [...coreSlugs, ...companionSlugs, ...quranicSlugs].forEach((s) => allSlugs.add(s));
 
-// Extract mapping muslimNames
-const mappingPath = join(root, "src/data/nameMapping.ts");
-const mappingContent = readFileSync(mappingPath, "utf-8");
-const mappingMatches = [...mappingContent.matchAll(/muslimNames:\s*\[([^\]]+)\]/g)];
+// Extract mapping muslimNames from mappingRecord.ts (source of truth)
+const mappingRecordPath = join(root, "src/data/nameMappingData/mappingRecord.ts");
+const mappingRecordContent = readFileSync(mappingRecordPath, "utf-8");
+const mappingMatches = [...mappingRecordContent.matchAll(/muslimNames:\s*\[([^\]]+)\]/g)];
 
 const mappedNames = new Set();
 mappingMatches.forEach((m) => {
   const inner = m[1];
   const names = inner.match(/["']([^"']+)["']/g) || [];
-  names.forEach((n) => mappedNames.add(n.replace(/["']/g, "").toLowerCase()));
+  names.forEach((n) => {
+    const clean = n.replace(/["']/g, "").trim().toLowerCase();
+    if (clean.length >= 2 && !/^[,.\s]+$/.test(clean)) mappedNames.add(clean);
+  });
 });
+
+// Load slug aliases to check resolved targets
+const aliasesPath = join(root, "src/data/slugAliases.ts");
+let slugAliases = {};
+try {
+  const aliasContent = readFileSync(aliasesPath, "utf-8");
+  const aliasMatches = [...aliasContent.matchAll(/\b([a-z0-9'\-]+):\s*["']([a-z0-9\-]+)["']/gi)];
+  aliasMatches.forEach((m) => {
+    const key = m[1].toLowerCase().replace(/^["'\s]+|["'\s]+$/g, "");
+    const val = m[2].toLowerCase();
+    if (key && val && !key.startsWith("//")) slugAliases[key] = val;
+  });
+} catch {}
+
+function resolvesToDbSlug(slug) {
+  const s = slug.toLowerCase();
+  if (allSlugs.has(s)) return true;
+  const target = slugAliases[s];
+  return target ? allSlugs.has(target) : false;
+}
 
 console.log("=== Name Audit ===\n");
 console.log(`Names DB slugs: ${allSlugs.size}`);
 console.log(`Mapping muslimNames (unique): ${mappedNames.size}\n`);
 
-// 1. Mapping names that don't exist in DB
-const missing = [...mappedNames].filter((m) => !allSlugs.has(m));
+// 1. Mapping names that don't exist in DB (direct or via alias)
+const missing = [...mappedNames].filter((m) => !resolvesToDbSlug(m));
 if (missing.length > 0) {
   console.log("❌ Mapping muslimNames NOT in namesDatabase:");
   missing.sort().forEach((m) => console.log(`   - ${m}`));
@@ -83,13 +106,7 @@ if (emptyThemes > 0) {
 console.log("✅ findNameBySlug: Normalizes to lowercase, supports slug aliases\n");
 
 // 5. Alias coverage
-const aliasesPath = join(root, "src/data/slugAliases.ts");
-try {
-  const aliasContent = readFileSync(aliasesPath, "utf-8");
-  const aliasCount = (aliasContent.match(/^\s+\w+:/gm) || []).length;
-  console.log(`📌 slugAliases.ts: ${aliasCount} mappings (danyal->daniyal, etc.)\n`);
-} catch {
-  console.log("📌 slugAliases.ts: not found\n");
-}
+const aliasCount = Object.keys(slugAliases).length;
+console.log(`📌 slugAliases.ts: ${aliasCount} mappings (danyal->daniyal, rusul->rasul, etc.)\n`);
 
 console.log("Audit complete.");

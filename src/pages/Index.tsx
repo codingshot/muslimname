@@ -7,7 +7,9 @@ import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
 import NameCard from "@/components/NameCard";
-import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions } from "@/data/names";
+import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions, getRandomName } from "@/data/names";
+import { useProfileContext } from "@/contexts/ProfileContext";
+import { RandomSettingsDropdown } from "@/components/RandomSettingsDropdown";
 import { getMultiNameMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, totalMappings, getMappingAffiliation } from "@/data/nameMapping";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
@@ -15,7 +17,6 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCountry } from "@/hooks/useCountry";
-import { useRandomName } from "@/hooks/useRandomName";
 
 const featuredNames = namesDatabase.slice(0, 6);
 const featuredBlogs = blogPosts.slice(0, 3);
@@ -35,7 +36,7 @@ const Index = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
   const { country } = useCountry();
-  const { pickRandom } = useRandomName();
+  const { profile } = useProfileContext();
 
   const multiMappingInfo = currentName.trim() ? getMultiNameMappingContext(currentName.trim()) : [];
   const hasAnyMapping = multiMappingInfo.some(p => p.mapping);
@@ -160,13 +161,23 @@ const Index = () => {
                 <Sparkles className="w-4 h-4 mr-1.5" /> Discover
               </Button>
             </form>
-            <button
-              type="button"
-              onClick={pickRandom}
-              className="inline-flex items-center gap-1.5 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-            >
-              <Shuffle className="w-4 h-4" /> Surprise me with a random name
-            </button>
+            <div className="inline-flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => {
+                  const prefs = profile.settings.randomPreferences ?? {};
+                  navigate(`/name/${getRandomName({
+                    gender: prefs.gender ?? "all",
+                    quranicOnly: prefs.quranicOnly ?? false,
+                    origin: prefs.origin,
+                  }).slug}`);
+                }}
+                className="inline-flex items-center gap-1.5 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                <Shuffle className="w-4 h-4" /> Surprise me with a random name
+              </button>
+              <RandomSettingsDropdown />
+            </div>
 
             {/* Live mapping preview */}
             <AnimatePresence mode="wait">

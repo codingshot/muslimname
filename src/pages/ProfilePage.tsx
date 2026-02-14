@@ -273,50 +273,50 @@ export default function ProfilePage() {
                           onDragEnter={() => handleDragEnter(idx)}
                           onDragEnd={handleDragEnd}
                           onDragOver={e => e.preventDefault()}
-                          className="flex flex-col sm:flex-row sm:items-center gap-3 bg-background rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
+                          className="flex flex-col gap-3 bg-background rounded-xl border border-border p-3 sm:p-4 cursor-grab active:cursor-grabbing hover:shadow-card-hover transition-shadow"
                         >
-                          <div className="flex items-start gap-3 min-w-0 flex-1">
-                            <GripVertical className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-                            <Link to={`/name/${entry.slug}`} className="flex-1 min-w-0">
-                              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                                <span className="font-display font-semibold text-foreground truncate">{nameData.name}</span>
-                                <span className="font-arabic text-sm text-secondary shrink-0">{nameData.arabic}</span>
+                          {/* Options at top: First, Last, Trash */}
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <GripVertical className="w-4 h-4 text-muted-foreground shrink-0" />
+                              <div className="flex gap-1">
+                                <button
+                                  onClick={() => togglePosition(entry.slug, "first")}
+                                  className={`px-2.5 py-1.5 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                                    entry.positions.includes("first")
+                                      ? "bg-primary text-primary-foreground"
+                                      : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                                  }`}
+                                >
+                                  First
+                                </button>
+                                <button
+                                  onClick={() => togglePosition(entry.slug, "last")}
+                                  className={`px-2.5 py-1.5 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                                    entry.positions.includes("last")
+                                      ? "bg-secondary text-secondary-foreground"
+                                      : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                                  }`}
+                                >
+                                  Last
+                                </button>
                               </div>
-                              <p className="text-xs text-muted-foreground truncate mt-0.5">{nameData.meaning}</p>
-                            </Link>
-                          </div>
-
-                          {/* Position tags + trash — stack on mobile */}
-                          <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap shrink-0 pl-7 sm:pl-0">
-                            <div className="flex gap-1">
-                              <button
-                                onClick={() => togglePosition(entry.slug, "first")}
-                                className={`px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors min-h-[36px] sm:min-h-0 ${
-                                  entry.positions.includes("first")
-                                    ? "bg-primary text-primary-foreground"
-                                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-                                }`}
-                              >
-                                First
-                              </button>
-                              <button
-                                onClick={() => togglePosition(entry.slug, "last")}
-                                className={`px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-md text-[10px] font-semibold uppercase tracking-wider transition-colors min-h-[36px] sm:min-h-0 ${
-                                  entry.positions.includes("last")
-                                    ? "bg-secondary text-secondary-foreground"
-                                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-                                }`}
-                              >
-                                Last
-                              </button>
                             </div>
                             <button
                               onClick={() => toggleFavorite(entry.slug)}
-                              className="p-2 sm:p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors shrink-0 min-h-[36px] min-w-[36px] sm:min-h-0 sm:min-w-0 flex items-center justify-center"
+                              className="p-1.5 rounded-lg hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors shrink-0 flex items-center justify-center"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
+
+                          <Link to={`/name/${entry.slug}`} className="flex-1 min-w-0 -mt-1 block">
+                            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                              <span className="font-display font-semibold text-foreground truncate">{nameData.name}</span>
+                              <span className="font-arabic text-sm text-secondary shrink-0">{nameData.arabic}</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground truncate mt-0.5">{nameData.meaning}</p>
+                          </Link>
                         </div>
                       );
                     })}
