@@ -474,8 +474,8 @@ export default function GeneratorPage() {
             className="max-w-5xl mx-auto mt-12 scroll-mt-24"
           >
             <h2 className="font-display text-2xl font-semibold mb-6 text-center">
-              {mappingInfo ? (
-                <>Islamic Names Connected to <span className="text-primary capitalize">{currentName}</span></>
+              {hasAnyMapping ? (
+                <>Islamic Names Connected to <span className="text-primary capitalize">{currentName.trim()}</span></>
               ) : (
                 "Your Suggested Names"
               )}
@@ -487,9 +487,32 @@ export default function GeneratorPage() {
               }
             </div>
             {!loading && results.length === 0 && (
-              <p className="text-center text-muted-foreground py-8">
-                No matches found. Try different qualities or clear your filters.
-              </p>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex flex-col items-center text-center py-12"
+              >
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
+                  <Sparkles className="h-7 w-7" />
+                </div>
+                <p className="font-display font-semibold text-foreground mb-2">No matches found</p>
+                <p className="text-muted-foreground text-sm mb-6 max-w-sm">Try different qualities or clear your filters.</p>
+                <div className="flex gap-3 justify-center flex-wrap">
+                  <Link
+                    to="/names"
+                    className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition-opacity"
+                  >
+                    Browse all names
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => { setSelectedMeanings([]); setCustomMeaning(""); setGender("all"); }}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-muted/50 transition-colors"
+                  >
+                    Clear filters
+                  </button>
+                </div>
+              </motion.div>
             )}
           </motion.div>
         )}

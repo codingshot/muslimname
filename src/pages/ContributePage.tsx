@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { ExternalLink, GitBranch, Bug, Lightbulb, BookOpen, Database, Scale, Heart, Plus } from "lucide-react";
@@ -87,6 +88,11 @@ const contributionAreas = [
 export default function ContributePage() {
   return (
     <Layout>
+      <Helmet>
+        <title>Contribute | MuslimName.me</title>
+        <meta name="description" content="Contribute names, legal guides, translations, and improvements to MuslimName.me. Open source, built by the Ummah for the Ummah." />
+        <link rel="canonical" href="https://muslimname.me/contribute" />
+      </Helmet>
       <div className="container mx-auto px-4 py-8 sm:py-12">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-medium mb-4">

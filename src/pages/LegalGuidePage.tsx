@@ -184,7 +184,7 @@ function CountryDetail({
         <meta name="description" content={`Step-by-step guide to legally changing your name in ${guide.country} after converting to Islam. Cost: ${guide.estimatedCost}, Timeline: ${guide.estimatedTimeline}.`} />
         <meta property="og:title" content={`Legal Name Change in ${guide.country} — MuslimName.me`} />
         <meta property="og:description" content={`Step-by-step guide to legally changing your name in ${guide.country}. Cost: ${guide.estimatedCost}, Timeline: ${guide.estimatedTimeline}.`} />
-        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image" content="https://muslimname.me/og-image.png" />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`Name Change Guide: ${guide.country}`} />
@@ -236,9 +236,13 @@ function CountryDetail({
           />
         </div>
         {progress === 100 && (
-          <p className="text-xs text-primary font-medium mt-2 flex items-center gap-1">
-            <Check className="w-3.5 h-3.5" /> All steps completed! 🎉 MashAllah!
-          </p>
+          <motion.p
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-sm text-primary font-medium mt-3 flex items-center gap-2 py-2 px-3 rounded-lg bg-primary/10"
+          >
+            <Check className="w-4 h-4 shrink-0" /> All steps completed! MashAllah!
+          </motion.p>
         )}
       </div>
 
@@ -486,6 +490,18 @@ export default function LegalGuidePage() {
       <Helmet>
         <title>Legal Name Change Guides for Muslims — MuslimName.me</title>
         <meta name="description" content={`Legal name change guides for ${legalNameChangeDatabase.length} countries. Step-by-step processes, costs, timelines, and tips for Muslims changing their name after conversion.`} />
+        <link rel="canonical" href="https://muslimname.me/legal-guide" />
+        <meta property="og:title" content="Legal Name Change Guides for Muslims | MuslimName.me" />
+        <meta property="og:description" content={`Legal name change guides for ${legalNameChangeDatabase.length} countries. Step-by-step processes, costs, timelines, and tips for Muslims.`} />
+        <meta property="og:url" content="https://muslimname.me/legal-guide" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://muslimname.me/og-image.png" />
+        <meta property="og:site_name" content="MuslimName.me" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ummahbuild" />
+        <meta name="twitter:title" content="Legal Name Change Guides for Muslims | MuslimName.me" />
+        <meta name="twitter:description" content={`Legal guides for ${legalNameChangeDatabase.length} countries. Costs, timelines, documents.`} />
+        <meta name="twitter:image" content="https://muslimname.me/og-image.png" />
       </Helmet>
       <div className="container mx-auto px-4 py-6 sm:py-8 md:py-12 max-w-5xl">
         <AnimatePresence mode="wait">

@@ -1,9 +1,15 @@
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 
 export default function TermsPage() {
   return (
     <Layout>
+      <Helmet>
+        <title>Terms of Service | MuslimName.me</title>
+        <meta name="description" content="Terms of Service for MuslimName.me. Learn about our service, disclaimers, and user conduct." />
+        <link rel="canonical" href="https://muslimname.me/terms" />
+      </Helmet>
       <div className="container mx-auto px-4 py-12 max-w-3xl">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">Terms of Service</h1>

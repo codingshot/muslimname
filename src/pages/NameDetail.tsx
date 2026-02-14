@@ -7,7 +7,7 @@ import Layout from "@/components/Layout";
 import NameDetailSkeleton from "@/components/NameDetailSkeleton";
 import NameCard from "@/components/NameCard";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book, Shuffle } from "lucide-react";
+import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book, Shuffle, Check } from "lucide-react";
 import { ShareName } from "@/components/ShareName";
 import { motion } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
@@ -18,7 +18,7 @@ export default function NameDetail() {
   const [loading, setLoading] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const navigate = useNavigate();
-  const { isFavorite, toggleFavorite, addAsFirstOrLast } = useProfile();
+  const { profile, isFavorite, toggleFavorite, addAsFirstOrLast } = useProfile();
 
   // Defer voice preload until user interacts with speak button (saves initial work)
   const preloadOnInteraction = useCallback(() => {
@@ -44,9 +44,40 @@ export default function NameDetail() {
   if (!name) {
     return (
       <Layout>
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="font-display text-2xl mb-4">Name not found</h1>
-          <Link to="/names" className="text-primary hover:underline">Browse all names</Link>
+        <Helmet>
+          <title>Name Not Found | MuslimName.me</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center text-center max-w-md mx-auto"
+          >
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
+              <span className="text-2xl" aria-hidden>🔍</span>
+            </div>
+            <h1 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Name not found
+            </h1>
+            <p className="text-muted-foreground mb-8">
+              &quot;{slug}&quot; isn&apos;t in our database yet. Try searching or browsing similar names.
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                to="/names"
+                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 font-medium hover:opacity-90 transition-opacity"
+              >
+                Browse all names
+              </Link>
+              <Link
+                to={`/names?q=${encodeURIComponent(slug || "")}`}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 font-medium hover:bg-muted/50 transition-colors"
+              >
+                Search for similar
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </Layout>
     );
@@ -200,20 +231,39 @@ export default function NameDetail() {
           </div>
 
           {/* Row 3: Add as First/Last — primary CTAs (quick add, no popup) */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            <button
-              onClick={() => addAsFirstOrLast(name.slug, "first")}
-              className="px-4 py-2 rounded-xl text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-            >
-              Add as First Name
-            </button>
-            <button
-              onClick={() => addAsFirstOrLast(name.slug, "last")}
-              className="px-4 py-2 rounded-xl text-sm font-medium bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors"
-            >
-              Add as Last Name
-            </button>
-          </div>
+          {(() => {
+            const entry = profile.favorites.find(f => f.slug === name.slug);
+            const isInFirst = entry?.positions?.includes("first") ?? false;
+            const isInLast = entry?.positions?.includes("last") ?? false;
+            return (
+              <div className="mt-4 flex flex-wrap gap-2">
+                <button
+                  onClick={() => addAsFirstOrLast(name.slug, "first")}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
+                    isInFirst
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-primary/10 text-primary hover:bg-primary/20"
+                  }`}
+                  title={isInFirst ? "Added as first name contender" : "Add as first name contender"}
+                >
+                  {isInFirst && <Check className="w-4 h-4" />}
+                  {isInFirst ? "First Name" : "Add as First Name"}
+                </button>
+                <button
+                  onClick={() => addAsFirstOrLast(name.slug, "last")}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
+                    isInLast
+                      ? "bg-secondary text-secondary-foreground"
+                      : "bg-secondary/10 text-secondary hover:bg-secondary/20"
+                  }`}
+                  title={isInLast ? "Added as last name contender" : "Add as last name contender"}
+                >
+                  {isInLast && <Check className="w-4 h-4" />}
+                  {isInLast ? "Last Name" : "Add as Last Name"}
+                </button>
+              </div>
+            );
+          })()}
 
           {/* Row 4: Pronunciation + theme tags — explore more */}
           <div className="mt-5 pt-4 border-t border-border flex flex-wrap items-center gap-2 sm:gap-3">

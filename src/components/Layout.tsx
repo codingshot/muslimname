@@ -1,8 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomNav from "@/components/BottomNav";
 import { prefetchDiscover, prefetchNamesPage, prefetchGenerator, prefetchLegalGuide, prefetchProfile, prefetchNameDetail } from "@/lib/prefetch";
-import { Search, Heart, Menu, X, Sparkles, Scale, User, Shuffle, Star } from "lucide-react";
-import { useState, useCallback, useEffect } from "react";
+import { searchNames } from "@/data/names";
+import { Search, Heart, Menu, X, User, Shuffle, Star } from "lucide-react";
+import { useState, useCallback, useEffect, useMemo, useDeferredValue } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
 import {
@@ -25,6 +26,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [favoriteNames, setFavoriteNames] = useState<{ slug: string; name: string }[]>([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [navSearchQuery, setNavSearchQuery] = useState("");
+  const [navSearchFocused, setNavSearchFocused] = useState(false);
+  const deferredNavSearch = useDeferredValue(navSearchQuery);
+  const navResults = useMemo(() => {
+    const q = deferredNavSearch.trim().toLowerCase();
+    if (!q || q.length < 2) return [];
+    return searchNames(deferredNavSearch).slice(0, 8);
+  }, [deferredNavSearch]);
   const location = useLocation();
   const navigate = useNavigate();
   const { profile } = useProfile();
@@ -84,14 +93,57 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link
-              to="/names"
-              onMouseEnter={() => prefetchNamesPage()}
-              className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted text-muted-foreground hover:text-foreground text-sm transition-colors"
-            >
-              <Search className="w-3.5 h-3.5" />
-              Search names...
-            </Link>
+            <div className="relative hidden md:block">
+              <div className="flex items-center gap-2 rounded-lg border border-input bg-muted/50 px-3 py-1.5 text-sm focus-within:bg-background focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20">
+                <Search className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                <input
+                  type="search"
+                  value={navSearchQuery}
+                  onChange={(e) => setNavSearchQuery(e.target.value)}
+                  onFocus={() => setNavSearchFocused(true)}
+                  onBlur={() => setTimeout(() => setNavSearchFocused(false), 180)}
+                  placeholder="Search names"
+                  className="min-w-[120px] max-w-[180px] bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
+                  aria-label="Search Muslim names"
+                />
+              </div>
+              {navSearchFocused && (
+                <div className="absolute left-0 top-full z-50 mt-1 min-w-[260px] max-w-[360px] rounded-lg border border-border bg-popover shadow-lg">
+                  {deferredNavSearch.trim().length < 2 ? (
+                    <div className="px-3 py-4 text-sm text-muted-foreground">
+                      Type 2+ characters to search
+                    </div>
+                  ) : navResults.length === 0 ? (
+                    <div className="px-3 py-4 text-sm text-muted-foreground">
+                      No names found. <Link to={`/names?q=${encodeURIComponent(deferredNavSearch)}`} className="text-primary underline">Browse all</Link>
+                    </div>
+                  ) : (
+                    <>
+                      {navResults.map((n) => (
+                        <Link
+                          key={n.slug}
+                          to={`/name/${n.slug}`}
+                          onMouseEnter={() => prefetchNameDetail(n.slug)}
+                          className="block px-3 py-2 text-sm hover:bg-muted first:rounded-t-md last:rounded-b-md"
+                        >
+                          <span className="font-medium">{n.name}</span>
+                          {n.transliteration && n.transliteration !== n.name && (
+                            <span className="ml-1 text-muted-foreground">({n.transliteration})</span>
+                          )}
+                          {n.meaning && <span className="ml-2 text-muted-foreground truncate">— {n.meaning}</span>}
+                        </Link>
+                      ))}
+                      <Link
+                        to={`/names?q=${encodeURIComponent(deferredNavSearch)}`}
+                        className="block px-3 py-2 text-sm text-primary hover:bg-muted rounded-b-md border-t border-border"
+                      >
+                        View all results
+                      </Link>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
             <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
               <DropdownMenuTrigger
                 className={`p-2 rounded-lg transition-colors relative ${
@@ -163,6 +215,59 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="md:hidden overflow-hidden border-t border-border"
             >
               <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
+                <div className="relative mb-2">
+                  <div className="flex items-center gap-2 rounded-lg border border-input bg-muted/50 px-3 py-2 text-sm focus-within:bg-background focus-within:border-ring">
+                    <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    <input
+                      type="search"
+                      value={navSearchQuery}
+                      onChange={(e) => setNavSearchQuery(e.target.value)}
+                      onFocus={() => setNavSearchFocused(true)}
+                      onBlur={() => setTimeout(() => setNavSearchFocused(false), 180)}
+                      placeholder="Search names"
+                      className="flex-1 min-w-0 bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
+                      aria-label="Search Muslim names"
+                    />
+                  </div>
+                  {navSearchFocused && (
+                    <div className="absolute left-0 right-0 top-full z-50 mt-1 rounded-lg border border-border bg-popover shadow-lg max-h-[60vh] overflow-y-auto">
+                      {deferredNavSearch.trim().length < 2 ? (
+                        <div className="px-3 py-4 text-sm text-muted-foreground">
+                          Type 2+ characters to search
+                        </div>
+                      ) : navResults.length === 0 ? (
+                        <div className="px-3 py-4 text-sm text-muted-foreground">
+                          No names found. <Link to={`/names?q=${encodeURIComponent(deferredNavSearch)}`} onClick={() => setMobileOpen(false)} className="text-primary underline">Browse all</Link>
+                        </div>
+                      ) : (
+                        <>
+                          {navResults.map((n) => (
+                            <Link
+                              key={n.slug}
+                              to={`/name/${n.slug}`}
+                              onClick={() => { setMobileOpen(false); setNavSearchFocused(false); }}
+                              onMouseEnter={() => prefetchNameDetail(n.slug)}
+                              className="block px-3 py-2.5 text-sm hover:bg-muted first:rounded-t-md last:rounded-b-md"
+                            >
+                              <span className="font-medium">{n.name}</span>
+                              {n.transliteration && n.transliteration !== n.name && (
+                                <span className="ml-1 text-muted-foreground">({n.transliteration})</span>
+                              )}
+                              {n.meaning && <span className="ml-2 text-muted-foreground truncate">— {n.meaning}</span>}
+                            </Link>
+                          ))}
+                          <Link
+                            to={`/names?q=${encodeURIComponent(deferredNavSearch)}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-3 py-2.5 text-sm text-primary hover:bg-muted rounded-b-md border-t border-border"
+                          >
+                            View all results
+                          </Link>
+                        </>
+                      )}
+                    </div>
+                  )}
+                </div>
                 <Link
                   to="/profile"
                   onClick={() => setMobileOpen(false)}

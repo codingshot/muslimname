@@ -431,19 +431,31 @@ export default function NamesPage() {
           )}
 
           {!loading && results.length === 0 && (
-            <div className="text-center py-12 md:py-16">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex flex-col items-center text-center py-14 md:py-20"
+            >
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
+                <Search className="h-7 w-7" />
+              </div>
               <p className="text-lg font-display font-semibold text-foreground mb-2">No names found</p>
-              <p className="text-muted-foreground mb-4">Try adjusting your search or filters, or discover names by meaning</p>
+              <p className="text-muted-foreground mb-6 max-w-sm">Try adjusting your search or filters, or discover names by meaning.</p>
               <div className="flex gap-3 justify-center flex-wrap">
-                <button onClick={clearFilters} className="text-primary hover:underline text-sm font-medium">
+                <button
+                  onClick={clearFilters}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-muted/50 transition-colors"
+                >
                   Clear all filters
                 </button>
-                <span className="text-muted-foreground">·</span>
-                <Link to="/generator" className="text-primary hover:underline text-sm font-medium">
-                  Try the Name Generator
+                <Link
+                  to="/generator"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  Try Name Generator
                 </Link>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
 

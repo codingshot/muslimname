@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
+import { toast } from "sonner";
 
 export interface ProfileSettings {
   currentFirstName: string;
@@ -107,7 +108,11 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
   const toggleFavorite = useCallback((slug: string) => {
     setProfile(prev => {
       const exists = prev.favorites.find(f => f.slug === slug);
-      if (exists) return { ...prev, favorites: prev.favorites.filter(f => f.slug !== slug) };
+      if (exists) {
+        toast.success("Removed from favorites");
+        return { ...prev, favorites: prev.favorites.filter(f => f.slug !== slug) };
+      }
+      toast.success("Added to favorites");
       return { ...prev, favorites: [...prev.favorites, { slug, positions: [], rank: prev.favorites.length }] };
     });
   }, []);
@@ -130,13 +135,17 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
     if (!slug?.trim()) return;
     setProfile(prev => {
       const exists = prev.favorites.find(f => f.slug === slug);
+      const hadPosition = exists && (exists.positions ?? []).includes(position);
       const nextFavorites = exists
         ? prev.favorites.map(f =>
             f.slug === slug
-              ? { ...f, positions: (f.positions ?? []).includes(position) ? (f.positions ?? []) : [...(f.positions ?? []), position] }
+              ? { ...f, positions: hadPosition ? (f.positions ?? []) : [...(f.positions ?? []), position] }
               : f
           )
         : [...prev.favorites, { slug, positions: [position], rank: prev.favorites.length }];
+      if (!hadPosition) {
+        toast.success(position === "first" ? "Added as first name contender" : "Added as last name contender");
+      }
       return { ...prev, favorites: nextFavorites };
     });
   }, []);

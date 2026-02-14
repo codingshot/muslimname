@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { prefetchBlogDetail } from "@/lib/prefetch";
 import { Search, Sparkles, BookOpen, Scale, Users, ArrowRight, Heart, Shuffle } from "lucide-react";
 import { useState, useMemo, useDeferredValue } from "react";
@@ -63,6 +64,11 @@ const Index = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>MuslimName.me — Discover Your Muslim Name | Islamic Name Generator</title>
+        <meta name="description" content="Find your ideal Muslim name with our intelligent generator built for new Muslims. Get meanings, pronunciation guides, Quranic references, and legal name change support." />
+        <link rel="canonical" href="https://muslimname.me" />
+      </Helmet>
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div

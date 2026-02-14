@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { useProfile, type FavoriteEntry, type NamePosition } from "@/hooks/useProfile";
 import { useCountry } from "@/hooks/useCountry";
@@ -9,7 +10,7 @@ import { getMappingContext, getDidYouMeanSuggestions } from "@/data/nameMapping"
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, GripVertical, Trash2, Heart, Sparkles, ArrowRight, Search, Globe, BookOpen, Book } from "lucide-react";
+import { Star, GripVertical, Trash2, Heart, Sparkles, ArrowRight, Search, Globe, BookOpen, Book, Check } from "lucide-react";
 import { motion } from "framer-motion";
 
 const meaningKeywords = [
@@ -64,6 +65,11 @@ export default function ProfilePage() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>My Profile | MuslimName.me</title>
+        <meta name="description" content="Manage your favorite Muslim names, first and last name contenders, and preferences." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="container mx-auto px-4 py-6 md:py-8 max-w-3xl">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2">
@@ -78,6 +84,9 @@ export default function ProfilePage() {
           {/* Quick Add */}
           <QuickAddNames
             isFavorite={(slug: string) => profile.favorites.some(f => f.slug === slug)}
+            isInFirst={(slug: string) => profile.favorites.find(f => f.slug === slug)?.positions?.includes("first") ?? false}
+            isInLast={(slug: string) => profile.favorites.find(f => f.slug === slug)?.positions?.includes("last") ?? false}
+            toggleFavorite={toggleFavorite}
             addAsFirstOrLast={addAsFirstOrLast}
           />
 
@@ -357,9 +366,15 @@ export default function ProfilePage() {
 /** Quick add names via search without leaving profile */
 function QuickAddNames({
   isFavorite,
+  isInFirst,
+  isInLast,
+  toggleFavorite,
   addAsFirstOrLast,
 }: {
   isFavorite: (slug: string) => boolean;
+  isInFirst: (slug: string) => boolean;
+  isInLast: (slug: string) => boolean;
+  toggleFavorite: (slug: string) => void;
   addAsFirstOrLast: (slug: string, pos: NamePosition) => void;
 }) {
   const [query, setQuery] = useState("");
@@ -402,18 +417,39 @@ function QuickAddNames({
                   </Link>
                 </div>
                 <p className="text-xs text-muted-foreground truncate -mt-1">{n.meaning}</p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
+                  <button
+                    onClick={() => toggleFavorite(n.slug)}
+                    className={`inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
+                      isFavorite(n.slug)
+                        ? "bg-secondary/20 text-secondary border border-secondary/40"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground border border-border"
+                    }`}
+                  >
+                    {isFavorite(n.slug) && <Star className="w-3 h-3 fill-current" />}
+                    {isFavorite(n.slug) ? "Saved" : "+ Save"}
+                  </button>
                   <button
                     onClick={() => addAsFirstOrLast(n.slug, "first")}
-                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold uppercase bg-primary/15 text-primary hover:bg-primary/25 border border-primary/30 transition-colors"
+                    className={`inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold uppercase transition-colors ${
+                      isInFirst(n.slug)
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-primary/15 text-primary hover:bg-primary/25 border border-primary/30"
+                    }`}
                   >
-                    + First
+                    {isInFirst(n.slug) && <Check className="w-3 h-3" />}
+                    {isInFirst(n.slug) ? "First" : "+ First"}
                   </button>
                   <button
                     onClick={() => addAsFirstOrLast(n.slug, "last")}
-                    className="flex-1 px-3 py-2 rounded-lg text-xs font-semibold uppercase bg-secondary/15 text-secondary hover:bg-secondary/25 border border-secondary/30 transition-colors"
+                    className={`inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold uppercase transition-colors ${
+                      isInLast(n.slug)
+                        ? "bg-secondary text-secondary-foreground"
+                        : "bg-secondary/15 text-secondary hover:bg-secondary/25 border border-secondary/30"
+                    }`}
                   >
-                    + Last
+                    {isInLast(n.slug) && <Check className="w-3 h-3" />}
+                    {isInLast(n.slug) ? "Last" : "+ Last"}
                   </button>
                 </div>
               </div>

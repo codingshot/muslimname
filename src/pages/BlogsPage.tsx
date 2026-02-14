@@ -33,17 +33,29 @@ export default function BlogsPage() {
       <Helmet>
         <title>{activeTag ? `${activeTag} Articles` : "Islamic Naming Blog"} — Guides & Traditions | MuslimName.me</title>
         <meta name="description" content="Explore guides on choosing Muslim names, Islamic naming traditions, Quranic name meanings, and resources for converts. Expert articles on Abrahamic name connections." />
+        <link rel="canonical" href={activeTag ? `https://muslimname.me/blogs?tag=${encodeURIComponent(activeTag)}` : "https://muslimname.me/blogs"} />
+        <meta property="og:title" content={activeTag ? `${activeTag} Articles | MuslimName.me` : "Islamic Naming Blog | MuslimName.me"} />
+        <meta property="og:description" content="Explore guides on choosing Muslim names, Islamic naming traditions, Quranic name meanings, and resources for converts." />
+        <meta property="og:url" content={activeTag ? `https://muslimname.me/blogs?tag=${encodeURIComponent(activeTag)}` : "https://muslimname.me/blogs"} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://muslimname.me/og-image.png" />
+        <meta property="og:site_name" content="MuslimName.me" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ummahbuild" />
+        <meta name="twitter:title" content={activeTag ? `${activeTag} Articles | MuslimName.me` : "Islamic Naming Blog | MuslimName.me"} />
+        <meta name="twitter:description" content="Explore guides on Muslim names, Islamic naming traditions, and Quranic name meanings." />
+        <meta name="twitter:image" content="https://muslimname.me/og-image.png" />
       </Helmet>
 
-      <div className="container mx-auto px-4 py-10">
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-medium mb-4">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-14 md:mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-medium mb-5">
             <BookOpen className="w-4 h-4" /> Knowledge & Guidance
           </div>
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
             {activeTag ? <span className="capitalize">{activeTag}</span> : "Islamic Naming Blog"}
           </h1>
-          <p className="text-muted-foreground max-w-lg mx-auto">
+          <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg leading-relaxed">
             {activeTag
               ? `Showing ${filtered.length} article${filtered.length !== 1 ? "s" : ""} tagged "${activeTag}"`
               : "Guides, insights, and resources for choosing meaningful Muslim names"}
@@ -51,7 +63,7 @@ export default function BlogsPage() {
         </motion.div>
 
         {/* Tags */}
-        <div className="flex gap-2 flex-wrap justify-center mb-10">
+        <div className="flex gap-2 flex-wrap justify-center mb-12 md:mb-14">
           {allTags.map(tag => (
             <button
               key={tag}
@@ -70,14 +82,14 @@ export default function BlogsPage() {
 
         {/* Featured Post */}
         {featured && (
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Link to={`/blogs/${featured.slug}`} className="block mb-10" onMouseEnter={() => prefetchBlogDetail()}>
-              <div className="bg-gradient-hero rounded-2xl p-8 md:p-12 text-white hover:opacity-95 transition-opacity">
-                <Badge className="bg-white/20 text-white border-white/30 mb-4">Featured Guide</Badge>
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">{featured.title}</h2>
-                <p className="text-white/80 max-w-2xl mb-4">{featured.excerpt}</p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-white">
-                  Read Guide <ArrowRight className="w-4 h-4" />
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mb-12 md:mb-16">
+            <Link to={`/blogs/${featured.slug}`} className="block group" onMouseEnter={() => prefetchBlogDetail()}>
+              <div className="bg-gradient-hero rounded-2xl p-8 md:p-14 lg:p-16 text-white hover:opacity-95 transition-opacity">
+                <Badge className="bg-white/20 text-white border-white/30 mb-5">Featured Guide</Badge>
+                <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-snug group-hover:text-white/95 transition-colors">{featured.title}</h2>
+                <p className="text-white/80 max-w-2xl text-base md:text-lg mb-6 leading-relaxed">{featured.excerpt}</p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-white">
+                  Read Guide <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
             </Link>
@@ -86,11 +98,25 @@ export default function BlogsPage() {
 
         {/* Blog Grid */}
         {grid.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-muted-foreground">No articles found for this tag.</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center text-center py-20 md:py-24"
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
+              <BookOpen className="h-7 w-7" />
+            </div>
+            <h3 className="font-display text-lg font-semibold text-foreground mb-2">No articles for &quot;{activeTag}&quot;</h3>
+            <p className="text-muted-foreground mb-6 max-w-sm">Try another tag or browse all guides.</p>
+            <button
+              onClick={() => setSearchParams({})}
+              className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              View all articles
+            </button>
+          </motion.div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {grid.map((post, i) => (
               <motion.div
                 key={post.slug}
@@ -99,22 +125,22 @@ export default function BlogsPage() {
                 transition={{ delay: 0.1 + i * 0.05 }}
               >
                 <Link to={`/blogs/${post.slug}`} className="block group h-full" onMouseEnter={() => prefetchBlogDetail()}>
-                  <article className="bg-card rounded-xl border border-border p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                    <div className="flex gap-1.5 flex-wrap mb-3">
+                  <article className="bg-card rounded-xl border border-border p-6 md:p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                    <div className="flex gap-2 flex-wrap mb-4">
                       {post.tags.slice(0, 2).map(tag => (
                         <Badge key={tag} variant="outline" className="text-[10px] capitalize">
                           {tag}
                         </Badge>
                       ))}
                     </div>
-                    <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
+                    <h3 className="font-display text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3 line-clamp-2 leading-snug">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+                    <p className="text-sm md:text-base text-muted-foreground line-clamp-3 mb-5 flex-1 leading-relaxed">
                       {post.excerpt}
                     </p>
-                    <span className="text-sm text-primary font-medium inline-flex items-center gap-1">
-                      Read more <ArrowRight className="w-3.5 h-3.5" />
+                    <span className="text-sm text-primary font-medium inline-flex items-center gap-1.5">
+                      Read more <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </article>
                 </Link>

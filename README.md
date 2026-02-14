@@ -11,13 +11,15 @@
 
 ## ✨ Features
 
-- **🔍 Name Database** — 35+ authentic Muslim names with Arabic script, meanings, etymology, and pronunciation guides
+- **🔍 Name Database** — 100+ authentic Muslim names with Arabic script, meanings, etymology, and pronunciation guides
+- **🗺️ 1700+ Western Name Mappings** — Christian, Korean, Chinese, Hindi, Spanish, Portuguese, and more → Islamic equivalents
 - **📖 Quranic & Sunnah References** — Verified Quranic ayat and hadith citations for every applicable name
 - **👑 Prophets & Companions** — Special section for names of Prophets and companions with detailed sources
-- **🎯 Smart Name Generator** — Suggests names based on your current name's meaning, gender, and desired qualities
-- **⚖️ Legal Name Change Guides** — Country-specific guides for US, UK, Canada, Australia, Germany, France, Malaysia, South Africa
-- **🌍 Regional Variations** — See how names appear across Arab, Turkish, South Asian, and African cultures
-- **📊 Similar Non-Arabic Names** — Find Muslim names with similar meanings to your current name
+- **🎯 Smart Name Generator** — Enter your name (first + last supported) for meaning-based suggestions
+- **⭐ Favorites & Profile** — Save favorites, tag first/last contenders, explore name combinations
+- **⚖️ Legal Name Change Guides** — Country-specific guides for 40+ countries
+- **🌍 Regional Variations** — Names popular in Nigeria, Brazil, India; Turkish, African, South Asian traditions
+- **📊 Multilingual Support** — Korean, Chinese, Japanese, Thai, Vietnamese, Hindi, Russian, European names
 - **📱 Mobile-First Design** — Fully responsive, works beautifully on all devices
 - **🔒 Privacy-First** — All data stays in your browser, no tracking, no accounts required
 - **🌙 Dark Mode Support** — Built-in dark mode with proper contrast
@@ -95,19 +97,18 @@ muslimname/
 ## 📝 To-Do List
 
 ### 🔴 Priority
-- [ ] Expand name database to 100+ names
-- [ ] Add Persian, Turkish, African, South Asian origin names
 - [ ] Add audio pronunciation files (native speaker recordings)
 - [ ] Arabic calligraphy preview for each name
-- [ ] Favorites system (localStorage)
 - [ ] Name comparison tool (side-by-side)
 
-### 🟡 In Progress
-- [x] Core name database with 35+ names
+### 🟡 Done
+- [x] Core name database 100+ names
+- [x] 1700+ Western/non-Muslim name mappings
 - [x] Prophets & Companions special names
 - [x] Search & filter functionality
-- [x] Name generator with meaning mapping
-- [x] Legal name change guides (8 countries)
+- [x] Name generator with meaning mapping + first/last name support
+- [x] Legal name change guides (40+ countries)
+- [x] Favorites system + profile with name combinations
 - [x] Mobile responsive design
 - [x] SEO meta tags & OG images
 - [x] Open source setup (contributing, templates)

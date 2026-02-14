@@ -30,8 +30,17 @@ function PageSuspense({ children }: { children: React.ReactNode }) {
     <Suspense
       fallback={
         <Layout>
-          <div className="container mx-auto px-4 py-16 flex justify-center">
-            <div className="animate-pulse text-muted-foreground">Loading...</div>
+          <div className="container mx-auto px-4 py-20 flex flex-col items-center justify-center min-h-[50vh]">
+            <div className="flex gap-1.5 mb-4">
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="h-2 w-2 rounded-full bg-primary/60 animate-bounce"
+                  style={{ animationDelay: `${i * 0.15}s` }}
+                />
+              ))}
+            </div>
+            <p className="text-sm text-muted-foreground">Loading...</p>
           </div>
         </Layout>
       }

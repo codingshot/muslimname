@@ -121,6 +121,7 @@ export default function WesternNamesPage() {
         <meta name="twitter:site" content="@ummahbuild" />
         <meta name="twitter:title" content="Western to Muslim Name Reference | MuslimName.me" />
         <meta name="twitter:description" content={`${stats.total}+ names mapped to Islamic equivalents. Biblical, Latin, Hindu, Chinese, Japanese & more.`} />
+        <meta name="twitter:image" content="https://muslimname.me/og-image.png" />
       </Helmet>
       <div className="container mx-auto px-4 py-8">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
@@ -265,9 +266,38 @@ export default function WesternNamesPage() {
         </div>
 
         {filteredMappings.length === 0 && (
-          <div className="text-center py-16">
-            <p className="text-muted-foreground">No matching names found. Try a different search term.</p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center text-center py-16"
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-muted text-muted-foreground">
+              <BookOpen className="h-7 w-7" />
+            </div>
+            <p className="font-display font-semibold text-foreground mb-2">No matching names found</p>
+            <p className="text-muted-foreground text-sm mb-6 max-w-sm">Try a different search term or category.</p>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button
+                type="button"
+                onClick={() => { setSearch(""); setCategoryFilter("all"); }}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-muted/50 transition-colors"
+              >
+                Clear search
+              </button>
+              <Link
+                to="/generator"
+                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition-opacity"
+              >
+                Name Generator
+              </Link>
+              <Link
+                to="/names"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-muted/50 transition-colors"
+              >
+                Browse Islamic names
+              </Link>
+            </div>
+          </motion.div>
         )}
       </div>
     </Layout>

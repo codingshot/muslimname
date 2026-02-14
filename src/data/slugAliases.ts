@@ -57,6 +57,12 @@ export const slugAliases: Record<string, string> = {
   yameen: "yamin",
   rahmah: "rahma",
   hikmah: "hikma",
+  // Mapping → DB (names used in mappings that need canonical targets)
+  ilisabat: "maryam",
+  rahil: "rahma",
+  marthad: "samira",
+  sakhrah: "salman",
+  ridwan: "rizwan",
 };
 
 /**
