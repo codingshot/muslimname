@@ -150,7 +150,7 @@ function CountryCard({ guide, onClick, isUserLocation, currency }: { guide: Lega
           <span className="flex items-center gap-1"><DollarSign className="w-3 h-3 text-secondary" />{guide.estimatedCost.split("(")[0].trim()}</span>
           <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-secondary" />{guide.estimatedTimeline}</span>
         </div>
-        <span className="text-[10px] text-muted-foreground/70">{formatCurrency(guide.estimatedCostUSD, currency)}</span>
+        <span className="text-[10px] text-muted-foreground">{formatCurrency(guide.estimatedCostUSD, currency)}</span>
       </div>
       <div className="mt-3 flex items-center gap-1.5">
         <span className="text-xs text-primary font-medium">View full guide →</span>
@@ -207,7 +207,7 @@ function CountryDetail({
               <span className="text-xs text-muted-foreground flex items-center gap-1"><DollarSign className="w-3 h-3" />{guide.estimatedCost}</span>
               <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="w-3 h-3" />{guide.estimatedTimeline}</span>
             </div>
-            <p className="text-[10px] text-muted-foreground/70 mt-1">{formatCurrency(guide.estimatedCostUSD, currency)}</p>
+            <p className="text-[10px] text-muted-foreground mt-1">{formatCurrency(guide.estimatedCostUSD, currency)}</p>
           </div>
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed">{guide.overview}</p>

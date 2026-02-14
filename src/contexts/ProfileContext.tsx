@@ -3,11 +3,21 @@ import { toast } from "sonner";
 
 export type NameDisplayFont = "default" | "amiri" | "noto-naskh" | "scheherazade" | "kufi";
 
+/** Settings for the Random name button (boy/girl, filters) — persisted in profile */
+export interface RandomSettings {
+  gender: "all" | "male" | "female";
+  quranicOnly: boolean;
+  origin: string;
+  themes: string[];
+}
+
 export interface ProfileSettings {
   currentFirstName: string;
   currentLastName: string;
   preferredMeanings: string[];
   genderPreference: "all" | "male" | "female" | "unisex";
+  /** Random button filters — boy/girl, Quranic only, origin, themes */
+  randomSettings?: RandomSettings;
   /** ISO 3166-1 alpha-2 country code for name recommendations (manual override; else IP-detected) */
   country?: string;
   /** Currency for legal guide costs (auto from country if unset) */
@@ -32,12 +42,20 @@ export interface UserProfile {
   favorites: FavoriteEntry[];
 }
 
+const DEFAULT_RANDOM_SETTINGS: RandomSettings = {
+  gender: "all",
+  quranicOnly: false,
+  origin: "all",
+  themes: [],
+};
+
 const DEFAULT_PROFILE: UserProfile = {
   settings: {
     currentFirstName: "",
     currentLastName: "",
     preferredMeanings: [],
     genderPreference: "all",
+    randomSettings: DEFAULT_RANDOM_SETTINGS,
   },
   favorites: [],
 };
@@ -58,9 +76,14 @@ function loadProfile(): UserProfile {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as Partial<UserProfile>;
+      const rs = parsed.settings?.randomSettings;
       const settings: ProfileSettings = {
         ...DEFAULT_PROFILE.settings,
         ...(parsed.settings || {}),
+        randomSettings: {
+          ...DEFAULT_RANDOM_SETTINGS,
+          ...(rs && typeof rs === "object" ? rs : {}),
+        },
       };
       const favorites = (parsed.favorites || []).map(migrateEntry);
       return { settings, favorites };
@@ -72,6 +95,8 @@ function loadProfile(): UserProfile {
 interface ProfileContextValue {
   profile: UserProfile;
   updateSettings: (partial: Partial<ProfileSettings>) => void;
+  /** Update only random button settings (merged with existing) */
+  updateRandomSettings: (partial: Partial<RandomSettings>) => void;
   toggleFavorite: (slug: string) => void;
   isFavorite: (slug: string) => boolean;
   togglePosition: (slug: string, pos: NamePosition) => void;
@@ -109,6 +134,16 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
 
   const updateSettings = useCallback((partial: Partial<ProfileSettings>) => {
     setProfile(prev => ({ ...prev, settings: { ...prev.settings, ...partial } }));
+  }, []);
+
+  const updateRandomSettings = useCallback((partial: Partial<RandomSettings>) => {
+    setProfile(prev => ({
+      ...prev,
+      settings: {
+        ...prev.settings,
+        randomSettings: { ...DEFAULT_RANDOM_SETTINGS, ...prev.settings.randomSettings, ...partial },
+      },
+    }));
   }, []);
 
   const toggleFavorite = useCallback((slug: string) => {
@@ -186,6 +221,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
   const value: ProfileContextValue = {
     profile,
     updateSettings,
+    updateRandomSettings,
     toggleFavorite,
     isFavorite,
     togglePosition,

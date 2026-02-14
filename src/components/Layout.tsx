@@ -1,11 +1,13 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BottomNav from "@/components/BottomNav";
 import { prefetchDiscover, prefetchNamesPage, prefetchGenerator, prefetchLegalGuide, prefetchProfile, prefetchNameDetail } from "@/lib/prefetch";
 import { searchNames } from "@/data/names";
 import { Search, Heart, Menu, X, User, Shuffle, Star } from "lucide-react";
-import { useState, useCallback, useEffect, useMemo, useDeferredValue } from "react";
+import { useState, useEffect, useMemo, useDeferredValue } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
+import { useRandomName } from "@/hooks/useRandomName";
+import { RandomButtonWithDropdown } from "@/components/RandomButtonWithDropdown";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,8 +37,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return searchNames(deferredNavSearch).slice(0, 8);
   }, [deferredNavSearch]);
   const location = useLocation();
-  const navigate = useNavigate();
   const { profile } = useProfile();
+  const { pickRandom } = useRandomName();
   const favoriteCount = profile.favorites.length;
 
   useEffect(() => {
@@ -51,13 +53,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       );
     });
   }, [dropdownOpen, favoriteCount, profile.favorites]);
-
-  const handleRandomQuranic = useCallback(async () => {
-    const { namesDatabase } = await import("@/data/names");
-    const quranic = namesDatabase.filter(n => n.isQuranic);
-    const random = quranic[Math.floor(Math.random() * quranic.length)];
-    if (random) navigate(`/name/${random.slug}`);
-  }, [navigate]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -94,6 +89,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="flex items-center gap-2">
+            <div className="hidden md:block">
+              <RandomButtonWithDropdown />
+            </div>
             <div className="relative hidden md:block">
               <div className="flex items-center gap-2 rounded-lg border border-input bg-muted/50 px-3 py-1.5 text-sm focus-within:bg-background focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20">
                 <Search className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
@@ -275,6 +273,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </div>
                   )}
                 </div>
+                <div className="px-4 py-2 md:hidden">
+                  <RandomButtonWithDropdown onNavigate={() => setMobileOpen(false)} />
+                </div>
                 <Link
                   to="/profile"
                   onClick={() => setMobileOpen(false)}
@@ -378,10 +379,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/names?gender=male" className="hover:text-primary transition-colors">Male Names</Link>
                 <Link to="/names?gender=female" className="hover:text-primary transition-colors">Female Names</Link>
                 <button
-                  onClick={handleRandomQuranic}
+                  onClick={pickRandom}
                   className="text-left hover:text-primary transition-colors inline-flex items-center gap-1.5"
                 >
-                  <Shuffle className="w-3.5 h-3.5" /> Random Quranic Name
+                  <Shuffle className="w-3.5 h-3.5" /> Random Name
                 </button>
               </div>
             </div>

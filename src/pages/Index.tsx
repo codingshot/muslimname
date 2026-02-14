@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
 import NameCard from "@/components/NameCard";
-import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions, getRandomName } from "@/data/names";
+import { namesDatabase, getNameOfTheDay, getQuickNameSuggestions } from "@/data/names";
 import { getMultiNameMappingContext, getDidYouMeanSuggestions, getCombinedTypingSuggestions, getCanonicalMappingKey, totalMappings, getMappingAffiliation } from "@/data/nameMapping";
 import { blogPosts } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCountry } from "@/hooks/useCountry";
+import { useRandomName } from "@/hooks/useRandomName";
 
 const featuredNames = namesDatabase.slice(0, 6);
 const featuredBlogs = blogPosts.slice(0, 3);
@@ -34,6 +35,7 @@ const Index = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
   const { country } = useCountry();
+  const { pickRandom } = useRandomName();
 
   const multiMappingInfo = currentName.trim() ? getMultiNameMappingContext(currentName.trim()) : [];
   const hasAnyMapping = multiMappingInfo.some(p => p.mapping);
@@ -111,7 +113,7 @@ const Index = () => {
                   onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
                   placeholder="Enter your name (e.g., David, Sarah, Michael)"
                   aria-label="Enter your current name to discover Islamic equivalent"
-                  className="pl-10 h-12 rounded-xl bg-primary-foreground text-foreground border-0 text-base"
+                  className="pl-10 h-12 rounded-xl bg-primary-foreground text-foreground dark:text-slate-900 dark:placeholder:text-slate-500 border-0 text-base"
                 />
                 {showSuggestions && (typingSuggestions.mapping.length > 0 || typingSuggestions.muslim.length > 0) && (
                   <div className="absolute top-full left-0 right-0 mt-1 bg-card/95 backdrop-blur border border-border rounded-xl shadow-lg z-50 py-2 max-h-48 overflow-y-auto">
@@ -160,7 +162,7 @@ const Index = () => {
             </form>
             <button
               type="button"
-              onClick={() => navigate(`/name/${getRandomName().slug}`)}
+              onClick={pickRandom}
               className="inline-flex items-center gap-1.5 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
               <Shuffle className="w-4 h-4" /> Surprise me with a random name

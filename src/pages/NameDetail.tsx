@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect, useCallback } from "react";
-import { findNameBySlug, namesDatabase, getRandomName } from "@/data/names";
+import { findNameBySlug, namesDatabase } from "@/data/names";
 import { christianToMuslimNameMapping } from "@/data/nameMapping";
 import Layout from "@/components/Layout";
 import NameDetailSkeleton from "@/components/NameDetailSkeleton";
@@ -11,6 +11,7 @@ import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book, S
 import { ShareName } from "@/components/ShareName";
 import { motion } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
+import { useRandomName } from "@/hooks/useRandomName";
 import { speakArabic, preloadVoices } from "@/lib/pronunciation";
 import { getNameFontClass } from "@/lib/nameFont";
 
@@ -20,6 +21,7 @@ export default function NameDetail() {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const navigate = useNavigate();
   const { profile, isFavorite, toggleFavorite, addAsFirstOrLast, togglePosition } = useProfile();
+  const { pickRandom } = useRandomName();
 
   // Defer voice preload until user interacts with speak button (saves initial work)
   const preloadOnInteraction = useCallback(() => {
@@ -165,7 +167,7 @@ export default function NameDetail() {
             <ArrowLeft className="w-4 h-4" /> Back to all names
           </Link>
           <button
-            onClick={() => navigate(`/name/${getRandomName(name.gender === "male" || name.gender === "female" ? name.gender : undefined).slug}`)}
+            onClick={pickRandom}
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Random name"
           >

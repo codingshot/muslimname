@@ -90,7 +90,7 @@
     --secondary: 42 45% 50%;
     --secondary-foreground: 0 0% 100%;
     --muted: 210 20% 18%;
-    --muted-foreground: 210 10% 60%;
+    --muted-foreground: 210 10% 65%;
     --accent: 0 80% 65%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
@@ -98,6 +98,11 @@
     --border: 210 20% 20%;
     --input: 210 20% 20%;
     --ring: 181 70% 35%;
+    /* Dark-appropriate tints (teal-light was 92% lightness — use darker for dark mode) */
+    --teal-light: 181 35% 18%;
+    --teal-dark: 181 60% 40%;
+    --warm-bg: 210 25% 12%;
+    --warm-bg-alt: 210 22% 15%;
   }
 }
 
