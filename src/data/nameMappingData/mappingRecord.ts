@@ -1303,4 +1303,28 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "friday": { muslimNames: ["juma", "sabt"], meaning: "Day of Frigg", connection: "Friday = day name; Jumu'ah (Friday) is the blessed day in Islam", popularIn: ["NG"], category: "western-male" },
   "rose": { muslimNames: ["warda", "zahra"], meaning: "Rose Flower", connection: "Rose = flower; Warda means rose in Arabic", popularIn: ["NG"], category: "western-female" },
   "emmanuel": { muslimNames: ["abdullah", "abdurrahman"], meaning: "God is With Us", connection: "Emmanuel = God with us; Abdullah means servant of Allah", popularIn: ["NG"], category: "western-male" },
+
+  // ===========================
+  // EXPANSION BATCH — Western & Popular (new only; avoid duplicates)
+  // ===========================
+  "maverick": { muslimNames: ["ghazi", "tariq"], meaning: "Independent, Nonconformist", connection: "Maverick = bold; Ghazi means warrior, Tariq the morning star — trailblazers", category: "western-male" },
+  "bentley": { muslimNames: ["barakat", "najib"], meaning: "Meadow with Bent Grass", connection: "Bentley = meadow; Barakat means blessings, Najib means noble", category: "western-male" },
+  "ryder": { muslimNames: ["raed", "ridwan"], meaning: "Horseman, Knight", connection: "Ryder = rider; Raed means pioneer, Ridwan means divine pleasure (guardian of Paradise)", category: "western-male" },
+  "roman": { muslimNames: ["rahman", "rasheed"], meaning: "From Rome, Strong", connection: "Roman = citizen of Rome; Rahman means merciful, Rasheed means rightly guided", category: "western-male" },
+  "everett": { muslimNames: ["ibrahim", "amir"], meaning: "Brave as a Boar", connection: "Everett = brave; Ibrahim is the patriarch of faith, Amir means commander", category: "western-male" },
+  "finn": { muslimNames: ["fadi", "faris"], meaning: "Fair, White", connection: "Finn = fair; Fadi means redeemer, Faris means knight/warrior", category: "western-male" },
+  "savannah": { muslimNames: ["safiya", "sabah"], meaning: "Treeless Plain", connection: "Savannah = open plain; Safiya means pure, Sabah means morning — new dawn", category: "western-female" },
+  "hailey": { muslimNames: ["hayat", "huda"], meaning: "Hay Meadow", connection: "Hailey = meadow; Hayat means life, Huda means guidance", category: "western-female" },
+  "audrey": { muslimNames: ["adila", "asiya"], meaning: "Noble Strength", connection: "Audrey = noble; Adila means just, Asiya chose faith over Pharaoh's palace", category: "western-female" },
+  "ellie": { muslimNames: ["elena", "lina"], meaning: "Light, Shining", connection: "Ellie from Eleanor = light; Lina means tender, Elena from Helen", category: "western-female" },
+  "sophie": { muslimNames: ["safiya", "hikma"], meaning: "Wisdom", connection: "Sophie = wisdom; Safiya means pure, Hikma means wisdom in Arabic", category: "western-female" },
+  "lillian": { muslimNames: ["layla", "sawsan"], meaning: "Lily Flower", connection: "Lillian = lily; Layla means night/beauty, Sawsan means lily in Arabic", category: "western-female" },
+  "reese": { muslimNames: ["raisa", "ruqayyah"], meaning: "Enthusiasm, Ardor", connection: "Reese = ardor; Raisa means leader, Ruqayyah was the Prophet's daughter", category: "western-female" },
+  "sadie": { muslimNames: ["sadiqa", "sarah"], meaning: "Princess", connection: "Sadie from Sarah = princess; Sadiqa means truthful, Sarah is used in Islam", category: "western-female" },
+  "pablo": { muslimNames: ["bilal", "sadiq"], meaning: "Small, Humble", connection: "Pablo = Paul; Bilal was the first muezzin, Sadiq means truthful", popularIn: ["MX", "AR"], category: "spanish-male" },
+  "diego": { muslimNames: ["yaqub", "dawood"], meaning: "Supplanter", connection: "Diego = James/Jacob; Yaqub is Prophet Jacob", popularIn: ["MX", "ES"], category: "spanish-male" },
+  "laura": { muslimNames: ["layla", "warda"], meaning: "Laurel, Victory", connection: "Laura = laurel; Layla means night/beauty, Warda means rose", popularIn: ["ES", "MX"], category: "spanish-female" },
+  "chioma": { muslimNames: ["noor", "safiya"], meaning: "Good God", connection: "Chioma (Igbo) = good God; Noor means light, Safiya means pure", popularIn: ["NG"], category: "tribal-female" },
+  "ngozi": { muslimNames: ["ni'mah", "baraka"], meaning: "Blessing", connection: "Ngozi (Igbo) = blessing; Ni'mah means grace, Baraka means blessings", popularIn: ["NG"], category: "tribal-female" },
+  "obinna": { muslimNames: ["amin", "sadiq"], meaning: "Father's Heart", connection: "Obinna (Igbo) = father's heart; Amin means trustworthy, Sadiq means truthful", popularIn: ["NG"], category: "tribal-male" },
 };
