@@ -18,8 +18,8 @@ type GenderOpt = "all" | "male" | "female" | "unisex";
 
 const GENDER_OPTIONS: { value: GenderOpt; label: string }[] = [
   { value: "all", label: "All names" },
-  { value: "male", label: "Boy only" },
-  { value: "female", label: "Girl only" },
+  { value: "male", label: "Male only" },
+  { value: "female", label: "Female only" },
   { value: "unisex", label: "Unisex only" },
 ];
 

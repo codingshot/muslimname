@@ -2,11 +2,12 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect, useCallback } from "react";
 import { findNameBySlug, namesDatabase, getRandomName } from "@/data/names";
-import { christianToMuslimNameMapping } from "@/data/nameMapping";
+import { christianToMuslimNameMapping, getWesternKeysForMuslimName } from "@/data/nameMapping";
 import Layout from "@/components/Layout";
 import NameDetailSkeleton from "@/components/NameDetailSkeleton";
 import NameCard from "@/components/NameCard";
 import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ArrowLeft, BookOpen, Users, Globe, Star, Volume2, ExternalLink, Book, Shuffle, Check } from "lucide-react";
 import { ShareName } from "@/components/ShareName";
 import { RandomSettingsDropdown } from "@/components/RandomSettingsDropdown";
@@ -106,6 +107,8 @@ export default function NameDetail() {
       reverseMapping.push({ westernName: western, key: western, connection: data.connection });
     }
   }
+  const westernMappingKeys = getWesternKeysForMuslimName(name.slug);
+  const firstWesternKey = westernMappingKeys[0];
 
   return (
     <Layout>
@@ -232,18 +235,50 @@ export default function NameDetail() {
               {name.origin}
             </Link>
             {name.scriptureContext?.inBible && (
-              <Link to="/names?scripture=bible">
-                <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
-                  ✝️ Bible
-                </Badge>
-              </Link>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link to={firstWesternKey ? `/western-names/${firstWesternKey}` : "/names?scripture=bible"}>
+                    <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
+                      ✝️ Bible
+                    </Badge>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="max-w-xs">
+                  {name.scriptureContext.bibleName && (
+                    <p className="mb-1">
+                      Equivalent in Bible: <span className="font-semibold">{name.scriptureContext.bibleName}</span>
+                    </p>
+                  )}
+                  {firstWesternKey && (
+                    <p className="text-primary text-sm font-medium">
+                      View Western name mapping →
+                    </p>
+                  )}
+                </TooltipContent>
+              </Tooltip>
             )}
             {name.scriptureContext?.inTorah && (
-              <Link to="/names?scripture=torah">
-                <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
-                  ✡️ Torah
-                </Badge>
-              </Link>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link to={firstWesternKey ? `/western-names/${firstWesternKey}` : "/names?scripture=torah"}>
+                    <Badge variant="outline" className="text-[10px] cursor-pointer hover:bg-muted">
+                      ✡️ Torah
+                    </Badge>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="max-w-xs">
+                  {name.scriptureContext.torahName && (
+                    <p className="mb-1">
+                      Equivalent in Torah: <span className="font-semibold">{name.scriptureContext.torahName}</span>
+                    </p>
+                  )}
+                  {firstWesternKey && (
+                    <p className="text-primary text-sm font-medium">
+                      View Western name mapping →
+                    </p>
+                  )}
+                </TooltipContent>
+              </Tooltip>
             )}
             {name.scriptureContext?.sharedProphet && (
               <Link to="/names?scripture=shared">

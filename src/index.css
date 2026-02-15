@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Scheherazade+New:wght@400;700&family=Reem+Kufi+Fun:wght@400;500;600;700&display=swap');
-
+/* Fonts loaded async via link in index.html (media=print onload) to avoid render-blocking */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

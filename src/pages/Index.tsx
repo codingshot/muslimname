@@ -49,12 +49,15 @@ const Index = () => {
   );
   const typingSuggestions = useMemo(() => {
     const parts = currentName.trim().split(/\s+/).filter(Boolean);
-    const wordToSuggest = parts.length > 1 ? parts[parts.length - 1] : parts[0];
-    if (!wordToSuggest || wordToSuggest.length < 2) return { mapping: [], muslim: [] };
-    return {
-      mapping: getCombinedTypingSuggestions(wordToSuggest, { limit: 4, countryCode: country ?? undefined }),
-      muslim: getQuickNameSuggestions(wordToSuggest, 3),
-    };
+    return parts.map((word, index) => {
+      if (!word || word.length < 2) return { word, index, mapping: [] as { displayName: string; canonicalKey: string }[], muslim: [] as { slug: string; name: string; meaning: string }[] };
+      return {
+        word,
+        index,
+        mapping: getCombinedTypingSuggestions(word, { limit: 4, countryCode: country ?? undefined }),
+        muslim: getQuickNameSuggestions(word, 3),
+      };
+    }).filter(w => w.mapping.length > 0 || w.muslim.length > 0);
   }, [currentName, country]);
 
   const handleDiscover = (e: React.FormEvent) => {
@@ -116,44 +119,53 @@ const Index = () => {
                   aria-label="Enter your current name to discover Islamic equivalent"
                   className="pl-10 h-12 rounded-xl bg-primary-foreground text-foreground dark:text-slate-900 dark:placeholder:text-slate-500 border-0 text-base"
                 />
-                {showSuggestions && (typingSuggestions.mapping.length > 0 || typingSuggestions.muslim.length > 0) && (
-                  <div className="absolute top-full left-0 right-0 mt-1 bg-card/95 backdrop-blur border border-border rounded-xl shadow-lg z-50 py-2 max-h-48 overflow-y-auto">
-                    {typingSuggestions.mapping.map(({ displayName, canonicalKey }) => {
-                      const aff = getMappingAffiliation(canonicalKey);
+                {showSuggestions && typingSuggestions.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-card/95 backdrop-blur border border-border rounded-xl shadow-lg z-50 py-2 max-h-64 overflow-y-auto">
+                    {typingSuggestions.map(({ word, index, mapping, muslim }) => {
                       const parts = currentName.trim().split(/\s+/).filter(Boolean);
-                      const applySuggestion = () =>
-                        parts.length > 1 ? parts.slice(0, -1).join(" ") + " " + displayName : displayName;
+                      const replaceWordAt = (newVal: string) => {
+                        const next = [...parts];
+                        next[index] = newVal;
+                        return next.join(" ");
+                      };
                       return (
-                        <button
-                          key={canonicalKey}
-                          type="button"
-                          onClick={() => { setCurrentName(applySuggestion()); setShowSuggestions(false); }}
-                          onDoubleClick={() => { setCurrentName(applySuggestion()); setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
-                          title="Double-click to see full details"
-                          className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
-                        >
-                          <span>{displayName}</span>
-                          {aff && (
-                            <span className="ml-1.5 text-xs text-muted-foreground">
-                              {aff.flag && <span className="mr-0.5">{aff.flag}</span>}{aff.label}
-                            </span>
-                          )}
-                        </button>
+                        <div key={`${word}-${index}`} className="border-b border-border last:border-0 last:mb-0 mb-2 last:pb-0 pb-2">
+                          <p className="px-4 py-1 text-[10px] uppercase tracking-wider text-muted-foreground">
+                            Suggestions for &quot;{word}&quot;
+                          </p>
+                          {mapping.map(({ displayName, canonicalKey }) => {
+                            const aff = getMappingAffiliation(canonicalKey);
+                            return (
+                              <button
+                                key={canonicalKey}
+                                type="button"
+                                onClick={() => { setCurrentName(replaceWordAt(displayName)); setShowSuggestions(false); }}
+                                onDoubleClick={() => { setCurrentName(replaceWordAt(displayName)); setShowSuggestions(false); navigate(`/western-names/${canonicalKey}`); }}
+                                title="Double-click to see full details"
+                                className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
+                              >
+                                <span>{displayName}</span>
+                                {aff && (
+                                  <span className="ml-1.5 text-xs text-muted-foreground">
+                                    {aff.flag && <span className="mr-0.5">{aff.flag}</span>}{aff.label}
+                                  </span>
+                                )}
+                              </button>
+                            );
+                          })}
+                          {muslim.map(n => (
+                            <Link
+                              key={n.slug}
+                              to={`/name/${n.slug}`}
+                              onClick={() => setShowSuggestions(false)}
+                              className="block px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
+                            >
+                              {n.name} — {n.meaning}
+                            </Link>
+                          ))}
+                        </div>
                       );
                     })}
-                    {typingSuggestions.muslim.length > 0 && typingSuggestions.mapping.length > 0 && (
-                      <div className="border-t border-border my-1" />
-                    )}
-                    {typingSuggestions.muslim.map(n => (
-                      <Link
-                        key={n.slug}
-                        to={`/name/${n.slug}`}
-                        onClick={() => setShowSuggestions(false)}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-primary-foreground/10"
-                      >
-                        {n.name} — {n.meaning}
-                      </Link>
-                    ))}
                   </div>
                 )}
               </div>

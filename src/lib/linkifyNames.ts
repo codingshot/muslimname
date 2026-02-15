@@ -1,10 +1,11 @@
 /**
  * Auto-link Muslim names in markdown content to /name/{slug} pages.
  * Preserves existing markdown links. Uses names from the database.
+ * Western names: matches canonical keys + nicknames (Mike → michael, Jim → james).
  */
 
 import { namesDatabase } from "@/data/names";
-import { christianToMuslimNameMapping } from "@/data/nameMapping";
+import { christianToMuslimNameMapping, westernNameVariants } from "@/data/nameMappingData";
 
 const PLACEHOLDER = "\u200B\u200B\u200B"; // zero-width chars to avoid collision
 
@@ -40,12 +41,29 @@ export function linkifyNamesInMarkdown(content: string): string {
   }
 
   // 3. Replace Western/non-Muslim names with links to /western-names/key (skip if same as Muslim name)
+  // Include nicknames: Mike → michael, Jim → james, etc.
   const muslimLower = new Set(muslimPairs.map((p) => p.name.toLowerCase()));
-  const westernKeys = Object.keys(christianToMuslimNameMapping)
-    .filter((k) => k.length >= 2 && !muslimLower.has(k))
-    .sort((a, b) => b.length - a.length);
-  for (const key of westernKeys) {
-    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const westernLinkables: { name: string; key: string }[] = [];
+
+  for (const key of Object.keys(christianToMuslimNameMapping)) {
+    if (key.length >= 2 && !muslimLower.has(key.toLowerCase())) {
+      westernLinkables.push({ name: key, key });
+    }
+  }
+  for (const [nickname, canonical] of Object.entries(westernNameVariants)) {
+    const key = canonical.toLowerCase();
+    if (
+      christianToMuslimNameMapping[canonical] &&
+      !muslimLower.has(nickname.toLowerCase()) &&
+      !westernLinkables.some((w) => w.name.toLowerCase() === nickname.toLowerCase())
+    ) {
+      westernLinkables.push({ name: nickname, key });
+    }
+  }
+  westernLinkables.sort((a, b) => b.name.length - a.name.length);
+
+  for (const { name, key } of westernLinkables) {
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(`(?<![\\[\\/\\w])(${escaped})(?![\\]\\w])`, "gi");
     processed = processed.replace(regex, (match) => `[${match}](/western-names/${key})`);
   }

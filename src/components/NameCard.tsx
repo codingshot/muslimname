@@ -1,11 +1,13 @@
 import { memo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { prefetchNameDetail } from "@/lib/prefetch";
 import { Star } from "lucide-react";
 import type { MuslimName } from "@/data/names";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useProfile } from "@/hooks/useProfile";
+import { getWesternKeysForMuslimName } from "@/data/nameMapping";
 import { getNameFontClass } from "@/lib/nameFont";
 
 interface NameCardProps {
@@ -14,6 +16,7 @@ interface NameCardProps {
 }
 
 function NameCard({ name, index = 0 }: NameCardProps) {
+  const navigate = useNavigate();
   const { profile, isFavorite, toggleFavorite } = useProfile();
   const fontClass = getNameFontClass(profile.settings.nameDisplayFont);
   const starred = isFavorite(name.slug);
@@ -79,6 +82,52 @@ function NameCard({ name, index = 0 }: NameCardProps) {
                 {theme}
               </span>
             ))}
+            {name.scriptureContext?.inBible && (() => {
+              const westernKey = getWesternKeysForMuslimName(name.slug)[0];
+              const goTo = () => { navigate(westernKey ? `/western-names/${westernKey}` : "/names?scripture=bible"); };
+              const trigger = (
+                <span
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); goTo(); }}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goTo(); } }}
+                  className="text-[10px] text-muted-foreground hover:text-primary cursor-pointer"
+                >
+                  ✝️ Bible
+                </span>
+              );
+              return westernKey && name.scriptureContext?.bibleName ? (
+                <Tooltip>
+                  <TooltipTrigger asChild>{trigger}</TooltipTrigger>
+                  <TooltipContent side="top">
+                    {name.scriptureContext.bibleName} — View Western mapping →
+                  </TooltipContent>
+                </Tooltip>
+              ) : trigger;
+            })()}
+            {name.scriptureContext?.inTorah && (() => {
+              const westernKey = getWesternKeysForMuslimName(name.slug)[0];
+              const goTo = () => { navigate(westernKey ? `/western-names/${westernKey}` : "/names?scripture=torah"); };
+              const trigger = (
+                <span
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); goTo(); }}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goTo(); } }}
+                  className="text-[10px] text-muted-foreground hover:text-primary cursor-pointer"
+                >
+                  ✡️ Torah
+                </span>
+              );
+              return westernKey && name.scriptureContext?.torahName ? (
+                <Tooltip>
+                  <TooltipTrigger asChild>{trigger}</TooltipTrigger>
+                  <TooltipContent side="top">
+                    {name.scriptureContext.torahName} — View Western mapping →
+                  </TooltipContent>
+                </Tooltip>
+              ) : trigger;
+            })()}
             {name.scriptureContext?.sharedProphet && (
               <span className="text-[10px] text-secondary">🤝 Shared</span>
             )}

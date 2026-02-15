@@ -37,6 +37,7 @@ export interface MuslimName {
 import { prophetsNames } from "./companionsAndProphets";
 import { quranicNames } from "./quranicNames";
 import { resolveSlugAlias, slugAliases } from "./slugAliases";
+import { westernNameVariants } from "./nameMappingData/variants";
 
 const coreNames: MuslimName[] = [
   {
@@ -4085,6 +4086,9 @@ function scoreMatch(name: MuslimName, query: string): number {
   if (!lq) return 0;
   let score = 0;
 
+  // Nickname expansion: Jim → James, Mike → Michael — also match canonical in scripture/meaning
+  const canonicalFromNickname = westernNameVariants[lq];
+
   if (name.name?.toLowerCase() === lq) return 100;
   if (name.name?.toLowerCase().startsWith(lq)) score += 50;
   else if (name.name?.toLowerCase().includes(lq)) score += 30;
@@ -4102,11 +4106,14 @@ function scoreMatch(name: MuslimName, query: string): number {
   if (name.slug?.includes(lq)) score += 25;
   if (name.pronunciation?.toLowerCase().includes(lq)) score += 18;
 
-  // Scripture context search
+  // Scripture context search (includes nickname expansion: Jim matches bibleName "James")
   if (name.scriptureContext) {
-    if (name.scriptureContext.bibleName?.toLowerCase().includes(lq)) score += 30;
-    if (name.scriptureContext.torahName?.toLowerCase().includes(lq)) score += 30;
-    if (name.scriptureContext.bibleContext?.toLowerCase().includes(lq)) score += 10;
+    const bn = name.scriptureContext.bibleName?.toLowerCase() ?? "";
+    const tn = name.scriptureContext.torahName?.toLowerCase() ?? "";
+    const bc = name.scriptureContext.bibleContext?.toLowerCase() ?? "";
+    if (bn.includes(lq) || (canonicalFromNickname && bn.includes(canonicalFromNickname))) score += 30;
+    if (tn.includes(lq) || (canonicalFromNickname && tn.includes(canonicalFromNickname))) score += 30;
+    if (bc.includes(lq) || (canonicalFromNickname && bc.includes(canonicalFromNickname))) score += 10;
   }
 
   score += (name.popularity ?? 0) * 0.05;
