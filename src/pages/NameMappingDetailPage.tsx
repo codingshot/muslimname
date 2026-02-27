@@ -100,7 +100,7 @@ export default function NameMappingDetailPage() {
                     className="font-semibold hover:underline capitalize text-primary"
                     fallbackDisplay={name}
                   />
-                  {isQuranic && <BookOpen className="w-3 h-3 text-amber-600 shrink-0" title="In the Quran" />}
+                  {isQuranic && <BookOpen className="w-3 h-3 text-amber-600 shrink-0" />}
                 </span>
               );
             })}
