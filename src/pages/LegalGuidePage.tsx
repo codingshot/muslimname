@@ -331,7 +331,7 @@ function CountryDetail({
                   <span className="text-xl shrink-0">{r.flag}</span>
                   <div className="min-w-0 flex-1 overflow-hidden">
                     <p className="text-sm font-medium text-foreground truncate">{r.country}</p>
-                    <p className="text-[10px] text-muted-foreground truncate mt-0.5">{r.estimatedCost?.split("(")[0]?.trim() ?? ""}</p>
+                    <p className="text-[10px] text-muted-foreground truncate mt-0.5">{r.estimatedCostUSD ? `$${r.estimatedCostUSD[0]}–$${r.estimatedCostUSD[1]}` : ""}</p>
                     <div className="mt-1">
                       <DifficultyBadge difficulty={r.difficulty} />
                     </div>

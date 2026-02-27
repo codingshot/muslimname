@@ -127,13 +127,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <Link
                           key={n.slug}
                           to={`/name/${n.slug}`}
-                          onMouseEnter={() => prefetchNameDetail(n.slug)}
+                          onMouseEnter={() => prefetchNameDetail()}
                           className="block px-3 py-2 text-sm hover:bg-muted first:rounded-t-md last:rounded-b-md"
                         >
                           <span className="font-medium">{n.name}</span>
-                          {n.transliteration && n.transliteration !== n.name && (
-                            <span className="ml-1 text-muted-foreground">({n.transliteration})</span>
-                          )}
                           {n.meaning && <span className="ml-2 text-muted-foreground truncate">— {n.meaning}</span>}
                         </Link>
                       ))}
@@ -257,13 +254,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                               key={n.slug}
                               to={`/name/${n.slug}`}
                               onClick={() => { setMobileOpen(false); setNavSearchFocused(false); }}
-                              onMouseEnter={() => prefetchNameDetail(n.slug)}
+                              onMouseEnter={() => prefetchNameDetail()}
                               className="block px-3 py-2.5 text-sm hover:bg-muted first:rounded-t-md last:rounded-b-md"
                             >
                               <span className="font-medium">{n.name}</span>
-                              {n.transliteration && n.transliteration !== n.name && (
-                                <span className="ml-1 text-muted-foreground">({n.transliteration})</span>
-                              )}
                               {n.meaning && <span className="ml-2 text-muted-foreground truncate">— {n.meaning}</span>}
                             </Link>
                           ))}
