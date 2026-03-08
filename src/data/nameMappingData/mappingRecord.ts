@@ -2304,8 +2304,8 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // ESTONIAN NAMES
   // ===========================
-  "kalev": { muslimNames: ["batil", "jabbar"], meaning: "Hero, Giant", connection: "Kalev = legendary Estonian hero; Batil means hero, Jabbar means mighty", popularIn: ["EE"], category: "estonian-male" },
-  "maarja": { muslimNames: ["maryam"], meaning: "Mary", connection: "Maarja = Estonian Mary; Maryam is honored in the Quran", popularIn: ["EE"], category: "estonian-female" },
+  "kalev_ee": { muslimNames: ["batil", "jabbar"], meaning: "Hero, Giant", connection: "Kalev = legendary Estonian hero; Batil means hero, Jabbar means mighty", popularIn: ["EE"], category: "estonian-male" },
+  "maarja_ee": { muslimNames: ["maryam"], meaning: "Mary", connection: "Maarja = Estonian Mary; Maryam is honored in the Quran", popularIn: ["EE"], category: "estonian-female" },
   "toomas": { muslimNames: ["tawam", "rafiq"], meaning: "Twin", connection: "Toomas = Thomas/twin; Tawam means twin", popularIn: ["EE"], category: "estonian-male" },
   "piret": { muslimNames: ["margarita", "lu'lu'a"], meaning: "Pearl", connection: "Piret = pearl; Lu'lu'a means pearl in Arabic", popularIn: ["EE"], category: "estonian-female" },
 
