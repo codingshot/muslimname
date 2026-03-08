@@ -2982,7 +2982,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // KHMER (CAMBODIAN) NAMES
   // ===========================
-  "dara_kh": { muslimNames: ["najm", "kawkab"], meaning: "Star", connection: "Dara = star; Najm means star — Surah An-Najm (The Star)", popularIn: ["KH"], category: "khmer-male", trend: "classic" },
+  "dara_kh2": { muslimNames: ["najm", "kawkab"], meaning: "Star", connection: "Dara = star; Najm means star — Surah An-Najm (The Star)", popularIn: ["KH"], category: "khmer-male", trend: "classic" },
   "chanthou_kh": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Chanthou = flower; Zahra means flower, Warda means rose", popularIn: ["KH"], category: "khmer-female", trend: "classic" },
   "sopheap_kh": { muslimNames: ["adib", "muhaddab"], meaning: "Gentle, Polite", connection: "Sopheap = polite; Adib means cultured, Muhaddab means refined", popularIn: ["KH"], category: "khmer-male", trend: "classic" },
 
