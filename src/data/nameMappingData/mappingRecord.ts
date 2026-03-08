@@ -2234,7 +2234,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "sri_my": { muslimNames: ["sayyida", "sharifa"], meaning: "Radiance, Honorific", connection: "Sri = honorific/radiance; Sayyida means lady of honor", popularIn: ["MY"], category: "malay-female" },
   "putera": { muslimNames: ["ibn", "walad"], meaning: "Prince, Son", connection: "Putera = prince; Ibn means son — royalty concept", popularIn: ["MY"], category: "malay-male" },
   "dayang": { muslimNames: ["amira", "sayyida"], meaning: "Princess, Lady of Rank", connection: "Dayang = lady of rank; Amira means princess", popularIn: ["MY"], category: "malay-female" },
-  "satria": { muslimNames: ["faris", "muharib"], meaning: "Knight, Warrior", connection: "Satria = warrior-knight (from kshatriya); Faris means knight", popularIn: ["MY"], category: "malay-male" },
+  "satria_my": { muslimNames: ["faris", "muharib"], meaning: "Knight, Warrior", connection: "Satria = warrior-knight (from kshatriya); Faris means knight", popularIn: ["MY"], category: "malay-male" },
   "delima": { muslimNames: ["rumman", "yaqut"], meaning: "Pomegranate, Ruby", connection: "Delima = pomegranate/ruby; Rumman means pomegranate (mentioned in Quran)", popularIn: ["MY"], category: "malay-female" },
 
   // ===========================
