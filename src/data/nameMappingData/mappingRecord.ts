@@ -2681,16 +2681,16 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // EXPANDED GERMAN NAMES
   // ===========================
   "leon_de": { muslimNames: ["laith", "asad"], meaning: "Lion", connection: "Leon = lion; Laith means lion, Asad means lion", popularIn: ["DE", "AT"], category: "german-male", trend: "rising", culturalNote: "#1 boys name in Germany for multiple years" },
-  "maximilian": { muslimNames: ["azim", "akbar"], meaning: "Greatest", connection: "Maximilian = greatest; Azim means magnificent, Akbar means greatest", popularIn: ["DE", "AT"], category: "german-male", trend: "classic" },
+  "maximilian_de": { muslimNames: ["azim", "akbar"], meaning: "Greatest", connection: "Maximilian = greatest; Azim means magnificent, Akbar means greatest", popularIn: ["DE", "AT"], category: "german-male", trend: "classic" },
   "felix_de": { muslimNames: ["sa'id", "farhan"], meaning: "Happy, Lucky", connection: "Felix = fortunate; Sa'id means happy, Farhan means joyful", popularIn: ["DE"], category: "german-male", trend: "rising" },
-  "emil": { muslimNames: ["amir", "fadl"], meaning: "Eager, Industrious", connection: "Emil = industrious; Amir means prince, Fadl means excellence", popularIn: ["DE", "SE"], category: "german-male", trend: "rising" },
-  "moritz": { muslimNames: ["murad", "asmar"], meaning: "Dark-Skinned", connection: "Moritz = Maurice = dark; Murad means desired/intended", popularIn: ["DE", "AT"], category: "german-male", trend: "classic" },
+  "emil_de": { muslimNames: ["amir", "fadl"], meaning: "Eager, Industrious", connection: "Emil = industrious; Amir means prince, Fadl means excellence", popularIn: ["DE", "SE"], category: "german-male", trend: "rising" },
+  "moritz_de": { muslimNames: ["murad", "asmar"], meaning: "Dark-Skinned", connection: "Moritz = Maurice = dark; Murad means desired/intended", popularIn: ["DE", "AT"], category: "german-male", trend: "classic" },
   "hannah_de": { muslimNames: ["hana", "hannah"], meaning: "Grace, Favor", connection: "Hannah = grace; Hannah was mother of Maryam in Islamic tradition", popularIn: ["DE"], category: "german-female", trend: "classic" },
   "emilia_de": { muslimNames: ["amila", "fadila"], meaning: "Industrious, Eager", connection: "Emilia = rival/industrious; Amila means hardworking, Fadila means virtuous", popularIn: ["DE"], category: "german-female", trend: "rising", culturalNote: "#1 girls name in Germany" },
   "mila_de": { muslimNames: ["jamila", "habiba"], meaning: "Gracious, Dear", connection: "Mila = dear one; Jamila means beautiful, Habiba means beloved", popularIn: ["DE"], category: "german-female", trend: "rising" },
   "lina_de": { muslimNames: ["lina", "latifa"], meaning: "Tender, Delicate", connection: "Lina = tender; Lina is already an Arabic name meaning tender/gentle", popularIn: ["DE"], category: "german-female", trend: "rising", culturalNote: "Cross-cultural name — Lina is used in both German and Arabic naming" },
   "sophia_de": { muslimNames: ["hikma"], meaning: "Wisdom", connection: "Sophia = wisdom; Hikma means wisdom in Arabic", popularIn: ["DE", "AT"], category: "german-female", trend: "classic" },
-  "frieda": { muslimNames: ["salima", "salam"], meaning: "Peace, Protection", connection: "Frieda = peace; Salima means peaceful, Salam means peace", popularIn: ["DE"], category: "german-female", trend: "rising", culturalNote: "Vintage revival — re-entering German top 50" },
+  "frieda_de": { muslimNames: ["salima", "salam"], meaning: "Peace, Protection", connection: "Frieda = peace; Salima means peaceful, Salam means peace", popularIn: ["DE"], category: "german-female", trend: "rising", culturalNote: "Vintage revival — re-entering German top 50" },
 
   // ===========================
   // EXPANDED ITALIAN NAMES
