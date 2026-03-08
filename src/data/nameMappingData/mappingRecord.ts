@@ -3108,36 +3108,4 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "srikanth_tg": { muslimNames: ["habib", "mahbub"], meaning: "Beloved", connection: "Srikanth = beloved of prosperity; Habib means beloved", popularIn: ["IN"], category: "telugu-male", trend: "classic" },
   "lakshmi_tg": { muslimNames: ["baraka", "ni'ma"], meaning: "Prosperity", connection: "Lakshmi = wealth; Baraka means blessing", popularIn: ["IN"], category: "telugu-female", trend: "classic" },
   "swathi_tg": { muslimNames: ["najm", "kawkab"], meaning: "Star", connection: "Swathi = star; Najm means star", popularIn: ["IN"], category: "telugu-female", trend: "classic" },
-
-  // ===========================
-  // KANNADA
-  // ===========================
-  "darshan_kn": { muslimNames: ["mushahada", "ru'ya"], meaning: "Vision", connection: "Darshan = divine vision; Ru'ya means vision", popularIn: ["IN"], category: "kannada-male", trend: "classic" },
-  "prakash_kn": { muslimNames: ["noor", "diya"], meaning: "Light", connection: "Prakash = light; Noor means divine light", popularIn: ["IN"], category: "kannada-male", trend: "classic" },
-  "suma_kn": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Suma = flower; Zahra means flower", popularIn: ["IN"], category: "kannada-female", trend: "classic" },
-  "akshata_kn": { muslimNames: ["kamila", "tamam"], meaning: "Perfect", connection: "Akshata = whole; Kamila means perfect", popularIn: ["IN"], category: "kannada-female", trend: "rising", culturalNote: "Akshata Murty — UK First Lady" },
-
-  // ===========================
-  // MALAYALAM
-  // ===========================
-  "arun_ml": { muslimNames: ["fajr", "shams"], meaning: "Dawn", connection: "Arun = dawn; Fajr means dawn prayer", popularIn: ["IN"], category: "malayalam-male", trend: "classic" },
-  "vishnu_ml": { muslimNames: ["hafiz", "raqib"], meaning: "Preserver", connection: "Vishnu = preserver; Hafiz means guardian", popularIn: ["IN"], category: "malayalam-male", trend: "classic" },
-  "gayathri_ml": { muslimNames: ["ayat", "du'a"], meaning: "Sacred Hymn", connection: "Gayathri = sacred verse; Ayat means Quran verses", popularIn: ["IN"], category: "malayalam-female", trend: "classic" },
-  "devika_ml": { muslimNames: ["ilahiyya", "rabbaniyya"], meaning: "Little Goddess", connection: "Devika = divine; Rabbaniyya means devoted to God", popularIn: ["IN"], category: "malayalam-female", trend: "classic" },
-
-  // ===========================
-  // ASSAMESE
-  // ===========================
-  "jyoti_as": { muslimNames: ["noor", "diya"], meaning: "Light", connection: "Jyoti = light; Noor means divine light", popularIn: ["IN"], category: "assamese-male", trend: "classic" },
-  "bhaskar_as": { muslimNames: ["shams"], meaning: "Sun", connection: "Bhaskar = sun; Shams means sun", popularIn: ["IN"], category: "assamese-male", trend: "classic" },
-  "junali_as": { muslimNames: ["qamar", "badr"], meaning: "Moonlight", connection: "Junali = moonlight; Qamar means moon", popularIn: ["IN"], category: "assamese-female", trend: "classic" },
-  "barsha_as": { muslimNames: ["matar", "ghayth"], meaning: "Rain", connection: "Barsha = rain; Ghayth means rain", popularIn: ["IN"], category: "assamese-female", trend: "classic" },
-
-  // ===========================
-  // PUNJABI — NEW
-  // ===========================
-  "gurpreet_pn": { muslimNames: ["muhibb", "ashiq"], meaning: "Lover of the Guru", connection: "Gurpreet = devotion to teacher; Muhibb means loving", popularIn: ["IN", "PK"], category: "punjabi-male", trend: "classic" },
-  "harjit_pn": { muslimNames: ["mansur", "ghazi"], meaning: "God's Victory", connection: "Harjit = God wins; Mansur means victorious", popularIn: ["IN"], category: "punjabi-male", trend: "classic" },
-  "jasleen_pn": { muslimNames: ["ghina", "tarab"], meaning: "Absorbed in Praise", connection: "Jasleen = absorbed in God's praise", popularIn: ["IN"], category: "punjabi-female", trend: "rising" },
-  "navneet_pn": { muslimNames: ["zubda"], meaning: "Fresh Butter, Pure", connection: "Navneet = pure; Zubda means cream/essence", popularIn: ["IN"], category: "punjabi-male", trend: "classic" },
 };
