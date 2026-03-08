@@ -2861,7 +2861,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // KAZAKH NAMES
   // ===========================
-  "nursultan_kz": { muslimNames: ["sultan", "noor"], meaning: "Light Sultan", connection: "Nursultan = light of the sultan; Sultan means sovereign, Noor means light", popularIn: ["KZ"], category: "kazakh-male", trend: "classic", culturalNote: "Kazakhstan's capital was named Nursultan 2019–2022" },
+  "nursultan_kz2": { muslimNames: ["sultan", "noor"], meaning: "Light Sultan", connection: "Nursultan = light of the sultan; Sultan means sovereign, Noor means light", popularIn: ["KZ"], category: "kazakh-male", trend: "classic", culturalNote: "Kazakhstan's capital was named Nursultan 2019–2022" },
   "aibek_kz": { muslimNames: ["qamar", "amir"], meaning: "Moon Lord", connection: "Aibek = moon chief; Qamar means moon — celestial beauty", popularIn: ["KZ"], category: "kazakh-male", trend: "classic" },
   "dana_kz": { muslimNames: ["hikma", "arifa"], meaning: "Wise", connection: "Dana = wise; Hikma means wisdom — 'whoever is given wisdom is given much good' (Quran)", popularIn: ["KZ"], category: "kazakh-female", trend: "rising" },
   "aigerim_kz": { muslimNames: ["jamila", "hasna"], meaning: "Beautiful Moon", connection: "Aigerim = gorgeous; Jamila means beautiful — inner and outer beauty", popularIn: ["KZ"], category: "kazakh-female", trend: "classic" },
