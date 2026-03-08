@@ -1424,7 +1424,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "jadwiga": { muslimNames: ["mujahida", "ghazala"], meaning: "Battle, Combat", connection: "Jadwiga = fighter; Mujahida means female warrior for faith", popularIn: ["PL"], category: "polish-female" },
   "ewa": { muslimNames: ["hawwa"], meaning: "Living, Life-Giver", connection: "Ewa = Eve; Hawwa is the Arabic name for Eve, mother of humanity", popularIn: ["PL"], category: "polish-female" },
   "bozena": { muslimNames: ["ilahiya", "rabbani"], meaning: "Divine, God-Given", connection: "Bozena = divine; Ilahiya means divine, Rabbani means of God", popularIn: ["PL"], category: "polish-female" },
-  "wanda": { muslimNames: ["na'isha", "hayat"], meaning: "Wanderer, Living", connection: "Wanda = wanderer; Na'isha means lively, Hayat means life", popularIn: ["PL"], category: "polish-female" },
+  "wanda_polish": { muslimNames: ["na'isha", "hayat"], meaning: "Wanderer, Living", connection: "Wanda = wanderer; Na'isha means lively, Hayat means life", popularIn: ["PL"], category: "polish-female" },
 
   // ===========================
   // GREEK NAMES
