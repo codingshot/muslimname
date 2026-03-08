@@ -2947,7 +2947,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "sachin_mr": { muslimNames: ["sadiq", "haqq"], meaning: "Pure, True", connection: "Sachin = true/pure; Sadiq means truthful, Haqq means truth", popularIn: ["IN"], category: "marathi-male", trend: "classic", culturalNote: "Sachin Tendulkar — cricket legend" },
   "priya_mr": { muslimNames: ["habiba", "aziza"], meaning: "Beloved", connection: "Priya = beloved; Habiba means beloved, Aziza means dear one", popularIn: ["IN"], category: "marathi-female", trend: "classic" },
-  "ganesh_mr": { muslimNames: ["ra'is", "sayyid"], meaning: "Lord of the People", connection: "Ganesh = lord of hosts; Ra'is means chief, Sayyid means master", popularIn: ["IN"], category: "marathi-male", trend: "classic" },
+  "ganesh_mr2": { muslimNames: ["ra'is", "sayyid"], meaning: "Lord of the People", connection: "Ganesh = lord of hosts; Ra'is means chief, Sayyid means master", popularIn: ["IN"], category: "marathi-male", trend: "classic" },
   "ananya_mr": { muslimNames: ["farida", "wahida"], meaning: "Unique, Without Equal", connection: "Ananya = unique; Farida means unique, Wahida means one of a kind", popularIn: ["IN"], category: "marathi-female", trend: "rising" },
 
   // ===========================
