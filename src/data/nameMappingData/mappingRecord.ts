@@ -1537,7 +1537,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // PERSIAN / IRANIAN NAMES
   // ===========================
   "dariush": { muslimNames: ["malik", "aziz"], meaning: "King, Possessing Goodness", connection: "Dariush = king; Malik means king, Aziz means mighty", popularIn: ["IR"], category: "western-male" },
-  "cyrus": { muslimNames: ["dhulqarnayn"], meaning: "Sun, Throne", connection: "Cyrus (Kurush) = great king; Dhulqarnayn is mentioned in the Qur'an as a just ruler", popularIn: ["IR"], category: "western-male" },
+  "kurush": { muslimNames: ["dhulqarnayn"], meaning: "Sun, Throne", connection: "Cyrus (Kurush) = great king; Dhulqarnayn is mentioned in the Qur'an as a just ruler", popularIn: ["IR"], category: "western-male" },
   "roxana": { muslimNames: ["noor", "shams"], meaning: "Dawn, Bright", connection: "Roxana = dawn; Noor means light, Shams means sun", popularIn: ["IR"], category: "western-female" },
   "shirin": { muslimNames: ["halwa", "lateefa"], meaning: "Sweet, Pleasant", connection: "Shirin = sweet; Halwa means sweet, Lateefa means gentle", popularIn: ["IR"], category: "western-female" },
   "parisa": { muslimNames: ["huriya", "jamila"], meaning: "Like a Fairy", connection: "Parisa = fairy-like; Huriya means heavenly being, Jamila means beautiful", popularIn: ["IR"], category: "western-female" },
