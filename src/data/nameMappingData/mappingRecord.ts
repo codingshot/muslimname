@@ -2081,7 +2081,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "bobur": { muslimNames: ["asad", "layth"], meaning: "Tiger, Lion", connection: "Bobur = tiger (Babur the conqueror); Asad means lion", popularIn: ["UZ"], category: "uzbek-male" },
   "gulnara_uz": { muslimNames: ["warda", "zahra"], meaning: "Pomegranate Flower", connection: "Gulnara = pomegranate blossom; Warda means rose, Zahra means flower", popularIn: ["UZ"], category: "uzbek-female" },
   "timur_uz": { muslimNames: ["taimur", "hadid"], meaning: "Iron", connection: "Timur = iron (Tamerlane); Taimur means iron, Hadid means iron", popularIn: ["UZ"], category: "uzbek-male" },
-  "dilnoza": { muslimNames: ["nazuk", "latifa"], meaning: "Heart's Delight", connection: "Dilnoza = heart + delicate; Latifa means gentle/delicate", popularIn: ["UZ"], category: "uzbek-female" },
+  "dilnoza_uz": { muslimNames: ["nazuk", "latifa"], meaning: "Heart's Delight", connection: "Dilnoza = heart + delicate; Latifa means gentle/delicate", popularIn: ["UZ"], category: "uzbek-female" },
 
   // ===========================
   // KURDISH NAMES
