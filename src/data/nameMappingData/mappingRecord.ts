@@ -1703,7 +1703,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "zdenek": { muslimNames: ["siddiqi", "wali"], meaning: "Man from Sidon", connection: "Zdenek = from Sidon; Siddiqi means truthful, Wali means friend of God", popularIn: ["CZ"], category: "czech-male" },
   "miroslav": { muslimNames: ["salam", "jalil"], meaning: "Peace and Glory", connection: "Miroslav = peaceful glory; Salam means peace, Jalil means glorious", popularIn: ["CZ", "SK"], category: "czech-male" },
   "tereza": { muslimNames: ["hasida", "zahra"], meaning: "Harvester", connection: "Tereza = Teresa = harvest; Zahra means blooming", popularIn: ["CZ"], category: "czech-female" },
-  "petra": { muslimNames: ["sakhrah", "thabita"], meaning: "Rock, Stone", connection: "Petra = rock; Sakhrah means rock, Thabita means steadfast", popularIn: ["CZ", "SK"], category: "czech-female" },
+  "petra_cz": { muslimNames: ["sakhrah", "thabita"], meaning: "Rock, Stone", connection: "Petra = rock; Sakhrah means rock, Thabita means steadfast", popularIn: ["CZ", "SK"], category: "czech-female" },
   "lenka": { muslimNames: ["noor", "siraj"], meaning: "Light, Torch", connection: "Lenka = Helen = light; Noor means light, Siraj means lamp", popularIn: ["CZ", "SK"], category: "czech-female" },
   "radka": { muslimNames: ["farha", "sa'ida"], meaning: "Happy, Joyful", connection: "Radka = joyful; Farha means happiness, Sa'ida means fortunate", popularIn: ["CZ", "SK"], category: "czech-female" },
 
