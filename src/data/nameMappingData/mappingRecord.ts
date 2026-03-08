@@ -2324,8 +2324,8 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // SOMALI NAMES
   // ===========================
-  "cabdi": { muslimNames: ["abdi"], meaning: "Servant", connection: "Cabdi = Somali form of Abdi; direct Arabic origin", popularIn: ["SO", "DJ"], category: "somali-male" },
-  "hodan": { muslimNames: ["ghina", "tharwa"], meaning: "Wealth, Richness", connection: "Hodan = wealth; Ghina means richness, Tharwa means fortune", popularIn: ["SO"], category: "somali-female" },
+  "cabdi_so": { muslimNames: ["abdi"], meaning: "Servant", connection: "Cabdi = Somali form of Abdi; direct Arabic origin", popularIn: ["SO", "DJ"], category: "somali-male" },
+  "hodan_so": { muslimNames: ["ghina", "tharwa"], meaning: "Wealth, Richness", connection: "Hodan = wealth; Ghina means richness, Tharwa means fortune", popularIn: ["SO"], category: "somali-female" },
   "guled": { muslimNames: ["asad"], meaning: "Lion", connection: "Guled = lion (Somali); Asad means lion in Arabic", popularIn: ["SO"], category: "somali-male" },
   "ubax": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Ubax = flower; Zahra means flower, Warda means rose", popularIn: ["SO"], category: "somali-female" },
   "liban_so": { muslimNames: ["luban", "bakhur"], meaning: "Frankincense", connection: "Liban = frankincense; Luban means frankincense in Arabic", popularIn: ["SO", "DJ"], category: "somali-male" },
