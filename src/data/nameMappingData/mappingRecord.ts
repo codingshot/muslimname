@@ -2854,7 +2854,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // MALAY NAMES
   // ===========================
   "puteri_my": { muslimNames: ["amira", "malika"], meaning: "Princess", connection: "Puteri = princess; Amira means princess, Malika means queen", popularIn: ["MY", "BN"], category: "malay-female", trend: "classic" },
-  "wira_my": { muslimNames: ["faris", "mujahid"], meaning: "Hero, Warrior", connection: "Wira = hero; Faris means knight, Mujahid means warrior", popularIn: ["MY"], category: "malay-male", trend: "classic" },
+  "wira_my2": { muslimNames: ["faris", "mujahid"], meaning: "Hero, Warrior", connection: "Wira = hero; Faris means knight, Mujahid means warrior", popularIn: ["MY"], category: "malay-male", trend: "classic" },
   "bunga_my": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Bunga = flower; Zahra means flower — nature's beauty", popularIn: ["MY"], category: "malay-female", trend: "classic" },
   "cahaya_my": { muslimNames: ["noor", "diya"], meaning: "Light, Radiance", connection: "Cahaya = light; Noor means divine light — central in Islamic theology", popularIn: ["MY"], category: "malay-female", trend: "rising" },
 
