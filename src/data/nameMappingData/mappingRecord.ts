@@ -2098,8 +2098,8 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "amazigh": { muslimNames: ["hurr", "shareef"], meaning: "Free Man, Noble", connection: "Amazigh = free/noble man; Hurr means free, Shareef means noble", popularIn: ["MA", "DZ"], category: "amazigh-male" },
   "tanirt": { muslimNames: ["ilaha", "rabbah"], meaning: "Goddess, Divine", connection: "Tanirt = divine feminine; connected to divine concepts", popularIn: ["MA"], category: "amazigh-female" },
-  "massinissa": { muslimNames: ["sultan", "malik"], meaning: "King, Sovereign", connection: "Massinissa = great Numidian king; Sultan means sovereign", popularIn: ["DZ"], category: "amazigh-male" },
-  "tiziri": { muslimNames: ["qamar", "noor"], meaning: "Moonlight", connection: "Tiziri = moonlight; Qamar means moon, Noor means light", popularIn: ["DZ", "MA"], category: "amazigh-female" },
+  "massinissa_az": { muslimNames: ["sultan", "malik"], meaning: "King, Sovereign", connection: "Massinissa = great Numidian king; Sultan means sovereign", popularIn: ["DZ"], category: "amazigh-male" },
+  "tiziri_az": { muslimNames: ["qamar", "noor"], meaning: "Moonlight", connection: "Tiziri = moonlight; Qamar means moon, Noor means light", popularIn: ["DZ", "MA"], category: "amazigh-female" },
   "aksil": { muslimNames: ["fahd", "nimr"], meaning: "Cheetah, Leopard", connection: "Aksil = cheetah; Fahd means leopard/panther", popularIn: ["DZ"], category: "amazigh-male" },
   "titrit": { muslimNames: ["najm", "kawkab"], meaning: "Star", connection: "Titrit = star in Tamazight; Najm means star", popularIn: ["MA", "DZ"], category: "amazigh-female" },
 
