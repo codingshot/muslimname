@@ -2005,10 +2005,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "flora_lt": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Flora = goddess of flowers; Zahra means flower in Arabic", category: "latin-female" },
   "cassius": { muslimNames: ["khalid", "hamza"], meaning: "Vain, Hollow", connection: "Cassius Clay became Muhammad Ali — one of the most famous name changes in history", category: "latin-male" },
   
-  // Modern popular names (unique keys only — duplicates of existing entries removed)
-  "harper": { muslimNames: ["nagham", "alhaan"], meaning: "Harp Player", connection: "Harper = musician; Nagham means melody, Alhaan means tunes", category: "western-female" },
-  "maverick": { muslimNames: ["mustaqil", "hurr"], meaning: "Independent, Nonconformist", connection: "Maverick = independent; Mustaqil means independent, Hurr means free", category: "western-male" },
+  // Modern popular names (unique keys only)
   "kai_hw": { muslimNames: ["bahr", "yamm"], meaning: "Sea, Ocean", connection: "Kai = sea in Hawaiian; Bahr means sea, Yamm means ocean", category: "western-male" },
-  "nolan": { muslimNames: ["shareef", "najib"], meaning: "Noble, Famous", connection: "Nolan = noble; Shareef means honorable, Najib means noble", category: "western-male" },
   "felix_lat": { muslimNames: ["sa'id", "mubarak"], meaning: "Happy, Fortunate", connection: "Felix = lucky/happy; Sa'id means happy, Mubarak means blessed", category: "latin-male" },
 };
