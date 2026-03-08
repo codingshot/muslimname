@@ -3041,4 +3041,71 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ODIA NAMES
   "subhash_od": { muslimNames: ["fasih"], meaning: "Eloquent", connection: "Subhash = eloquent; Fasih means eloquent", popularIn: ["IN"], category: "odia-male", trend: "classic" },
   "smruti_od": { muslimNames: ["dhikra"], meaning: "Memory", connection: "Smruti = memory; Dhikra means remembrance", popularIn: ["IN"], category: "odia-female", trend: "classic" },
+
+  // ===========================
+  // BASQUE — NEW ADDITIONS
+  // ===========================
+  "mikel_bq": { muslimNames: ["mikail"], meaning: "Who is Like God", connection: "Mikel = Basque Michael; Mikail is the angel of provision", popularIn: ["ES"], category: "basque-male", trend: "classic" },
+  "gorka_bq": { muslimNames: ["jamal"], meaning: "Farmer, Earth Worker", connection: "Gorka = Basque George; Jamal means beauty of creation", popularIn: ["ES"], category: "basque-male", trend: "classic" },
+  "izaro_bq": { muslimNames: ["jazira"], meaning: "Island", connection: "Izaro = island off Basque coast; Jazira means island", popularIn: ["ES"], category: "basque-female", trend: "rising" },
+
+  // ===========================
+  // ICELANDIC NAMES
+  // ===========================
+  "sigurdur_is": { muslimNames: ["nasir", "muzaffar"], meaning: "Victory Guardian", connection: "Sigurður = victory protector; Nasir means helper to victory", popularIn: ["IS"], category: "icelandic-male", trend: "classic" },
+  "gunnar_is": { muslimNames: ["muqatil", "mujahid"], meaning: "Bold Warrior", connection: "Gunnar = battle warrior; Mujahid means one who struggles", popularIn: ["IS"], category: "icelandic-male", trend: "classic", culturalNote: "Gunnar of Hlíðarendi — great saga hero" },
+  "ragnar_is": { muslimNames: ["hakim", "qa'id"], meaning: "Warrior Counsel", connection: "Ragnar = army counsel; Hakim means wise ruler", popularIn: ["IS"], category: "icelandic-male", trend: "rising", culturalNote: "Popularized by Vikings TV series" },
+  "gudrun_is": { muslimNames: ["sirr", "hikma"], meaning: "God's Secret Lore", connection: "Guðrún = divine wisdom; Hikma means wisdom", popularIn: ["IS"], category: "icelandic-female", trend: "classic" },
+  "freya_is": { muslimNames: ["sayyida", "sharifa"], meaning: "Noble Lady", connection: "Freya = Norse goddess of love; Sayyida means noble lady", popularIn: ["IS"], category: "icelandic-female", trend: "rising", culturalNote: "Top trending name across Scandinavia and UK" },
+  "astrid_is": { muslimNames: ["jamila", "ilahiyya"], meaning: "Divinely Beautiful", connection: "Astrid = divine beauty; Jamila means beautiful", popularIn: ["IS"], category: "icelandic-female", trend: "classic" },
+
+  // ===========================
+  // ESTONIAN NAMES
+  // ===========================
+  "margus_et": { muslimNames: ["lu'lu", "jawhar"], meaning: "Pearl", connection: "Margus = from Margaret/pearl; Lu'lu means pearl", popularIn: ["EE"], category: "estonian-male", trend: "classic" },
+  "toomas_et": { muslimNames: ["sadiq", "thamir"], meaning: "Twin", connection: "Toomas = Thomas/twin; Sadiq means truthful", popularIn: ["EE"], category: "estonian-male", trend: "classic" },
+  "kaia_et": { muslimNames: ["hayat", "ruh"], meaning: "Life", connection: "Kaia = life; Hayat means life", popularIn: ["EE"], category: "estonian-female", trend: "rising" },
+  "liina_et": { muslimNames: ["lina", "latifa"], meaning: "Tender, Gentle", connection: "Liina = tender; Lina means tender in Arabic — same meaning!", popularIn: ["EE"], category: "estonian-female", trend: "classic" },
+
+  // ===========================
+  // ZULU — NEW ADDITIONS
+  // ===========================
+  "nomvula_zu": { muslimNames: ["matar", "ghayth"], meaning: "Mother of Rain", connection: "Nomvula = born in the rain; Ghayth means rain — divine mercy", popularIn: ["ZA"], category: "zulu-female", trend: "classic" },
+  "thandiwe_zu": { muslimNames: ["habiba", "mahbuba"], meaning: "Beloved", connection: "Thandiwe = beloved; Habiba means beloved — love and devotion", popularIn: ["ZA"], category: "zulu-female", trend: "rising", culturalNote: "International fame via actress Thandiwe Newton" },
+  "nonhle_zu": { muslimNames: ["jamila", "husna"], meaning: "Beautiful One", connection: "Nonhle = beauty; Jamila means beautiful", popularIn: ["ZA"], category: "zulu-female", trend: "classic" },
+  "lungelo_zu": { muslimNames: ["haqq", "adl"], meaning: "Right, Justice", connection: "Lungelo = right/justice; Haqq means truth, Adl means justice", popularIn: ["ZA"], category: "zulu-male", trend: "rising" },
+
+  // ===========================
+  // SOMALI — NEW
+  // ===========================
+  "cawo_so2": { muslimNames: ["shams", "duha"], meaning: "Sunset Glow", connection: "Cawo = evening light; Duha means morning brightness", popularIn: ["SO"], category: "somali-female", trend: "classic" },
+  "guled_so2": { muslimNames: ["mubarak", "sa'id"], meaning: "Winner, Victor", connection: "Guled = victor; Sa'id means fortunate", popularIn: ["SO"], category: "somali-male", trend: "classic" },
+
+  // ===========================
+  // AKAN — NEW
+  // ===========================
+  "adwoa_ak": { muslimNames: ["ithnayn"], meaning: "Born on Monday", connection: "Adwoa = Monday-born female; day-naming tradition", popularIn: ["GH"], category: "akan-female", trend: "classic" },
+  "abena_ak": { muslimNames: ["thulatha"], meaning: "Born on Tuesday", connection: "Abena = Tuesday-born female; Akan day-naming", popularIn: ["GH"], category: "akan-female", trend: "classic" },
+
+  // ===========================
+  // SHONA — NEW
+  // ===========================
+  "rufaro_sh": { muslimNames: ["farha", "surur"], meaning: "Happiness", connection: "Rufaro = happiness; Farha means joy", popularIn: ["ZW"], category: "shona-male", trend: "classic" },
+  "chiedza_sh": { muslimNames: ["noor", "diya"], meaning: "Light", connection: "Chiedza = light; Noor means divine light", popularIn: ["ZW"], category: "shona-female", trend: "rising" },
+
+  // ===========================
+  // FIJIAN
+  // ===========================
+  "jone_fj": { muslimNames: ["yahya"], meaning: "God is Gracious", connection: "Jone = Fijian John; Yahya is Prophet John", popularIn: ["FJ"], category: "fijian-male", trend: "classic" },
+  "seru_fj": { muslimNames: ["asad", "shuja"], meaning: "Warrior", connection: "Seru = warrior crest; Shuja means brave", popularIn: ["FJ"], category: "fijian-male", trend: "classic" },
+  "mere_fj": { muslimNames: ["maryam"], meaning: "Mary", connection: "Mere = Fijian Mary; Maryam is the Quranic form", popularIn: ["FJ"], category: "fijian-female", trend: "classic" },
+  "litia_fj": { muslimNames: ["latifa"], meaning: "Kind, Gentle", connection: "Litia = Fijian Lydia; Latifa means gentle", popularIn: ["FJ"], category: "fijian-female", trend: "classic" },
+
+  // ===========================
+  // TELUGU
+  // ===========================
+  "venkat_tg": { muslimNames: ["rabb", "mawla"], meaning: "Lord", connection: "Venkat = Lord; Rabb means Lord", popularIn: ["IN"], category: "telugu-male", trend: "classic" },
+  "srikanth_tg": { muslimNames: ["habib", "mahbub"], meaning: "Beloved", connection: "Srikanth = beloved of prosperity; Habib means beloved", popularIn: ["IN"], category: "telugu-male", trend: "classic" },
+  "lakshmi_tg": { muslimNames: ["baraka", "ni'ma"], meaning: "Prosperity", connection: "Lakshmi = wealth; Baraka means blessing", popularIn: ["IN"], category: "telugu-female", trend: "classic" },
+  "swathi_tg": { muslimNames: ["najm", "kawkab"], meaning: "Star", connection: "Swathi = star; Najm means star", popularIn: ["IN"], category: "telugu-female", trend: "classic" },
 };
