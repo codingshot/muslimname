@@ -61,19 +61,14 @@ function migrateEntry(f: { slug: string; position?: string; rank?: number; posit
 }
 
 function loadProfile(): UserProfile {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw) as Partial<UserProfile>;
-      const settings: ProfileSettings = {
-        ...DEFAULT_PROFILE.settings,
-        ...(parsed.settings || {}),
-      };
-      const favorites = (parsed.favorites || []).map(migrateEntry);
-      return { settings, favorites };
-    }
-  } catch {}
-  return { ...DEFAULT_PROFILE };
+  const raw = safeGetItem(STORAGE_KEY);
+  const parsed = safeParseJSON<Partial<UserProfile>>(raw, {});
+  const settings: ProfileSettings = {
+    ...DEFAULT_PROFILE.settings,
+    ...(parsed.settings || {}),
+  };
+  const favorites = (parsed.favorites || []).map(migrateEntry);
+  return { settings, favorites };
 }
 
 interface ProfileContextValue {
