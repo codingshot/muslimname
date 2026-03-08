@@ -301,23 +301,11 @@ export default function WesternNamesPage() {
             Explore {stats.total}+ names from Western, Latin, Hindu, Chinese, Portuguese, Tribal, and Hebrew traditions mapped to their Islamic equivalents
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-4 text-sm">
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.biblical}</strong> Biblical</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.western}</strong> Western</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.spanish}</strong> Spanish</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.portuguese}</strong> Portuguese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.russian}</strong> Russian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.french}</strong> French</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.german}</strong> German</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.italian}</strong> Italian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.chinese}</strong> Chinese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.japanese}</strong> Japanese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.korean}</strong> Korean</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.hindu}</strong> Hindu</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.latin}</strong> Latin</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.indonesian}</strong> Indonesian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.vietnamese}</strong> Vietnamese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.thai}</strong> Thai</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.tribal}</strong> Tribal</span>
+            {topGroups.map(([group, count]) => (
+              <span key={group} className="text-muted-foreground">
+                <strong className="text-foreground">{count}</strong> {group.charAt(0).toUpperCase() + group.slice(1)}
+              </span>
+            ))}
           </div>
         </motion.div>
 
