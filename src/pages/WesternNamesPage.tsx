@@ -248,28 +248,20 @@ export default function WesternNamesPage() {
   }, [allMappings, search, categoryFilter, trendFilter]);
 
   const stats = useMemo(() => {
-    const cat = (m: (typeof allMappings)[0]) => m.category ?? "";
-    return {
-      total: allMappings.length,
-      biblical: allMappings.filter(m => cat(m).startsWith("biblical")).length,
-      western: allMappings.filter(m => cat(m).startsWith("western")).length,
-      latin: allMappings.filter(m => cat(m).startsWith("latin")).length,
-      hindu: allMappings.filter(m => cat(m).startsWith("hindu")).length,
-      chinese: allMappings.filter(m => cat(m).startsWith("chinese")).length,
-      portuguese: allMappings.filter(m => cat(m).startsWith("portuguese")).length,
-      russian: allMappings.filter(m => cat(m).startsWith("russian")).length,
-      japanese: allMappings.filter(m => cat(m).startsWith("japanese")).length,
-      korean: allMappings.filter(m => cat(m).startsWith("korean")).length,
-      french: allMappings.filter(m => cat(m).startsWith("french")).length,
-      german: allMappings.filter(m => cat(m).startsWith("german")).length,
-      italian: allMappings.filter(m => cat(m).startsWith("italian")).length,
-      spanish: allMappings.filter(m => cat(m).startsWith("spanish")).length,
-      indonesian: allMappings.filter(m => cat(m).startsWith("indonesian")).length,
-      vietnamese: allMappings.filter(m => cat(m).startsWith("vietnamese")).length,
-      thai: allMappings.filter(m => cat(m).startsWith("thai")).length,
-      tribal: allMappings.filter(m => cat(m).startsWith("tribal")).length,
-    };
+    const counts = new Map<string, number>();
+    for (const m of allMappings) {
+      const cat = m.category ?? "";
+      const group = cat.replace(/-(?:male|female|unisex)$/, "");
+      counts.set(group, (counts.get(group) ?? 0) + 1);
+    }
+    return { total: allMappings.length, groups: counts };
   }, [allMappings]);
+
+  const topGroups = useMemo(() => {
+    return [...stats.groups.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 20);
+  }, [stats.groups]);
 
   const handleRandomName = useCallback(() => {
     const pool = filteredMappings.length > 0 ? filteredMappings : allMappings;
@@ -309,23 +301,11 @@ export default function WesternNamesPage() {
             Explore {stats.total}+ names from Western, Latin, Hindu, Chinese, Portuguese, Tribal, and Hebrew traditions mapped to their Islamic equivalents
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-4 text-sm">
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.biblical}</strong> Biblical</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.western}</strong> Western</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.spanish}</strong> Spanish</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.portuguese}</strong> Portuguese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.russian}</strong> Russian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.french}</strong> French</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.german}</strong> German</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.italian}</strong> Italian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.chinese}</strong> Chinese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.japanese}</strong> Japanese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.korean}</strong> Korean</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.hindu}</strong> Hindu</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.latin}</strong> Latin</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.indonesian}</strong> Indonesian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.vietnamese}</strong> Vietnamese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.thai}</strong> Thai</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.tribal}</strong> Tribal</span>
+            {topGroups.map(([group, count]) => (
+              <span key={group} className="text-muted-foreground">
+                <strong className="text-foreground">{count}</strong> {group.charAt(0).toUpperCase() + group.slice(1)}
+              </span>
+            ))}
           </div>
         </motion.div>
 

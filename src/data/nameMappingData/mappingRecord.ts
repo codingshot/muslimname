@@ -3008,4 +3008,37 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "justice_vt": { muslimNames: ["adl", "adil"], meaning: "Justice, Fairness", connection: "Justice = fairness; Adl means justice — a divine attribute", category: "virtue", trend: "rising", culturalNote: "Rising as a gender-neutral name" },
   "honor_vt": { muslimNames: ["sharaf", "izza"], meaning: "Honor, Dignity", connection: "Honor = dignity; Sharaf means honor, Izza means glory", category: "virtue", trend: "rare" },
   "truth_vt": { muslimNames: ["haqq", "sidq"], meaning: "Truth", connection: "Truth = reality; Haqq means truth — Al-Haqq is one of Allah's names", category: "virtue", trend: "rare" },
+
+  // CATALAN NAMES
+  "jordi_ct": { muslimNames: ["jamal"], meaning: "Farmer", connection: "Jordi = George; Jamal means beauty", popularIn: ["ES"], category: "catalan-male", trend: "classic" },
+  "arnau_ct": { muslimNames: ["asad"], meaning: "Eagle Power", connection: "Arnau = eagle ruler; Asad means lion", popularIn: ["ES"], category: "catalan-male", trend: "rising" },
+  "laia_ct": { muslimNames: ["layla"], meaning: "Well-Spoken", connection: "Laia = from Eulalia; Layla = night beauty", popularIn: ["ES"], category: "catalan-female", trend: "rising" },
+  "meritxell_ct": { muslimNames: ["zahra"], meaning: "Lady of Meritxell", connection: "Meritxell = patroness; Zahra means flower", popularIn: ["ES"], category: "catalan-female", trend: "classic" },
+  // TONGAN NAMES
+  "sione_tn": { muslimNames: ["yahya"], meaning: "God is Gracious", connection: "Sione = Tongan John; Yahya is Prophet John", popularIn: ["TO"], category: "tongan-male", trend: "classic" },
+  "tupou_tn": { muslimNames: ["sultan"], meaning: "Royal Title", connection: "Tupou = Tongan royal dynasty", popularIn: ["TO"], category: "tongan-male", trend: "classic" },
+  "mele_tn": { muslimNames: ["maryam"], meaning: "Mary", connection: "Mele = Tongan Mary", popularIn: ["TO"], category: "tongan-female", trend: "classic" },
+  // LAO NAMES
+  "bounma_la": { muslimNames: ["mubarak"], meaning: "Blessed", connection: "Bounma = blessed; Mubarak means blessed", popularIn: ["LA"], category: "lao-male", trend: "classic" },
+  "khamla_la": { muslimNames: ["dhahab"], meaning: "Gold", connection: "Khamla = gold; Dhahab means gold", popularIn: ["LA"], category: "lao-male", trend: "classic" },
+  "chansouk_la": { muslimNames: ["qamar"], meaning: "Moon Joy", connection: "Chansouk = moon + happiness", popularIn: ["LA"], category: "lao-female", trend: "classic" },
+  // GUARANÍ NAMES
+  "arandu_gu": { muslimNames: ["hakim"], meaning: "Wise", connection: "Arandu = wisdom; Hakim means wise", popularIn: ["PY"], category: "guarani-male", trend: "rare" },
+  "jasy_gu": { muslimNames: ["qamar"], meaning: "Moon", connection: "Jasy = moon; Qamar means moon", popularIn: ["PY"], category: "guarani-female", trend: "rare" },
+  // QUECHUA NAMES
+  "inti_qu": { muslimNames: ["shams"], meaning: "Sun", connection: "Inti = sun; Shams means sun", popularIn: ["PE"], category: "quechua-male", trend: "rare" },
+  "sumaq_qu": { muslimNames: ["jamila"], meaning: "Beautiful", connection: "Sumaq = beautiful; Jamila means beautiful", popularIn: ["PE"], category: "quechua-female", trend: "rare" },
+  // CHEROKEE NAMES
+  "sequoyah_ch": { muslimNames: ["alim"], meaning: "Script Creator", connection: "Sequoyah invented Cherokee syllabary; Alim means scholar", popularIn: ["US"], category: "cherokee-male", trend: "rare" },
+  "nanye_ch": { muslimNames: ["samira"], meaning: "Spirit People", connection: "Nanye-hi = spirit; Samira means companion", popularIn: ["US"], category: "cherokee-female", trend: "rare" },
+  // CREE NAMES
+  "maskwa_cr": { muslimNames: ["asad"], meaning: "Bear", connection: "Maskwa = bear; Asad means lion", popularIn: ["CA"], category: "cree-male", trend: "rare" },
+  "wapan_cr": { muslimNames: ["fajr"], meaning: "Dawn", connection: "Wapan = dawn; Fajr means dawn", popularIn: ["CA"], category: "cree-female", trend: "rare" },
+  // HMONG NAMES
+  "txiv_hm": { muslimNames: ["walid"], meaning: "Father", connection: "Txiv = father; Walid means father", popularIn: ["LA", "US"], category: "hmong-male", trend: "classic" },
+  "paj_hm": { muslimNames: ["zahra"], meaning: "Flower", connection: "Paj = flower; Zahra means flower", popularIn: ["LA", "US"], category: "hmong-female", trend: "classic" },
+  "vaj_hm": { muslimNames: ["sultan"], meaning: "King", connection: "Vaj = royal surname; Sultan means sovereign", popularIn: ["LA", "US"], category: "hmong-male", trend: "classic" },
+  // ODIA NAMES
+  "subhash_od": { muslimNames: ["fasih"], meaning: "Eloquent", connection: "Subhash = eloquent; Fasih means eloquent", popularIn: ["IN"], category: "odia-male", trend: "classic" },
+  "smruti_od": { muslimNames: ["dhikra"], meaning: "Memory", connection: "Smruti = memory; Dhikra means remembrance", popularIn: ["IN"], category: "odia-female", trend: "classic" },
 };
