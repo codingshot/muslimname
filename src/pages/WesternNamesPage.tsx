@@ -515,7 +515,7 @@ export default function WesternNamesPage() {
             <div className="flex gap-3 justify-center flex-wrap">
               <button
                 type="button"
-                onClick={() => { setSearch(""); setCategoryFilter("all"); }}
+                onClick={() => { setSearch(""); setCategoryFilter("all"); setTrendFilter("all"); }}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-muted/50 transition-colors"
               >
                 Clear search
