@@ -2869,10 +2869,10 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // UZBEK NAMES
   // ===========================
-  "temur_uz": { muslimNames: ["taimur", "hadid"], meaning: "Iron", connection: "Temur = iron; Taimur means iron — Timur the great conqueror", popularIn: ["UZ"], category: "uzbek-male", trend: "classic", culturalNote: "Timur (Tamerlane) — 14th century Central Asian conqueror" },
-  "dilnoza_uz": { muslimNames: ["habiba", "dalal"], meaning: "Heart's Delight", connection: "Dilnoza = darling; Habiba means beloved — endearment of the heart", popularIn: ["UZ"], category: "uzbek-female", trend: "classic" },
+  "temur_uz2": { muslimNames: ["taimur", "hadid"], meaning: "Iron", connection: "Temur = iron; Taimur means iron — Timur the great conqueror", popularIn: ["UZ"], category: "uzbek-male", trend: "classic", culturalNote: "Timur (Tamerlane) — 14th century Central Asian conqueror" },
+  "dilnoza_uz2": { muslimNames: ["habiba", "dalal"], meaning: "Heart's Delight", connection: "Dilnoza = darling; Habiba means beloved — endearment of the heart", popularIn: ["UZ"], category: "uzbek-female", trend: "classic" },
   "sardor_uz": { muslimNames: ["qa'id", "amir"], meaning: "Leader, Chief", connection: "Sardor = leader; Qa'id means leader, Amir means commander", popularIn: ["UZ"], category: "uzbek-male", trend: "rising" },
-  "gulnara_uz": { muslimNames: ["warda", "narjis"], meaning: "Pomegranate Flower", connection: "Gulnara = flower of pomegranate; pomegranates are fruits of paradise", popularIn: ["UZ"], category: "uzbek-female", trend: "classic" },
+  "gulnara_uz2": { muslimNames: ["warda", "narjis"], meaning: "Pomegranate Flower", connection: "Gulnara = flower of pomegranate; pomegranates are fruits of paradise", popularIn: ["UZ"], category: "uzbek-female", trend: "classic" },
 
   // ===========================
   // YORUBA NAMES
