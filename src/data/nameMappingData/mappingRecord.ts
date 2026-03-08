@@ -2017,9 +2017,9 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "nnamdi": { muslimNames: ["ab", "walid"], meaning: "Father's Name Lives On", connection: "Nnamdi = father is alive; Walid means parent — legacy name", popularIn: ["NG"], category: "igbo-male" },
   "amaka": { muslimNames: ["jamila", "husna"], meaning: "Beautiful", connection: "Amaka = beauty; Jamila means beautiful, Husna means good/beautiful", popularIn: ["NG"], category: "igbo-female" },
   "obi_ig": { muslimNames: ["qalb", "fu'ad"], meaning: "Heart", connection: "Obi = heart in Igbo; Qalb means heart, Fu'ad means inner heart", popularIn: ["NG"], category: "igbo-male" },
-  "ngozi": { muslimNames: ["barakah", "ni'mah"], meaning: "Blessing", connection: "Ngozi = blessing; Barakah means divine blessing", popularIn: ["NG"], category: "igbo-female" },
-  "emeka": { muslimNames: ["jabbar", "qawi"], meaning: "Great Deeds", connection: "Emeka = great doer; Jabbar means mighty in action", popularIn: ["NG"], category: "igbo-male" },
-  "adaeze": { muslimNames: ["malika", "amira"], meaning: "Princess, King's Daughter", connection: "Adaeze = king's daughter; Malika means queen, Amira means princess", popularIn: ["NG"], category: "igbo-female" },
+  "ngozi_ig": { muslimNames: ["barakah", "ni'mah"], meaning: "Blessing", connection: "Ngozi = blessing; Barakah means divine blessing", popularIn: ["NG"], category: "igbo-female" },
+  "emeka_ig": { muslimNames: ["jabbar", "qawi"], meaning: "Great Deeds", connection: "Emeka = great doer; Jabbar means mighty in action", popularIn: ["NG"], category: "igbo-male" },
+  "adaeze_ig": { muslimNames: ["malika", "amira"], meaning: "Princess, King's Daughter", connection: "Adaeze = king's daughter; Malika means queen, Amira means princess", popularIn: ["NG"], category: "igbo-female" },
 
   // ===========================
   // SINHALA NAMES (Sri Lanka)
