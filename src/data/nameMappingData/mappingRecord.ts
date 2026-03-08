@@ -2486,7 +2486,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "cheikh_wl": { muslimNames: ["shaykh", "imam"], meaning: "Elder, Chief", connection: "Cheikh = elder/chief; Shaykh means elder — a title of respect in Islam", popularIn: ["SN", "GM"], category: "wolof-male" },
   "coumba": { muslimNames: ["khadija", "fatima"], meaning: "Noble Woman", connection: "Coumba = noble lady; Khadija was the noble first wife of the Prophet ﷺ", popularIn: ["SN"], category: "wolof-female" },
-  "modou": { muslimNames: ["muhammad"], meaning: "Praiseworthy (Wolof form of Muhammad)", connection: "Modou = Wolof Muhammad; Muhammad means praised — the Prophet ﷺ", popularIn: ["SN", "GM"], category: "wolof-male" },
+  "modou_wl": { muslimNames: ["muhammad"], meaning: "Praiseworthy (Wolof form of Muhammad)", connection: "Modou = Wolof Muhammad; Muhammad means praised — the Prophet ﷺ", popularIn: ["SN", "GM"], category: "wolof-male" },
   "awa_wl": { muslimNames: ["hawwa", "aisha"], meaning: "Eve, Life", connection: "Awa = Wolof Eve; Hawwa is Eve in Islam — mother of humanity", popularIn: ["SN"], category: "wolof-female" },
   "ibrahima_wl": { muslimNames: ["ibrahim"], meaning: "Father of Nations", connection: "Ibrahima = Wolof Ibrahim; Ibrahim is the patriarch of monotheism", popularIn: ["SN", "GM"], category: "wolof-male" },
   "aissatou": { muslimNames: ["aisha"], meaning: "Alive, Prosperous", connection: "Aissatou = Wolof Aisha; Aisha was the beloved wife of the Prophet ﷺ", popularIn: ["SN", "GN"], category: "wolof-female" },
