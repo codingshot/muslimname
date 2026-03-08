@@ -2336,9 +2336,9 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // AKAN (GHANAIAN) NAMES
   // ===========================
-  "kwame": { muslimNames: ["sabti", "yawm"], meaning: "Born on Saturday", connection: "Kwame = Saturday-born (Akan day name); connected to blessed days", popularIn: ["GH"], category: "akan-male" },
+  "kwame_ak": { muslimNames: ["sabti", "yawm"], meaning: "Born on Saturday", connection: "Kwame = Saturday-born (Akan day name); connected to blessed days", popularIn: ["GH"], category: "akan-male" },
   "ama_ak": { muslimNames: ["sabta", "yawmiyya"], meaning: "Born on Saturday", connection: "Ama = Saturday-born female; connected to day-naming tradition", popularIn: ["GH"], category: "akan-female" },
-  "kofi": { muslimNames: ["jumu'a"], meaning: "Born on Friday", connection: "Kofi = Friday-born; Jumu'a means Friday — the blessed day in Islam", popularIn: ["GH"], category: "akan-male" },
+  "kofi_ak": { muslimNames: ["jumu'a"], meaning: "Born on Friday", connection: "Kofi = Friday-born; Jumu'a means Friday — the blessed day in Islam", popularIn: ["GH"], category: "akan-male" },
   "efua": { muslimNames: ["jumu'a", "zahra"], meaning: "Born on Friday", connection: "Efua = Friday-born female; Friday is Jumu'a, the holiest day", popularIn: ["GH"], category: "akan-female" },
   "kwaku": { muslimNames: ["arbi'a"], meaning: "Born on Wednesday", connection: "Kwaku = Wednesday-born; Arbi'a means Wednesday", popularIn: ["GH"], category: "akan-male" },
   "akua": { muslimNames: ["arbi'a", "baraka"], meaning: "Born on Wednesday", connection: "Akua = Wednesday-born female; a blessed name tradition", popularIn: ["GH"], category: "akan-female" },
