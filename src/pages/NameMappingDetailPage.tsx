@@ -60,12 +60,39 @@ export default function NameMappingDetailPage() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "DefinedTerm",
-            name: displayName,
-            description: seoDesc,
-            url: canonicalUrl,
-            alternateName: muslimStr,
-            inDefinedTermSet: { "@type": "DefinedTermSet", name: "Islamic Name Mappings", url: "https://muslimname.me/western-names" },
+            "@graph": [
+              {
+                "@type": "DefinedTerm",
+                name: displayName,
+                description: seoDesc,
+                url: canonicalUrl,
+                alternateName: muslimStr,
+                inDefinedTermSet: { "@type": "DefinedTermSet", name: "Islamic Name Mappings", url: "https://muslimname.me/western-names" },
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: "https://muslimname.me" },
+                  { "@type": "ListItem", position: 2, name: "Name Reference", item: "https://muslimname.me/western-names" },
+                  { "@type": "ListItem", position: 3, name: displayName, item: canonicalUrl },
+                ],
+              },
+              {
+                "@type": "FAQPage",
+                mainEntity: [
+                  {
+                    "@type": "Question",
+                    name: `What is the Muslim name for ${displayName}?`,
+                    acceptedAnswer: { "@type": "Answer", text: `The Islamic equivalents of ${displayName} are ${muslimStr}. ${mapping.connection}` },
+                  },
+                  {
+                    "@type": "Question",
+                    name: `What does ${displayName} mean?`,
+                    acceptedAnswer: { "@type": "Answer", text: `${displayName} means "${mapping.meaning}".${mapping.altMeanings?.length ? ` Also known as: ${mapping.altMeanings.join(", ")}.` : ""}` },
+                  },
+                ],
+              },
+            ],
           })}
         </script>
       </Helmet>
