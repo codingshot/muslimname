@@ -2940,7 +2940,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "sagar_np": { muslimNames: ["bahr", "muhit"], meaning: "Ocean", connection: "Sagar = ocean; Bahr means sea, Muhit means ocean", popularIn: ["NP"], category: "nepali-male", trend: "classic" },
   "puja_np": { muslimNames: ["ibada", "du'a"], meaning: "Worship, Prayer", connection: "Puja = worship; Ibada means worship — devotion to God", popularIn: ["NP"], category: "nepali-female", trend: "classic" },
   "bishal_np": { muslimNames: ["kabir", "azim"], meaning: "Vast, Huge", connection: "Bishal = enormous; Kabir means great, Azim means magnificent", popularIn: ["NP"], category: "nepali-male", trend: "rising" },
-  "sita_np": { muslimNames: ["khadija", "asiya"], meaning: "Furrow, Earth", connection: "Sita = heroine of Ramayana; Khadija was the Prophet's beloved first wife", popularIn: ["NP"], category: "nepali-female", trend: "classic" },
+  "sita_np2": { muslimNames: ["khadija", "asiya"], meaning: "Furrow, Earth", connection: "Sita = heroine of Ramayana; Khadija was the Prophet's beloved first wife", popularIn: ["NP"], category: "nepali-female", trend: "classic" },
 
   // ===========================
   // MARATHI NAMES
