@@ -33,9 +33,11 @@ export default function NameMappingDetailPage() {
 
   const muslimStr = mapping.muslimNames.map(n => findNameBySlug(n)?.name ?? n).join(", ");
   const fiqh = getFiqhRuling(displayName, mapping);
-  const seoTitle = `${displayName} → Islamic Equivalent (${muslimStr}) | MuslimName.me`;
-  const seoDesc = `${displayName} means "${mapping.meaning}". Islamic equivalents: ${muslimStr}. ${mapping.connection.slice(0, 80)}${mapping.connection.length > 80 ? "…" : ""}`;
+  const categoryLabel2 = mapping.category.split("-")[0];
+  const seoTitle = `${displayName} — Islamic Name Equivalent (${muslimStr}) | MuslimName.me`;
+  const seoDesc = `What is the Muslim name for ${displayName}? Islamic equivalents: ${muslimStr}. ${displayName} means "${mapping.meaning}". ${mapping.connection.slice(0, 100)}`;
   const canonicalUrl = `https://muslimname.me/western-names/${canonicalKey}`;
+  const seoKeywords = `${displayName} Muslim name, ${displayName} Islamic equivalent, ${muslimStr}, ${categoryLabel2} name to Muslim, convert ${displayName} to Islam, ${displayName} meaning`;
 
   return (
     <Layout>
