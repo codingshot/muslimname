@@ -2548,13 +2548,13 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // MORE LATIN NAMES
   // ===========================
-  "octavia": { muslimNames: ["thamina", "naila"], meaning: "Eighth", connection: "Octavia = eighth; Thamina means precious, Naila means attainer", category: "latin-female", trend: "rising", culturalNote: "Roman elegance revival — rising in UK and US" },
-  "atticus": { muslimNames: ["hakim", "labib"], meaning: "From Attica", connection: "Atticus = man of Attica; Hakim means wise — To Kill a Mockingbird made it iconic", category: "latin-male", trend: "rising", culturalNote: "Literary name gaining massive popularity in US" },
-  "cassius": { muslimNames: ["qasim", "ali"], meaning: "Hollow, Vain", connection: "Cassius Clay became Muhammad Ali — the most famous convert name change in history", category: "latin-male", trend: "rising", culturalNote: "Muhammad Ali's birth name — deeply connected to conversion history" },
+  "octavia_lt": { muslimNames: ["thamina", "naila"], meaning: "Eighth", connection: "Octavia = eighth; Thamina means precious, Naila means attainer", category: "latin-female", trend: "rising", culturalNote: "Roman elegance revival — rising in UK and US" },
+  "atticus_lt": { muslimNames: ["hakim", "labib"], meaning: "From Attica", connection: "Atticus = man of Attica; Hakim means wise — To Kill a Mockingbird made it iconic", category: "latin-male", trend: "rising", culturalNote: "Literary name gaining massive popularity in US" },
+  "cassius_lt": { muslimNames: ["qasim", "ali"], meaning: "Hollow, Vain", connection: "Cassius Clay became Muhammad Ali — the most famous convert name change in history", category: "latin-male", trend: "rising", culturalNote: "Muhammad Ali's birth name — deeply connected to conversion history" },
   "felix_lt": { muslimNames: ["sa'id", "mubarak"], meaning: "Happy, Lucky", connection: "Felix = fortunate; Sa'id means happy, Mubarak means blessed", category: "latin-male", trend: "rising" },
-  "maximus": { muslimNames: ["akbar", "azim"], meaning: "Greatest", connection: "Maximus = greatest; Akbar means greatest — Allahu Akbar", category: "latin-male", trend: "rising", culturalNote: "Top 200 in US — gladiator-era revival" },
-  "valentina": { muslimNames: ["qawiyya", "aziza"], meaning: "Strong, Vigorous", connection: "Valentina = strong; Qawiyya means strong, Aziza means mighty", category: "latin-female", trend: "rising", culturalNote: "Top 30 in US — popular across Latin and European communities" },
-  "augustine": { muslimNames: ["mu'azzam", "jalil"], meaning: "Great, Magnificent", connection: "Augustine = venerable; Mu'azzam means revered, Jalil means majestic", category: "latin-male", trend: "rare" },
+  "maximus_lt": { muslimNames: ["akbar", "azim"], meaning: "Greatest", connection: "Maximus = greatest; Akbar means greatest — Allahu Akbar", category: "latin-male", trend: "rising", culturalNote: "Top 200 in US — gladiator-era revival" },
+  "valentina_lt": { muslimNames: ["qawiyya", "aziza"], meaning: "Strong, Vigorous", connection: "Valentina = strong; Qawiyya means strong, Aziza means mighty", category: "latin-female", trend: "rising", culturalNote: "Top 30 in US — popular across Latin and European communities" },
+  "augustine_lt": { muslimNames: ["mu'azzam", "jalil"], meaning: "Great, Magnificent", connection: "Augustine = venerable; Mu'azzam means revered, Jalil means majestic", category: "latin-male", trend: "rare" },
   "diana_lt": { muslimNames: ["qamar", "noor"], meaning: "Divine, Heavenly", connection: "Diana = divine; Qamar means moon, Noor means light — celestial beauty", category: "latin-female", trend: "classic" },
 
   // ===========================
