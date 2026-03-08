@@ -1835,10 +1835,10 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // ADDITIONAL FILIPINO NAMES
   // ===========================
-  "bayani": { muslimNames: ["battal", "shuja"], meaning: "Hero", connection: "Bayani = hero; Battal means hero, Shuja means brave", popularIn: ["PH"], category: "filipino-male" },
-  "diwata": { muslimNames: ["malak", "huriya"], meaning: "Divine Being, Fairy", connection: "Diwata = spirit/deity; Malak means angel, Huriya means heavenly", popularIn: ["PH"], category: "filipino-female" },
-  "bituin": { muslimNames: ["najma", "kawkab"], meaning: "Star", connection: "Bituin = star; Najma means star, Kawkab means planet", popularIn: ["PH"], category: "filipino-female" },
   "dakila": { muslimNames: ["azim", "kabir"], meaning: "Great, Noble", connection: "Dakila = greatness; Azim means great, Kabir means grand", popularIn: ["PH"], category: "filipino-male" },
-  "ligaya": { muslimNames: ["surur", "farha"], meaning: "Joy, Happiness", connection: "Ligaya = joy; Surur means delight, Farha means happiness", popularIn: ["PH"], category: "filipino-female" },
   "magiting": { muslimNames: ["shuja", "mujahid"], meaning: "Brave, Courageous", connection: "Magiting = courageous; Shuja means brave, Mujahid means warrior", popularIn: ["PH"], category: "filipino-male" },
+  "hiraya": { muslimNames: ["hulm", "amal"], meaning: "Fruit of Dreams", connection: "Hiraya = reach of dreams; Hulm means dream, Amal means hope", popularIn: ["PH"], category: "filipino-female" },
+  "diwa": { muslimNames: ["fikr", "aql"], meaning: "Thought, Spirit", connection: "Diwa = spirit/thought; Fikr means thought, Aql means intellect", popularIn: ["PH"], category: "filipino-male" },
+  "mayari": { muslimNames: ["qamar", "badr"], meaning: "Moon Goddess", connection: "Mayari = moon deity; Qamar means moon, Badr means full moon", popularIn: ["PH"], category: "filipino-female" },
+  "kalayaan": { muslimNames: ["hurr", "tahrir"], meaning: "Freedom", connection: "Kalayaan = freedom; Hurr means free, Tahrir means liberation", popularIn: ["PH"], category: "filipino-male" },
 };
