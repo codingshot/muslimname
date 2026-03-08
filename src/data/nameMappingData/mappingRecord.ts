@@ -2375,7 +2375,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // AMHARA NAMES
   // ===========================
   "bereket_am": { muslimNames: ["baraka", "mubarak"], meaning: "Blessing", connection: "Bereket = blessing; Baraka means blessing — same Semitic root", popularIn: ["ET"], category: "amhara-male" },
-  "tigist": { muslimNames: ["sabr", "hilm"], meaning: "Patience", connection: "Tigist = patience; Sabr means patience — a paramount Islamic virtue", popularIn: ["ET"], category: "amhara-female" },
+  "tigist_am": { muslimNames: ["sabr", "hilm"], meaning: "Patience", connection: "Tigist = patience; Sabr means patience — a paramount Islamic virtue", popularIn: ["ET"], category: "amhara-female" },
   "dawit_am": { muslimNames: ["dawud"], meaning: "Beloved", connection: "Dawit = Amharic David; Dawud is Prophet David in the Quran", popularIn: ["ET"], category: "amhara-male" },
   "selamawit": { muslimNames: ["salama", "amina"], meaning: "Peaceful", connection: "Selamawit = peaceful woman; Salama means peace, Amina means safe", popularIn: ["ET"], category: "amhara-female" },
   "yonas_am": { muslimNames: ["yunus"], meaning: "Dove", connection: "Yonas = Amharic Jonah; Yunus is Prophet Jonah in the Quran", popularIn: ["ET"], category: "amhara-male" },
