@@ -8,6 +8,12 @@ export interface NameMapping {
   popularIn?: string[];
   sources?: string[];
   category: NameMappingCategory;
+  /** Optional additional meanings or cultural context */
+  altMeanings?: string[];
+  /** Popularity trend: "rising", "classic", "declining", "rare" */
+  trend?: "rising" | "classic" | "declining" | "rare";
+  /** Brief note about the name's cultural significance or demographics */
+  culturalNote?: string;
 }
 
 export type NameMappingCategory =

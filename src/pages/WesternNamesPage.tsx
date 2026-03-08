@@ -415,7 +415,37 @@ export default function WesternNamesPage() {
                   <span className="font-medium text-foreground">Meaning:</span> {m.meaning}
                 </p>
 
+                {/* Alt meanings */}
+                {m.altMeanings && m.altMeanings.length > 0 && (
+                  <p className="text-[10px] text-muted-foreground mb-1">
+                    <span className="font-medium text-foreground/70">Also:</span> {m.altMeanings.join(", ")}
+                  </p>
+                )}
+
                 <p className="text-xs text-muted-foreground line-clamp-2">{m.connection}</p>
+
+                {/* Trend badge */}
+                {m.trend && (
+                  <div className="mt-1.5">
+                    <span className={`inline-flex items-center gap-1 text-[10px] font-medium rounded-full px-2 py-0.5 ${
+                      m.trend === "rising" ? "bg-green-500/10 text-green-400" :
+                      m.trend === "classic" ? "bg-blue-500/10 text-blue-400" :
+                      m.trend === "declining" ? "bg-orange-500/10 text-orange-400" :
+                      "bg-purple-500/10 text-purple-400"
+                    }`}>
+                      {m.trend === "rising" && <TrendingUp className="w-2.5 h-2.5" />}
+                      {m.trend === "classic" && <Star className="w-2.5 h-2.5" />}
+                      {m.trend === "declining" && <TrendingDown className="w-2.5 h-2.5" />}
+                      {m.trend === "rare" && <Gem className="w-2.5 h-2.5" />}
+                      {m.trend === "rising" ? "Trending" : m.trend === "classic" ? "Classic" : m.trend === "declining" ? "Traditional" : "Rare"}
+                    </span>
+                  </div>
+                )}
+
+                {/* Cultural note */}
+                {m.culturalNote && (
+                  <p className="text-[10px] text-muted-foreground/80 italic mt-1">{m.culturalNote}</p>
+                )}
 
                 {showSources && m.sources && m.sources.length > 0 && (
                   <p className="text-[10px] text-muted-foreground mt-1 truncate" title={m.sources.join(", ")}>
@@ -426,6 +456,13 @@ export default function WesternNamesPage() {
 
                 {m.hebrewOrigin && (
                   <p className="text-[10px] text-secondary mt-2 font-mono">{m.hebrewOrigin}</p>
+                )}
+
+                {/* Popular in countries */}
+                {m.popularIn && m.popularIn.length > 0 && (
+                  <p className="text-[10px] text-muted-foreground mt-1">
+                    📍 Popular in: {m.popularIn.join(", ")}
+                  </p>
                 )}
 
                 <div className="mt-3 pt-2 border-t border-border">
