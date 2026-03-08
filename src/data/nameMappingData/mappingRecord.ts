@@ -2174,7 +2174,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // NATIVE AMERICAN NAMES
   // ===========================
-  "koda": { muslimNames: ["sadiq", "rafiq"], meaning: "Friend, Ally", connection: "Koda = friend (Lakota); Sadiq means friend, Rafiq means companion", category: "nativeamerican-male" },
+  "koda_na": { muslimNames: ["sadiq", "rafiq"], meaning: "Friend, Ally", connection: "Koda = friend (Lakota); Sadiq means friend, Rafiq means companion", category: "nativeamerican-male" },
   "aiyana": { muslimNames: ["zahra", "warda"], meaning: "Eternal Blossom", connection: "Aiyana = eternal blossom; Zahra means flower", category: "nativeamerican-female" },
   "chayton": { muslimNames: ["saqr", "shaheen"], meaning: "Falcon", connection: "Chayton = falcon (Sioux); Saqr means falcon, Shaheen means royal falcon", category: "nativeamerican-male" },
   "kaya_na": { muslimNames: ["sakhrah", "hajar"], meaning: "Rock, My Elder Sister", connection: "Kaya = my elder sister (Hopi); Sakhrah means rock — stability", category: "nativeamerican-female" },
