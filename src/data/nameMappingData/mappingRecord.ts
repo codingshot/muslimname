@@ -1825,12 +1825,12 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // ADDITIONAL CHINESE NAMES
   // ===========================
-  "haoran": { muslimNames: ["azim", "kabir"], meaning: "Vast, Grand", connection: "Haoran = vastness; Azim means great, Kabir means grand", originalScript: "浩然", popularIn: ["CN"], category: "chinese-male" },
-  "zihan": { muslimNames: ["noor", "siraj"], meaning: "Purple Dawn", connection: "Zihan = purple + dawn; a name of radiant beauty", originalScript: "梓涵", popularIn: ["CN"], category: "chinese-female" },
-  "yichen": { muslimNames: ["fajr", "subh"], meaning: "Morning Star", connection: "Yichen = shining dawn; Fajr means dawn", originalScript: "奕晨", popularIn: ["CN"], category: "chinese-male" },
+  "haoran_cn2": { muslimNames: ["azim", "kabir"], meaning: "Vast, Grand", connection: "Haoran = vastness; Azim means great, Kabir means grand", originalScript: "浩然", popularIn: ["CN"], category: "chinese-male" },
+  "zihan_cn2": { muslimNames: ["noor", "siraj"], meaning: "Purple Dawn", connection: "Zihan = purple + dawn; a name of radiant beauty", originalScript: "梓涵", popularIn: ["CN"], category: "chinese-female" },
+  "yichen_cn2": { muslimNames: ["fajr", "subh"], meaning: "Morning Star", connection: "Yichen = shining dawn; Fajr means dawn", originalScript: "奕晨", popularIn: ["CN"], category: "chinese-male" },
   "shuyi": { muslimNames: ["adab", "lutf"], meaning: "Graceful, Elegant", connection: "Shuyi = elegance; Adab means refinement, Lutf means grace", originalScript: "淑仪", popularIn: ["CN"], category: "chinese-female" },
-  "tianyu": { muslimNames: ["sama", "falak"], meaning: "Heavenly Universe", connection: "Tianyu = sky + universe; Sama means sky, Falak means celestial sphere", originalScript: "天宇", popularIn: ["CN"], category: "chinese-male" },
-  "xinyi": { muslimNames: ["iman", "sidq"], meaning: "Sincere, Faithful", connection: "Xinyi = sincerity; Iman means faith, Sidq means truthfulness", originalScript: "心怡", popularIn: ["CN"], category: "chinese-female" },
+  "tianyu_cn": { muslimNames: ["sama", "falak"], meaning: "Heavenly Universe", connection: "Tianyu = sky + universe; Sama means sky, Falak means celestial sphere", originalScript: "天宇", popularIn: ["CN"], category: "chinese-male" },
+  "xinyi_cn": { muslimNames: ["iman", "sidq"], meaning: "Sincere, Faithful", connection: "Xinyi = sincerity; Iman means faith, Sidq means truthfulness", originalScript: "心怡", popularIn: ["CN"], category: "chinese-female" },
 
   // ===========================
   // ADDITIONAL FILIPINO NAMES
