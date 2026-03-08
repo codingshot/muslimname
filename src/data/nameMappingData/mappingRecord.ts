@@ -2228,7 +2228,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // MALAY NAMES
   // ===========================
-  "wira": { muslimNames: ["batil", "shuja"], meaning: "Hero, Brave Warrior", connection: "Wira = hero (Sanskrit origin); Shuja means brave", popularIn: ["MY", "SG"], category: "malay-male" },
+  "wira_my": { muslimNames: ["batil", "shuja"], meaning: "Hero, Brave Warrior", connection: "Wira = hero (Sanskrit origin); Shuja means brave", popularIn: ["MY", "SG"], category: "malay-male" },
   "bunga": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Bunga = flower; Zahra means flower, Warda means rose", popularIn: ["MY"], category: "malay-female" },
   "gagah": { muslimNames: ["qawi", "aziz"], meaning: "Strong, Mighty", connection: "Gagah = mighty; Qawi means strong, Aziz means mighty", popularIn: ["MY"], category: "malay-male" },
   "sri_my": { muslimNames: ["sayyida", "sharifa"], meaning: "Radiance, Honorific", connection: "Sri = honorific/radiance; Sayyida means lady of honor", popularIn: ["MY"], category: "malay-female" },
