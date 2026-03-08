@@ -20,4 +20,11 @@ export type NameMappingCategory =
   | "spanish-male" | "spanish-female" | "indonesian-male" | "indonesian-female"
   | "vietnamese-male" | "vietnamese-female" | "vietnamese-unisex"
   | "thai-male" | "thai-female" | "thai-unisex"
-  | "tribal-male" | "tribal-female";
+  | "tribal-male" | "tribal-female"
+  | "filipino-male" | "filipino-female"
+  | "african-male" | "african-female"
+  | "scandinavian-male" | "scandinavian-female"
+  | "polish-male" | "polish-female"
+  | "greek-male" | "greek-female"
+  | "dutch-male" | "dutch-female"
+  | "hungarian-male" | "hungarian-female";
