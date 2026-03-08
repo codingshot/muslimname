@@ -2888,7 +2888,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "chukwuemeka_ig": { muslimNames: ["ata'ullah", "wahbullah"], meaning: "God Has Done Great Things", connection: "Chukwuemeka = God has done well; Ata'ullah means gift of God", popularIn: ["NG"], category: "igbo-male", trend: "classic", culturalNote: "Emeka Okafor — famous bearer" },
   "nnamdi_ig": { muslimNames: ["abi", "walid"], meaning: "My Father's Name Lives", connection: "Nnamdi = father is alive; Walid means newborn — legacy names", popularIn: ["NG"], category: "igbo-male", trend: "classic", culturalNote: "Nnamdi Azikiwe — first president of Nigeria" },
-  "adaeze_ig": { muslimNames: ["malika", "sayyida"], meaning: "First Daughter of the King", connection: "Adaeze = princess; Malika means queen, Sayyida means lady", popularIn: ["NG"], category: "igbo-female", trend: "classic" },
+  "adaeze_ig2": { muslimNames: ["malika", "sayyida"], meaning: "First Daughter of the King", connection: "Adaeze = princess; Malika means queen, Sayyida means lady", popularIn: ["NG"], category: "igbo-female", trend: "classic" },
   "chioma_ig": { muslimNames: ["qadr", "ni'mah"], meaning: "Good God", connection: "Chioma = good fortune; Qadr means divine decree — God's goodness", popularIn: ["NG"], category: "igbo-female", trend: "rising" },
 
   // ===========================
