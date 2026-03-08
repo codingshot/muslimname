@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
 import { toast } from "sonner";
+import { safeGetItem, safeSetItem, safeParseJSON } from "@/lib/storage";
 
 export type NameDisplayFont = "default" | "amiri" | "noto-naskh" | "scheherazade" | "kufi";
 
