@@ -33,9 +33,11 @@ export default function NameMappingDetailPage() {
 
   const muslimStr = mapping.muslimNames.map(n => findNameBySlug(n)?.name ?? n).join(", ");
   const fiqh = getFiqhRuling(displayName, mapping);
-  const seoTitle = `${displayName} → Islamic Equivalent (${muslimStr}) | MuslimName.me`;
-  const seoDesc = `${displayName} means "${mapping.meaning}". Islamic equivalents: ${muslimStr}. ${mapping.connection.slice(0, 80)}${mapping.connection.length > 80 ? "…" : ""}`;
+  const categoryLabel2 = mapping.category.split("-")[0];
+  const seoTitle = `${displayName} — Islamic Name Equivalent (${muslimStr}) | MuslimName.me`;
+  const seoDesc = `What is the Muslim name for ${displayName}? Islamic equivalents: ${muslimStr}. ${displayName} means "${mapping.meaning}". ${mapping.connection.slice(0, 100)}`;
   const canonicalUrl = `https://muslimname.me/western-names/${canonicalKey}`;
+  const seoKeywords = `${displayName} Muslim name, ${displayName} Islamic equivalent, ${muslimStr}, ${categoryLabel2} name to Muslim, convert ${displayName} to Islam, ${displayName} meaning`;
 
   return (
     <Layout>
@@ -43,7 +45,7 @@ export default function NameMappingDetailPage() {
         <title>{seoTitle}</title>
         <meta name="description" content={seoDesc} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta name="keywords" content={`${displayName}, Islamic name, Muslim name, ${muslimStr}, name equivalent, convert name`} />
+        <meta name="keywords" content={seoKeywords} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:url" content={canonicalUrl} />
@@ -58,12 +60,39 @@ export default function NameMappingDetailPage() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "DefinedTerm",
-            name: displayName,
-            description: seoDesc,
-            url: canonicalUrl,
-            alternateName: muslimStr,
-            inDefinedTermSet: { "@type": "DefinedTermSet", name: "Islamic Name Mappings", url: "https://muslimname.me/western-names" },
+            "@graph": [
+              {
+                "@type": "DefinedTerm",
+                name: displayName,
+                description: seoDesc,
+                url: canonicalUrl,
+                alternateName: muslimStr,
+                inDefinedTermSet: { "@type": "DefinedTermSet", name: "Islamic Name Mappings", url: "https://muslimname.me/western-names" },
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: "https://muslimname.me" },
+                  { "@type": "ListItem", position: 2, name: "Name Reference", item: "https://muslimname.me/western-names" },
+                  { "@type": "ListItem", position: 3, name: displayName, item: canonicalUrl },
+                ],
+              },
+              {
+                "@type": "FAQPage",
+                mainEntity: [
+                  {
+                    "@type": "Question",
+                    name: `What is the Muslim name for ${displayName}?`,
+                    acceptedAnswer: { "@type": "Answer", text: `The Islamic equivalents of ${displayName} are ${muslimStr}. ${mapping.connection}` },
+                  },
+                  {
+                    "@type": "Question",
+                    name: `What does ${displayName} mean?`,
+                    acceptedAnswer: { "@type": "Answer", text: `${displayName} means "${mapping.meaning}".${mapping.altMeanings?.length ? ` Also known as: ${mapping.altMeanings.join(", ")}.` : ""}` },
+                  },
+                ],
+              },
+            ],
           })}
         </script>
       </Helmet>
