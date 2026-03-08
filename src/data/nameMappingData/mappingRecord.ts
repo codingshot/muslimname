@@ -2054,7 +2054,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // POLYNESIAN NAMES (Samoan, Tongan, Fijian, Hawaiian)
   // ===========================
-  "tane": { muslimNames: ["rajul", "fata"], meaning: "Man, Male", connection: "Tane = man/god of forests; Rajul means man in Arabic", popularIn: ["WS", "NZ"], category: "polynesian-male" },
+  "tane_pl": { muslimNames: ["rajul", "fata"], meaning: "Man, Male", connection: "Tane = man/god of forests; Rajul means man in Arabic", popularIn: ["WS", "NZ"], category: "polynesian-male" },
   "moana_pl": { muslimNames: ["bahr", "muhit"], meaning: "Ocean, Deep Water", connection: "Moana = ocean; Bahr means sea, Muhit means ocean", popularIn: ["WS", "TO", "FJ"], category: "polynesian-female" },
   "sione": { muslimNames: ["yahya"], meaning: "God is Gracious", connection: "Sione = Tongan John; Yahya is Prophet John in the Quran", popularIn: ["TO"], category: "polynesian-male" },
   "leilani": { muslimNames: ["malika", "samawiya"], meaning: "Heavenly Flower", connection: "Leilani = royal child of heaven; Samawiya means heavenly", popularIn: ["US"], category: "polynesian-female" },
