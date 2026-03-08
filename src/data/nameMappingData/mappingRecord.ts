@@ -3036,9 +3036,8 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "bjarni_ic": { muslimNames: ["dubb", "asad"], meaning: "Bear", connection: "Bjarni = bear; both represent strength and courage", popularIn: ["IS"], category: "icelandic-male", trend: "classic" },
 
   // ===========================
-  // ESTONIAN NAMES
+  // ESTONIAN NAMES (additional)
   // ===========================
-  "rasmus_et": { muslimNames: ["habib", "mahbub"], meaning: "Beloved", connection: "Rasmus = beloved; Habib means beloved — endearment", popularIn: ["EE"], category: "estonian-male", trend: "classic" },
   "priit_et": { muslimNames: ["hurr", "mukhtar"], meaning: "Free", connection: "Priit = free; Hurr means free man", popularIn: ["EE"], category: "estonian-male", trend: "classic" },
   "maarja_et": { muslimNames: ["maryam"], meaning: "Star of the Sea", connection: "Maarja = Estonian Mary; Maryam — same root name", popularIn: ["EE"], category: "estonian-female", trend: "classic" },
   "kadri_et": { muslimNames: ["qadira", "aziza"], meaning: "Powerful", connection: "Kadri = from Katherine; Qadira means capable/powerful", popularIn: ["EE"], category: "estonian-female", trend: "classic" },
