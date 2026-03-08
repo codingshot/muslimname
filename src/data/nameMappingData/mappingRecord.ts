@@ -1548,13 +1548,8 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // MALAY / INDONESIAN NAMES
   // ===========================
   "siti": { muslimNames: ["sayyida", "fatima"], meaning: "Lady, Noble Woman", connection: "Siti = lady; Sayyida means lady in Arabic", popularIn: ["MY", "ID"], category: "indonesian-female" },
-  "agung": { muslimNames: ["azim", "kabir"], meaning: "Great, Grand", connection: "Agung = great; Azim means great, Kabir means grand", popularIn: ["ID"], category: "indonesian-male" },
-  "dewi": { muslimNames: ["malika", "zahra"], meaning: "Goddess, Beautiful", connection: "Dewi = divine beauty; Malika means queen, Zahra means radiant", popularIn: ["ID"], category: "indonesian-female" },
   "wayan": { muslimNames: ["awwal", "badr"], meaning: "Firstborn (Balinese)", connection: "Wayan = firstborn; Awwal means first", popularIn: ["ID"], category: "indonesian-male" },
-  "putri": { muslimNames: ["ameera", "bint"], meaning: "Princess, Daughter", connection: "Putri = princess; Ameera means princess", popularIn: ["ID"], category: "indonesian-female" },
-  "surya": { muslimNames: ["shams", "siraj"], meaning: "Sun", connection: "Surya = sun; Shams means sun, Siraj means lamp", popularIn: ["ID"], category: "indonesian-male" },
   "candra": { muslimNames: ["qamar", "hilal"], meaning: "Moon", connection: "Candra = moon; Qamar means moon", popularIn: ["ID"], category: "indonesian-male" },
-  "ratna": { muslimNames: ["jawhar", "durra"], meaning: "Jewel, Gem", connection: "Ratna = jewel; Jawhar means jewel, Durra means precious pearl", popularIn: ["ID"], category: "indonesian-female" },
 
   // ===========================
   // CENTRAL ASIAN NAMES (Uzbek, Kazakh, Tajik)
