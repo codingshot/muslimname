@@ -2572,11 +2572,11 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // MORE CHINESE NAMES (EXPANDED)
   // ===========================
-  "yuchen": { muslimNames: ["qamar", "noor"], meaning: "Jade Morning", connection: "Yuchen = jade dawn; Qamar means moon, Noor means light — precious luminance", originalScript: "宇辰", popularIn: ["CN"], category: "chinese-male", trend: "rising" },
-  "zihan": { muslimNames: ["hakim", "fatin"], meaning: "Purple Culvert/Intelligent", connection: "Zihan = wisdom reservoir; Hakim means wise, Fatin means clever", originalScript: "子涵", popularIn: ["CN"], category: "chinese-female", trend: "rising", culturalNote: "Top 3 name in China for girls since 2020" },
-  "haoyu": { muslimNames: ["sama", "fadl"], meaning: "Vast Universe", connection: "Haoyu = vast rain/universe; Sama means sky — expansiveness of creation", originalScript: "浩宇", popularIn: ["CN"], category: "chinese-male", trend: "rising", culturalNote: "Most popular Chinese boys name since 2018" },
-  "yinuo": { muslimNames: ["wa'da", "amana"], meaning: "One Promise", connection: "Yinuo = one promise; Amana means trust/promise — keeping promises is Islamic duty", originalScript: "一诺", popularIn: ["CN"], category: "chinese-female", trend: "rising" },
-  "muchen": { muslimNames: ["fajr", "sabah"], meaning: "Admire the Morning", connection: "Muchen = admire dawn; Fajr means dawn, Sabah means morning", originalScript: "沐辰", popularIn: ["CN"], category: "chinese-male", trend: "rising" },
+  "yuchen_cn": { muslimNames: ["qamar", "noor"], meaning: "Jade Morning", connection: "Yuchen = jade dawn; Qamar means moon, Noor means light — precious luminance", originalScript: "宇辰", popularIn: ["CN"], category: "chinese-male", trend: "rising" },
+  "zihan_cn": { muslimNames: ["hakim", "fatin"], meaning: "Purple Culvert/Intelligent", connection: "Zihan = wisdom reservoir; Hakim means wise, Fatin means clever", originalScript: "子涵", popularIn: ["CN"], category: "chinese-female", trend: "rising", culturalNote: "Top 3 name in China for girls since 2020" },
+  "haoyu_cn": { muslimNames: ["sama", "fadl"], meaning: "Vast Universe", connection: "Haoyu = vast rain/universe; Sama means sky — expansiveness of creation", originalScript: "浩宇", popularIn: ["CN"], category: "chinese-male", trend: "rising", culturalNote: "Most popular Chinese boys name since 2018" },
+  "yinuo_cn": { muslimNames: ["wa'da", "amana"], meaning: "One Promise", connection: "Yinuo = one promise; Amana means trust/promise — keeping promises is Islamic duty", originalScript: "一诺", popularIn: ["CN"], category: "chinese-female", trend: "rising" },
+  "muchen_cn": { muslimNames: ["fajr", "sabah"], meaning: "Admire the Morning", connection: "Muchen = admire dawn; Fajr means dawn, Sabah means morning", originalScript: "沐辰", popularIn: ["CN"], category: "chinese-male", trend: "rising" },
 
   // ===========================
   // MORE JAPANESE NAMES (EXPANDED)
