@@ -1917,7 +1917,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // HAUSA NAMES (West Africa)
   // ===========================
-  "abdou": { muslimNames: ["abdullah"], meaning: "Servant of God", connection: "Abdou = Hausa/Fulani form of Abdullah", popularIn: ["NG", "NE"], category: "hausa-male" },
+  "abdou_ha": { muslimNames: ["abdullah"], meaning: "Servant of God", connection: "Abdou = Hausa/Fulani form of Abdullah", popularIn: ["NG", "NE"], category: "hausa-male" },
   "garba": { muslimNames: ["qa'id", "amir"], meaning: "Leader, Chief", connection: "Garba = Hausa leadership name; Qa'id means commander", popularIn: ["NG"], category: "hausa-male" },
   "binta": { muslimNames: ["bint", "zaynab"], meaning: "Daughter", connection: "Binta = daughter; Bint means daughter in Arabic — a term of honor", popularIn: ["NG", "NE"], category: "hausa-female" },
   "hadiza": { muslimNames: ["khadijah"], meaning: "Born Prematurely", connection: "Hadiza = Hausa form of Khadijah — the Prophet's first wife", popularIn: ["NG"], category: "hausa-female" },
