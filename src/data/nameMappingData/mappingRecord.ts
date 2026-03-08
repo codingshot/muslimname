@@ -2183,7 +2183,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "kitchi": { muslimNames: ["shuja", "azim"], meaning: "Brave", connection: "Kitchi = brave (Algonquin); Shuja means courageous, Azim means great", category: "nativeamerican-male" },
   "aponi": { muslimNames: ["farasha", "zahiya"], meaning: "Butterfly", connection: "Aponi = butterfly (Blackfoot); Farasha means butterfly", category: "nativeamerican-female" },
   "honon": { muslimNames: ["dubb", "asad"], meaning: "Bear", connection: "Honon = bear; Asad means lion — both symbolize strength", category: "nativeamerican-male" },
-  "enola": { muslimNames: ["wahida", "farida"], meaning: "Solitary, Alone", connection: "Enola = solitary; Wahida means unique, Farida means singular", category: "nativeamerican-female" },
+  "enola_na": { muslimNames: ["wahida", "farida"], meaning: "Solitary, Alone", connection: "Enola = solitary; Wahida means unique, Farida means singular", category: "nativeamerican-female" },
   "maska": { muslimNames: ["qawi", "jabbar"], meaning: "Strong", connection: "Maska = strong (Potawatomi); Qawi means powerful", category: "nativeamerican-male" },
   "tallulah": { muslimNames: ["shadhiya", "maa'"], meaning: "Leaping Water", connection: "Tallulah = leaping water (Choctaw); Maa' means water", category: "nativeamerican-female" },
 
