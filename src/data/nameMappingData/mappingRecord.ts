@@ -1931,11 +1931,11 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "adebayo": { muslimNames: ["farhan", "sa'id"], meaning: "The Crown Meets Joy", connection: "Adebayo = crown + joy; Farhan means happy, Sa'id means joyful", popularIn: ["NG"], category: "yoruba-male" },
   "oluwaseun": { muslimNames: ["shakir", "hamid"], meaning: "God is Grateful", connection: "Oluwaseun = God has done well; Shakir means grateful, Hamid means praising", popularIn: ["NG"], category: "yoruba-male" },
-  "ayodele": { muslimNames: ["surur", "farha"], meaning: "Joy Has Come Home", connection: "Ayodele = joy arrives; Surur means happiness, Farha means joy", popularIn: ["NG"], category: "yoruba-male" },
+  "ayodele_yr": { muslimNames: ["surur", "farha"], meaning: "Joy Has Come Home", connection: "Ayodele = joy arrives; Surur means happiness, Farha means joy", popularIn: ["NG"], category: "yoruba-male" },
   "titilayo": { muslimNames: ["farha", "basma"], meaning: "Eternal Joy", connection: "Titilayo = everlasting joy; Farha means happiness, Basma means smile", popularIn: ["NG"], category: "yoruba-female" },
-  "folake": { muslimNames: ["malika", "izzah"], meaning: "Placed in Wealth/Honor", connection: "Folake = cared for with wealth; Malika means queen, Izzah means honor", popularIn: ["NG"], category: "yoruba-female" },
+  "folake_yr": { muslimNames: ["malika", "izzah"], meaning: "Placed in Wealth/Honor", connection: "Folake = cared for with wealth; Malika means queen, Izzah means honor", popularIn: ["NG"], category: "yoruba-female" },
   "yetunde": { muslimNames: ["raj'a", "awda"], meaning: "Mother Has Returned", connection: "Yetunde = mother reborn; Raj'a means return — a concept of coming back", popularIn: ["NG"], category: "yoruba-female" },
-  "babatunde": { muslimNames: ["ab", "walid"], meaning: "Father Has Returned", connection: "Babatunde = father returns; Walid means father/parent", popularIn: ["NG"], category: "yoruba-male" },
+  "babatunde_yr": { muslimNames: ["ab", "walid"], meaning: "Father Has Returned", connection: "Babatunde = father returns; Walid means father/parent", popularIn: ["NG"], category: "yoruba-male" },
   "temitope": { muslimNames: ["shukr", "hamd"], meaning: "Mine is Worthy of Thanks", connection: "Temitope = worthy of gratitude; Shukr means gratitude, Hamd means praise", popularIn: ["NG"], category: "yoruba-female" },
 
   // ===========================
