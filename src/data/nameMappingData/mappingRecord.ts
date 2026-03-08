@@ -2803,51 +2803,6 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "atlas_mod": { muslimNames: ["hammal", "qawi"], meaning: "Bearer of the World", connection: "Atlas = to carry; Hammal means bearer, Qawi means strong", category: "western-male", trend: "rising", culturalNote: "Astronomical/mythological name trend — entering top 200" },
   "kai_western": { muslimNames: ["bahr", "yamm"], meaning: "Sea (Hawaiian)", connection: "Kai = ocean; Bahr means sea — vast and beautiful", category: "western-male", trend: "rising", culturalNote: "Cross-cultural rising star — used in Hawaiian, Japanese, and European naming" },
 
-  // ===========================
-  // PERSIAN NAMES
-  // ===========================
-  "dariush_pr": { muslimNames: ["malik", "sultan"], meaning: "Possessing Goodness", connection: "Dariush = king; Malik means sovereign king", popularIn: ["IR"], category: "persian-male", trend: "classic", culturalNote: "Darius the Great — founder of the Achaemenid Empire" },
-  "cyrus_pr": { muslimNames: ["khalid", "mansur"], meaning: "Sun, Throne", connection: "Cyrus the Great freed Babylonian captives; Khalid means eternal", popularIn: ["IR"], category: "persian-male", trend: "classic", culturalNote: "Cyrus the Great — authored the first human rights charter" },
-  "reza_pr": { muslimNames: ["ridha", "rida"], meaning: "Contentment, Approval", connection: "Reza = Ridha — already an Islamic name (Imam Ali ar-Ridha)", popularIn: ["IR"], category: "persian-male", trend: "classic", culturalNote: "One of the most common Iranian names" },
-  "arash_pr": { muslimNames: ["rami", "sahm"], meaning: "Truthful, Bright", connection: "Arash = legendary archer; Rami means archer in Arabic", popularIn: ["IR"], category: "persian-male", trend: "classic" },
-  "kaveh_pr": { muslimNames: ["mujahid", "thawri"], meaning: "Royal, Heroic", connection: "Kaveh = legendary blacksmith rebel; Mujahid means one who struggles for justice", popularIn: ["IR"], category: "persian-male", trend: "classic" },
-  "parisa_pr": { muslimNames: ["huriya", "jamila"], meaning: "Like a Fairy", connection: "Parisa = fairy-like; Huriya means free beauty, Jamila means beautiful", popularIn: ["IR"], category: "persian-female", trend: "classic" },
-  "shirin_pr": { muslimNames: ["halwa", "lu'lu'a"], meaning: "Sweet", connection: "Shirin = sweet — Shirin and Farhad is Persia's greatest love story", popularIn: ["IR"], category: "persian-female", trend: "classic", culturalNote: "Shirin Ebadi — Nobel Peace Prize laureate" },
-  "nasrin_pr": { muslimNames: ["warda", "zahra"], meaning: "Wild Rose", connection: "Nasrin = wild rose; Warda means rose, Zahra means flower", popularIn: ["IR"], category: "persian-female", trend: "classic" },
-  "golnar_pr": { muslimNames: ["warda", "zahra"], meaning: "Pomegranate Flower", connection: "Golnar = pomegranate blossom; pomegranates are mentioned in the Quran", popularIn: ["IR"], category: "persian-female", trend: "rare" },
-  "maryam_pr": { muslimNames: ["maryam"], meaning: "Beloved", connection: "Maryam is shared between Persian and Arabic — the most honored woman in the Quran", popularIn: ["IR"], category: "persian-female", trend: "classic" },
-
-  // ===========================
-  // TURKISH NAMES
-  // ===========================
-  "cem_tr": { muslimNames: ["jamil", "jamal"], meaning: "Gathering, Beauty", connection: "Cem = beauty/gathering; Jamal means beauty", popularIn: ["TR"], category: "turkish-male", trend: "classic" },
-  "baris_tr": { muslimNames: ["salim", "salam"], meaning: "Peace", connection: "Barış = peace; Salim means peaceful, Salam means peace", popularIn: ["TR"], category: "turkish-male", trend: "classic" },
-  "arda_tr": { muslimNames: ["faris", "hamza"], meaning: "Warrior Companion", connection: "Arda = half; Faris means knight — both noble warriors", popularIn: ["TR"], category: "turkish-male", trend: "rising", culturalNote: "Arda Turan — famous Turkish footballer" },
-  "kaan_tr": { muslimNames: ["amir", "sultan"], meaning: "King, Ruler", connection: "Kaan = khan/ruler; Amir means commander, Sultan means sovereign", popularIn: ["TR"], category: "turkish-male", trend: "rising" },
-  "elif_tr": { muslimNames: ["alif", "ayah"], meaning: "First Letter of Alphabet", connection: "Elif = alif — the first letter of the Arabic alphabet, symbolizing unity of God", popularIn: ["TR"], category: "turkish-female", trend: "rising", culturalNote: "#1 girls name in Turkey — Elif Shafak is a famous novelist" },
-  "defne_tr": { muslimNames: ["ghusn", "warda"], meaning: "Laurel", connection: "Defne = laurel/bay leaf; Ghusn means branch — symbol of victory", popularIn: ["TR"], category: "turkish-female", trend: "rising" },
-  "zeynep_tr": { muslimNames: ["zaynab"], meaning: "Father's Precious Jewel", connection: "Zeynep = Zaynab — already an Arabic/Islamic name", popularIn: ["TR"], category: "turkish-female", trend: "rising", culturalNote: "Top 3 in Turkey — directly from Arabic Zaynab" },
-  "ecrin_tr": { muslimNames: ["ajr", "thawab"], meaning: "Reward, Gift from God", connection: "Ecrin = divine reward; Ajr means reward — a Quranic concept", popularIn: ["TR"], category: "turkish-female", trend: "rising" },
-
-  // ===========================
-  // KURDISH NAMES
-  // ===========================
-  "azad_ku": { muslimNames: ["hurr", "tahrir"], meaning: "Free", connection: "Azad = free; Hurr means free man — Al-Hurr chose freedom at Karbala", popularIn: ["IQ", "IR"], category: "kurdish-male", trend: "classic", culturalNote: "Symbol of Kurdish identity and freedom" },
-  "soran_ku": { muslimNames: ["ahmar", "hamra"], meaning: "Red, Passionate", connection: "Soran = fiery red; Ahmar means red — passion and courage", popularIn: ["IQ"], category: "kurdish-male", trend: "classic" },
-  "dilan_ku": { muslimNames: ["qalb", "fu'ad"], meaning: "Heart, Love", connection: "Dilan = heart; Qalb means heart — central in Islamic spirituality", popularIn: ["TR", "IQ"], category: "kurdish-female", trend: "rising" },
-  "rojin_ku": { muslimNames: ["shams", "duha"], meaning: "Sun, Light of Day", connection: "Rojin = sunny; Shams means sun, Duha means morning light", popularIn: ["TR", "IQ"], category: "kurdish-female", trend: "rising" },
-  "baran_ku": { muslimNames: ["matar", "ghayth"], meaning: "Rain", connection: "Baran = rain; Matar/Ghayth mean rain — a blessing in Islam", popularIn: ["IR", "TR"], category: "kurdish-male", trend: "rising" },
-
-  // ===========================
-  // SWAHILI NAMES
-  // ===========================
-  "baraka_sw": { muslimNames: ["baraka", "mubarak"], meaning: "Blessing", connection: "Baraka = blessing — the same word in Arabic! Already Islamic", popularIn: ["KE", "TZ"], category: "swahili-male", trend: "classic", culturalNote: "Barack Obama's father's name derives from this" },
-  "amani_sw": { muslimNames: ["amani", "umniya"], meaning: "Peace, Wishes", connection: "Amani = peace/wishes — directly from Arabic", popularIn: ["KE", "TZ"], category: "swahili-female", trend: "rising" },
-  "juma_sw": { muslimNames: ["jumu'ah"], meaning: "Friday", connection: "Juma = Friday; Jumu'ah is the holy day of congregational prayer", popularIn: ["TZ", "KE"], category: "swahili-male", trend: "classic" },
-  "zawadi_sw": { muslimNames: ["hadiya", "atiya"], meaning: "Gift", connection: "Zawadi = gift; Hadiya means gift — generosity in Islam", popularIn: ["TZ", "KE"], category: "swahili-female", trend: "rising" },
-  "imani_sw": { muslimNames: ["iman"], meaning: "Faith", connection: "Imani = faith — directly from Arabic Iman", popularIn: ["KE", "TZ"], category: "swahili-female", trend: "rising", culturalNote: "Popular in African-American communities too" },
-  "jabari_sw": { muslimNames: ["jabbar", "shuja"], meaning: "Brave", connection: "Jabari = brave; Jabbar means mighty — one of Allah's names", popularIn: ["KE", "TZ"], category: "swahili-male", trend: "rising" },
-  "rashidi_sw": { muslimNames: ["rashid"], meaning: "Wise, Rightly Guided", connection: "Rashidi = wise; Rashid means rightly guided — one of Allah's names", popularIn: ["TZ"], category: "swahili-male", trend: "classic" },
 
   // ===========================
   // CELTIC NAMES
