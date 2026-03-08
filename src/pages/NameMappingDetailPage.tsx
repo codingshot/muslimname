@@ -45,7 +45,7 @@ export default function NameMappingDetailPage() {
         <title>{seoTitle}</title>
         <meta name="description" content={seoDesc} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta name="keywords" content={`${displayName}, Islamic name, Muslim name, ${muslimStr}, name equivalent, convert name`} />
+        <meta name="keywords" content={seoKeywords} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:url" content={canonicalUrl} />
