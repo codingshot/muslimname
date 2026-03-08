@@ -9,7 +9,9 @@ const navItems = [
   { to: "/profile", label: "Profile", icon: User },
 ];
 
-export default function BottomNav() {
+import { forwardRef } from "react";
+
+const BottomNav = forwardRef<HTMLElement>(function BottomNav(_, ref) {
   const location = useLocation();
   const { profile } = useProfile();
   const favoriteCount = profile.favorites.length;
