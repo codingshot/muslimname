@@ -114,4 +114,25 @@ export const westernNameVariants: Record<string, string> = {
   // Korean romanization variants
   minjung: "minjae",
   jiwun: "jiwon",
+  // Ukrainian variants
+  dmytryk: "dmytro",
+  svetlana: "svitlana",
+  // Serbian variants
+  drago: "dragan",
+  zora: "zoran",
+  // Albanian variants
+  burim: "bujar",
+  // Mongolian variants
+  batu: "batbayar",
+  // Hausa variants
+  garuba: "garba",
+  // Yoruba variants
+  baba: "babatunde_yr",
+  titi: "titilayo",
+  // Pashto variants
+  zmarai: "zmaray",
+  malala: "malalai",
+  // Tibetan variants
+  tenzing: "tenzin",
+  vajra: "dorje",
 };
