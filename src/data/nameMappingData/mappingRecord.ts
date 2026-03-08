@@ -2581,19 +2581,19 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // MORE JAPANESE NAMES (EXPANDED)
   // ===========================
-  "haruto": { muslimNames: ["noor", "shams"], meaning: "Sun, Light, Fly", connection: "Haruto = sunlight flying; Noor means light, Shams means sun", originalScript: "陽翔", popularIn: ["JP"], category: "japanese-male", trend: "rising", culturalNote: "#1 Japanese boys name since 2020" },
+  "haruto_jp": { muslimNames: ["noor", "shams"], meaning: "Sun, Light, Fly", connection: "Haruto = sunlight flying; Noor means light, Shams means sun", originalScript: "陽翔", popularIn: ["JP"], category: "japanese-male", trend: "rising", culturalNote: "#1 Japanese boys name since 2020" },
   "mei_jp": { muslimNames: ["jamila", "zahra"], meaning: "Beautiful", connection: "Mei = beauty; Jamila means beautiful, Zahra means radiant flower", originalScript: "芽依", popularIn: ["JP"], category: "japanese-female", trend: "rising" },
-  "sota": { muslimNames: ["rashid", "hadi"], meaning: "Sudden, Brave Sound", connection: "Sota = brave/quick; Rashid means rightly guided, Hadi means guide", originalScript: "颯太", popularIn: ["JP"], category: "japanese-male", trend: "rising" },
-  "himari": { muslimNames: ["shams", "noor"], meaning: "Sunflower, Light", connection: "Himari = sunflower/daylight; Shams means sun, Noor means light", originalScript: "陽葵", popularIn: ["JP"], category: "japanese-female", trend: "rising", culturalNote: "#1 Japanese girls name in recent years" },
+  "sota_jp": { muslimNames: ["rashid", "hadi"], meaning: "Sudden, Brave Sound", connection: "Sota = brave/quick; Rashid means rightly guided, Hadi means guide", originalScript: "颯太", popularIn: ["JP"], category: "japanese-male", trend: "rising" },
+  "himari_jp": { muslimNames: ["shams", "noor"], meaning: "Sunflower, Light", connection: "Himari = sunflower/daylight; Shams means sun, Noor means light", originalScript: "陽葵", popularIn: ["JP"], category: "japanese-female", trend: "rising", culturalNote: "#1 Japanese girls name in recent years" },
   "ren_jp": { muslimNames: ["hubb", "mawadda"], meaning: "Lotus, Love", connection: "Ren = lotus/love; Hubb means love, Mawadda means affection", originalScript: "蓮", popularIn: ["JP"], category: "japanese-male", trend: "rising" },
 
   // ===========================
   // MORE KOREAN NAMES (EXPANDED)
   // ===========================
-  "seoyu": { muslimNames: ["jamila", "husna"], meaning: "Beautiful", connection: "Seoyu = beautiful; Jamila means beautiful, Husna means goodness", originalScript: "서유", popularIn: ["KR"], category: "korean-female", trend: "rising" },
-  "hajun": { muslimNames: ["faris", "amir"], meaning: "Great, Distinguished", connection: "Hajun = summer/distinguished; Amir means prince — leadership quality", originalScript: "하준", popularIn: ["KR"], category: "korean-male", trend: "rising", culturalNote: "Top 3 Korean boys name since 2020" },
-  "chaeun": { muslimNames: ["ni'ma", "rahma"], meaning: "Colorful Grace", connection: "Chaeun = beautiful grace; Ni'ma means blessing, Rahma means mercy", originalScript: "채은", popularIn: ["KR"], category: "korean-female", trend: "rising" },
-  "doyun": { muslimNames: ["hakim", "rashid"], meaning: "Path of Harmony", connection: "Doyun = ethical harmony; Hakim means wise, Rashid means guided", originalScript: "도윤", popularIn: ["KR"], category: "korean-male", trend: "rising" },
+  "seoyu_kr": { muslimNames: ["jamila", "husna"], meaning: "Beautiful", connection: "Seoyu = beautiful; Jamila means beautiful, Husna means goodness", originalScript: "서유", popularIn: ["KR"], category: "korean-female", trend: "rising" },
+  "hajun_kr": { muslimNames: ["faris", "amir"], meaning: "Great, Distinguished", connection: "Hajun = summer/distinguished; Amir means prince — leadership quality", originalScript: "하준", popularIn: ["KR"], category: "korean-male", trend: "rising", culturalNote: "Top 3 Korean boys name since 2020" },
+  "chaeun_kr": { muslimNames: ["ni'ma", "rahma"], meaning: "Colorful Grace", connection: "Chaeun = beautiful grace; Ni'ma means blessing, Rahma means mercy", originalScript: "채은", popularIn: ["KR"], category: "korean-female", trend: "rising" },
+  "doyun_kr": { muslimNames: ["hakim", "rashid"], meaning: "Path of Harmony", connection: "Doyun = ethical harmony; Hakim means wise, Rashid means guided", originalScript: "도윤", popularIn: ["KR"], category: "korean-male", trend: "rising" },
 
   // ===========================
   // MORE ABORIGINAL NAMES (EXPANDED)
