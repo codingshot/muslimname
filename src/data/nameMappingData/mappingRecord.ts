@@ -1768,7 +1768,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // TAMIL NAMES
   // ===========================
-  "arjun": { muslimNames: ["faris", "shuja"], meaning: "Bright, Shining", connection: "Arjun = bright warrior; Faris means knight, Shuja means brave", popularIn: ["IN", "LK"], category: "tamil-male" },
+  "arjun_tamil": { muslimNames: ["faris", "shuja"], meaning: "Bright, Shining", connection: "Arjun = bright warrior; Faris means knight, Shuja means brave", popularIn: ["IN", "LK"], category: "tamil-male" },
   "karthik": { muslimNames: ["noor", "qamar"], meaning: "Light, Star", connection: "Karthik = light; Noor means divine light, Qamar means moon", popularIn: ["IN"], category: "tamil-male" },
   "murugan": { muslimNames: ["fata", "shabb"], meaning: "Youthful, Beautiful", connection: "Murugan = youthful god; Fata means young man, Shabb means youth", popularIn: ["IN", "LK", "MY"], category: "tamil-male" },
   "kavitha": { muslimNames: ["sha'ira", "bayan"], meaning: "Poem, Poetry", connection: "Kavitha = poetry; Sha'ira means poetess, Bayan means eloquence", popularIn: ["IN"], category: "tamil-female" },
