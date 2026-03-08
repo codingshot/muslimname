@@ -3071,7 +3071,6 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "sundiata_mk": { muslimNames: ["asad", "sultan"], meaning: "Lion Prince", connection: "Sundiata = lion prince; Asad means lion, Sultan means sovereign", popularIn: ["ML", "GM"], category: "mandinka-male", trend: "classic", culturalNote: "Sundiata Keita — founder of the Mali Empire" },
   "mansa_mk": { muslimNames: ["malik", "sultan"], meaning: "King, Emperor", connection: "Mansa = emperor; Malik means king, Sultan means sovereign", popularIn: ["ML"], category: "mandinka-male", trend: "classic", culturalNote: "Mansa Musa — richest person in history" },
   "kumba_mk": { muslimNames: ["khadija", "zahra"], meaning: "Second-Born Girl", connection: "Kumba = second daughter; Khadija represents strong womanhood", popularIn: ["GM", "SN"], category: "mandinka-female", trend: "classic" },
-  "mariama_mk": { muslimNames: ["maryam"], meaning: "Mary", connection: "Mariama = Mandinka Maryam — same root across traditions", popularIn: ["GM", "GN"], category: "mandinka-female", trend: "classic" },
 
   // ===========================
   // FULANI (FULA) NAMES
