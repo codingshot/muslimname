@@ -2241,7 +2241,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // PUNJABI NAMES
   // ===========================
   "harpreet_pj": { muslimNames: ["muhibb", "habib"], meaning: "Lover of God", connection: "Har = God + preet = love; Muhibb means loving, Habib means beloved", popularIn: ["IN", "PK"], category: "punjabi-male" },
-  "simran": { muslimNames: ["dhikr", "tasbih"], meaning: "Remembrance of God", connection: "Simran = meditation/remembrance; Dhikr means remembrance of Allah", popularIn: ["IN"], category: "punjabi-female" },
+  "simran_pj": { muslimNames: ["dhikr", "tasbih"], meaning: "Remembrance of God", connection: "Simran = meditation/remembrance; Dhikr means remembrance of Allah", popularIn: ["IN"], category: "punjabi-female" },
   "gurpreet": { muslimNames: ["muhibb-allah", "wali"], meaning: "Love of the Guru", connection: "Gur = guru + preet = love; Wali means friend of God", popularIn: ["IN"], category: "punjabi-male" },
   "jasleen": { muslimNames: ["mustaqila", "qanita"], meaning: "Absorbed in God's Praise", connection: "Jas = fame + leen = absorbed; Qanita means devoutly obedient", popularIn: ["IN"], category: "punjabi-female" },
   "mandeep": { muslimNames: ["noor-ul-qalb", "siraj"], meaning: "Light of the Mind", connection: "Man = mind + deep = light; Siraj means lamp/light", popularIn: ["IN"], category: "punjabi-male" },
