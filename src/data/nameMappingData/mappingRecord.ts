@@ -1755,7 +1755,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // ETHIOPIAN / ERITREAN NAMES
   // ===========================
-  "abebe": { muslimNames: ["zahra", "nuwwar"], meaning: "Flower, Blossom", connection: "Abebe = blooming; Zahra means flower, Nuwwar means blossoms", popularIn: ["ET"], category: "ethiopian-male" },
+  "abebe_et": { muslimNames: ["zahra", "nuwwar"], meaning: "Flower, Blossom", connection: "Abebe = blooming; Zahra means flower, Nuwwar means blossoms", popularIn: ["ET"], category: "ethiopian-male" },
   "haile": { muslimNames: ["quwwa", "sultan"], meaning: "Power, Might", connection: "Haile = power; Quwwa means strength, Sultan means authority", popularIn: ["ET"], category: "ethiopian-male" },
   "mulugeta": { muslimNames: ["rabb", "sayyid"], meaning: "Lord, Master", connection: "Mulugeta = lord; Sayyid means master/leader", popularIn: ["ET"], category: "ethiopian-male" },
   "tsehay": { muslimNames: ["shams", "siraj"], meaning: "Sun", connection: "Tsehay = sun; Shams means sun in Arabic", popularIn: ["ET"], category: "ethiopian-female" },
