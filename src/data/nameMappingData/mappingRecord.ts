@@ -1774,7 +1774,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "kavitha": { muslimNames: ["sha'ira", "bayan"], meaning: "Poem, Poetry", connection: "Kavitha = poetry; Sha'ira means poetess, Bayan means eloquence", popularIn: ["IN"], category: "tamil-female" },
   "deepa": { muslimNames: ["noor", "siraj"], meaning: "Light, Lamp", connection: "Deepa = lamp; Noor means light, Siraj means lamp", popularIn: ["IN"], category: "tamil-female" },
   "selvi": { muslimNames: ["sarw", "qama"], meaning: "Cypress Tree, Graceful", connection: "Selvi = cypress; Sarw means cypress — a symbol of grace", popularIn: ["IN"], category: "tamil-female" },
-  "surya": { muslimNames: ["shams", "diya"], meaning: "Sun", connection: "Surya = sun; Shams means sun, Diya means light", popularIn: ["IN"], category: "tamil-male" },
+  "surya_tamil": { muslimNames: ["shams", "diya"], meaning: "Sun", connection: "Surya = sun; Shams means sun, Diya means light", popularIn: ["IN"], category: "tamil-male" },
 
   // ===========================
   // BENGALI NAMES
