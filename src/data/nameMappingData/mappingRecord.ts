@@ -2136,10 +2136,10 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // PERSIAN / IRANIAN NAMES
   // ===========================
-  "dariush": { muslimNames: ["malik", "sultan"], meaning: "King, Possessor of Good", connection: "Dariush = Darius = king; Malik means king, Sultan means ruler", popularIn: ["IR"], category: "persian-male" },
-  "shirin": { muslimNames: ["halwa", "jamila"], meaning: "Sweet, Beautiful", connection: "Shirin = sweet; Halwa means sweet, Jamila means beautiful", popularIn: ["IR"], category: "persian-female" },
+  "dariush_pr": { muslimNames: ["malik", "sultan"], meaning: "King, Possessor of Good", connection: "Dariush = Darius = king; Malik means king, Sultan means ruler", popularIn: ["IR"], category: "persian-male" },
+  "shirin_pr": { muslimNames: ["halwa", "jamila"], meaning: "Sweet, Beautiful", connection: "Shirin = sweet; Halwa means sweet, Jamila means beautiful", popularIn: ["IR"], category: "persian-female" },
   "cyrus_pr": { muslimNames: ["dhulqarnayn", "sultan"], meaning: "Sun, Throne", connection: "Cyrus = Kurush; some scholars identify Dhulqarnayn in the Quran with Cyrus", popularIn: ["IR"], category: "persian-male" },
-  "parisa": { muslimNames: ["huriya", "pari"], meaning: "Fairy-like, Beautiful", connection: "Parisa = like a fairy; Huriya means heavenly maiden", popularIn: ["IR"], category: "persian-female" },
+  "parisa_pr": { muslimNames: ["huriya", "pari"], meaning: "Fairy-like, Beautiful", connection: "Parisa = like a fairy; Huriya means heavenly maiden", popularIn: ["IR"], category: "persian-female" },
   "kaveh": { muslimNames: ["thawwar", "mujahid"], meaning: "Blacksmith, Rebel Hero", connection: "Kaveh = legendary Persian rebel; Thawwar means revolutionary", popularIn: ["IR"], category: "persian-male" },
   "golnaz": { muslimNames: ["warda", "nazuk"], meaning: "Delicate as a Rose", connection: "Gol = rose + naz = delicate; Warda means rose", popularIn: ["IR"], category: "persian-female" },
   "rostam": { muslimNames: ["batil", "shuja"], meaning: "Mighty Hero", connection: "Rostam = legendary warrior of Shahnameh; Batil means hero", popularIn: ["IR"], category: "persian-male" },
