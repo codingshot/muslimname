@@ -2066,7 +2066,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // KAZAKH NAMES
   // ===========================
-  "nursultan": { muslimNames: ["sultan", "noor"], meaning: "Light of the Sultan", connection: "Nur = light + Sultan = ruler; both are Arabic-origin words", popularIn: ["KZ"], category: "kazakh-male" },
+  "nursultan_kz": { muslimNames: ["sultan", "noor"], meaning: "Light of the Sultan", connection: "Nur = light + Sultan = ruler; both are Arabic-origin words", popularIn: ["KZ"], category: "kazakh-male" },
   "aisha_kz": { muslimNames: ["aisha"], meaning: "Alive, Living", connection: "Aisha = direct Arabic name; the Prophet's wife ﷺ", popularIn: ["KZ"], category: "kazakh-female" },
   "yerlan": { muslimNames: ["batil", "shuja"], meaning: "Brave Hero", connection: "Yerlan = brave; Batil means heroic, Shuja means courageous", popularIn: ["KZ"], category: "kazakh-male" },
   "madina_kz": { muslimNames: ["madina"], meaning: "City (Medina)", connection: "Madina = the holy city; direct Arabic origin", popularIn: ["KZ"], category: "kazakh-female" },
