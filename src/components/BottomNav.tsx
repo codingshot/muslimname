@@ -52,4 +52,6 @@ const BottomNav = forwardRef<HTMLElement>(function BottomNav(_, ref) {
       </div>
     </nav>
   );
-}
+});
+
+export default BottomNav;
