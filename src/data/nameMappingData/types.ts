@@ -39,4 +39,17 @@ export type NameMappingCategory =
   | "bengali-male" | "bengali-female"
   | "burmese-male" | "burmese-female"
   | "swahili-male" | "swahili-female"
-  | "celtic-male" | "celtic-female";
+  | "celtic-male" | "celtic-female"
+  | "ukrainian-male" | "ukrainian-female"
+  | "serbian-male" | "serbian-female"
+  | "slovak-male" | "slovak-female"
+  | "albanian-male" | "albanian-female"
+  | "mongolian-male" | "mongolian-female"
+  | "nepali-male" | "nepali-female"
+  | "hausa-male" | "hausa-female"
+  | "yoruba-male" | "yoruba-female"
+  | "pashto-male" | "pashto-female"
+  | "sindhi-male" | "sindhi-female"
+  | "malagasy-male" | "malagasy-female"
+  | "maltese-male" | "maltese-female"
+  | "tibetan-male" | "tibetan-female";
