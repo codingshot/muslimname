@@ -1841,4 +1841,184 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "diwa": { muslimNames: ["fikr", "aql"], meaning: "Thought, Spirit", connection: "Diwa = spirit/thought; Fikr means thought, Aql means intellect", popularIn: ["PH"], category: "filipino-male" },
   "mayari": { muslimNames: ["qamar", "badr"], meaning: "Moon Goddess", connection: "Mayari = moon deity; Qamar means moon, Badr means full moon", popularIn: ["PH"], category: "filipino-female" },
   "kalayaan": { muslimNames: ["hurr", "tahrir"], meaning: "Freedom", connection: "Kalayaan = freedom; Hurr means free, Tahrir means liberation", popularIn: ["PH"], category: "filipino-male" },
+
+  // ===========================
+  // UKRAINIAN NAMES
+  // ===========================
+  "taras": { muslimNames: ["shuja", "faris"], meaning: "Bull, Brave", connection: "Taras Shevchenko is Ukraine's national poet; Shuja means brave", popularIn: ["UA"], category: "ukrainian-male" },
+  "bohdan": { muslimNames: ["ata", "wahab"], meaning: "Given by God", connection: "Bohdan = God's gift; Ata means gift, Wahab means bestower", popularIn: ["UA"], category: "ukrainian-male" },
+  "yaroslav": { muslimNames: ["majid", "jalil"], meaning: "Bright Glory", connection: "Yaroslav = fierce + glory; Majid means glorious", popularIn: ["UA"], category: "ukrainian-male" },
+  "oksana": { muslimNames: ["zaynab", "dhaifa"], meaning: "Hospitality, Stranger", connection: "Oksana = hospitable; Zaynab means fragrant flower — welcoming beauty", popularIn: ["UA"], category: "ukrainian-female" },
+  "halyna": { muslimNames: ["salima", "hana"], meaning: "Calm, Serene", connection: "Halyna = serene; Salima means peaceful, Hana means happy", popularIn: ["UA"], category: "ukrainian-female" },
+  "lesia": { muslimNames: ["amina", "rashida"], meaning: "Defender of People", connection: "Lesya Ukrainka was a brave writer; Amina means trustworthy", popularIn: ["UA"], category: "ukrainian-female" },
+  "dmytro": { muslimNames: ["harith", "zari"], meaning: "Earth Lover", connection: "Dmytro = Demeter/earth; Harith means cultivator of the earth", popularIn: ["UA"], category: "ukrainian-male" },
+  "svitlana": { muslimNames: ["noor", "diya"], meaning: "Light, Radiance", connection: "Svitlana = light; Noor means divine light, Diya means radiance", popularIn: ["UA"], category: "ukrainian-female" },
+  "vasyl": { muslimNames: ["malik", "sultan"], meaning: "Royal, King", connection: "Vasyl = Basil = royal; Malik means king, Sultan means ruler", popularIn: ["UA"], category: "ukrainian-male" },
+  "iryna": { muslimNames: ["salam", "sakina"], meaning: "Peace", connection: "Iryna = Irene = peace; Salam means peace, Sakina means tranquility", popularIn: ["UA"], category: "ukrainian-female" },
+
+  // ===========================
+  // SERBIAN NAMES
+  // ===========================
+  "nikola_rs": { muslimNames: ["nasir", "nasr"], meaning: "Victory of the People", connection: "Nikola = people's victory; Nasir means helper, Nasr means victory", popularIn: ["RS"], category: "serbian-male" },
+  "dragan": { muslimNames: ["aziz", "habib"], meaning: "Dear, Precious", connection: "Dragan = dear one; Aziz means precious, Habib means beloved", popularIn: ["RS"], category: "serbian-male" },
+  "zoran": { muslimNames: ["fajr", "subh"], meaning: "Dawn, Daybreak", connection: "Zoran = dawn; Fajr means dawn — the first prayer of the day", popularIn: ["RS"], category: "serbian-male" },
+  "jelena": { muslimNames: ["noor", "shams"], meaning: "Bright, Shining", connection: "Jelena = Helen = bright; Noor means light, Shams means sun", popularIn: ["RS"], category: "serbian-female" },
+  "jovana": { muslimNames: ["hana", "ni'mah"], meaning: "God is Gracious", connection: "Jovana = feminine of Jovan/John; Hana means happiness", popularIn: ["RS"], category: "serbian-female" },
+  "vesna": { muslimNames: ["rabee", "bahar"], meaning: "Spring", connection: "Vesna = spring; Rabee means spring season", popularIn: ["RS", "HR"], category: "serbian-female" },
+  "milos": { muslimNames: ["latif", "karim"], meaning: "Gracious, Dear", connection: "Milos = gracious; Latif means gentle, Karim means generous", popularIn: ["RS"], category: "serbian-male" },
+  "gordana": { muslimNames: ["afifa", "iffah"], meaning: "Proud, Dignified", connection: "Gordana = proud; Afifa means chaste/dignified", popularIn: ["RS"], category: "serbian-female" },
+
+  // ===========================
+  // SLOVAK NAMES
+  // ===========================
+  "marek": { muslimNames: ["malik"], meaning: "Of Mars, Warlike", connection: "Marek = Mark; Malik means king/sovereign", popularIn: ["SK", "CZ"], category: "slovak-male" },
+  "jozef_sk": { muslimNames: ["yusuf"], meaning: "God Will Increase", connection: "Jozef = Joseph; Yusuf is a prophet in the Quran", popularIn: ["SK"], category: "slovak-male" },
+  "zuzana": { muslimNames: ["sawsan"], meaning: "Lily", connection: "Zuzana = Susanna = lily; Sawsan means lily in Arabic", popularIn: ["SK", "CZ"], category: "slovak-female" },
+  "katarina_sk": { muslimNames: ["tahira", "zakiya"], meaning: "Pure", connection: "Katarina = pure; Tahira means pure, Zakiya means virtuous", popularIn: ["SK"], category: "slovak-female" },
+  "martin_sk": { muslimNames: ["mujahid", "harb"], meaning: "Of Mars, Warrior", connection: "Martin = warlike; Mujahid means one who strives", popularIn: ["SK", "CZ"], category: "slovak-male" },
+  "monika_sk": { muslimNames: ["nashiha", "murshida"], meaning: "Advisor, Counselor", connection: "Monika = advisor; Nashiha means advisor, Murshida means guide", popularIn: ["SK"], category: "slovak-female" },
+
+  // ===========================
+  // ALBANIAN NAMES
+  // ===========================
+  "agron": { muslimNames: ["harith", "zari"], meaning: "Farmer, Land", connection: "Agron = ancient Illyrian king; Harith means cultivator", popularIn: ["AL", "XK"], category: "albanian-male" },
+  "bujar": { muslimNames: ["karim", "jawad"], meaning: "Generous", connection: "Bujar = generous; Karim means generous, Jawad means munificent", popularIn: ["AL"], category: "albanian-male" },
+  "luan": { muslimNames: ["asad", "layth"], meaning: "Lion", connection: "Luan = lion; Asad means lion, Layth means lion", popularIn: ["AL", "XK"], category: "albanian-male" },
+  "gentiana": { muslimNames: ["zahra", "warda"], meaning: "Gentian Flower", connection: "Gentiana = national flower of Albania; Zahra means flower", popularIn: ["AL"], category: "albanian-female" },
+  "teuta": { muslimNames: ["malika", "sultana"], meaning: "Queen", connection: "Teuta = Illyrian queen; Malika means queen, Sultana means sovereign", popularIn: ["AL"], category: "albanian-female" },
+  "drita": { muslimNames: ["noor", "diya"], meaning: "Light", connection: "Drita = light in Albanian; Noor means divine light", popularIn: ["AL", "XK"], category: "albanian-female" },
+  "besnik": { muslimNames: ["amin", "wafi"], meaning: "Faithful, Loyal", connection: "Besnik = faithful; Amin means trustworthy, Wafi means loyal", popularIn: ["AL"], category: "albanian-male" },
+  "flutura": { muslimNames: ["farasha", "huriya"], meaning: "Butterfly", connection: "Flutura = butterfly; Farasha means butterfly in Arabic", popularIn: ["AL"], category: "albanian-female" },
+
+  // ===========================
+  // MONGOLIAN NAMES
+  // ===========================
+  "batbayar": { muslimNames: ["sa'id", "farhan"], meaning: "Strong Joy", connection: "Bat = firm + bayar = joy; Sa'id means happy, Farhan means joyful", popularIn: ["MN"], category: "mongolian-male" },
+  "bold": { muslimNames: ["fawlad", "hadid"], meaning: "Steel", connection: "Bold = steel in Mongolian; Fawlad means steel, Hadid means iron", popularIn: ["MN"], category: "mongolian-male" },
+  "ganzorig": { muslimNames: ["shuja", "qawi"], meaning: "Steel Courage", connection: "Gan = steel + zorig = brave; Shuja means brave, Qawi means strong", popularIn: ["MN"], category: "mongolian-male" },
+  "enkhtuya": { muslimNames: ["noor", "shula"], meaning: "Ray of Peace", connection: "Enkh = peace + tuya = ray; Noor means light of peace", popularIn: ["MN"], category: "mongolian-female" },
+  "oyunaa": { muslimNames: ["aqila", "labiba"], meaning: "Intelligence, Mind", connection: "Oyun = mind/wisdom; Aqila means intelligent, Labiba means wise", popularIn: ["MN"], category: "mongolian-female" },
+  "tsetseg": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Tsetseg = flower; Zahra means flower, Warda means rose", popularIn: ["MN"], category: "mongolian-female" },
+  "sukhbaatar": { muslimNames: ["mujahid", "batil"], meaning: "Axe Hero", connection: "Sukhbaatar = national hero of Mongolia; Mujahid means fighter", popularIn: ["MN"], category: "mongolian-male" },
+  "altantsetseg": { muslimNames: ["dhahab", "zahra"], meaning: "Golden Flower", connection: "Altan = golden + tsetseg = flower; Dhahab means gold", popularIn: ["MN"], category: "mongolian-female" },
+
+  // ===========================
+  // NEPALI NAMES
+  // ===========================
+  "bikash": { muslimNames: ["numu", "taraqqi"], meaning: "Development, Progress", connection: "Bikash = development; Taraqqi means progress/growth", popularIn: ["NP"], category: "nepali-male" },
+  "suman": { muslimNames: ["zahra", "warda"], meaning: "Good-Minded, Flower", connection: "Suman = flower; Zahra means flower/blossom", popularIn: ["NP"], category: "nepali-male" },
+  "prakash_np": { muslimNames: ["noor", "siraj"], meaning: "Light", connection: "Prakash = light; Noor means divine light, Siraj means lamp", popularIn: ["NP"], category: "nepali-male" },
+  "sita_np": { muslimNames: ["khadijah", "fatima"], meaning: "Furrow, Earth", connection: "Sita = from earth; Khadijah and Fatima were honored women", popularIn: ["NP"], category: "nepali-female" },
+  "laxmi_np": { muslimNames: ["barakah", "ni'mah"], meaning: "Fortune, Prosperity", connection: "Laxmi = fortune; Barakah means blessings, Ni'mah means bounty", popularIn: ["NP"], category: "nepali-female" },
+  "kamala_np": { muslimNames: ["zahra", "warda"], meaning: "Lotus", connection: "Kamala = lotus flower; Zahra means blooming flower", popularIn: ["NP"], category: "nepali-female" },
+  "rajendra": { muslimNames: ["malik", "sultan"], meaning: "King of Kings", connection: "Rajendra = lord of kings; Malik means king, Sultan means sovereign", popularIn: ["NP"], category: "nepali-male" },
+  "sarita": { muslimNames: ["nahr", "salsabil"], meaning: "River, Flowing", connection: "Sarita = river; Salsabil is a fountain in Jannah (paradise)", popularIn: ["NP"], category: "nepali-female" },
+
+  // ===========================
+  // HAUSA NAMES (West Africa)
+  // ===========================
+  "abdou": { muslimNames: ["abdullah"], meaning: "Servant of God", connection: "Abdou = Hausa/Fulani form of Abdullah", popularIn: ["NG", "NE"], category: "hausa-male" },
+  "garba": { muslimNames: ["qa'id", "amir"], meaning: "Leader, Chief", connection: "Garba = Hausa leadership name; Qa'id means commander", popularIn: ["NG"], category: "hausa-male" },
+  "binta": { muslimNames: ["bint", "zaynab"], meaning: "Daughter", connection: "Binta = daughter; Bint means daughter in Arabic — a term of honor", popularIn: ["NG", "NE"], category: "hausa-female" },
+  "hadiza": { muslimNames: ["khadijah"], meaning: "Born Prematurely", connection: "Hadiza = Hausa form of Khadijah — the Prophet's first wife", popularIn: ["NG"], category: "hausa-female" },
+  "maimuna": { muslimNames: ["maimunah"], meaning: "Blessed, Fortunate", connection: "Maimuna = Maimunah — a wife of the Prophet ﷺ", popularIn: ["NG", "NE"], category: "hausa-female" },
+  "sanusi": { muslimNames: ["sanusi"], meaning: "Named after Senussi Order", connection: "Sanusi = an Islamic scholarly lineage from North Africa", popularIn: ["NG"], category: "hausa-male" },
+  "tanko": { muslimNames: ["hamza", "shuja"], meaning: "Warrior, Fighter", connection: "Tanko = warrior; Hamza means lion, Shuja means brave warrior", popularIn: ["NG"], category: "hausa-male" },
+  "umma": { muslimNames: ["ummah", "jama'ah"], meaning: "Community, Nation", connection: "Umma = community; Ummah means the Muslim community", popularIn: ["NG"], category: "hausa-female" },
+
+  // ===========================
+  // YORUBA NAMES (West Africa)
+  // ===========================
+  "adebayo": { muslimNames: ["farhan", "sa'id"], meaning: "The Crown Meets Joy", connection: "Adebayo = crown + joy; Farhan means happy, Sa'id means joyful", popularIn: ["NG"], category: "yoruba-male" },
+  "oluwaseun": { muslimNames: ["shakir", "hamid"], meaning: "God is Grateful", connection: "Oluwaseun = God has done well; Shakir means grateful, Hamid means praising", popularIn: ["NG"], category: "yoruba-male" },
+  "ayodele": { muslimNames: ["surur", "farha"], meaning: "Joy Has Come Home", connection: "Ayodele = joy arrives; Surur means happiness, Farha means joy", popularIn: ["NG"], category: "yoruba-male" },
+  "titilayo": { muslimNames: ["farha", "basma"], meaning: "Eternal Joy", connection: "Titilayo = everlasting joy; Farha means happiness, Basma means smile", popularIn: ["NG"], category: "yoruba-female" },
+  "folake": { muslimNames: ["malika", "izzah"], meaning: "Placed in Wealth/Honor", connection: "Folake = cared for with wealth; Malika means queen, Izzah means honor", popularIn: ["NG"], category: "yoruba-female" },
+  "yetunde": { muslimNames: ["raj'a", "awda"], meaning: "Mother Has Returned", connection: "Yetunde = mother reborn; Raj'a means return — a concept of coming back", popularIn: ["NG"], category: "yoruba-female" },
+  "babatunde": { muslimNames: ["ab", "walid"], meaning: "Father Has Returned", connection: "Babatunde = father returns; Walid means father/parent", popularIn: ["NG"], category: "yoruba-male" },
+  "temitope": { muslimNames: ["shukr", "hamd"], meaning: "Mine is Worthy of Thanks", connection: "Temitope = worthy of gratitude; Shukr means gratitude, Hamd means praise", popularIn: ["NG"], category: "yoruba-female" },
+
+  // ===========================
+  // PASHTO NAMES
+  // ===========================
+  "atal": { muslimNames: ["batil", "shuja"], meaning: "Hero, Champion", connection: "Atal = hero; Batil means brave, Shuja means courageous", popularIn: ["AF", "PK"], category: "pashto-male" },
+  "palwasha": { muslimNames: ["shafaq", "barq"], meaning: "Lightning, Flash", connection: "Palwasha = flash of light; Shafaq means twilight glow, Barq means lightning", popularIn: ["AF", "PK"], category: "pashto-female" },
+  "spin_gul": { muslimNames: ["warda", "yasmeen"], meaning: "White Flower", connection: "Spingul = white flower; Warda means rose, Yasmeen means jasmine", popularIn: ["AF"], category: "pashto-female" },
+  "zmaray": { muslimNames: ["asad", "layth"], meaning: "Lion", connection: "Zmaray = lion in Pashto; Asad means lion in Arabic", popularIn: ["AF", "PK"], category: "pashto-male" },
+  "malalai": { muslimNames: ["shuja", "shahida"], meaning: "Grief-Stricken, Brave", connection: "Malalai = heroine of Maiwand; Shahida means witness of faith", popularIn: ["AF", "PK"], category: "pashto-female" },
+  "wali_ps": { muslimNames: ["wali"], meaning: "Friend, Protector", connection: "Wali = friend/saint; same Arabic word meaning protector of faith", popularIn: ["AF", "PK"], category: "pashto-male" },
+  "gulalai": { muslimNames: ["zahra", "warda"], meaning: "Beautiful as a Flower", connection: "Gulalai = flower-like; Zahra means flower, Warda means rose", popularIn: ["AF", "PK"], category: "pashto-female" },
+  "lewanay": { muslimNames: ["qamar", "hilal"], meaning: "Moon", connection: "Lewanay = moon in Pashto; Qamar means moon, Hilal means crescent", popularIn: ["AF"], category: "pashto-male" },
+
+  // ===========================
+  // SINDHI NAMES
+  // ===========================
+  "sachal": { muslimNames: ["sadiq", "haqq"], meaning: "Truthful", connection: "Sachal Sarmast was a Sufi poet; Sadiq means truthful", popularIn: ["PK"], category: "sindhi-male" },
+  "marvi": { muslimNames: ["wafiya", "sadiqah"], meaning: "Loyal, Brave", connection: "Marvi = legendary loyal woman of Sindh; Wafiya means faithful", popularIn: ["PK"], category: "sindhi-female" },
+  "bhittai": { muslimNames: ["wali", "sufi"], meaning: "Saint of Bhit", connection: "Shah Abdul Latif Bhittai — great Sindhi Sufi poet", popularIn: ["PK"], category: "sindhi-male" },
+  "sassui": { muslimNames: ["ashiqa", "habiba"], meaning: "Devoted Lover", connection: "Sassui = legendary devoted woman; Ashiqa means lover, Habiba means beloved", popularIn: ["PK"], category: "sindhi-female" },
+  "sohni": { muslimNames: ["jamila", "hasna"], meaning: "Beautiful", connection: "Sohni = beautiful; Jamila means beautiful, Hasna means lovely", popularIn: ["PK"], category: "sindhi-female" },
+  "punhun": { muslimNames: ["mahbub", "habib"], meaning: "Beloved", connection: "Punhun = legendary Sindhi beloved; Mahbub means beloved", popularIn: ["PK"], category: "sindhi-male" },
+
+  // ===========================
+  // MALAGASY NAMES (Madagascar)
+  // ===========================
+  "andry": { muslimNames: ["rukn", "imad"], meaning: "Pillar, Support", connection: "Andry = pillar; Rukn means pillar, Imad means support", popularIn: ["MG"], category: "malagasy-male" },
+  "hery": { muslimNames: ["quwwa", "hayba"], meaning: "Power, Strength", connection: "Hery = power; Quwwa means strength, Hayba means majesty", popularIn: ["MG"], category: "malagasy-male" },
+  "vola": { muslimNames: ["fiddah", "maal"], meaning: "Money, Silver", connection: "Vola = money; Fiddah means silver — wealth metaphor", popularIn: ["MG"], category: "malagasy-female" },
+  "fara": { muslimNames: ["farha", "surur"], meaning: "Joy, Good", connection: "Fara = good/joy; Farha means happiness, Surur means joy", popularIn: ["MG"], category: "malagasy-female" },
+  "hasina_mg": { muslimNames: ["hasina", "jamila"], meaning: "Beautiful, Virtuous", connection: "Hasina = beautiful; same Arabic root meaning good/beautiful", popularIn: ["MG"], category: "malagasy-female" },
+  "rabe": { muslimNames: ["kabir", "akbar"], meaning: "Big, Great", connection: "Rabe = big; Kabir means great, Akbar means greatest", popularIn: ["MG"], category: "malagasy-male" },
+
+  // ===========================
+  // MALTESE NAMES
+  // ===========================
+  "pawlu": { muslimNames: ["harun", "faisal"], meaning: "Small, Humble", connection: "Pawlu = Maltese Paul; Faisal means decisive judge", popularIn: ["MT"], category: "maltese-male" },
+  "carmela": { muslimNames: ["jannah", "rawda"], meaning: "Garden", connection: "Carmela = garden/orchard; Jannah means paradise garden, Rawda means meadow", popularIn: ["MT"], category: "maltese-female" },
+  "grazia": { muslimNames: ["ni'mah", "fadl"], meaning: "Grace, Blessing", connection: "Grazia = grace; Ni'mah means blessing, Fadl means grace/bounty", popularIn: ["MT"], category: "maltese-female" },
+  "wistin": { muslimNames: ["adil", "muqsit"], meaning: "Just, Fair", connection: "Wistin = Maltese Justin; Adil means just, Muqsit means equitable", popularIn: ["MT"], category: "maltese-male" },
+  "leli": { muslimNames: ["latif", "karim"], meaning: "Small, Cute", connection: "Leli = cute/small; Latif means subtle/gentle, Karim means generous", popularIn: ["MT"], category: "maltese-male" },
+  "dorotea": { muslimNames: ["ata", "hadiyya"], meaning: "Gift of God", connection: "Dorotea = God's gift; Ata means gift, Hadiyya means present", popularIn: ["MT"], category: "maltese-female" },
+
+  // ===========================
+  // TIBETAN NAMES
+  // ===========================
+  "tenzin": { muslimNames: ["amin", "hafiz"], meaning: "Holder of Teachings", connection: "Tenzin = upholder of dharma; Amin means trustworthy, Hafiz means preserver", popularIn: ["CN", "IN"], category: "tibetan-male" },
+  "dorje": { muslimNames: ["qawi", "matin"], meaning: "Thunderbolt, Diamond", connection: "Dorje = indestructible; Qawi means strong, Matin means firm/solid", popularIn: ["CN", "BT"], category: "tibetan-male" },
+  "pema": { muslimNames: ["zahra", "warda"], meaning: "Lotus", connection: "Pema = lotus flower; Zahra means flower/blossom", popularIn: ["CN", "BT", "NP"], category: "tibetan-female" },
+  "dolma": { muslimNames: ["najiya", "munjiya"], meaning: "Savior, Liberator", connection: "Dolma = Tara = liberator; Najiya means one who saves, Munjiya means rescuer", popularIn: ["CN", "BT"], category: "tibetan-female" },
+  "karma_tb": { muslimNames: ["amal", "sa'i"], meaning: "Action, Deed", connection: "Karma = deed/action; Amal means work/deed, Sa'i means effort", popularIn: ["CN", "BT"], category: "tibetan-male" },
+  "yangchen": { muslimNames: ["nagham", "alhaan"], meaning: "Melodious Sound", connection: "Yangchen = beautiful melody; Nagham means melody, Alhaan means tunes", popularIn: ["CN", "BT"], category: "tibetan-female" },
+  "norbu": { muslimNames: ["jawhar", "lu'lu"], meaning: "Jewel, Gem", connection: "Norbu = precious jewel; Jawhar means gem, Lu'lu means pearl", popularIn: ["CN", "BT"], category: "tibetan-male" },
+  "dechen": { muslimNames: ["sa'ada", "surur"], meaning: "Great Bliss", connection: "Dechen = supreme joy; Sa'ada means happiness, Surur means bliss", popularIn: ["CN", "BT"], category: "tibetan-female" },
+
+  // ===========================
+  // ADDITIONAL HISTORICAL / MODERN NAMES
+  // ===========================
+  // More Western historical names
+  "atticus": { muslimNames: ["hakim", "arif"], meaning: "From Attica, Learned", connection: "Atticus = learned man; Hakim means wise, Arif means knowledgeable", category: "latin-male" },
+  "augustine": { muslimNames: ["mu'azzam", "jalil"], meaning: "Great, Magnificent", connection: "Augustine = great; Mu'azzam means great, Jalil means majestic", category: "latin-male" },
+  "maximilian": { muslimNames: ["akbar", "azim"], meaning: "Greatest", connection: "Maximilian = the greatest; Akbar means greatest, Azim means supreme", category: "latin-male" },
+  "valentine": { muslimNames: ["habib", "wadud"], meaning: "Strong, Healthy, Love", connection: "Valentine = strong/love; Habib means beloved, Wadud means loving", category: "latin-male" },
+  "cordelia": { muslimNames: ["qalb", "fu'ad"], meaning: "Heart, Daughter of the Sea", connection: "Cordelia = heart; Qalb means heart, Fu'ad means heart/conscience", category: "latin-female" },
+  "vivienne": { muslimNames: ["hayat", "hayya"], meaning: "Alive, Living", connection: "Vivienne = alive; Hayat means life, Hayya means living", category: "latin-female" },
+  "flora": { muslimNames: ["zahra", "warda"], meaning: "Flower", connection: "Flora = goddess of flowers; Zahra means flower in Arabic", category: "latin-female" },
+  "cassius": { muslimNames: ["khalid", "hamza"], meaning: "Vain, Hollow", connection: "Cassius Clay became Muhammad Ali — one of the most famous name changes in history", category: "latin-male" },
+  
+  // Modern popular names
+  "mason": { muslimNames: ["banna", "mi'mar"], meaning: "Stone Worker", connection: "Mason = builder; Banna means builder, Mi'mar means architect", category: "western-male" },
+  "logan": { muslimNames: ["wadi", "rawda"], meaning: "Little Hollow", connection: "Logan = small valley; Wadi means valley — a landscape name", category: "western-male" },
+  "aiden": { muslimNames: ["nar", "shihab"], meaning: "Little Fire", connection: "Aiden = fire; Nar means fire, Shihab means shooting star/flame", category: "western-male" },
+  "harper": { muslimNames: ["nagham", "alhaan"], meaning: "Harp Player", connection: "Harper = musician; Nagham means melody, Alhaan means tunes", category: "western-female" },
+  "aria": { muslimNames: ["nagham", "ghina"], meaning: "Air, Song", connection: "Aria = melody/air; Nagham means melody, Ghina means song", category: "western-female" },
+  "luna": { muslimNames: ["qamar", "hilal"], meaning: "Moon", connection: "Luna = moon; Qamar means moon, Hilal means crescent", category: "western-female" },
+  "willow": { muslimNames: ["safsaf", "lina"], meaning: "Willow Tree", connection: "Willow = graceful tree; Lina means tender/palm tree", category: "western-female" },
+  "maverick": { muslimNames: ["mustaqil", "hurr"], meaning: "Independent, Nonconformist", connection: "Maverick = independent; Mustaqil means independent, Hurr means free", category: "western-male" },
+  "kai": { muslimNames: ["bahr", "yamm"], meaning: "Sea, Ocean", connection: "Kai = sea in Hawaiian; Bahr means sea, Yamm means ocean", category: "western-male" },
+  "aurora": { muslimNames: ["fajr", "shafaq"], meaning: "Dawn", connection: "Aurora = dawn; Fajr means dawn — the first Islamic prayer", category: "western-female" },
+  "ivy": { muslimNames: ["lablab", "khadra"], meaning: "Climbing Plant", connection: "Ivy = evergreen; Khadra means green — a sacred color in Islam", category: "western-female" },
+  "theodore": { muslimNames: ["ata", "wahab"], meaning: "Gift of God", connection: "Theodore = God's gift; Ata means gift, Wahab means bestower", category: "western-male" },
+  "nolan": { muslimNames: ["shareef", "najib"], meaning: "Noble, Famous", connection: "Nolan = noble; Shareef means honorable, Najib means noble", category: "western-male" },
+  "stella": { muslimNames: ["najm", "kawkab"], meaning: "Star", connection: "Stella = star; Najm means star, Kawkab means planet/star", category: "western-female" },
+  "felix_lat": { muslimNames: ["sa'id", "mubarak"], meaning: "Happy, Fortunate", connection: "Felix = lucky/happy; Sa'id means happy, Mubarak means blessed", category: "latin-male" },
 };
