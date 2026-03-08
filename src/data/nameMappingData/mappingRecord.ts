@@ -1675,7 +1675,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "ma_surname": { muslimNames: ["muhammad"], meaning: "Horse (Hui Muslim Surname)", connection: "Ma = most common Hui Muslim surname, derived from Muhammad", originalScript: "马", popularIn: ["CN"], category: "chinese-male" },
   "zhenghe": { muslimNames: ["bahhaar", "mustaكshif"], meaning: "Fair Harmony (Admiral)", connection: "Zheng He = great Muslim Chinese admiral/explorer; a model of Islamic exploration", originalScript: "郑和", popularIn: ["CN"], category: "chinese-male" },
-  "yuxuan": { muslimNames: ["jalil", "rafi"], meaning: "Jade Brilliance", connection: "Yuxuan = jade radiance; Jalil means great, Rafi means exalted", originalScript: "宇轩", popularIn: ["CN"], category: "chinese-male" },
+  "yuxuan_hui": { muslimNames: ["jalil", "rafi"], meaning: "Jade Brilliance", connection: "Yuxuan = jade radiance; Jalil means great, Rafi means exalted", originalScript: "宇轩", popularIn: ["CN"], category: "chinese-male" },
   "ziyi": { muslimNames: ["jamila", "bahija"], meaning: "Graceful Appearance", connection: "Ziyi = graceful; Jamila means beautiful, Bahija means radiant", originalScript: "子怡", popularIn: ["CN"], category: "chinese-female" },
   "meiling": { muslimNames: ["zahra", "nadirah"], meaning: "Beautiful and Delicate", connection: "Meiling = beautiful jade; Zahra means blooming, Nadirah means rare beauty", originalScript: "美玲", popularIn: ["CN"], category: "chinese-female" },
 };
