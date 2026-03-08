@@ -2088,7 +2088,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "azad_ku": { muslimNames: ["hurr", "muharrar"], meaning: "Free", connection: "Azad = free; Hurr means free person, Muharrar means liberated", popularIn: ["IQ", "TR", "IR"], category: "kurdish-male" },
   "rojin": { muslimNames: ["shams", "noor"], meaning: "Sun, Light of Day", connection: "Rojin = sunny; Shams means sun, Noor means light", popularIn: ["TR", "IQ"], category: "kurdish-female" },
-  "serhad": { muslimNames: ["thaghr", "hadd"], meaning: "Border, Frontier", connection: "Serhad = frontier; Thaghr means border region", popularIn: ["TR"], category: "kurdish-male" },
+  "serhad_ku": { muslimNames: ["thaghr", "hadd"], meaning: "Border, Frontier", connection: "Serhad = frontier; Thaghr means border region", popularIn: ["TR"], category: "kurdish-male" },
   "berivan": { muslimNames: ["haliba", "ra'iya"], meaning: "Milkmaid, Shepherdess", connection: "Berivan = milkmaid; Ra'iya means shepherdess", popularIn: ["TR", "IQ"], category: "kurdish-female" },
   "dilshad": { muslimNames: ["farhan", "masrur"], meaning: "Happy Heart", connection: "Dilshad = happy heart; Farhan means joyful, Masrur means delighted", popularIn: ["IQ", "IR"], category: "kurdish-male" },
   "gulistan_ku": { muslimNames: ["rawda", "jannah"], meaning: "Land of Roses", connection: "Gulistan = rose garden; Rawda means garden, Jannah means paradise", popularIn: ["IQ", "IR"], category: "kurdish-female" },
