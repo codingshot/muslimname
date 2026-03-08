@@ -2648,14 +2648,10 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // EXPANDED SPANISH NAMES
   // ===========================
-  "pablo": { muslimNames: ["sami", "halim"], meaning: "Small, Humble", connection: "Pablo = Paul = humble; Sami means elevated, Halim means gentle", popularIn: ["ES", "MX"], category: "spanish-male", trend: "classic", culturalNote: "Iconic across Spain and Latin America — Pablo Picasso, Neruda" },
   "santiago": { muslimNames: ["yaqub", "khalil"], meaning: "Saint James", connection: "Santiago = Saint James; Yaqub is Prophet Jacob", popularIn: ["ES", "CL", "CO"], category: "spanish-male", trend: "rising", culturalNote: "#1 in several Latin American countries — massive reach" },
-  "matias": { muslimNames: ["ata", "wahb"], meaning: "Gift of God", connection: "Matias = Matthew = God's gift; Ata means gift in Arabic", popularIn: ["AR", "CL"], category: "spanish-male", trend: "rising" },
-  "diego": { muslimNames: ["yaqub", "sadiq"], meaning: "Supplanter, Teacher", connection: "Diego = from James/Jacob; Yaqub is Prophet Jacob", popularIn: ["ES", "MX", "CO"], category: "spanish-male", trend: "classic" },
-  "andres": { muslimNames: ["amir", "hamza"], meaning: "Manly, Brave", connection: "Andres = Andrew; Amir means commander", popularIn: ["CO", "EC"], category: "spanish-male", trend: "classic" },
-  "javier": { muslimNames: ["noor", "bahir"], meaning: "New House, Bright", connection: "Javier = Xavier; Noor means light, Bahir means brilliant", popularIn: ["ES", "MX"], category: "spanish-male", trend: "declining" },
-  "carlos": { muslimNames: ["karim", "hurr"], meaning: "Free Man", connection: "Carlos = Charles; Karim means generous, Hurr means free", popularIn: ["ES", "MX", "BR"], category: "spanish-male", trend: "classic" },
-  "raul": { muslimNames: ["rashid", "ra'id"], meaning: "Wolf Counsel", connection: "Raul = wise counselor; Rashid means rightly guided", popularIn: ["ES", "MX"], category: "spanish-male", trend: "declining" },
+  "matias_es": { muslimNames: ["ata", "wahb"], meaning: "Gift of God", connection: "Matias = Matthew = God's gift; Ata means gift in Arabic", popularIn: ["AR", "CL"], category: "spanish-male", trend: "rising" },
+  "javier_es": { muslimNames: ["noor", "bahir"], meaning: "New House, Bright", connection: "Javier = Xavier; Noor means light, Bahir means brilliant", popularIn: ["ES", "MX"], category: "spanish-male", trend: "declining" },
+  "raul_es": { muslimNames: ["rashid", "ra'id"], meaning: "Wolf Counsel", connection: "Raul = wise counselor; Rashid means rightly guided", popularIn: ["ES", "MX"], category: "spanish-male", trend: "declining" },
   "lucia_es": { muslimNames: ["noor", "munira"], meaning: "Light", connection: "Lucia = light; Noor means divine light, Munira means radiant", popularIn: ["ES", "IT"], category: "spanish-female", trend: "rising", culturalNote: "#1 girls name in Spain for multiple years" },
   "valentina_es": { muslimNames: ["qawiyya", "aziza"], meaning: "Strong, Vigorous", connection: "Valentina = strong; Qawiyya means powerful", popularIn: ["CO", "MX", "AR"], category: "spanish-female", trend: "rising", culturalNote: "Top 5 across Latin America" },
   "sofia_es": { muslimNames: ["hikma", "labiba"], meaning: "Wisdom", connection: "Sofia = wisdom; Hikma means wisdom — mentioned 66 times in the Quran", popularIn: ["ES", "MX", "AR"], category: "spanish-female", trend: "rising" },
