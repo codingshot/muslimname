@@ -2598,44 +2598,44 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // MORE ABORIGINAL NAMES (EXPANDED)
   // ===========================
-  "mirri": { muslimNames: ["kawkab", "thurayya"], meaning: "Stars", connection: "Mirri = stars; Kawkab means star, Thurayya means the Pleiades", popularIn: ["AU"], category: "aboriginal-male", trend: "rare", culturalNote: "From the Kamilaroi language of New South Wales" },
-  "kirra": { muslimNames: ["noor", "zahra"], meaning: "Leaf, To Live", connection: "Kirra = to live/leaf; Noor means light of life, Zahra means blooming", popularIn: ["AU"], category: "aboriginal-female", trend: "rising", culturalNote: "Increasingly popular in mainstream Australian naming" },
-  "bindi": { muslimNames: ["farasha", "tair"], meaning: "Butterfly", connection: "Bindi = butterfly; Farasha means butterfly in Arabic", popularIn: ["AU"], category: "aboriginal-female", trend: "rising", culturalNote: "Made famous by Bindi Irwin — now mainstream" },
-  "marlu": { muslimNames: ["ghazal", "tair"], meaning: "Kangaroo", connection: "Marlu = kangaroo; symbolizes leaping forward — Tair means bird/flyer", popularIn: ["AU"], category: "aboriginal-male", trend: "rare" },
+  "mirri_ab": { muslimNames: ["kawkab", "thurayya"], meaning: "Stars", connection: "Mirri = stars; Kawkab means star, Thurayya means the Pleiades", popularIn: ["AU"], category: "aboriginal-male", trend: "rare", culturalNote: "From the Kamilaroi language of New South Wales" },
+  "kirra_ab": { muslimNames: ["noor", "zahra"], meaning: "Leaf, To Live", connection: "Kirra = to live/leaf; Noor means light of life, Zahra means blooming", popularIn: ["AU"], category: "aboriginal-female", trend: "rising", culturalNote: "Increasingly popular in mainstream Australian naming" },
+  "bindi_ab": { muslimNames: ["farasha", "tair"], meaning: "Butterfly", connection: "Bindi = butterfly; Farasha means butterfly in Arabic", popularIn: ["AU"], category: "aboriginal-female", trend: "rising", culturalNote: "Made famous by Bindi Irwin — now mainstream" },
+  "marlu_ab": { muslimNames: ["ghazal", "tair"], meaning: "Kangaroo", connection: "Marlu = kangaroo; symbolizes leaping forward — Tair means bird/flyer", popularIn: ["AU"], category: "aboriginal-male", trend: "rare" },
 
   // ===========================
   // MORE NATIVE AMERICAN NAMES (EXPANDED)
   // ===========================
-  "aiyana": { muslimNames: ["zahra", "hayat"], meaning: "Eternal Blossom", connection: "Aiyana = eternal blossom; Zahra means flower, Hayat means life — eternal beauty", popularIn: ["US"], category: "nativeamerican-female", trend: "rising", culturalNote: "Crossing into mainstream US naming — beautiful meaning" },
-  "chayton": { muslimNames: ["shaheen", "tair"], meaning: "Falcon", connection: "Chayton = falcon (Sioux); Shaheen means falcon in Arabic/Persian", popularIn: ["US"], category: "nativeamerican-male", trend: "rare" },
-  "kaya_na": { muslimNames: ["fatima", "ruqayya"], meaning: "Elder Sister (Hopi)", connection: "Kaya = wise elder; Fatima was the wisest daughter of the Prophet ﷺ", popularIn: ["US"], category: "nativeamerican-female", trend: "rising" },
-  "takoda": { muslimNames: ["khalil", "sadiq"], meaning: "Friend to Everyone (Sioux)", connection: "Takoda = friend to all; Khalil means close friend — Khalil Allah", popularIn: ["US"], category: "nativeamerican-male", trend: "rare" },
+  "aiyana_na": { muslimNames: ["zahra", "hayat"], meaning: "Eternal Blossom", connection: "Aiyana = eternal blossom; Zahra means flower, Hayat means life — eternal beauty", popularIn: ["US"], category: "nativeamerican-female", trend: "rising", culturalNote: "Crossing into mainstream US naming — beautiful meaning" },
+  "chayton_na": { muslimNames: ["shaheen", "tair"], meaning: "Falcon", connection: "Chayton = falcon (Sioux); Shaheen means falcon in Arabic/Persian", popularIn: ["US"], category: "nativeamerican-male", trend: "rare" },
+  "kaya_na2": { muslimNames: ["fatima", "ruqayya"], meaning: "Elder Sister (Hopi)", connection: "Kaya = wise elder; Fatima was the wisest daughter of the Prophet ﷺ", popularIn: ["US"], category: "nativeamerican-female", trend: "rising" },
+  "takoda_na": { muslimNames: ["khalil", "sadiq"], meaning: "Friend to Everyone (Sioux)", connection: "Takoda = friend to all; Khalil means close friend — Khalil Allah", popularIn: ["US"], category: "nativeamerican-male", trend: "rare" },
 
   // ===========================
   // MORE MĀORI NAMES (EXPANDED)
   // ===========================
-  "ariki": { muslimNames: ["sayyid", "sultan"], meaning: "Chief, Leader", connection: "Ariki = paramount chief; Sayyid means master/chief", popularIn: ["NZ"], category: "maori-male", trend: "rare" },
-  "wairua": { muslimNames: ["ruh", "nafs"], meaning: "Spirit, Soul", connection: "Wairua = spirit; Ruh means spirit — the Quran speaks of Ruh as God's breath", popularIn: ["NZ"], category: "maori-female", trend: "rare" },
-  "manaia": { muslimNames: ["malak", "jibril"], meaning: "Guardian Spirit", connection: "Manaia = spiritual guardian; Malak means angel — divine protectors", popularIn: ["NZ"], category: "maori-male", trend: "rising", culturalNote: "Rising in mainstream NZ naming" },
-  "ataahua": { muslimNames: ["jamila", "husna"], meaning: "Beautiful", connection: "Ataahua = beautiful; Jamila means beautiful, Husna means beauty", popularIn: ["NZ"], category: "maori-female", trend: "rare" },
+  "ariki_mr": { muslimNames: ["sayyid", "sultan"], meaning: "Chief, Leader", connection: "Ariki = paramount chief; Sayyid means master/chief", popularIn: ["NZ"], category: "maori-male", trend: "rare" },
+  "wairua_mr": { muslimNames: ["ruh", "nafs"], meaning: "Spirit, Soul", connection: "Wairua = spirit; Ruh means spirit — the Quran speaks of Ruh as God's breath", popularIn: ["NZ"], category: "maori-female", trend: "rare" },
+  "manaia_mr": { muslimNames: ["malak", "jibril"], meaning: "Guardian Spirit", connection: "Manaia = spiritual guardian; Malak means angel — divine protectors", popularIn: ["NZ"], category: "maori-male", trend: "rising", culturalNote: "Rising in mainstream NZ naming" },
+  "ataahua_mr": { muslimNames: ["jamila", "husna"], meaning: "Beautiful", connection: "Ataahua = beautiful; Jamila means beautiful, Husna means beauty", popularIn: ["NZ"], category: "maori-female", trend: "rare" },
 
   // ===========================
   // MORE AFRICAN-AMERICAN TRENDING NAMES
   // ===========================
-  "jayden": { muslimNames: ["zayd", "jaydan"], meaning: "Thankful, God Has Heard", connection: "Jayden = thankful; Zayd means growth/abundance — a beloved companion's name", category: "western-male", trend: "rising", culturalNote: "Top 10 in African-American communities — high convert demographic" },
-  "aaliyah": { muslimNames: ["aliyah", "aaliya"], meaning: "Exalted, Sublime", connection: "Aaliyah/Aliyah — already an Arabic name meaning high/exalted", category: "western-female", trend: "rising", altMeanings: ["High", "Sublime", "Lofty"], culturalNote: "Already Islamic — cross-cultural name popular in US since singer Aaliyah" },
-  "malachi": { muslimNames: ["malak", "mikail"], meaning: "My Messenger", connection: "Malachi = my angel/messenger; Malak means angel in Arabic", hebrewOrigin: "מַלְאָכִי (Malakhi)", category: "biblical-male", trend: "rising", culturalNote: "Rising fast in African-American communities" },
-  "xavier": { muslimNames: ["noor", "bahir"], meaning: "New House, Bright", connection: "Xavier = bright/new; Bahir means brilliant, Noor means light", category: "western-male", trend: "rising", culturalNote: "Popular in African-American and Hispanic communities" },
+  "jayden_aa": { muslimNames: ["zayd", "jaydan"], meaning: "Thankful, God Has Heard", connection: "Jayden = thankful; Zayd means growth/abundance — a beloved companion's name", category: "western-male", trend: "rising", culturalNote: "Top 10 in African-American communities — high convert demographic" },
+  "aaliyah_aa": { muslimNames: ["aliyah", "aaliya"], meaning: "Exalted, Sublime", connection: "Aaliyah/Aliyah — already an Arabic name meaning high/exalted", category: "western-female", trend: "rising", altMeanings: ["High", "Sublime", "Lofty"], culturalNote: "Already Islamic — cross-cultural name popular in US since singer Aaliyah" },
+  "malachi_aa": { muslimNames: ["malak", "mikail"], meaning: "My Messenger", connection: "Malachi = my angel/messenger; Malak means angel in Arabic", hebrewOrigin: "מַלְאָכִי (Malakhi)", category: "biblical-male", trend: "rising", culturalNote: "Rising fast in African-American communities" },
+  "xavier_aa": { muslimNames: ["noor", "bahir"], meaning: "New House, Bright", connection: "Xavier = bright/new; Bahir means brilliant, Noor means light", category: "western-male", trend: "rising", culturalNote: "Popular in African-American and Hispanic communities" },
   "imani_wf": { muslimNames: ["iman"], meaning: "Faith", connection: "Imani = faith (Swahili); Iman means faith — identical meaning in Arabic", category: "western-female", trend: "classic", culturalNote: "Already from Arabic root — used widely in African-American naming" },
   "khalil_wm": { muslimNames: ["khalil"], meaning: "Friend", connection: "Khalil = friend in Arabic; already an Islamic name meaning close friend of God", category: "western-male", trend: "rising", culturalNote: "Used in African-American communities — already Arabic origin" },
 
   // ===========================
   // MORE ZULU NAMES (EXPANDED)
   // ===========================
-  "nkosazana": { muslimNames: ["malika", "amira"], meaning: "Princess", connection: "Nkosazana = princess; Malika means queen, Amira means princess", popularIn: ["ZA"], category: "zulu-female", trend: "rare" },
-  "bongani": { muslimNames: ["shakir", "hamid"], meaning: "Be Thankful", connection: "Bongani = give thanks; Shakir means grateful — gratitude is central in Islam", popularIn: ["ZA"], category: "zulu-male", trend: "classic" },
-  "nomzamo": { muslimNames: ["sabira", "mujahida"], meaning: "One Who Endures Trials", connection: "Nomzamo = she who endures; Sabira means patient — Sabr is a key Islamic virtue", popularIn: ["ZA"], category: "zulu-female", trend: "rare", culturalNote: "Nelson Mandela's first wife's name — symbolizes resilience" },
-  "siyabonga": { muslimNames: ["shukr", "hamid"], meaning: "We Thank (God)", connection: "Siyabonga = we give thanks; Shukr means gratitude — giving thanks to God", popularIn: ["ZA"], category: "zulu-male", trend: "classic" },
+  "nkosazana_zu": { muslimNames: ["malika", "amira"], meaning: "Princess", connection: "Nkosazana = princess; Malika means queen, Amira means princess", popularIn: ["ZA"], category: "zulu-female", trend: "rare" },
+  "bongani_zu": { muslimNames: ["shakir", "hamid"], meaning: "Be Thankful", connection: "Bongani = give thanks; Shakir means grateful — gratitude is central in Islam", popularIn: ["ZA"], category: "zulu-male", trend: "classic" },
+  "nomzamo_zu": { muslimNames: ["sabira", "mujahida"], meaning: "One Who Endures Trials", connection: "Nomzamo = she who endures; Sabira means patient — Sabr is a key Islamic virtue", popularIn: ["ZA"], category: "zulu-female", trend: "rare", culturalNote: "Nelson Mandela's first wife's name — symbolizes resilience" },
+  "siyabonga_zu": { muslimNames: ["shukr", "hamid"], meaning: "We Thank (God)", connection: "Siyabonga = we give thanks; Shukr means gratitude — giving thanks to God", popularIn: ["ZA"], category: "zulu-male", trend: "classic" },
 
   // ===========================
   // MORE INUIT NAMES (EXPANDED)
