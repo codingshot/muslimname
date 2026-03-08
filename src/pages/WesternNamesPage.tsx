@@ -183,7 +183,7 @@ export default function WesternNamesPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Western to Muslim Name Reference — {stats.total}+ Names Mapped | MuslimName.me</title>
+        <title>{`Western to Muslim Name Reference — ${stats.total}+ Names Mapped | MuslimName.me`}</title>
         <meta name="description" content={`Find Islamic equivalents for ${stats.total}+ Western, Christian, Hindu, Chinese, Japanese & more names. Search by name or meaning. Biblical, Latin, Spanish, Arabic name mappings.`} />
         <link rel="canonical" href="https://muslimname.me/western-names" />
         <meta name="keywords" content="Western name to Muslim, Christian name Islamic equivalent, name conversion Islam, David Muslim name, Sarah Islamic name, convert name Muslim" />
