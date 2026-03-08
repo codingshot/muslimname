@@ -355,6 +355,27 @@ export default function WesternNamesPage() {
               </button>
             ))}
           </div>
+          <div className="flex gap-1.5 flex-wrap justify-center">
+            {([
+              { key: "all", label: "All Trends", icon: null },
+              { key: "rising", label: "🔥 Trending", icon: null },
+              { key: "classic", label: "⭐ Classic", icon: null },
+              { key: "declining", label: "📉 Traditional", icon: null },
+              { key: "rare", label: "💎 Rare", icon: null },
+            ] as const).map(t => (
+              <button
+                key={t.key}
+                onClick={() => setTrendFilter(t.key)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  trendFilter === t.key
+                    ? "bg-accent text-accent-foreground"
+                    : "bg-muted/50 text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Results count + Random button */}
