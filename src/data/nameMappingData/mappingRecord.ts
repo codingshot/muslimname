@@ -3075,8 +3075,8 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // FULANI (FULA) NAMES
   // ===========================
-  "amadou_fl": { muslimNames: ["ahmad", "muhammad"], meaning: "Praised", connection: "Amadou = Fulani Ahmad — one who is praised", popularIn: ["SN", "ML", "GN"], category: "fulani-male", trend: "classic", culturalNote: "Amadou Hampâté Bâ — legendary West African writer and sage" },
-  "samba_fl": { muslimNames: ["thaani", "thani"], meaning: "Second-Born Son", connection: "Samba = second son; Thani means second", popularIn: ["SN", "GM"], category: "fulani-male", trend: "classic" },
+  "amadou_fl2": { muslimNames: ["ahmad", "muhammad"], meaning: "Praised", connection: "Amadou = Fulani Ahmad — one who is praised", popularIn: ["SN", "ML", "GN"], category: "fulani-male", trend: "classic", culturalNote: "Amadou Hampâté Bâ — legendary West African writer and sage" },
+  "samba_fl2": { muslimNames: ["thaani", "thani"], meaning: "Second-Born Son", connection: "Samba = second son; Thani means second", popularIn: ["SN", "GM"], category: "fulani-male", trend: "classic" },
   "kadiatou_fl": { muslimNames: ["khadija"], meaning: "Premature Child", connection: "Kadiatou = Fulani Khadija — the Prophet's first wife", popularIn: ["GN", "ML"], category: "fulani-female", trend: "classic" },
   "hawa_fl": { muslimNames: ["hawwa"], meaning: "Eve", connection: "Hawa = Fulani Hawwa — Eve, mother of humanity", popularIn: ["GN", "ML"], category: "fulani-female", trend: "classic" },
 
