@@ -92,9 +92,7 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const save = () => {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(profileRef.current));
-      } catch {}
+      safeSetItem(STORAGE_KEY, JSON.stringify(profileRef.current));
     };
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     saveTimerRef.current = setTimeout(() => {
