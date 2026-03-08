@@ -1871,7 +1871,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   // SLOVAK NAMES
   // ===========================
-  "marek": { muslimNames: ["malik"], meaning: "Of Mars, Warlike", connection: "Marek = Mark; Malik means king/sovereign", popularIn: ["SK", "CZ"], category: "slovak-male" },
+  "marek_sk": { muslimNames: ["malik"], meaning: "Of Mars, Warlike", connection: "Marek = Mark; Malik means king/sovereign", popularIn: ["SK", "CZ"], category: "slovak-male" },
   "jozef_sk": { muslimNames: ["yusuf"], meaning: "God Will Increase", connection: "Jozef = Joseph; Yusuf is a prophet in the Quran", popularIn: ["SK"], category: "slovak-male" },
   "zuzana": { muslimNames: ["sawsan"], meaning: "Lily", connection: "Zuzana = Susanna = lily; Sawsan means lily in Arabic", popularIn: ["SK", "CZ"], category: "slovak-female" },
   "katarina_sk": { muslimNames: ["tahira", "zakiya"], meaning: "Pure", connection: "Katarina = pure; Tahira means pure, Zakiya means virtuous", popularIn: ["SK"], category: "slovak-female" },
