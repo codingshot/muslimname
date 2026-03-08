@@ -2544,4 +2544,104 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "rupa_gj": { muslimNames: ["jamila", "hasna"], meaning: "Beautiful Form", connection: "Rupa = beauty; Jamila means beautiful, Hasna means lovely", popularIn: ["IN"], category: "gujarati-female" },
   "viren": { muslimNames: ["shuja", "battal"], meaning: "Brave, Heroic", connection: "Viren = brave lord; Shuja means brave, Battal means hero", popularIn: ["IN"], category: "gujarati-male" },
   "vaishali": { muslimNames: ["madina", "hadara"], meaning: "Ancient City, Prosperous", connection: "Vaishali = ancient prosperous city; Madina means city — the Prophet's city", popularIn: ["IN"], category: "gujarati-female" },
+
+  // ===========================
+  // MORE LATIN NAMES
+  // ===========================
+  "octavia": { muslimNames: ["thamina", "naila"], meaning: "Eighth", connection: "Octavia = eighth; Thamina means precious, Naila means attainer", category: "latin-female", trend: "rising", culturalNote: "Roman elegance revival — rising in UK and US" },
+  "atticus": { muslimNames: ["hakim", "labib"], meaning: "From Attica", connection: "Atticus = man of Attica; Hakim means wise — To Kill a Mockingbird made it iconic", category: "latin-male", trend: "rising", culturalNote: "Literary name gaining massive popularity in US" },
+  "cassius": { muslimNames: ["qasim", "ali"], meaning: "Hollow, Vain", connection: "Cassius Clay became Muhammad Ali — the most famous convert name change in history", category: "latin-male", trend: "rising", culturalNote: "Muhammad Ali's birth name — deeply connected to conversion history" },
+  "felix_lt": { muslimNames: ["sa'id", "mubarak"], meaning: "Happy, Lucky", connection: "Felix = fortunate; Sa'id means happy, Mubarak means blessed", category: "latin-male", trend: "rising" },
+  "maximus": { muslimNames: ["akbar", "azim"], meaning: "Greatest", connection: "Maximus = greatest; Akbar means greatest — Allahu Akbar", category: "latin-male", trend: "rising", culturalNote: "Top 200 in US — gladiator-era revival" },
+  "valentina": { muslimNames: ["qawiyya", "aziza"], meaning: "Strong, Vigorous", connection: "Valentina = strong; Qawiyya means strong, Aziza means mighty", category: "latin-female", trend: "rising", culturalNote: "Top 30 in US — popular across Latin and European communities" },
+  "augustine": { muslimNames: ["mu'azzam", "jalil"], meaning: "Great, Magnificent", connection: "Augustine = venerable; Mu'azzam means revered, Jalil means majestic", category: "latin-male", trend: "rare" },
+  "diana_lt": { muslimNames: ["qamar", "noor"], meaning: "Divine, Heavenly", connection: "Diana = divine; Qamar means moon, Noor means light — celestial beauty", category: "latin-female", trend: "classic" },
+
+  // ===========================
+  // MORE HINDU NAMES (DEMOGRAPHICS TARGETING)
+  // ===========================
+  "aarav": { muslimNames: ["sami", "ali"], meaning: "Peaceful, Wisdom", connection: "Aarav = peaceful; Sami means elevated, Ali means exalted", popularIn: ["IN"], category: "hindu-male", trend: "rising", culturalNote: "#1 baby name in India since 2015 — massive demographic reach" },
+  "vivaan": { muslimNames: ["noor", "shams"], meaning: "Ray of Morning Sun", connection: "Vivaan = first rays of sun; Shams means sun, Noor means light", popularIn: ["IN"], category: "hindu-male", trend: "rising", culturalNote: "Top 5 in India — modern Hindu naming trend" },
+  "aanya": { muslimNames: ["ayah", "rahma"], meaning: "Grace, Mercy", connection: "Aanya = grace; Ayah means sign/verse, Rahma means mercy", popularIn: ["IN"], category: "hindu-female", trend: "rising" },
+  "saanvi": { muslimNames: ["layla", "fatima"], meaning: "Goddess Lakshmi", connection: "Saanvi = Lakshmi; Fatima means one who abstains — both signify feminine divinity", popularIn: ["IN"], category: "hindu-female", trend: "rising", culturalNote: "Top 3 girl name in India — huge conversion demographic" },
+  "vihaan": { muslimNames: ["fajr", "subh"], meaning: "Dawn, Morning", connection: "Vihaan = dawn; Fajr means dawn — the first daily prayer in Islam", popularIn: ["IN"], category: "hindu-male", trend: "rising" },
+  "aditi_hd": { muslimNames: ["hurra", "samawiya"], meaning: "Boundless, Infinity", connection: "Aditi = boundless mother; Samawiya means heavenly", popularIn: ["IN"], category: "hindu-female", trend: "classic" },
+  "reyansh": { muslimNames: ["shams", "noor"], meaning: "Ray of Light", connection: "Reyansh = first ray of sun; Noor means divine light", popularIn: ["IN"], category: "hindu-male", trend: "rising" },
+  "anaya_hd": { muslimNames: ["inaya", "hadiya"], meaning: "Care, Compassion", connection: "Anaya = caring; Inaya means care/concern — phonetically almost identical", popularIn: ["IN"], category: "hindu-female", trend: "rising", culturalNote: "Cross-cultural name — Inaya is already used by Muslims" },
+
+  // ===========================
+  // MORE CHINESE NAMES (EXPANDED)
+  // ===========================
+  "yuchen": { muslimNames: ["qamar", "noor"], meaning: "Jade Morning", connection: "Yuchen = jade dawn; Qamar means moon, Noor means light — precious luminance", originalScript: "宇辰", popularIn: ["CN"], category: "chinese-male", trend: "rising" },
+  "zihan": { muslimNames: ["hakim", "fatin"], meaning: "Purple Culvert/Intelligent", connection: "Zihan = wisdom reservoir; Hakim means wise, Fatin means clever", originalScript: "子涵", popularIn: ["CN"], category: "chinese-female", trend: "rising", culturalNote: "Top 3 name in China for girls since 2020" },
+  "haoyu": { muslimNames: ["sama", "fadl"], meaning: "Vast Universe", connection: "Haoyu = vast rain/universe; Sama means sky — expansiveness of creation", originalScript: "浩宇", popularIn: ["CN"], category: "chinese-male", trend: "rising", culturalNote: "Most popular Chinese boys name since 2018" },
+  "yinuo": { muslimNames: ["wa'da", "amana"], meaning: "One Promise", connection: "Yinuo = one promise; Amana means trust/promise — keeping promises is Islamic duty", originalScript: "一诺", popularIn: ["CN"], category: "chinese-female", trend: "rising" },
+  "muchen": { muslimNames: ["fajr", "sabah"], meaning: "Admire the Morning", connection: "Muchen = admire dawn; Fajr means dawn, Sabah means morning", originalScript: "沐辰", popularIn: ["CN"], category: "chinese-male", trend: "rising" },
+
+  // ===========================
+  // MORE JAPANESE NAMES (EXPANDED)
+  // ===========================
+  "haruto": { muslimNames: ["noor", "shams"], meaning: "Sun, Light, Fly", connection: "Haruto = sunlight flying; Noor means light, Shams means sun", originalScript: "陽翔", popularIn: ["JP"], category: "japanese-male", trend: "rising", culturalNote: "#1 Japanese boys name since 2020" },
+  "mei_jp": { muslimNames: ["jamila", "zahra"], meaning: "Beautiful", connection: "Mei = beauty; Jamila means beautiful, Zahra means radiant flower", originalScript: "芽依", popularIn: ["JP"], category: "japanese-female", trend: "rising" },
+  "sota": { muslimNames: ["rashid", "hadi"], meaning: "Sudden, Brave Sound", connection: "Sota = brave/quick; Rashid means rightly guided, Hadi means guide", originalScript: "颯太", popularIn: ["JP"], category: "japanese-male", trend: "rising" },
+  "himari": { muslimNames: ["shams", "noor"], meaning: "Sunflower, Light", connection: "Himari = sunflower/daylight; Shams means sun, Noor means light", originalScript: "陽葵", popularIn: ["JP"], category: "japanese-female", trend: "rising", culturalNote: "#1 Japanese girls name in recent years" },
+  "ren_jp": { muslimNames: ["hubb", "mawadda"], meaning: "Lotus, Love", connection: "Ren = lotus/love; Hubb means love, Mawadda means affection", originalScript: "蓮", popularIn: ["JP"], category: "japanese-male", trend: "rising" },
+
+  // ===========================
+  // MORE KOREAN NAMES (EXPANDED)
+  // ===========================
+  "seoyu": { muslimNames: ["jamila", "husna"], meaning: "Beautiful", connection: "Seoyu = beautiful; Jamila means beautiful, Husna means goodness", originalScript: "서유", popularIn: ["KR"], category: "korean-female", trend: "rising" },
+  "hajun": { muslimNames: ["faris", "amir"], meaning: "Great, Distinguished", connection: "Hajun = summer/distinguished; Amir means prince — leadership quality", originalScript: "하준", popularIn: ["KR"], category: "korean-male", trend: "rising", culturalNote: "Top 3 Korean boys name since 2020" },
+  "chaeun": { muslimNames: ["ni'ma", "rahma"], meaning: "Colorful Grace", connection: "Chaeun = beautiful grace; Ni'ma means blessing, Rahma means mercy", originalScript: "채은", popularIn: ["KR"], category: "korean-female", trend: "rising" },
+  "doyun": { muslimNames: ["hakim", "rashid"], meaning: "Path of Harmony", connection: "Doyun = ethical harmony; Hakim means wise, Rashid means guided", originalScript: "도윤", popularIn: ["KR"], category: "korean-male", trend: "rising" },
+
+  // ===========================
+  // MORE ABORIGINAL NAMES (EXPANDED)
+  // ===========================
+  "mirri": { muslimNames: ["kawkab", "thurayya"], meaning: "Stars", connection: "Mirri = stars; Kawkab means star, Thurayya means the Pleiades", popularIn: ["AU"], category: "aboriginal-male", trend: "rare", culturalNote: "From the Kamilaroi language of New South Wales" },
+  "kirra": { muslimNames: ["noor", "zahra"], meaning: "Leaf, To Live", connection: "Kirra = to live/leaf; Noor means light of life, Zahra means blooming", popularIn: ["AU"], category: "aboriginal-female", trend: "rising", culturalNote: "Increasingly popular in mainstream Australian naming" },
+  "bindi": { muslimNames: ["farasha", "tair"], meaning: "Butterfly", connection: "Bindi = butterfly; Farasha means butterfly in Arabic", popularIn: ["AU"], category: "aboriginal-female", trend: "rising", culturalNote: "Made famous by Bindi Irwin — now mainstream" },
+  "marlu": { muslimNames: ["ghazal", "tair"], meaning: "Kangaroo", connection: "Marlu = kangaroo; symbolizes leaping forward — Tair means bird/flyer", popularIn: ["AU"], category: "aboriginal-male", trend: "rare" },
+
+  // ===========================
+  // MORE NATIVE AMERICAN NAMES (EXPANDED)
+  // ===========================
+  "aiyana": { muslimNames: ["zahra", "hayat"], meaning: "Eternal Blossom", connection: "Aiyana = eternal blossom; Zahra means flower, Hayat means life — eternal beauty", popularIn: ["US"], category: "nativeamerican-female", trend: "rising", culturalNote: "Crossing into mainstream US naming — beautiful meaning" },
+  "chayton": { muslimNames: ["shaheen", "tair"], meaning: "Falcon", connection: "Chayton = falcon (Sioux); Shaheen means falcon in Arabic/Persian", popularIn: ["US"], category: "nativeamerican-male", trend: "rare" },
+  "kaya_na": { muslimNames: ["fatima", "ruqayya"], meaning: "Elder Sister (Hopi)", connection: "Kaya = wise elder; Fatima was the wisest daughter of the Prophet ﷺ", popularIn: ["US"], category: "nativeamerican-female", trend: "rising" },
+  "takoda": { muslimNames: ["khalil", "sadiq"], meaning: "Friend to Everyone (Sioux)", connection: "Takoda = friend to all; Khalil means close friend — Khalil Allah", popularIn: ["US"], category: "nativeamerican-male", trend: "rare" },
+
+  // ===========================
+  // MORE MĀORI NAMES (EXPANDED)
+  // ===========================
+  "ariki": { muslimNames: ["sayyid", "sultan"], meaning: "Chief, Leader", connection: "Ariki = paramount chief; Sayyid means master/chief", popularIn: ["NZ"], category: "maori-male", trend: "rare" },
+  "wairua": { muslimNames: ["ruh", "nafs"], meaning: "Spirit, Soul", connection: "Wairua = spirit; Ruh means spirit — the Quran speaks of Ruh as God's breath", popularIn: ["NZ"], category: "maori-female", trend: "rare" },
+  "manaia": { muslimNames: ["malak", "jibril"], meaning: "Guardian Spirit", connection: "Manaia = spiritual guardian; Malak means angel — divine protectors", popularIn: ["NZ"], category: "maori-male", trend: "rising", culturalNote: "Rising in mainstream NZ naming" },
+  "ataahua": { muslimNames: ["jamila", "husna"], meaning: "Beautiful", connection: "Ataahua = beautiful; Jamila means beautiful, Husna means beauty", popularIn: ["NZ"], category: "maori-female", trend: "rare" },
+
+  // ===========================
+  // MORE AFRICAN-AMERICAN TRENDING NAMES
+  // ===========================
+  "jayden": { muslimNames: ["zayd", "jaydan"], meaning: "Thankful, God Has Heard", connection: "Jayden = thankful; Zayd means growth/abundance — a beloved companion's name", category: "western-male", trend: "rising", culturalNote: "Top 10 in African-American communities — high convert demographic" },
+  "aaliyah": { muslimNames: ["aliyah", "aaliya"], meaning: "Exalted, Sublime", connection: "Aaliyah/Aliyah — already an Arabic name meaning high/exalted", category: "western-female", trend: "rising", altMeanings: ["High", "Sublime", "Lofty"], culturalNote: "Already Islamic — cross-cultural name popular in US since singer Aaliyah" },
+  "malachi": { muslimNames: ["malak", "mikail"], meaning: "My Messenger", connection: "Malachi = my angel/messenger; Malak means angel in Arabic", hebrewOrigin: "מַלְאָכִי (Malakhi)", category: "biblical-male", trend: "rising", culturalNote: "Rising fast in African-American communities" },
+  "xavier": { muslimNames: ["noor", "bahir"], meaning: "New House, Bright", connection: "Xavier = bright/new; Bahir means brilliant, Noor means light", category: "western-male", trend: "rising", culturalNote: "Popular in African-American and Hispanic communities" },
+  "imani_wf": { muslimNames: ["iman"], meaning: "Faith", connection: "Imani = faith (Swahili); Iman means faith — identical meaning in Arabic", category: "western-female", trend: "classic", culturalNote: "Already from Arabic root — used widely in African-American naming" },
+  "khalil_wm": { muslimNames: ["khalil"], meaning: "Friend", connection: "Khalil = friend in Arabic; already an Islamic name meaning close friend of God", category: "western-male", trend: "rising", culturalNote: "Used in African-American communities — already Arabic origin" },
+
+  // ===========================
+  // MORE ZULU NAMES (EXPANDED)
+  // ===========================
+  "nkosazana": { muslimNames: ["malika", "amira"], meaning: "Princess", connection: "Nkosazana = princess; Malika means queen, Amira means princess", popularIn: ["ZA"], category: "zulu-female", trend: "rare" },
+  "bongani": { muslimNames: ["shakir", "hamid"], meaning: "Be Thankful", connection: "Bongani = give thanks; Shakir means grateful — gratitude is central in Islam", popularIn: ["ZA"], category: "zulu-male", trend: "classic" },
+  "nomzamo": { muslimNames: ["sabira", "mujahida"], meaning: "One Who Endures Trials", connection: "Nomzamo = she who endures; Sabira means patient — Sabr is a key Islamic virtue", popularIn: ["ZA"], category: "zulu-female", trend: "rare", culturalNote: "Nelson Mandela's first wife's name — symbolizes resilience" },
+  "siyabonga": { muslimNames: ["shukr", "hamid"], meaning: "We Thank (God)", connection: "Siyabonga = we give thanks; Shukr means gratitude — giving thanks to God", popularIn: ["ZA"], category: "zulu-male", trend: "classic" },
+
+  // ===========================
+  // MORE INUIT NAMES (EXPANDED)
+  // ===========================
+  "nanuq_in": { muslimNames: ["qawi", "jabbar"], meaning: "Polar Bear", connection: "Nanuq = polar bear; Qawi means powerful, Jabbar means mighty", popularIn: ["CA", "GL"], category: "inuit-male", trend: "rare" },
+  "siku_in": { muslimNames: ["thalj", "barid"], meaning: "Ice", connection: "Siku = ice; Thalj means snow — purity and resilience", popularIn: ["CA", "GL"], category: "inuit-female", trend: "rare" },
+  "tulugaq": { muslimNames: ["ghurab", "aswad"], meaning: "Raven", connection: "Tulugaq = raven; ravens are mentioned in Islamic tradition (Cain and Abel story)", popularIn: ["CA"], category: "inuit-male", trend: "rare" },
+  "nuviya": { muslimNames: ["sabah", "fajr"], meaning: "Baby Caribou", connection: "Nuviya = young caribou; Sabah means morning — new beginnings", popularIn: ["CA"], category: "inuit-female", trend: "rare" },
 };
