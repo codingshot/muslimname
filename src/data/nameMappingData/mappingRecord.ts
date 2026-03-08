@@ -2412,7 +2412,7 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "tupou": { muslimNames: ["mu'azzam", "jalil"], meaning: "Sacred, Majestic", connection: "Tupou = royal name; Mu'azzam means majestic, Jalil means great", popularIn: ["TO"], category: "tongan-male" },
   "ofa": { muslimNames: ["hubb", "mawadda"], meaning: "Love", connection: "Ofa = love; Hubb means love, Mawadda means affection — central Quranic concept", popularIn: ["TO"], category: "tongan-female" },
-  "sione": { muslimNames: ["yahya"], meaning: "God is Gracious", connection: "Sione = Tongan John; Yahya is Prophet John", popularIn: ["TO"], category: "tongan-male" },
+  "sione_to": { muslimNames: ["yahya"], meaning: "God is Gracious", connection: "Sione = Tongan John; Yahya is Prophet John", popularIn: ["TO"], category: "tongan-male" },
   "mele_to": { muslimNames: ["maryam"], meaning: "Beloved", connection: "Mele = Tongan Mary; Maryam is the most honored woman in the Quran", popularIn: ["TO"], category: "tongan-female" },
   "tevita_to": { muslimNames: ["dawud"], meaning: "Beloved", connection: "Tevita = Tongan David; Dawud is Prophet David in the Quran", popularIn: ["TO"], category: "tongan-male" },
   "ana_to": { muslimNames: ["hanna", "karima"], meaning: "Grace", connection: "Ana = Tongan Anna; Hanna means grace — mother of Maryam in tradition", popularIn: ["TO"], category: "tongan-female" },
