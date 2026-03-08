@@ -216,6 +216,7 @@ export default function WesternNamesPage() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [trendFilter, setTrendFilter] = useState<string>("all");
   const { profile } = useProfile();
   const showSources = profile.settings.showMappingSources ?? false;
 
@@ -233,6 +234,7 @@ export default function WesternNamesPage() {
     return allMappings.filter(m => {
       const cat = m.category ?? "";
       if (categoryFilter !== "all" && cat !== categoryFilter) return false;
+      if (trendFilter !== "all" && (m.trend ?? "") !== trendFilter) return false;
       if (!search.trim()) return true;
       const q = search.toLowerCase();
       return (
@@ -243,7 +245,7 @@ export default function WesternNamesPage() {
         (m.originalScript && m.originalScript.includes(search.trim()))
       );
     });
-  }, [allMappings, search, categoryFilter]);
+  }, [allMappings, search, categoryFilter, trendFilter]);
 
   const stats = useMemo(() => {
     const cat = (m: (typeof allMappings)[0]) => m.category ?? "";
