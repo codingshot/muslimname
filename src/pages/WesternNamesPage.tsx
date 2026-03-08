@@ -216,6 +216,7 @@ export default function WesternNamesPage() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [trendFilter, setTrendFilter] = useState<string>("all");
   const { profile } = useProfile();
   const showSources = profile.settings.showMappingSources ?? false;
 
@@ -233,6 +234,7 @@ export default function WesternNamesPage() {
     return allMappings.filter(m => {
       const cat = m.category ?? "";
       if (categoryFilter !== "all" && cat !== categoryFilter) return false;
+      if (trendFilter !== "all" && (m.trend ?? "") !== trendFilter) return false;
       if (!search.trim()) return true;
       const q = search.toLowerCase();
       return (
@@ -243,7 +245,7 @@ export default function WesternNamesPage() {
         (m.originalScript && m.originalScript.includes(search.trim()))
       );
     });
-  }, [allMappings, search, categoryFilter]);
+  }, [allMappings, search, categoryFilter, trendFilter]);
 
   const stats = useMemo(() => {
     const cat = (m: (typeof allMappings)[0]) => m.category ?? "";
@@ -350,6 +352,27 @@ export default function WesternNamesPage() {
                 }`}
               >
                 {c.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-1.5 flex-wrap justify-center">
+            {([
+              { key: "all", label: "All Trends", icon: null },
+              { key: "rising", label: "🔥 Trending", icon: null },
+              { key: "classic", label: "⭐ Classic", icon: null },
+              { key: "declining", label: "📉 Traditional", icon: null },
+              { key: "rare", label: "💎 Rare", icon: null },
+            ] as const).map(t => (
+              <button
+                key={t.key}
+                onClick={() => setTrendFilter(t.key)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  trendFilter === t.key
+                    ? "bg-accent text-accent-foreground"
+                    : "bg-muted/50 text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {t.label}
               </button>
             ))}
           </div>
@@ -492,7 +515,7 @@ export default function WesternNamesPage() {
             <div className="flex gap-3 justify-center flex-wrap">
               <button
                 type="button"
-                onClick={() => { setSearch(""); setCategoryFilter("all"); }}
+                onClick={() => { setSearch(""); setCategoryFilter("all"); setTrendFilter("all"); }}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-muted/50 transition-colors"
               >
                 Clear search
