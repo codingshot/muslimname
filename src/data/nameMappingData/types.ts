@@ -87,4 +87,17 @@ export type NameMappingCategory =
   | "somali-male" | "somali-female"
   | "amhara-male" | "amhara-female"
   | "akan-male" | "akan-female"
-  | "shona-male" | "shona-female";
+  | "shona-male" | "shona-female"
+  | "fijian-male" | "fijian-female"
+  | "samoan-male" | "samoan-female"
+  | "tongan-male" | "tongan-female"
+  | "guarani-male" | "guarani-female"
+  | "quechua-male" | "quechua-female"
+  | "cherokee-male" | "cherokee-female"
+  | "cree-male" | "cree-female"
+  | "tswana-male" | "tswana-female"
+  | "wolof-male" | "wolof-female"
+  | "mandinka-male" | "mandinka-female"
+  | "fulani-male" | "fulani-female"
+  | "marathi-male" | "marathi-female"
+  | "gujarati-male" | "gujarati-female";
