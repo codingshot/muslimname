@@ -3059,12 +3059,11 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "ana_tn": { muslimNames: ["hana", "anisa"], meaning: "Grace", connection: "Ana = Tongan Anna; Hana means grace/happiness", popularIn: ["TO"], category: "tongan-female", trend: "classic" },
 
   // ===========================
-  // WOLOF NAMES
+  // WOLOF NAMES (additional)
   // ===========================
   "ousmane_wl": { muslimNames: ["uthman"], meaning: "Baby Bustard", connection: "Ousmane = Wolof form of Uthman — third Rightly Guided Caliph", popularIn: ["SN", "GM"], category: "wolof-male", trend: "classic", culturalNote: "Ousmane Sembène — father of African cinema" },
   "cheikh_wl": { muslimNames: ["sheikh"], meaning: "Elder, Leader", connection: "Cheikh = Sheikh — spiritual leader, already Islamic", popularIn: ["SN"], category: "wolof-male", trend: "classic" },
   "aissatou_wl": { muslimNames: ["aisha"], meaning: "Living", connection: "Aissatou = Wolof form of Aisha — wife of the Prophet ﷺ", popularIn: ["SN", "GN"], category: "wolof-female", trend: "classic" },
-  "fatou_wl": { muslimNames: ["fatima"], meaning: "Weaned", connection: "Fatou = Wolof form of Fatima — daughter of Prophet Muhammad ﷺ", popularIn: ["SN", "GM"], category: "wolof-female", trend: "classic" },
 
   // ===========================
   // MANDINKA NAMES
