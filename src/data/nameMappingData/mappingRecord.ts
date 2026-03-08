@@ -3030,14 +3030,10 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "meritxell_ct": { muslimNames: ["zahra", "warda"], meaning: "Lady of Meritxell", connection: "Meritxell = patroness; Zahra means flower — blossoming devotion", popularIn: ["AD", "ES"], category: "catalan-female", trend: "classic" },
 
   // ===========================
-  // ICELANDIC NAMES
+  // ICELANDIC NAMES (additional)
   // ===========================
-  "ragnar_ic": { muslimNames: ["muqatil", "mujahid"], meaning: "Warrior", connection: "Ragnar = army counsel; Muqatil means warrior", popularIn: ["IS"], category: "icelandic-male", trend: "classic", culturalNote: "Ragnar Lothbrok — legendary Norse hero" },
   "sigurdur_ic": { muslimNames: ["mansur", "nasir"], meaning: "Victory Guardian", connection: "Sigurdur = victory protector; Mansur means victorious", popularIn: ["IS"], category: "icelandic-male", trend: "classic" },
   "bjarni_ic": { muslimNames: ["dubb", "asad"], meaning: "Bear", connection: "Bjarni = bear; both represent strength and courage", popularIn: ["IS"], category: "icelandic-male", trend: "classic" },
-  "gudrun_ic": { muslimNames: ["hikma", "asrar"], meaning: "God's Secret Wisdom", connection: "Gudrun = divine secret; Hikma means wisdom", popularIn: ["IS"], category: "icelandic-female", trend: "classic" },
-  "freya_ic": { muslimNames: ["sayyida", "malika"], meaning: "Noble Lady", connection: "Freya = noblewoman; Sayyida means lady/mistress", popularIn: ["IS", "SE"], category: "icelandic-female", trend: "rising", culturalNote: "Rising rapidly outside Scandinavia — top 20 in UK" },
-  "sigrid_ic": { muslimNames: ["jamila", "nasira"], meaning: "Beautiful Victory", connection: "Sigrid = beautiful victory; Jamila means beautiful, Nasira means helper", popularIn: ["IS", "SE"], category: "icelandic-female", trend: "classic" },
 
   // ===========================
   // ESTONIAN NAMES
