@@ -112,6 +112,34 @@ const categories = [
   { key: "maltese-female", label: "Maltese Female" },
   { key: "tibetan-male", label: "Tibetan Male" },
   { key: "tibetan-female", label: "Tibetan Female" },
+  { key: "igbo-male", label: "Igbo Male" },
+  { key: "igbo-female", label: "Igbo Female" },
+  { key: "sinhala-male", label: "Sinhala Male" },
+  { key: "sinhala-female", label: "Sinhala Female" },
+  { key: "khmer-male", label: "Khmer Male" },
+  { key: "khmer-female", label: "Khmer Female" },
+  { key: "lao-male", label: "Lao Male" },
+  { key: "lao-female", label: "Lao Female" },
+  { key: "polynesian-male", label: "Polynesian Male" },
+  { key: "polynesian-female", label: "Polynesian Female" },
+  { key: "kazakh-male", label: "Kazakh Male" },
+  { key: "kazakh-female", label: "Kazakh Female" },
+  { key: "uzbek-male", label: "Uzbek Male" },
+  { key: "uzbek-female", label: "Uzbek Female" },
+  { key: "kurdish-male", label: "Kurdish Male" },
+  { key: "kurdish-female", label: "Kurdish Female" },
+  { key: "amazigh-male", label: "Amazigh Male" },
+  { key: "amazigh-female", label: "Amazigh Female" },
+  { key: "uyghur-male", label: "Uyghur Male" },
+  { key: "uyghur-female", label: "Uyghur Female" },
+  { key: "finnish-male", label: "Finnish Male" },
+  { key: "finnish-female", label: "Finnish Female" },
+  { key: "slovenian-male", label: "Slovenian Male" },
+  { key: "slovenian-female", label: "Slovenian Female" },
+  { key: "persian-male", label: "Persian Male" },
+  { key: "persian-female", label: "Persian Female" },
+  { key: "turkish-male", label: "Turkish Male" },
+  { key: "turkish-female", label: "Turkish Female" },
   { key: "hebrew", label: "Hebrew" },
   { key: "virtue", label: "Virtue" },
 ] as const;
@@ -183,7 +211,7 @@ export default function WesternNamesPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Western to Muslim Name Reference — {stats.total}+ Names Mapped | MuslimName.me</title>
+        <title>{`Western to Muslim Name Reference — ${stats.total}+ Names Mapped | MuslimName.me`}</title>
         <meta name="description" content={`Find Islamic equivalents for ${stats.total}+ Western, Christian, Hindu, Chinese, Japanese & more names. Search by name or meaning. Biblical, Latin, Spanish, Arabic name mappings.`} />
         <link rel="canonical" href="https://muslimname.me/western-names" />
         <meta name="keywords" content="Western name to Muslim, Christian name Islamic equivalent, name conversion Islam, David Muslim name, Sarah Islamic name, convert name Muslim" />
