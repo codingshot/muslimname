@@ -2891,22 +2891,8 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "adaeze_ig2": { muslimNames: ["malika", "sayyida"], meaning: "First Daughter of the King", connection: "Adaeze = princess; Malika means queen, Sayyida means lady", popularIn: ["NG"], category: "igbo-female", trend: "classic" },
   "chioma_ig": { muslimNames: ["qadr", "ni'mah"], meaning: "Good God", connection: "Chioma = good fortune; Qadr means divine decree — God's goodness", popularIn: ["NG"], category: "igbo-female", trend: "rising" },
 
-  // ===========================
-  // ZULU NAMES
-  // ===========================
-  "sipho_zu": { muslimNames: ["atiya", "hadiya"], meaning: "Gift", connection: "Sipho = gift; Atiya means gift — every child is a gift from God", popularIn: ["ZA"], category: "zulu-male", trend: "classic" },
-  "thabo_zu": { muslimNames: ["sa'id", "farhan"], meaning: "Happiness, Joy", connection: "Thabo = joy; Sa'id means happy, Farhan means joyful", popularIn: ["ZA", "LS"], category: "zulu-male", trend: "classic", culturalNote: "Thabo Mbeki — former South African president" },
-  "nomusa_zu": { muslimNames: ["rahma", "ra'ufa"], meaning: "Mercy, Compassion", connection: "Nomusa = mercy; Rahma means divine mercy — Ar-Rahman is God's name", popularIn: ["ZA"], category: "zulu-female", trend: "classic" },
-  "lindiwe_zu": { muslimNames: ["muntazira", "rajiya"], meaning: "We Have Waited", connection: "Lindiwe = awaited one; Muntazira means one who awaits — patience", popularIn: ["ZA"], category: "zulu-female", trend: "classic" },
-  "siyabonga_zu2": { muslimNames: ["shakir", "hamid"], meaning: "We Thank God", connection: "Siyabonga = we thank; Shakir means grateful — shukr is central", popularIn: ["ZA"], category: "zulu-male", trend: "rising" },
 
-  // ===========================
-  // SOMALI NAMES
-  // ===========================
-  "hodan_so": { muslimNames: ["ni'mah", "baraka"], meaning: "Wealth, Abundance", connection: "Hodan = prosperity; Ni'mah means bounty — God's blessings", popularIn: ["SO", "DJ"], category: "somali-female", trend: "classic" },
-  "abdirahman_so": { muslimNames: ["abdurrahman"], meaning: "Servant of the Merciful", connection: "Abdirahman = Abdurrahman — already an Islamic name", popularIn: ["SO"], category: "somali-male", trend: "classic" },
-  "sahra_so": { muslimNames: ["sarah", "sahira"], meaning: "Dawn, Desert", connection: "Sahra = dawn; already used in Muslim communities", popularIn: ["SO"], category: "somali-female", trend: "classic" },
-  "cabdi_so": { muslimNames: ["abdi", "abdullah"], meaning: "Servant of God", connection: "Cabdi = Abdi — servant of God, already Islamic", popularIn: ["SO"], category: "somali-male", trend: "classic" },
+
 
   // ===========================
   // HAUSA NAMES
