@@ -27,4 +27,16 @@ export type NameMappingCategory =
   | "polish-male" | "polish-female"
   | "greek-male" | "greek-female"
   | "dutch-male" | "dutch-female"
-  | "hungarian-male" | "hungarian-female";
+  | "hungarian-male" | "hungarian-female"
+  | "romanian-male" | "romanian-female"
+  | "czech-male" | "czech-female"
+  | "croatian-male" | "croatian-female"
+  | "baltic-male" | "baltic-female"
+  | "georgian-male" | "georgian-female"
+  | "armenian-male" | "armenian-female"
+  | "ethiopian-male" | "ethiopian-female"
+  | "tamil-male" | "tamil-female"
+  | "bengali-male" | "bengali-female"
+  | "burmese-male" | "burmese-female"
+  | "swahili-male" | "swahili-female"
+  | "celtic-male" | "celtic-female";
