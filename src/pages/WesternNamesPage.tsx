@@ -6,7 +6,7 @@ import { useProfile } from "@/hooks/useProfile";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, BookOpen, ArrowRight, Sparkles, Shuffle } from "lucide-react";
+import { Search, BookOpen, ArrowRight, Sparkles, Shuffle, TrendingUp, TrendingDown, Star, Gem } from "lucide-react";
 import { MuslimNameHoverCard } from "@/components/MuslimNameHoverCard";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -48,6 +48,166 @@ const categories = [
   { key: "thai-unisex", label: "Thai Unisex" },
   { key: "tribal-male", label: "Tribal Male" },
   { key: "tribal-female", label: "Tribal Female" },
+  { key: "filipino-male", label: "Filipino Male" },
+  { key: "filipino-female", label: "Filipino Female" },
+  { key: "african-male", label: "African Male" },
+  { key: "african-female", label: "African Female" },
+  { key: "scandinavian-male", label: "Scandinavian Male" },
+  { key: "scandinavian-female", label: "Scandinavian Female" },
+  { key: "polish-male", label: "Polish Male" },
+  { key: "polish-female", label: "Polish Female" },
+  { key: "greek-male", label: "Greek Male" },
+  { key: "greek-female", label: "Greek Female" },
+  { key: "dutch-male", label: "Dutch Male" },
+  { key: "dutch-female", label: "Dutch Female" },
+  { key: "hungarian-male", label: "Hungarian Male" },
+  { key: "hungarian-female", label: "Hungarian Female" },
+  { key: "romanian-male", label: "Romanian Male" },
+  { key: "romanian-female", label: "Romanian Female" },
+  { key: "czech-male", label: "Czech Male" },
+  { key: "czech-female", label: "Czech Female" },
+  { key: "croatian-male", label: "Croatian Male" },
+  { key: "croatian-female", label: "Croatian Female" },
+  { key: "baltic-male", label: "Baltic Male" },
+  { key: "baltic-female", label: "Baltic Female" },
+  { key: "georgian-male", label: "Georgian Male" },
+  { key: "georgian-female", label: "Georgian Female" },
+  { key: "armenian-male", label: "Armenian Male" },
+  { key: "armenian-female", label: "Armenian Female" },
+  { key: "ethiopian-male", label: "Ethiopian Male" },
+  { key: "ethiopian-female", label: "Ethiopian Female" },
+  { key: "tamil-male", label: "Tamil Male" },
+  { key: "tamil-female", label: "Tamil Female" },
+  { key: "bengali-male", label: "Bengali Male" },
+  { key: "bengali-female", label: "Bengali Female" },
+  { key: "burmese-male", label: "Burmese Male" },
+  { key: "burmese-female", label: "Burmese Female" },
+  { key: "swahili-male", label: "Swahili Male" },
+  { key: "swahili-female", label: "Swahili Female" },
+  { key: "celtic-male", label: "Celtic Male" },
+  { key: "celtic-female", label: "Celtic Female" },
+  { key: "ukrainian-male", label: "Ukrainian Male" },
+  { key: "ukrainian-female", label: "Ukrainian Female" },
+  { key: "serbian-male", label: "Serbian Male" },
+  { key: "serbian-female", label: "Serbian Female" },
+  { key: "slovak-male", label: "Slovak Male" },
+  { key: "slovak-female", label: "Slovak Female" },
+  { key: "albanian-male", label: "Albanian Male" },
+  { key: "albanian-female", label: "Albanian Female" },
+  { key: "mongolian-male", label: "Mongolian Male" },
+  { key: "mongolian-female", label: "Mongolian Female" },
+  { key: "nepali-male", label: "Nepali Male" },
+  { key: "nepali-female", label: "Nepali Female" },
+  { key: "hausa-male", label: "Hausa Male" },
+  { key: "hausa-female", label: "Hausa Female" },
+  { key: "yoruba-male", label: "Yoruba Male" },
+  { key: "yoruba-female", label: "Yoruba Female" },
+  { key: "pashto-male", label: "Pashto Male" },
+  { key: "pashto-female", label: "Pashto Female" },
+  { key: "sindhi-male", label: "Sindhi Male" },
+  { key: "sindhi-female", label: "Sindhi Female" },
+  { key: "malagasy-male", label: "Malagasy Male" },
+  { key: "malagasy-female", label: "Malagasy Female" },
+  { key: "maltese-male", label: "Maltese Male" },
+  { key: "maltese-female", label: "Maltese Female" },
+  { key: "tibetan-male", label: "Tibetan Male" },
+  { key: "tibetan-female", label: "Tibetan Female" },
+  { key: "igbo-male", label: "Igbo Male" },
+  { key: "igbo-female", label: "Igbo Female" },
+  { key: "sinhala-male", label: "Sinhala Male" },
+  { key: "sinhala-female", label: "Sinhala Female" },
+  { key: "khmer-male", label: "Khmer Male" },
+  { key: "khmer-female", label: "Khmer Female" },
+  { key: "lao-male", label: "Lao Male" },
+  { key: "lao-female", label: "Lao Female" },
+  { key: "polynesian-male", label: "Polynesian Male" },
+  { key: "polynesian-female", label: "Polynesian Female" },
+  { key: "kazakh-male", label: "Kazakh Male" },
+  { key: "kazakh-female", label: "Kazakh Female" },
+  { key: "uzbek-male", label: "Uzbek Male" },
+  { key: "uzbek-female", label: "Uzbek Female" },
+  { key: "kurdish-male", label: "Kurdish Male" },
+  { key: "kurdish-female", label: "Kurdish Female" },
+  { key: "amazigh-male", label: "Amazigh Male" },
+  { key: "amazigh-female", label: "Amazigh Female" },
+  { key: "uyghur-male", label: "Uyghur Male" },
+  { key: "uyghur-female", label: "Uyghur Female" },
+  { key: "finnish-male", label: "Finnish Male" },
+  { key: "finnish-female", label: "Finnish Female" },
+  { key: "slovenian-male", label: "Slovenian Male" },
+  { key: "slovenian-female", label: "Slovenian Female" },
+  { key: "persian-male", label: "Persian Male" },
+  { key: "persian-female", label: "Persian Female" },
+  { key: "turkish-male", label: "Turkish Male" },
+  { key: "turkish-female", label: "Turkish Female" },
+  { key: "aboriginal-male", label: "Aboriginal Male" },
+  { key: "aboriginal-female", label: "Aboriginal Female" },
+  { key: "nativeamerican-male", label: "Native American Male" },
+  { key: "nativeamerican-female", label: "Native American Female" },
+  { key: "maori-male", label: "Māori Male" },
+  { key: "maori-female", label: "Māori Female" },
+  { key: "inuit-male", label: "Inuit Male" },
+  { key: "inuit-female", label: "Inuit Female" },
+  { key: "hmong-male", label: "Hmong Male" },
+  { key: "hmong-female", label: "Hmong Female" },
+  { key: "malay-male", label: "Malay Male" },
+  { key: "malay-female", label: "Malay Female" },
+  { key: "punjabi-male", label: "Punjabi Male" },
+  { key: "punjabi-female", label: "Punjabi Female" },
+  { key: "telugu-male", label: "Telugu Male" },
+  { key: "telugu-female", label: "Telugu Female" },
+  { key: "kannada-male", label: "Kannada Male" },
+  { key: "kannada-female", label: "Kannada Female" },
+  { key: "malayalam-male", label: "Malayalam Male" },
+  { key: "malayalam-female", label: "Malayalam Female" },
+  { key: "assamese-male", label: "Assamese Male" },
+  { key: "assamese-female", label: "Assamese Female" },
+  { key: "odia-male", label: "Odia Male" },
+  { key: "odia-female", label: "Odia Female" },
+  { key: "basque-male", label: "Basque Male" },
+  { key: "basque-female", label: "Basque Female" },
+  { key: "catalan-male", label: "Catalan Male" },
+  { key: "catalan-female", label: "Catalan Female" },
+  { key: "icelandic-male", label: "Icelandic Male" },
+  { key: "icelandic-female", label: "Icelandic Female" },
+  { key: "estonian-male", label: "Estonian Male" },
+  { key: "estonian-female", label: "Estonian Female" },
+  { key: "zulu-male", label: "Zulu Male" },
+  { key: "zulu-female", label: "Zulu Female" },
+  { key: "somali-male", label: "Somali Male" },
+  { key: "somali-female", label: "Somali Female" },
+  { key: "amhara-male", label: "Amhara Male" },
+  { key: "amhara-female", label: "Amhara Female" },
+  { key: "akan-male", label: "Akan Male" },
+  { key: "akan-female", label: "Akan Female" },
+  { key: "shona-male", label: "Shona Male" },
+  { key: "shona-female", label: "Shona Female" },
+  { key: "fijian-male", label: "Fijian Male" },
+  { key: "fijian-female", label: "Fijian Female" },
+  { key: "samoan-male", label: "Samoan Male" },
+  { key: "samoan-female", label: "Samoan Female" },
+  { key: "tongan-male", label: "Tongan Male" },
+  { key: "tongan-female", label: "Tongan Female" },
+  { key: "guarani-male", label: "Guaraní Male" },
+  { key: "guarani-female", label: "Guaraní Female" },
+  { key: "quechua-male", label: "Quechua Male" },
+  { key: "quechua-female", label: "Quechua Female" },
+  { key: "cherokee-male", label: "Cherokee Male" },
+  { key: "cherokee-female", label: "Cherokee Female" },
+  { key: "cree-male", label: "Cree Male" },
+  { key: "cree-female", label: "Cree Female" },
+  { key: "tswana-male", label: "Tswana Male" },
+  { key: "tswana-female", label: "Tswana Female" },
+  { key: "wolof-male", label: "Wolof Male" },
+  { key: "wolof-female", label: "Wolof Female" },
+  { key: "mandinka-male", label: "Mandinka Male" },
+  { key: "mandinka-female", label: "Mandinka Female" },
+  { key: "fulani-male", label: "Fulani Male" },
+  { key: "fulani-female", label: "Fulani Female" },
+  { key: "marathi-male", label: "Marathi Male" },
+  { key: "marathi-female", label: "Marathi Female" },
+  { key: "gujarati-male", label: "Gujarati Male" },
+  { key: "gujarati-female", label: "Gujarati Female" },
   { key: "hebrew", label: "Hebrew" },
   { key: "virtue", label: "Virtue" },
 ] as const;
@@ -56,6 +216,7 @@ export default function WesternNamesPage() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [trendFilter, setTrendFilter] = useState<string>("all");
   const { profile } = useProfile();
   const showSources = profile.settings.showMappingSources ?? false;
 
@@ -73,6 +234,7 @@ export default function WesternNamesPage() {
     return allMappings.filter(m => {
       const cat = m.category ?? "";
       if (categoryFilter !== "all" && cat !== categoryFilter) return false;
+      if (trendFilter !== "all" && (m.trend ?? "") !== trendFilter) return false;
       if (!search.trim()) return true;
       const q = search.toLowerCase();
       return (
@@ -83,31 +245,23 @@ export default function WesternNamesPage() {
         (m.originalScript && m.originalScript.includes(search.trim()))
       );
     });
-  }, [allMappings, search, categoryFilter]);
+  }, [allMappings, search, categoryFilter, trendFilter]);
 
   const stats = useMemo(() => {
-    const cat = (m: (typeof allMappings)[0]) => m.category ?? "";
-    return {
-      total: allMappings.length,
-      biblical: allMappings.filter(m => cat(m).startsWith("biblical")).length,
-      western: allMappings.filter(m => cat(m).startsWith("western")).length,
-      latin: allMappings.filter(m => cat(m).startsWith("latin")).length,
-      hindu: allMappings.filter(m => cat(m).startsWith("hindu")).length,
-      chinese: allMappings.filter(m => cat(m).startsWith("chinese")).length,
-      portuguese: allMappings.filter(m => cat(m).startsWith("portuguese")).length,
-      russian: allMappings.filter(m => cat(m).startsWith("russian")).length,
-      japanese: allMappings.filter(m => cat(m).startsWith("japanese")).length,
-      korean: allMappings.filter(m => cat(m).startsWith("korean")).length,
-      french: allMappings.filter(m => cat(m).startsWith("french")).length,
-      german: allMappings.filter(m => cat(m).startsWith("german")).length,
-      italian: allMappings.filter(m => cat(m).startsWith("italian")).length,
-      spanish: allMappings.filter(m => cat(m).startsWith("spanish")).length,
-      indonesian: allMappings.filter(m => cat(m).startsWith("indonesian")).length,
-      vietnamese: allMappings.filter(m => cat(m).startsWith("vietnamese")).length,
-      thai: allMappings.filter(m => cat(m).startsWith("thai")).length,
-      tribal: allMappings.filter(m => cat(m).startsWith("tribal")).length,
-    };
+    const counts = new Map<string, number>();
+    for (const m of allMappings) {
+      const cat = m.category ?? "";
+      const group = cat.replace(/-(?:male|female|unisex)$/, "");
+      counts.set(group, (counts.get(group) ?? 0) + 1);
+    }
+    return { total: allMappings.length, groups: counts };
   }, [allMappings]);
+
+  const topGroups = useMemo(() => {
+    return [...stats.groups.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 20);
+  }, [stats.groups]);
 
   const handleRandomName = useCallback(() => {
     const pool = filteredMappings.length > 0 ? filteredMappings : allMappings;
@@ -119,7 +273,7 @@ export default function WesternNamesPage() {
   return (
     <Layout>
       <Helmet>
-        <title>Western to Muslim Name Reference — {stats.total}+ Names Mapped | MuslimName.me</title>
+        <title>{`Western to Muslim Name Reference — ${stats.total}+ Names Mapped | MuslimName.me`}</title>
         <meta name="description" content={`Find Islamic equivalents for ${stats.total}+ Western, Christian, Hindu, Chinese, Japanese & more names. Search by name or meaning. Biblical, Latin, Spanish, Arabic name mappings.`} />
         <link rel="canonical" href="https://muslimname.me/western-names" />
         <meta name="keywords" content="Western name to Muslim, Christian name Islamic equivalent, name conversion Islam, David Muslim name, Sarah Islamic name, convert name Muslim" />
@@ -147,23 +301,11 @@ export default function WesternNamesPage() {
             Explore {stats.total}+ names from Western, Latin, Hindu, Chinese, Portuguese, Tribal, and Hebrew traditions mapped to their Islamic equivalents
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-4 text-sm">
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.biblical}</strong> Biblical</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.western}</strong> Western</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.spanish}</strong> Spanish</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.portuguese}</strong> Portuguese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.russian}</strong> Russian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.french}</strong> French</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.german}</strong> German</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.italian}</strong> Italian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.chinese}</strong> Chinese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.japanese}</strong> Japanese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.korean}</strong> Korean</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.hindu}</strong> Hindu</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.latin}</strong> Latin</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.indonesian}</strong> Indonesian</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.vietnamese}</strong> Vietnamese</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.thai}</strong> Thai</span>
-            <span className="text-muted-foreground"><strong className="text-foreground">{stats.tribal}</strong> Tribal</span>
+            {topGroups.map(([group, count]) => (
+              <span key={group} className="text-muted-foreground">
+                <strong className="text-foreground">{count}</strong> {group.charAt(0).toUpperCase() + group.slice(1)}
+              </span>
+            ))}
           </div>
         </motion.div>
 
@@ -190,6 +332,27 @@ export default function WesternNamesPage() {
                 }`}
               >
                 {c.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-1.5 flex-wrap justify-center">
+            {([
+              { key: "all", label: "All Trends", icon: null },
+              { key: "rising", label: "🔥 Trending", icon: null },
+              { key: "classic", label: "⭐ Classic", icon: null },
+              { key: "declining", label: "📉 Traditional", icon: null },
+              { key: "rare", label: "💎 Rare", icon: null },
+            ] as const).map(t => (
+              <button
+                key={t.key}
+                onClick={() => setTrendFilter(t.key)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  trendFilter === t.key
+                    ? "bg-accent text-accent-foreground"
+                    : "bg-muted/50 text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {t.label}
               </button>
             ))}
           </div>
@@ -255,7 +418,37 @@ export default function WesternNamesPage() {
                   <span className="font-medium text-foreground">Meaning:</span> {m.meaning}
                 </p>
 
+                {/* Alt meanings */}
+                {m.altMeanings && m.altMeanings.length > 0 && (
+                  <p className="text-[10px] text-muted-foreground mb-1">
+                    <span className="font-medium text-foreground/70">Also:</span> {m.altMeanings.join(", ")}
+                  </p>
+                )}
+
                 <p className="text-xs text-muted-foreground line-clamp-2">{m.connection}</p>
+
+                {/* Trend badge */}
+                {m.trend && (
+                  <div className="mt-1.5">
+                    <span className={`inline-flex items-center gap-1 text-[10px] font-medium rounded-full px-2 py-0.5 ${
+                      m.trend === "rising" ? "bg-green-500/10 text-green-400" :
+                      m.trend === "classic" ? "bg-blue-500/10 text-blue-400" :
+                      m.trend === "declining" ? "bg-orange-500/10 text-orange-400" :
+                      "bg-purple-500/10 text-purple-400"
+                    }`}>
+                      {m.trend === "rising" && <TrendingUp className="w-2.5 h-2.5" />}
+                      {m.trend === "classic" && <Star className="w-2.5 h-2.5" />}
+                      {m.trend === "declining" && <TrendingDown className="w-2.5 h-2.5" />}
+                      {m.trend === "rare" && <Gem className="w-2.5 h-2.5" />}
+                      {m.trend === "rising" ? "Trending" : m.trend === "classic" ? "Classic" : m.trend === "declining" ? "Traditional" : "Rare"}
+                    </span>
+                  </div>
+                )}
+
+                {/* Cultural note */}
+                {m.culturalNote && (
+                  <p className="text-[10px] text-muted-foreground/80 italic mt-1">{m.culturalNote}</p>
+                )}
 
                 {showSources && m.sources && m.sources.length > 0 && (
                   <p className="text-[10px] text-muted-foreground mt-1 truncate" title={m.sources.join(", ")}>
@@ -266,6 +459,13 @@ export default function WesternNamesPage() {
 
                 {m.hebrewOrigin && (
                   <p className="text-[10px] text-secondary mt-2 font-mono">{m.hebrewOrigin}</p>
+                )}
+
+                {/* Popular in countries */}
+                {m.popularIn && m.popularIn.length > 0 && (
+                  <p className="text-[10px] text-muted-foreground mt-1">
+                    📍 Popular in: {m.popularIn.join(", ")}
+                  </p>
                 )}
 
                 <div className="mt-3 pt-2 border-t border-border">
@@ -295,7 +495,7 @@ export default function WesternNamesPage() {
             <div className="flex gap-3 justify-center flex-wrap">
               <button
                 type="button"
-                onClick={() => { setSearch(""); setCategoryFilter("all"); }}
+                onClick={() => { setSearch(""); setCategoryFilter("all"); setTrendFilter("all"); }}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium hover:bg-muted/50 transition-colors"
               >
                 Clear search

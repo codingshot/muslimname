@@ -24,7 +24,7 @@ interface DictionaryEntry {
   meanings: DictionaryMeaning[];
 }
 
-const cache = new Map<string, { meaning: string; words: string[] }>();
+const cache = new Map<string, { meaning: string; searchWords: string[] }>();
 const MIN_WORD_LENGTH = 3;
 const MAX_CACHE_SIZE = 100;
 
@@ -47,7 +47,7 @@ export async function fetchWordMeaning(
   }
 
   const cached = cache.get(normalized);
-  if (cached) return { meaning: cached.meaning, searchWords: cached.words };
+  if (cached) return { meaning: cached.meaning, searchWords: cached.searchWords };
 
   try {
     const res = await fetch(`${API_BASE}/${encodeURIComponent(normalized)}`, {

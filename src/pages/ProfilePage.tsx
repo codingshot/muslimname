@@ -513,7 +513,7 @@ function NameCombinationsSection({
   firstEntries: FavoriteEntry[];
   lastEntries: FavoriteEntry[];
   preferredMeanings: string[];
-  findNameBySlug: (slug: string) => { name: string; arabic?: string; meaning: string; isQuranic: boolean; themes: string[]; popularity: number } | undefined;
+  findNameBySlug: (slug: string) => { name: string; slug: string; arabic?: string; meaning: string; isQuranic: boolean; themes: string[]; popularity: number } | undefined;
   navigate: (path: string) => void;
 }) {
   const combos = firstEntries.flatMap(fe => {
@@ -546,7 +546,7 @@ function NameCombinationsSection({
         matchScore: matchesPrefs * 2 + sharedThemes.length + (bothQuranic ? 1 : 0),
         avgPopularity,
       };
-    }).filter(Boolean) as { first: typeof firstData; last: typeof lastData; combinedMeaning: string; bothQuranic: boolean; sharedThemes: string[]; matchedPrefsDetails: { quality: string; inFirst: boolean; inLast: boolean }[]; matchScore: number; avgPopularity: number }[];
+    }).filter(Boolean) as { first: { name: string; slug: string; arabic?: string; meaning: string; isQuranic: boolean; themes: string[]; popularity: number }; last: { name: string; slug: string; arabic?: string; meaning: string; isQuranic: boolean; themes: string[]; popularity: number }; combinedMeaning: string; bothQuranic: boolean; sharedThemes: string[]; matchedPrefsDetails: { quality: string; inFirst: boolean; inLast: boolean }[]; matchScore: number; avgPopularity: number }[];
   });
 
   const sorted = [...combos].sort((a, b) => b.matchScore - a.matchScore);

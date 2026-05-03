@@ -102,8 +102,6 @@ export const westernNameVariants: Record<string, string> = {
   woojin: "ujin",
   yijun: "ijun",
   seowoo: "seou",
-  // Mary + language variants
-  maria: "mary", mari: "mary", maite: "mary", marie: "mary", miri: "mary",
   christine: "christina",
   kristen: "christina",
   kristin: "christina",
@@ -112,7 +110,33 @@ export const westernNameVariants: Record<string, string> = {
   helena: "helen",
   franco: "frank",
   felix: "felicity",
+  // Common misspellings
+  mcihael: "michael",
+  micheal: "michael",
+  alexandar: "alexander",
+  nikolas: "nicholas",
   // Korean romanization variants
   minjung: "minjae",
   jiwun: "jiwon",
+  // Ukrainian variants
+  dmytryk: "dmytro",
+  svetlana: "svitlana",
+  // Serbian variants
+  drago: "dragan",
+  zora: "zoran",
+  // Albanian variants
+  burim: "bujar",
+  // Mongolian variants
+  batu: "batbayar",
+  // Hausa variants
+  garuba: "garba",
+  // Yoruba variants
+  baba: "babatunde_yr",
+  titi: "titilayo",
+  // Pashto variants
+  zmarai: "zmaray",
+  malala: "malalai",
+  // Tibetan variants
+  tenzing: "tenzin",
+  vajra: "dorje",
 };

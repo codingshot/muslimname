@@ -9,13 +9,16 @@ const navItems = [
   { to: "/profile", label: "Profile", icon: User },
 ];
 
-export default function BottomNav() {
+import { forwardRef } from "react";
+
+const BottomNav = forwardRef<HTMLElement>(function BottomNav(_, ref) {
   const location = useLocation();
   const { profile } = useProfile();
   const favoriteCount = profile.favorites.length;
 
   return (
     <nav
+      ref={ref}
       className="fixed bottom-0 left-0 right-0 z-40 bg-card/95 backdrop-blur-lg border-t border-border md:hidden"
       aria-label="Bottom navigation"
     >
@@ -49,4 +52,6 @@ export default function BottomNav() {
       </div>
     </nav>
   );
-}
+});
+
+export default BottomNav;
