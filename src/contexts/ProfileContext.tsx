@@ -71,7 +71,9 @@ function loadProfile(): UserProfile {
       const favorites = (parsed.favorites || []).map(migrateEntry);
       return { settings, favorites };
     }
-  } catch {}
+  } catch {
+    /* ignore corrupt or unreadable localStorage */
+  }
   return { ...DEFAULT_PROFILE };
 }
 
@@ -98,7 +100,9 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
     const save = () => {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(profileRef.current));
-      } catch {}
+      } catch {
+        /* ignore quota / private mode */
+      }
     };
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     saveTimerRef.current = setTimeout(() => {

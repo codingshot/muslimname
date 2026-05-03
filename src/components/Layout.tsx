@@ -2,7 +2,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomNav from "@/components/BottomNav";
 import { prefetchDiscover, prefetchNamesPage, prefetchGenerator, prefetchLegalGuide, prefetchProfile, prefetchNameDetail } from "@/lib/prefetch";
 import { searchNames } from "@/data/names";
-import { Search, Heart, Menu, X, User, Shuffle, Star, Moon, Sun } from "lucide-react";
+import { Search, Heart, Menu, X, User, Shuffle, Star, Moon, Sun, Play, Sparkles, Scale } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useState, useCallback, useEffect, useMemo, useDeferredValue } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfile } from "@/hooks/useProfile";
@@ -16,11 +17,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
 
-const navLinks = [
-  { to: "/discover", label: "Discover", prefetch: prefetchDiscover },
-  { to: "/names", label: "Browse Names", prefetch: prefetchNamesPage },
-  { to: "/generator", label: "Name Generator", prefetch: prefetchGenerator },
-  { to: "/legal-guide", label: "Legal Guide", prefetch: prefetchLegalGuide },
+const navLinks: {
+  to: string;
+  label: string;
+  shortLabel: string;
+  prefetch?: () => void;
+  icon: LucideIcon;
+}[] = [
+  { to: "/discover", label: "Discover", shortLabel: "Discover", prefetch: prefetchDiscover, icon: Play },
+  { to: "/names", label: "Browse Names", shortLabel: "Browse", prefetch: prefetchNamesPage, icon: Search },
+  { to: "/generator", label: "Name Generator", shortLabel: "Generator", prefetch: prefetchGenerator, icon: Sparkles },
+  { to: "/legal-guide", label: "Legal Guide", shortLabel: "Legal", prefetch: prefetchLegalGuide, icon: Scale },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -70,34 +77,43 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         Skip to main content
       </a>
       <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <img src="/favicon.ico" alt="MuslimName.me" width={32} height={32} className="w-8 h-8" fetchPriority="high" />
-            <span className="font-display text-xl font-bold text-foreground">
-              Muslim<span className="text-primary">Name</span>.me
+        <div className="container mx-auto px-3 sm:px-4 min-h-16 py-2 md:py-0 flex flex-wrap md:flex-nowrap items-center justify-between gap-2 md:gap-3">
+          <Link to="/" aria-label="MuslimName.me home" className="flex items-center gap-1.5 sm:gap-2 shrink-0 min-w-0">
+            <img src="/favicon.ico" alt="" width={32} height={32} className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" fetchPriority="high" aria-hidden />
+            <span className="font-display text-base sm:text-lg md:text-xl font-bold text-foreground truncate">
+              Muslim<span className="text-primary">Name</span>
+              <span className="hidden sm:inline">.me</span>
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map(link => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onMouseEnter={() => link.prefetch?.()}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === link.to
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center justify-center gap-0.5 lg:gap-1 min-w-0 flex-1 max-w-[min(100%,42rem)] mx-1 lg:mx-2 w-full md:w-auto">
+            {navLinks.map(link => {
+              const Icon = link.icon;
+              const active = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onMouseEnter={() => link.prefetch?.()}
+                  title={link.label}
+                  aria-label={link.label}
+                  className={`inline-flex items-center justify-center gap-1.5 rounded-lg text-sm font-medium transition-colors min-h-9 px-1.5 sm:px-2 lg:px-2.5 py-2 ${
+                    active
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  <Icon className="w-4 h-4 shrink-0 opacity-90" aria-hidden />
+                  <span className="truncate xl:hidden">{link.shortLabel}</span>
+                  <span className="hidden xl:inline truncate">{link.label}</span>
+                </Link>
+              );
+            })}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0 ml-auto md:ml-0">
             <div className="relative hidden md:block">
-              <div className="flex items-center gap-2 rounded-lg border border-input bg-muted/50 px-3 py-1.5 text-sm focus-within:bg-background focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20">
+              <div className="flex items-center gap-2 rounded-lg border border-input bg-muted/50 px-2 sm:px-3 py-1.5 text-sm focus-within:bg-background focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20">
                 <Search className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                 <input
                   type="search"
@@ -107,7 +123,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   onFocus={() => setNavSearchFocused(true)}
                   onBlur={() => setTimeout(() => setNavSearchFocused(false), 180)}
                   placeholder="Search names"
-                  className="min-w-[120px] max-w-[180px] bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
+                  className="min-w-0 w-[100px] sm:min-w-[100px] sm:max-w-[140px] lg:min-w-[120px] lg:max-w-[180px] bg-transparent text-foreground placeholder:text-muted-foreground outline-none"
                   aria-label="Search Muslim names"
                 />
               </div>
@@ -150,7 +166,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
             <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
               <DropdownMenuTrigger
-                className={`p-2 rounded-lg transition-colors relative ${
+                className={`p-2 rounded-lg transition-colors relative min-h-[44px] min-w-[44px] flex items-center justify-center md:min-h-0 md:min-w-0 ${
                   location.pathname === "/profile"
                     ? "bg-primary text-primary-foreground"
                     : "hover:bg-muted text-muted-foreground hover:text-foreground"
@@ -299,20 +315,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </span>
                   )}
                 </Link>
-                {navLinks.map(link => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => setMobileOpen(false)}
-                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                      location.pathname === link.to
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-muted"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {navLinks.map(link => {
+                  const Icon = link.icon;
+                  return (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      onClick={() => setMobileOpen(false)}
+                      className={`min-h-[44px] px-4 py-3 rounded-lg text-sm font-medium transition-colors flex items-center gap-3 ${
+                        location.pathname === link.to
+                          ? "bg-primary text-primary-foreground"
+                          : "text-muted-foreground hover:bg-muted"
+                      }`}
+                    >
+                      <Icon className="w-5 h-5 shrink-0 opacity-90" aria-hidden />
+                      <span>{link.label}</span>
+                    </Link>
+                  );
+                })}
               </nav>
             </motion.div>
           )}

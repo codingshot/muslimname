@@ -163,6 +163,13 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   "hans": { muslimNames: ["yahya"], meaning: "God is Gracious", connection: "Hans from Johannes/John; Yahya is Prophet John", category: "western-male" },
   "erik": { muslimNames: ["amir"], meaning: "Eternal Ruler", connection: "Erik = eternal ruler; Amir = prince/commander", category: "western-male" },
   "jean": { muslimNames: ["yahya"], meaning: "God is Gracious", connection: "Jean from John; Yahya is Prophet John in Islam", category: "western-male" },
+  "aldo": { muslimNames: ["hakim", "adil"], meaning: "Old, Wise", connection: "Aldo from Germanic ald (old/wise); Hakim means wise, Adil means just", category: "spanish-male" },
+  "jorge": { muslimNames: ["jamal", "jibreel"], meaning: "Farmer", connection: "Jorge from George; Jamal = beauty, Jibreel = angel Gabriel", category: "spanish-male" },
+  "francisco": { muslimNames: ["farouq", "farid"], meaning: "Free, Frank", connection: "Francisco from Francis; Farouq distinguishes truth from falsehood, Farid means unique/precious", category: "spanish-male" },
+  "ramon": { muslimNames: ["rami", "rashad"], meaning: "Wise Protector", connection: "Ramón from Raymond; Rashad means right guidance", category: "spanish-male" },
+  "leonardo": { muslimNames: ["laith", "asad"], meaning: "Lion", connection: "Leonardo from Leon; Laith and Asad mean lion in Arabic", category: "spanish-male" },
+  "vicente": { muslimNames: ["ghalib"], meaning: "Conquering", connection: "Vicente from Vincent; Ghalib means dominant/victorious", category: "spanish-male" },
+  "andres": { muslimNames: ["amir", "hamza"], meaning: "Strong, Manly", connection: "Andrés from Andrew; Amir = commander, Hamza = steadfast", category: "spanish-male" },
 
   // ===========================
   // EXPANDED WESTERN FEMALE (to 300+)
@@ -951,8 +958,6 @@ export const christianToMuslimNameMapping: Record<string, NameMapping> = {
   // ===========================
   "carmen": { muslimNames: ["warda", "sawsan"], meaning: "Song, Garden", connection: "Carmen = song/garden; Warda means rose, Sawsan means lily", category: "spanish-female" },
   "isabel": { muslimNames: ["ilisabat", "safiya"], meaning: "God's Oath", connection: "Isabel = Elizabeth; Ilisabat was wife of Prophet Zakariyya", category: "spanish-female" },
-  "jorge": { muslimNames: ["jamal", "jibreel"], meaning: "Farmer", connection: "Jorge = George; Jamal means beauty, Jibreel is the revelation angel", category: "spanish-male" },
-  "francisco": { muslimNames: ["farouq", "farid"], meaning: "Free", connection: "Francisco = Francis; Farouq distinguishes truth", category: "spanish-male" },
   "luis": { muslimNames: ["layth", "wali"], meaning: "Famous Warrior", connection: "Luis = Louis; Layth means lion, Wali means guardian", category: "spanish-male" },
   "roberto": { muslimNames: ["rashid", "raed"], meaning: "Bright Fame", connection: "Roberto = Robert; Rashid means rightly guided", category: "spanish-male" },
   "fernando": { muslimNames: ["farouq", "faris"], meaning: "Brave Journey", connection: "Fernando = bold; Farouq means distinguisher, Faris means knight", category: "spanish-male" },

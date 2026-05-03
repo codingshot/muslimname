@@ -88,7 +88,9 @@ function getCachedCountry(): string | null {
 function setCachedCountry(code: string) {
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify({ code: code.toUpperCase(), at: Date.now() }));
-  } catch {}
+  } catch {
+    /* ignore quota / private mode */
+  }
 }
 
 /** Fetch country from IP (cached). Returns ISO 3166-1 alpha-2 or null. */
@@ -106,7 +108,9 @@ export async function detectCountryFromIP(): Promise<string | null> {
       setCachedCountry(upper);
       return upper;
     }
-  } catch {}
+  } catch {
+    /* network error or invalid response */
+  }
 
   return null;
 }

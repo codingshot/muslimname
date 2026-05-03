@@ -49,7 +49,9 @@ function useStepProgress(countryCode: string, totalSteps: number) {
         // Resize if step count changed
         return Array.from({ length: totalSteps }, (_, i) => !!arr[i]);
       }
-    } catch {}
+    } catch {
+      /* invalid saved progress JSON */
+    }
     return Array(totalSteps).fill(false);
   });
 
@@ -73,7 +75,9 @@ function useStepProgress(countryCode: string, totalSteps: number) {
         clearTimeout(timerRef.current);
         try {
           localStorage.setItem(key, JSON.stringify(completedRef.current));
-        } catch {}
+        } catch {
+          /* quota / private mode on flush */
+        }
       }
     };
   }, [completed, key]);
@@ -111,7 +115,9 @@ function CountryCard({ guide, onClick, isUserLocation, currency }: { guide: Lega
         const arr = JSON.parse(saved);
         setProgress(arr.filter(Boolean).length);
       }
-    } catch {}
+    } catch {
+      /* invalid progress JSON */
+    }
   }, [key]);
 
   return (
@@ -341,7 +347,7 @@ function CountryDetail({
             </div>
           </div>
         );
-      }, [guide.countryCode, guide.difficulty, guide.estimatedCostUSD])}
+      }, [guide, onSelectCountry])}
 
       {/* Popular names in this country (from name mapping) */}
       {(() => {
@@ -488,6 +494,13 @@ export default function LegalGuidePage() {
   const freeCount = legalNameChangeDatabase.filter(g => g.estimatedCostUSD[0] === 0).length;
   const activeFilterCount = (filterDifficulty !== "all" ? 1 : 0) + (filterPrice !== "all" ? 1 : 0) + (filterTime !== "all" ? 1 : 0);
 
+  const handleSelectCountry = useCallback((code: string) => {
+    setSelectedCountry(code);
+  }, []);
+  const handleBackFromDetail = useCallback(() => {
+    setSelectedCountry(null);
+  }, []);
+
   return (
     <Layout>
       <Helmet>
@@ -512,8 +525,8 @@ export default function LegalGuidePage() {
             <CountryDetail
               key="detail"
               guide={selectedGuide}
-              onBack={() => setSelectedCountry(null)}
-              onSelectCountry={(code) => setSelectedCountry(code)}
+              onBack={handleBackFromDetail}
+              onSelectCountry={handleSelectCountry}
               currency={currency}
             />
           ) : (
