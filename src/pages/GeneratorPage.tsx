@@ -215,50 +215,54 @@ export default function GeneratorPage() {
         <meta name="twitter:title" content="Discover Your Muslim Name | MuslimName.me" />
         <meta name="twitter:description" content="Enter your name and find its Islamic equivalent. Quranic references & legal guides." />
       </Helmet>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-4 md:py-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-10"
+          className="text-center mb-3 md:mb-8"
         >
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-medium mb-4">
-            <Sparkles className="w-4 h-4" /> Name Discovery Journey
-          </div>
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
+          <h1 className="font-display text-2xl md:text-4xl font-bold text-foreground md:mb-0">
             Discover Your Muslim Name
           </h1>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Find your Islamic equivalent in 3 simple steps — or explore by meaning and qualities
-          </p>
         </motion.div>
 
-        {/* Step Indicators */}
-        <div className="max-w-2xl mx-auto mb-8">
-          <div className="flex items-center justify-between relative">
-            <div className="absolute top-4 left-[16%] right-[16%] h-0.5 bg-border" />
+        {/* Step Indicators — compact on mobile */}
+        <div className="max-w-2xl mx-auto mb-4 md:mb-8">
+          <div className="flex items-start justify-between gap-0.5 relative px-0.5 md:px-0">
+            <div className="absolute top-[0.65rem] md:top-4 left-[12%] right-[12%] md:left-[16%] md:right-[16%] h-px md:h-0.5 bg-border" aria-hidden />
             {[
               { num: 1, label: "Your Name", active: true },
               { num: 2, label: "Preferences", active: currentName.trim().length > 0 || selectedMeanings.length > 0 },
               { num: 3, label: "Discover", active: generated },
             ].map(step => (
-              <div key={step.num} className="flex flex-col items-center relative z-10">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
-                  step.active ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                }`}>{step.num}</div>
-                <span className={`text-xs mt-1.5 font-medium ${step.active ? "text-foreground" : "text-muted-foreground"}`}>{step.label}</span>
+              <div key={step.num} className="flex flex-col items-center relative z-10 min-w-0 flex-1 max-w-[33%]">
+                <div
+                  className={`w-6 h-6 md:w-8 md:h-8 shrink-0 rounded-full flex items-center justify-center text-[11px] md:text-sm font-bold transition-colors ${
+                    step.active ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {step.num}
+                </div>
+                <span
+                  className={`mt-0.5 md:mt-1.5 text-[9px] md:text-xs font-medium text-center leading-tight px-0.5 line-clamp-2 md:line-clamp-none ${
+                    step.active ? "text-foreground" : "text-muted-foreground"
+                  }`}
+                >
+                  {step.label}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="max-w-2xl mx-auto space-y-8">
+        <div className="max-w-2xl mx-auto space-y-4 md:space-y-8">
           {/* Current Name — Primary CTA */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <label className="block font-display font-semibold text-foreground mb-2">
-              What's your current name?
+            <label className="block font-display font-semibold text-foreground text-sm md:text-base mb-1.5 md:mb-2">
+              What&apos;s your current name?
             </label>
-            <p className="text-sm text-muted-foreground mb-3">
-              We've mapped 1,700+ non-Muslim names — Christian, Hindu, Chinese, Korean & more — to Islamic equivalents
+            <p className="hidden md:block text-sm text-muted-foreground mb-3">
+              We&apos;ve mapped 1,700+ non-Muslim names — Christian, Hindu, Chinese, Korean & more — to Islamic equivalents
             </p>
             <div className="relative">
               <Input
@@ -270,7 +274,7 @@ export default function GeneratorPage() {
                 aria-label="Enter your current name to discover Islamic equivalent"
                 aria-autocomplete="list"
                 aria-controls="name-suggestions"
-                className="h-12 rounded-xl text-base"
+                className="h-11 md:h-12 rounded-xl text-sm md:text-base"
               />
               {showSuggestions && typingSuggestions.length > 0 && (
                 <div
@@ -351,7 +355,7 @@ export default function GeneratorPage() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="bg-teal-light rounded-xl p-4 border border-primary/20 hover:border-primary/40 transition-colors"
+                      className="bg-teal-light rounded-xl p-3 md:p-4 border border-primary/20 hover:border-primary/40 transition-colors"
                     >
                       <div className="flex items-start gap-2">
                         <Info className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -455,13 +459,13 @@ export default function GeneratorPage() {
 
           {/* Gender */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-            <label className="block font-display font-semibold text-foreground mb-3">Gender Preference</label>
-            <div className="flex gap-2 flex-wrap">
+            <label className="block font-display font-semibold text-foreground text-sm md:text-base mb-2 md:mb-3">Gender Preference</label>
+            <div className="flex gap-1.5 md:gap-2 flex-wrap">
               {(["all", "male", "female", "unisex"] as const).map(g => (
                 <button
                   key={g}
                   onClick={() => setGender(g)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-colors ${
+                  className={`px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-medium capitalize transition-colors ${
                     gender === g
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-muted-foreground hover:text-foreground"
@@ -475,23 +479,23 @@ export default function GeneratorPage() {
 
           {/* Meanings */}
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <div className="flex items-center justify-between mb-2">
-              <label className="block font-display font-semibold text-foreground">
+            <div className="flex items-center justify-between mb-1.5 md:mb-2 gap-2">
+              <label className="block font-display font-semibold text-foreground text-sm md:text-base leading-snug">
                 What qualities inspire you?
               </label>
               {selectedMeanings.length > 0 && (
-                <span className="text-xs text-primary font-medium">{selectedMeanings.length} selected</span>
+                <span className="text-[10px] md:text-xs text-primary font-medium shrink-0">{selectedMeanings.length} selected</span>
               )}
             </div>
-            <p className="text-sm text-muted-foreground mb-3">
+            <p className="hidden sm:block text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
               Select meanings you want your name to represent
             </p>
-            <div className={`flex gap-1.5 flex-wrap ${generated ? "max-h-24 overflow-hidden relative" : ""}`}>
+            <div className={`flex gap-1 flex-wrap md:gap-1.5 ${generated ? "max-h-20 sm:max-h-24 overflow-hidden relative" : ""}`}>
               {meaningKeywords.map(m => (
                 <button
                   key={m}
                   onClick={() => toggleMeaning(m)}
-                  className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize transition-all ${
+                  className={`px-2 py-0.5 md:px-2.5 md:py-1 rounded-full text-[11px] md:text-xs font-medium capitalize transition-all ${
                     selectedMeanings.includes(m)
                       ? "bg-primary text-primary-foreground shadow-glow scale-105"
                       : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
@@ -506,14 +510,27 @@ export default function GeneratorPage() {
             </div>
           </motion.div>
 
-          {/* Generate Button */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="text-center pt-4">
+          {/* Generate — sticky above bottom nav on mobile when content scrolls */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="sticky z-30 -mx-4 px-4 pt-3 pb-2 md:static md:mx-0 md:px-0 md:pt-4 md:pb-0 bottom-[calc(4.25rem+env(safe-area-inset-bottom))] md:bottom-auto border-t border-border/80 bg-background/92 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 md:border-0 md:bg-transparent md:backdrop-blur-none text-center shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.06)] md:shadow-none dark:shadow-[0_-4px_24px_-6px_rgba(0,0,0,0.35)] md:dark:shadow-none"
+          >
             <Button
               size="lg"
               onClick={handleGenerate}
-              className="bg-gradient-hero text-primary-foreground h-14 px-8 text-lg rounded-xl hover:opacity-90 transition-opacity"
+              className="w-full md:w-auto bg-gradient-hero text-primary-foreground h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-xl hover:opacity-90 transition-opacity"
             >
-              {generated ? <><RefreshCw className="w-5 h-5 mr-2" /> Regenerate Names</> : <><Sparkles className="w-5 h-5 mr-2" /> Discover My Muslim Names</>}
+              {generated ? (
+                <>
+                  <RefreshCw className="w-4 h-4 md:w-5 md:h-5 mr-2 shrink-0" /> Regenerate Names
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-4 h-4 md:w-5 md:h-5 mr-2 shrink-0" /> Discover My Muslim Names
+                </>
+              )}
             </Button>
           </motion.div>
         </div>
@@ -524,7 +541,7 @@ export default function GeneratorPage() {
             ref={resultsRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-5xl mx-auto mt-12 scroll-mt-24"
+            className="max-w-5xl mx-auto mt-8 md:mt-12 scroll-mt-20 md:scroll-mt-24"
           >
             <h2 className="font-display text-2xl font-semibold mb-6 text-center">
               {hasAnyMapping ? (
