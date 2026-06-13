@@ -3,7 +3,7 @@
 > **Discover Your Muslim Name** — A comprehensive platform helping Muslim converts (reverts) choose meaningful Islamic names with Quranic references, scholarly sources, and legal name change guidance.
 
 🌐 **Live:** [muslimname.me](https://muslimname.me)
-📦 **Repo:** [github.com/codingshot/muslimname](https://github.com/codingshot/muslimname)
+📦 **Repo:** [github.com/codingshot/muslimname](https://github.com/ummahbuild/muslimname)
 🐦 **X:** [@ummahbuild](https://x.com/ummahbuild)
 🏗️ **Built by:** [ummah.build](https://ummah.build)
 
@@ -28,7 +28,7 @@
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/codingshot/muslimname.git
+git clone https://github.com/ummahbuild/muslimname.git
 cd muslimname
 npm install
 npm run dev
@@ -147,8 +147,8 @@ We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guideline
 ## 📜 Important Links
 
 - **Live Site:** [muslimname.me](https://muslimname.me)
-- **GitHub:** [github.com/codingshot/muslimname](https://github.com/codingshot/muslimname)
-- **Issues:** [github.com/codingshot/muslimname/issues](https://github.com/codingshot/muslimname/issues)
+- **GitHub:** [github.com/codingshot/muslimname](https://github.com/ummahbuild/muslimname)
+- **Issues:** [github.com/codingshot/muslimname/issues](https://github.com/ummahbuild/muslimname/issues)
 - **X (Twitter):** [@ummahbuild](https://x.com/ummahbuild)
 - **Built by:** [ummah.build](https://ummah.build)
 

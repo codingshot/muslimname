@@ -259,7 +259,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </svg>
                 </a>
                 <a
-                  href="https://github.com/codingshot/muslimname"
+                  href="https://github.com/ummahbuild/muslimname"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors text-muted-foreground"

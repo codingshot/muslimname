@@ -5,7 +5,7 @@ import { ExternalLink, GitBranch, Bug, Lightbulb, BookOpen, Database, Scale, Hea
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-const REPO = "https://github.com/codingshot/muslimname";
+const REPO = "https://github.com/ummahbuild/muslimname";
 
 const quickActions = [
   {
@@ -170,7 +170,7 @@ export default function ContributePage() {
             <div className="space-y-3 font-mono text-xs sm:text-sm">
               <div className="bg-muted rounded-lg p-3 overflow-x-auto">
                 <p className="text-muted-foreground mb-1"># Clone the repository</p>
-                <p className="text-foreground whitespace-nowrap">git clone https://github.com/codingshot/muslimname.git</p>
+                <p className="text-foreground whitespace-nowrap">git clone https://github.com/ummahbuild/muslimname.git</p>
               </div>
               <div className="bg-muted rounded-lg p-3">
                 <p className="text-muted-foreground mb-1"># Install dependencies</p>

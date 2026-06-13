@@ -119,7 +119,7 @@ src/
 
 ## 📬 Contact
 
-- **GitHub Issues:** [github.com/codingshot/muslimname/issues](https://github.com/codingshot/muslimname/issues)
+- **GitHub Issues:** [github.com/codingshot/muslimname/issues](https://github.com/ummahbuild/muslimname/issues)
 - **X (Twitter):** [@ummahbuild](https://x.com/ummahbuild)
 - **Built by:** [ummah.build](https://ummah.build)
 

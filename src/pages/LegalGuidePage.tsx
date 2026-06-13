@@ -803,7 +803,7 @@ export default function LegalGuidePage() {
                   Don't see your country? Help us add it!
                 </p>
                 <a
-                  href="https://github.com/codingshot/muslimname/issues/new?template=legal-guide.md"
+                  href="https://github.com/ummahbuild/muslimname/issues/new?template=legal-guide.md"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
